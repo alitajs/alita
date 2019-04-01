@@ -1,0 +1,35 @@
+{
+  "name": "alita",
+  "version": "0.0.1",
+  "description": "a framework like bigfish.",
+  "dependencies": {
+    "umi": "^2.6.10",
+    "umi-plugin-authorize": "^1.0.0",
+    "umi-plugin-react": "^1.7.2"
+  },
+  "module": "index.js",
+  "bin": {
+    "alita": "./bin/alita.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita/tree/master/packages/alita"
+  },
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita",
+  "authors": [
+    "xiaohuoni <chenxiaocongoni@icloud.com> (https://github.com/xiaohuoni)"
+  ],
+  "bugs": {
+    "url": "https://github.com/alitajs/alita/issues"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "umiTools": {
+    "browserFiles": [
+      "src/cli.js"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+lib/
+dist/
+template/
+fixtures/
+website/
+examples/
+bin/
+*.d.ts
