@@ -15,7 +15,6 @@ export default function(api) {
     antd: () => require('umi-plugin-react/lib/plugins/antd').default,
     authority: () => require('./authorize').default,
   };
-  console.log('hello alita1');
 
   Object.keys(plugins).forEach(key => {
     api.registerPlugin({
