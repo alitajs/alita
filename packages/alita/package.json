@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "a framework like bigfish.",
   "dependencies": {
-    "umi-plugin-authorize": "1.0.1"
+    "umi-plugin-authorize": "1.0.1",
+    "umi-plugin-menus": "^0.2.2"
   },
   "module": "index.js",
   "bin": {

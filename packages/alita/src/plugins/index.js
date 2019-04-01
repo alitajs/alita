@@ -1,7 +1,25 @@
+const path = require('path');
+
+const defaultOptions = {
+  umi: { dva: true, antd: true },
+  menu: {
+    build: path.resolve('.', './src/menus.json'),
+  },
+  authority: {
+    authorize: [
+      {
+        guard: ['src/Authority'],
+        include: /\//,
+        exclude: /\/user/i,
+      },
+    ],
+  },
+};
 export default function(api) {
   const { debug } = api;
   const options = api.config;
-
+  const opts = { ...defaultOptions, ...options };
+  console.log(opts);
   function getId(id) {
     return `alita:${id}`;
   }
@@ -9,10 +27,24 @@ export default function(api) {
   function noop() {
     return true;
   }
+  const reactPlugin = require('umi-plugin-react').default;
+
+  reactPlugin(api, opts.umi);
+
+  api._registerConfig(() => {
+    return () => {
+      return {
+        name: 'umi',
+        validate: noop,
+        onChange(newConfig) {
+          api.service.restart(`umi config changed`);
+        },
+      };
+    };
+  });
 
   const plugins = {
-    dva: () => require('umi-plugin-react/lib/plugins/dva').default,
-    antd: () => require('umi-plugin-react/lib/plugins/antd').default,
+    menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
   };
 
@@ -20,7 +52,7 @@ export default function(api) {
     api.registerPlugin({
       id: getId(key),
       apply: plugins[key](),
-      opts: options[key],
+      opts: opts[key],
     });
 
     api._registerConfig(() => {
