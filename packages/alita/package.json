@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a framework like bigfish.",
   "dependencies": {
     "umi-plugin-authorize": "1.0.1",
