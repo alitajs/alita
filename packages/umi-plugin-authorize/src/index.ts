@@ -1,6 +1,6 @@
 // ref:
 // - https://umijs.org/plugin/develop.html
-import assert from "assert";
+import assert from 'assert';
 function patchRoutes(routes, authorize) {
   routes.forEach(route => {
     if (route.routes) {
@@ -12,26 +12,18 @@ function patchRoutes(routes, authorize) {
         if (
           (!exclude ||
             (exclude instanceof RegExp && !exclude.test(route.path)) ||
-            (route.path &&
-              typeof exclude === "string" &&
-              route.path.indexOf(exclude) === -1)) &&
-          ((include &&
-            (include instanceof RegExp && include.test(route.path))) ||
-            (route.path &&
-              typeof include === "string" &&
-              route.path.indexOf(include) !== -1))
+            (route.path && typeof exclude === 'string' && route.path.indexOf(exclude) === -1)) &&
+          ((include && (include instanceof RegExp && include.test(route.path))) ||
+            (route.path && typeof include === 'string' && route.path.indexOf(include) !== -1))
         ) {
-          assert(
-            Array.isArray(guard),
-            `The guard must be Array, but got ${guard}`
-          );
+          assert(Array.isArray(guard), `The guard must be Array, but got ${guard}`);
           route.Routes = guard;
         }
       });
     }
   });
 }
-export default function(api, opts={}) {
+export default function(api, opts = {} as any) {
   api.modifyRoutes(routes => {
     if (opts.authorize) {
       assert(
@@ -42,8 +34,4 @@ export default function(api, opts={}) {
     }
     return routes;
   });
-
-
-
-
 }
