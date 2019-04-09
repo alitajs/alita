@@ -15,6 +15,7 @@ const defaultOptions = {
     ],
   },
 };
+
 export default function(api) {
   const { debug } = api;
   const options = api.config;
@@ -42,6 +43,21 @@ export default function(api) {
       };
     };
   });
+
+  if (opts.pagePath) {
+    api._registerConfig(() => {
+      return () => {
+        return {
+          name: 'pagePath',
+          validate: noop,
+          onChange(newConfig) {
+            api.service.restart(`pagePath config changed`);
+          },
+        };
+      };
+    });
+    process.env.PAGES_PATH = opts.pagePath;
+  }
 
   const plugins = {
     menu: () => require('umi-plugin-menus').default,
