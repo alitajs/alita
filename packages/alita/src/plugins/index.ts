@@ -4,23 +4,13 @@ const defaultOptions = {
   umi: { dva: true, antd: true },
   menu: {
     build: path.resolve('.', './src/menus.json'),
-  },
-  authority: {
-    authorize: [
-      {
-        guard: ['src/Authority'],
-        include: /\//,
-        exclude: /\/user/i,
-      },
-    ],
-  },
+  }
 };
 
 export default function(api) {
   const { debug } = api;
   const options = api.config;
   const opts = { ...defaultOptions, ...options };
-  console.log(opts);
   function getId(id) {
     return `alita:${id}`;
   }
