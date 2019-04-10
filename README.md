@@ -2,7 +2,9 @@
 
 我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
 
-请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
+请告诉我们你的需求[alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
+
+![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
 
 
 ## 现有配置项 `umi` ， `authority` ， `menu` 。
