@@ -6,7 +6,7 @@
 
 ![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
 
-## Future
+## [Future](https://github.com/alitajs/alita/issues/1)
 |产品|项目|
 |  :-:  | :-:  |
 |web-components| https://github.com/alitajs/components|
