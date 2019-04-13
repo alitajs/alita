@@ -1,8 +1,21 @@
 # Alita
+<a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 
 我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
 
 请告诉我们你的需求[alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
+
+alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
+
+```html
+<a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
+```
+
+或者在markdown中使用
+
+```markdown
+[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](alitajs.com)
+```
 
 ![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
 
