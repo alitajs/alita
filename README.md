@@ -28,7 +28,7 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 |kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
 |ice||https://github.com/alibaba/ice/|
 |landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
-|static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。是的，umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
+|static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。使得 umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
 
 ## 现有配置项 `umi` ， `authority` ， `menu` 。
 
