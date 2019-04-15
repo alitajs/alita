@@ -20,13 +20,15 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 ![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
 
 ## [Future](https://github.com/alitajs/alita/issues/1)
-|产品|项目|
-|  :-:  | :-:  |
-|web-components| https://github.com/alitajs/components|
-|blocks||
-|alitax||
-|kiwi||
-|ice||
+|产品|项目|备注|
+|  :-:  | :-:  |:-:  |
+|web-components| https://github.com/alitajs/components||
+|blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
+|alitax||https://github.com/refect/refect|
+|kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
+|ice||https://github.com/alibaba/ice/|
+|landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
+|static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。是的，umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
 
 ## 现有配置项 `umi` ， `authority` ， `menu` 。
 
