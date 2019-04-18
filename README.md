@@ -1,10 +1,6 @@
 # Alita
 <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 
-我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
-
-请告诉我们你的需求[alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
-
 alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
 
 ```html
@@ -51,6 +47,7 @@ pc 端的模版库可以直接使用 ant-design-pro 的代码，也可以享�
 h5 的模版库暂时没有，但只要承接几个 h5 项目就可以沉淀下来业务代码，因为不需要编写组件库，只需要保留简单的业务堆叠。
 ### 其他业务
 其他业务需求都可以通过，插件的形式实现，有需要的项目按需添加，也是只要简单的更改配置文件即可，不需要写多余的代码。
+
 我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
 
 请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
