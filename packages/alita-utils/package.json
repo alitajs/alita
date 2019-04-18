@@ -1,0 +1,16 @@
+{
+  "name": "alita-utils",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "umi-request": "^1.0.6"
+  }
+}

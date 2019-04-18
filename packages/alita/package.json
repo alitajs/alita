@@ -1,12 +1,13 @@
 {
   "name": "alita",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "a framework like bigfish.",
   "dependencies": {
-    "umi": "^2.6.10",
+    "alita-utils": "^0.0.0",
+    "umi": "2.6.13",
     "umi-plugin-authorize": "1.0.2",
-    "umi-plugin-menus": "^0.2.2",
-    "umi-plugin-react": "^1.7.2"
+    "umi-plugin-menus": "0.2.3",
+    "umi-plugin-react": "1.7.4"
   },
   "module": "index.js",
   "bin": {
@@ -26,7 +27,8 @@
   },
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "index.ts"
   ],
   "umiTools": {
     "browserFiles": [
