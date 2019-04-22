@@ -7,10 +7,17 @@ const defaultOptions = {
   }
 };
 
-export default function(api) {
+export default function (api) {
   const { debug } = api;
   const options = api.config;
-  const opts = { ...defaultOptions, ...options };
+  const { umi = {}, appType = "pc" } = options;
+
+  const opts = {
+    ...defaultOptions, ...options, umi: {
+      ...defaultOptions.umi, ...umi, hd: appType === 'h5'
+    }
+  };
+
   function getId(id) {
     return `alita:${id}`;
   }
@@ -21,6 +28,18 @@ export default function(api) {
   const reactPlugin = require('umi-plugin-react').default;
 
   reactPlugin(api, opts.umi);
+
+  api._registerConfig(() => {
+    return () => {
+      return {
+        name: 'appType',
+        validate: noop,
+        onChange(newConfig) {
+          api.service.restart(`umi config changed`);
+        },
+      };
+    };
+  });
 
   api._registerConfig(() => {
     return () => {
@@ -53,7 +72,7 @@ export default function(api) {
     menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
     // init:()=>require('./init').default,
-    alitagenerate:()=>require('./generate/index').default,
+    alitagenerate: () => require('./generate/index').default,
 
   };
 

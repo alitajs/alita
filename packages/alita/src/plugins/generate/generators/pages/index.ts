@@ -18,7 +18,7 @@ ${chalk.underline.cyan('name')} should be supplied
 
 Example:
 
-  umi g dvapage users
+  umi g pages users
         `.trim(),
       );
       if (config.routes) {
@@ -30,19 +30,32 @@ Example:
         console.log();
       }
     }
+    prompting() {
+      const prompts = [
+        {
+          name: 'isTypeScript',
+          type: 'confirm',
+          message: 'Do you want to use typescript?',
+          default: false,
+        }
+      ];
+      return this.prompt(prompts).then(props => {
+        this.prompts = props;
+      });
+    }
 
     writing() {
       const path = this.args[0].toString();
-      this.isTypeScript = false;
-      const jsxExt = this.isTypeScript ? 'tsx' : 'js';
-      const jsExt = this.isTypeScript ? 'ts' : 'js';
+      const { isTypeScript } = this.prompts;
+      const jsxExt = isTypeScript ? 'tsx' : 'js';
+      const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
       const fileName = basename(path);
       const context = {
         name: fileName,
         componentName: uppercamelcase(fileName),
         color: randomColor().hexString(),
-        isTypeScript: this.isTypeScript,
+        isTypeScript: isTypeScript,
         cssExt,
         jsxExt,
       };
@@ -62,6 +75,7 @@ Example:
         join(paths.cwd, `src/models/${fileName}.${jsExt}`),
         context,
       );
+
     }
   };
 };
