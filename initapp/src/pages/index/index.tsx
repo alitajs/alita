@@ -2,11 +2,11 @@ import { connect } from 'dva';
 import React, { Component } from 'react';
 
 import { IndexModelState, ConnectProps } from '@/models/connect';
-
+import { Button } from 'antd';
 import styles from './index.less';
-
+const a = '';
 interface PageProps extends ConnectProps {
-  app: IndexModelState;
+  index: IndexModelState;
 }
 
 interface PageState {}
@@ -21,7 +21,6 @@ class Page extends Component<PageProps, PageState> {
       type: 'user/fetchCurrent',
     });
   }
-
   render() {
     const {
       index: { name },

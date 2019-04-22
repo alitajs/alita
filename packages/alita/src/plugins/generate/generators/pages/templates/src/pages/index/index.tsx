@@ -6,7 +6,7 @@ import { <%= componentName %>ModelState, ConnectProps } from '@/models/connect';
 import styles from './index.less';
 <% if (isTypeScript) { %>
 interface PageProps extends ConnectProps {
-  app: <%= componentName %>ModelState;
+  <%= name %>: <%= componentName %>ModelState;
 }
 
 interface PageState {}

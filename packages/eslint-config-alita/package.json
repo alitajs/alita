@@ -1,0 +1,19 @@
+{
+  "name": "eslint-config-umi",
+  "version": "1.4.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-umi"
+  },
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-umi",
+  "authors": [
+    "xiaohuoni <448627663@qq.com>"
+  ],
+  "bugs": {
+    "url": "https://github.com/alitajs/alita/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "eslint-config-umi": "1.4.2"
+  }
+}

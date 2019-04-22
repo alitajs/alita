@@ -1,3 +1,4 @@
+process.env.ESLINT = 'true';
 process.env.UMI_PLUGINS = require.resolve('./plugins/index');
 // process.env.DEBUG = 'umi*,af-webpack*';
 
