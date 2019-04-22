@@ -15,13 +15,6 @@ interface PageState {}
 class Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% } %>{
   state<% if (isTypeScript) { %>: PageState <% } %> = {};
 
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'user/fetchCurrent',
-    });
-  }
-
   render() {
     const {
       <%= name %>: { name },

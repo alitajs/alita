@@ -42,7 +42,7 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
-        if (pathname === '/') {
+        if (pathname === '/<%= name %>') {
           dispatch({
             type: 'query'
           })
