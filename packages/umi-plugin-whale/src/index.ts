@@ -6,10 +6,10 @@ export default function (api, options) {
   // <meta content="telephone=no" name="format-detection" />
   api.addHTMLMeta(memo => {
     const addItem = {
-      "format-detection": "telephone=no"
+      "content": "telephone=no",
+      "name": "format-detection"
     }
     return [addItem, ...memo];
-
   }
   )
 }
