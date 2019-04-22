@@ -1,0 +1,25 @@
+{
+  "name": "alitaapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "alita dev",
+    "build": "alita build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alitajs/app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alitajs/app/issues"
+  },
+  "homepage": "https://github.com/alitajs/app#readme",
+  "dependencies": {
+    "alita": "^0.0.7"
+  }
+}

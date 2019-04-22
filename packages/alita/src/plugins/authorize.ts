@@ -1,1 +1,1 @@
-export default from 'umi-plugin-authorize';
+export { default } from 'umi-plugin-authorize';

@@ -53,7 +53,7 @@ export default function(api) {
     menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
     // init:()=>require('./init').default,
-    // page:()=>require('./page').default,
+    alitagenerate:()=>require('./generate/index').default,
 
   };
 
