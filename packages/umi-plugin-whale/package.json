@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-whale",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Internal contract component",
   "authors": {
     "name": "xiaohuoni",
@@ -10,19 +10,18 @@
   "peerDependencies": {
     "umi": "2.x"
   },
-  "main":  "lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build":  "umi-tools build",
+    "build": "umi-tools build",
     "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish"
   },
   "devDependencies": {
-    "umi-tools":  "*",
-    "np": "^3.0.4"
+    "np": "^3.0.4",
+    "umi-tools": "*"
   },
   "files": [
     "lib",
     "src"
   ],
-
   "license": "MIT"
 }
