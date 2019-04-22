@@ -10,7 +10,6 @@
   "peerDependencies": {
     "umi": "2.x"
   },
-
   "main":  "lib/index.js",
   "scripts": {
     "build":  "umi-tools build",
