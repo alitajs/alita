@@ -1,10 +1,10 @@
 {
   "name": "alita",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "a framework like bigfish.",
   "dependencies": {
     "alita-utils": "^0.0.1",
-    "eslint-config-alita": "^1.0.2",
+    "eslint-config-alita": "1.0.3",
     "react-dev-utils": "^9.0.0",
     "umi": "^2.6.14",
     "umi-plugin-authorize": "^1.0.2",
