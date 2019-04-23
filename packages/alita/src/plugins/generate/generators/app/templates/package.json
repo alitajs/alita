@@ -11,6 +11,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "alita": "^0.0.8"
+    "alita": "*"
   }
 }

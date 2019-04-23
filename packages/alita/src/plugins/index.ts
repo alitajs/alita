@@ -18,8 +18,6 @@ export default function (api) {
   };
 
   if (process.env.ALITA_ESLINT && process.env.ALITA_ESLINT !== 'none') {
-    console.log('use alita eslint');
-
     api.chainWebpackConfig(config => {
       const eslintOptions = {
         baseConfig: {

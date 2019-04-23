@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/alitajs/app#readme",
   "dependencies": {
-    "alita": "^0.0.7"
+    "alita": "*"
   }
 }
