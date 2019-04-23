@@ -17,7 +17,7 @@ export default function (api) {
     }
   };
 
-  if (process.env.ALITA_ESLINT && process.env.ALITA_ESLINT !== 'none') {
+  if (!process.env.ALITA_ESLINT || process.env.ALITA_ESLINT !== 'none') {
     api.chainWebpackConfig(config => {
       const eslintOptions = {
         baseConfig: {
