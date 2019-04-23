@@ -1,5 +1,4 @@
 import path from 'path';
-import eslintFormatter from 'react-dev-utils/eslintFormatter';
 const defaultOptions = {
   umi: { dva: true, antd: true },
   menu: {
@@ -23,7 +22,6 @@ export default function (api) {
 
     api.chainWebpackConfig(config => {
       const eslintOptions = {
-        formatter: eslintFormatter,
         baseConfig: {
           extends: [require.resolve('eslint-config-alita')],
         },
