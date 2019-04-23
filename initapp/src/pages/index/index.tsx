@@ -13,7 +13,7 @@ interface PageState {}
 
 @connect(({ index }) => ({ index }))
 class Page extends Component<PageProps, PageState> {
-  state: PageState  = {};
+  state: PageState = {};
 
   componentDidMount() {
     const { dispatch } = this.props;

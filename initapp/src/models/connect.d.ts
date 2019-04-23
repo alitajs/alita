@@ -4,9 +4,7 @@ import { AnyAction } from 'redux';
 import { RouterTypes } from 'umi';
 import { AppModelState } from './app';
 
-export {
-  AppModelState
-};
+export { AppModelState };
 
 export interface MenuDataItem {
   authority?: string[] | string;
@@ -25,7 +23,7 @@ export interface Route extends MenuDataItem {
 }
 export type Effect = (
   action: AnyAction,
-  effects: EffectsCommandMap & { select: <T>(func: (state: ConnectState) => T) => T },
+  effects: EffectsCommandMap & { select: <T>(func: (state: ConnectState) => T) => T }
 ) => void;
 
 /**

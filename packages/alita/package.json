@@ -7,9 +7,9 @@
     "umi": "2.6.13",
     "umi-plugin-authorize": "^1.0.2",
     "umi-plugin-menus": "^0.2.3",
-    "umi-plugin-prettier": "0.0.5",
+    "umi-plugin-prettier": "^0.0.5",
     "umi-plugin-react": "1.7.4",
-    "umi-plugin-whale": "^0.0.3"
+    "umi-plugin-whale": "^0.0.7"
   },
   "module": "index.js",
   "bin": {
