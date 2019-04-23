@@ -3,9 +3,9 @@
   "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-umi"
+    "url": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-alita"
   },
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-umi",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/eslint-config-alita",
   "authors": [
     "xiaohuoni <448627663@qq.com>"
   ],

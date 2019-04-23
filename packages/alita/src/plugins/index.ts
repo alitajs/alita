@@ -1,5 +1,5 @@
-const path = require('path');
-
+import path from 'path';
+import eslintFormatter from 'react-dev-utils/eslintFormatter';
 const defaultOptions = {
   umi: { dva: true, antd: true },
   menu: {
@@ -17,6 +17,35 @@ export default function (api) {
       ...defaultOptions.umi, ...umi, hd: appType === 'h5'
     }
   };
+
+  if (process.env.ALITA_ESLINT && process.env.ALITA_ESLINT !== 'none') {
+    console.log('use alita eslint');
+
+    api.chainWebpackConfig(config => {
+      const eslintOptions = {
+        formatter: eslintFormatter,
+        baseConfig: {
+          extends: [require.resolve('eslint-config-alita')],
+        },
+        ignore: false,
+        eslintPath: require.resolve('eslint'),
+        useEslintrc: false,
+      };
+
+      config.module
+        .rule('eslint-alita')
+        .test(/\.(js|jsx)$/)
+        .include.add(api.paths.cwd)
+        .end()
+        .exclude
+        .add(/node_modules/)
+        .end()
+        .enforce('pre')
+        .use('eslint-loader')
+        .loader(require.resolve('eslint-loader'))
+        .options(eslintOptions);
+    });
+  }
 
   function getId(id) {
     return `alita:${id}`;
