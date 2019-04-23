@@ -30,7 +30,7 @@
   "files": [
     "lib",
     "bin",
-    "index.ts"
+    "index.js"
   ],
   "umiTools": {
     "browserFiles": [
