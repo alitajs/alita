@@ -10,6 +10,5 @@ export default function (api, options) {
       "name": "format-detection"
     }
     return [addItem, ...memo];
-  }
-  )
+  })
 }

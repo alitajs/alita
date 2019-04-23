@@ -10540,7 +10540,7 @@ umi-plugin-locale@2.6.2:
     react-intl "2.7.2"
     umi-utils "1.4.1"
 
-umi-plugin-menus@0.2.3:
+umi-plugin-menus@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/umi-plugin-menus/-/umi-plugin-menus-0.2.3.tgz#972b0851cf7be3bf88b54c943bc554f69a93bc50"
   dependencies:
@@ -10581,6 +10581,10 @@ umi-plugin-react@1.7.4:
 umi-plugin-routes@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/umi-plugin-routes/-/umi-plugin-routes-1.2.2.tgz#48da6f9d8cdf7ce82e63b62370613b56fa21d0eb"
+
+umi-plugin-whale@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/umi-plugin-whale/-/umi-plugin-whale-0.0.3.tgz#d12e9d56624b2ca1f3a49def9cfd7fe65ce3fcf7"
 
 umi-test@1.5.3:
   version "1.5.3"
