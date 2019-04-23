@@ -69,3 +69,8 @@ Publish to npm.
 # Can't use yarn for this command.
 $ n run publish
 ```
+
+after publish, sync to npm.taobao
+```sh
+open https://npm.taobao.org/sync/alita
+```
