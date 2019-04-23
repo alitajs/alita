@@ -21,7 +21,9 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    ".prettierrc",
+    ".prettierignore"
   ],
   "license": "MIT"
 }

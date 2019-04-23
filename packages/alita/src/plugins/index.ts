@@ -71,6 +71,7 @@ export default function (api) {
   const plugins = {
     menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
+    prettier: () => require('./prettier').default,
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
   };

@@ -1,0 +1,24 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": ["*.json", ".eslintrc", ".tslintrc", ".prettierrc"],
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.ts*",
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "*.{css,sass,scss,less}",
+      "options": {
+        "parser": "css",
+        "tabWidth": 4
+      }
+    }
+  ]
+}
