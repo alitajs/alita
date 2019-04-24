@@ -1,6 +1,6 @@
 // ref:
 // - https://umijs.org/plugin/develop.html
-import { join, dirname, basename, extname } from 'path';
+import { join } from 'path';
 import { readFileSync } from 'fs';
 
 export default function (api, options) {
