@@ -18,7 +18,7 @@ export default function (api) {
       ...defaultOptions.umi, ...umi, hd: appType === 'h5'
     }
   };
-
+  api.addRuntimePluginKey('request');
   if (!process.env.ALITA_ESLINT || process.env.ALITA_ESLINT !== 'none') {
     api.chainWebpackConfig(config => {
       const eslintOptions = {
