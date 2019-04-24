@@ -2,7 +2,14 @@ import path from 'path';
 const defaultOptions = {
   history: 'hash',
   treeShaking: true,
-  umi: { dva: true, antd: true },
+  umi: {
+    dva: true, antd: true, routes: {
+      // 规定只有index文件会被识别成路由
+      exclude: [
+        /(?<![\s\S]*index\$?\.(js|jsx|ts|tsx)?)$/
+      ]
+    },
+  },
   menu: {
     build: path.resolve('.', './src/menus.json'),
   }
