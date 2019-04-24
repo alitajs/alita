@@ -18,7 +18,11 @@ export default function (api) {
       ...defaultOptions.umi, ...umi, hd: appType === 'h5'
     }
   };
+  // import { request } from 'alita';
   api.addRuntimePluginKey('request');
+
+  // api.addVersionInfo([`alita@${require('../../package.json').version}`]);
+
   if (!process.env.ALITA_ESLINT || process.env.ALITA_ESLINT !== 'none') {
     api.chainWebpackConfig(config => {
       const eslintOptions = {
@@ -104,6 +108,7 @@ export default function (api) {
     prettier: () => require('./prettier').default,
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
+    alitaversion: () => require('./version').default,
   }
   Object.keys(plugins).forEach(key => {
     api.registerPlugin({
