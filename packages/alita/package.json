@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a framework like bigfish.",
   "dependencies": {
     "alita-utils": "^0.0.1",
