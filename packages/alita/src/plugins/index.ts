@@ -1,5 +1,7 @@
 import path from 'path';
 const defaultOptions = {
+  history: 'hash',
+  treeShaking: true,
   umi: { dva: true, antd: true },
   menu: {
     build: path.resolve('.', './src/menus.json'),
@@ -100,7 +102,6 @@ export default function (api) {
   // 一些只有功能没有配置的插件
   const comPlugins = {
     prettier: () => require('./prettier').default,
-    request: () => require('./request').default,
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
   }

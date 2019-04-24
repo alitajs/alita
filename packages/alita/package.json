@@ -11,7 +11,6 @@
     "umi-plugin-menus": "^0.2.3",
     "umi-plugin-prettier": "^0.0.6",
     "umi-plugin-react": "^1.7.4",
-    "umi-plugin-request": "^0.0.2",
     "umi-plugin-whale": "^0.0.8",
     "umi-request": "^1.0.6"
   },
