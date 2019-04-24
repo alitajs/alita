@@ -25,7 +25,7 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 |ice||https://github.com/alibaba/ice/|
 |landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
 |static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。使得 umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
-
+|cordova|||
 ## 低门槛
 学习成本低，完整的上手教程只需要五分钟,等发布正式版会附上开发手册。试运行手册 https://www.yuque.com/alita/imnuas/hgd9ly
 ## 高性能
