@@ -1,5 +1,7 @@
 import path from 'path';
 const defaultOptions = {
+  history: 'hash',
+  treeShaking: true,
   umi: { dva: true, antd: true },
   menu: {
     build: path.resolve('.', './src/menus.json'),
@@ -96,11 +98,13 @@ export default function (api) {
   const plugins = {
     menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
+  };
+  // 一些只有功能没有配置的插件
+  const comPlugins = {
     prettier: () => require('./prettier').default,
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
-  };
-
+  }
   Object.keys(plugins).forEach(key => {
     api.registerPlugin({
       id: getId(key),
@@ -118,6 +122,13 @@ export default function (api) {
           },
         };
       };
+    });
+  });
+  Object.keys(comPlugins).forEach(key => {
+    api.registerPlugin({
+      id: getId(key),
+      apply: comPlugins[key](),
+      opts: opts[key],
     });
   });
 }

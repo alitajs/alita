@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "alita": "^0.0.8"
+    "alita": "^0.0.8",
+    "umi-request": "^1.0.6"
   }
 }

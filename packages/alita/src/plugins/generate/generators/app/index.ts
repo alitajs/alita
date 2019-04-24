@@ -71,6 +71,11 @@ export default api => {
         context,
       );
       this.fs.copyTpl(
+        this.templatePath('src/app.ts'),
+        join(paths.cwd, `src/app.${jsExt}`),
+        context,
+      );
+      this.fs.copyTpl(
         this.templatePath('package.json'),
         join(paths.cwd, 'package.json'),
         context,
