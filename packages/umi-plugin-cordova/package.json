@@ -1,0 +1,26 @@
+{
+  "name": "umi-plugin-cordova",
+  "version": "0.0.1",
+  "description": "umi support cordova",
+  "authors": {
+    "name": "xiaohuoni",
+    "email": "448627663@qq.com"
+  },
+  "repository": "alitajs/cordova",
+  "peerDependencies": {
+    "umi": "2.x"
+  },
+  "main":  "lib/index.js",
+  "scripts": {
+    "build":  "umi-tools build"
+  },
+  "devDependencies": {
+    "umi-tools":  "*",
+    "np": "^3.0.4"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "license": "MIT"
+}
