@@ -22,5 +22,19 @@
     "lib",
     "src"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cordova-app-hello-world": "^4.0.0",
+    "cordova-common": "^3.1.0",
+    "cordova-create": "^2.0.0",
+    "cordova-fetch": "^2.0.1",
+    "fs-extra": "^7.0.1",
+    "import-fresh": "^3.0.0",
+    "is-url": "^1.2.4",
+    "isobject": "^4.0.0",
+    "path-is-inside": "^1.0.2",
+    "serve": "^11.0.0",
+    "tmp": "^0.1.0",
+    "valid-identifier": "^0.0.2"
+  }
 }

@@ -34,7 +34,7 @@ export default api => {
       const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
       const fileName = 'index';
-      const pathsName = paths.cwd.split('/');
+      const pathsName = api.winPath(paths.cwd).split('/');
       const context = {
         name: fileName,
         projectName: pathsName[pathsName.length - 1],

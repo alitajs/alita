@@ -79,7 +79,7 @@ export default function (api) {
         name: 'appType',
         validate: noop,
         onChange(newConfig) {
-          api.service.restart(`umi config changed`);
+          api.restart('appType changed');
         },
       };
     };
@@ -122,7 +122,12 @@ export default function (api) {
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
     alitaversion: () => require('./version').default,
+  } as any;
+
+  if (opts.appType === 'cordova') {
+    comPlugins.cordova = () => require('./cordova').default
   }
+
   Object.keys(plugins).forEach(key => {
     api.registerPlugin({
       id: getId(key),

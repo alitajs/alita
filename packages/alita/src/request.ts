@@ -5,7 +5,7 @@
  */
 import { extend } from 'umi-request';
 
-const runtimeRequest = window.g_plugins.mergeConfig('request') || {};
+const runtimeRequest = (window as any).g_plugins.mergeConfig('request') || {};
 
 /**
  * 配置request请求时的默认参数
