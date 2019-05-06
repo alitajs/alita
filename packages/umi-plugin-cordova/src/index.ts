@@ -28,6 +28,7 @@ function setCordovaConfig(path, isProduction) {
 export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
+  const isAlita = !process.env.IS_ALITA || process.env.IS_ALITA !== 'none';
   console.log(`cordova platform use ${cordovaPlatform}`);
   api.modifyDefaultConfig(memo => {
     return {
@@ -63,9 +64,9 @@ export default function (api, options) {
         if (args.ios || args.android) {
           addPlatforms(args.ios);
         } else {
-          console.log('cordova init success,please run "umi cordova --ios" or "umi cordova --android"  to add cordova platforms');
+          console.log(`cordova init success,please run "${isAlita ? 'alita' : 'umi'} cordova --ios" or "${isAlita ? 'alita' : 'umi'} cordova --android"  to add cordova platforms`);
         }
-      }else if (args.ios || args.android) {
+      } else if (args.ios || args.android) {
         addPlatforms(args.ios);
       }
     },
@@ -125,7 +126,7 @@ export default function (api, options) {
     // 1. outputPath:'www',
     // 2. umi build
     api.onBuildSuccess(() => {
-      console.log('[umi]: success');
+      console.log(`[${isAlita ? 'alita' : 'umi'}]: success`);
       // 3. node config-xml.js false
       setCordovaConfig(api.paths.cwd, isProduction);
       // 4. cordova build ios
@@ -139,6 +140,6 @@ export default function (api, options) {
       })
     });
   } else {
-    console.log('please run "umi cordova --init --ios" to init cordova and add cordova platform');
+    console.log(`please run "${isAlita ? 'alita' : 'umi'} cordova --init --ios" to init cordova and add cordova platform`);
   }
 }

@@ -1,6 +1,7 @@
 import { dirname } from 'path';
 
 process.env.ESLINT = 'none';
+process.env.IS_ALITA = 'true';
 // process.env.ALITA_ESLINT = 'true';
 process.env.UMI_PLUGINS = require.resolve('./plugins/index');
 // process.env.DEBUG = 'umi*,af-webpack*';
