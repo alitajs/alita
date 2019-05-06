@@ -9,13 +9,15 @@ umi support cordova
 
 ## 安装环境（Mac）
 
-1.安装XCode<br />2.安装xcode-select
+1.安装XCode
+2.安装xcode-select
 
 ```bash
 $ xcode-select --install
 ```
 
-弹出软件一直下一步就好。<br />3.安装ios-deploy
+弹出软件一直下一步就好。
+3.安装ios-deploy
 
 ```basic
 $ sudo yarn global add ios-deploy
@@ -41,7 +43,7 @@ export default {
 ```sh
 $ umi cordova --init --ios
 ```
-
+如果一直在这里没有动静，可以`ctrl+c`关闭进程，手动执行`cordova platforms add ios`
 ```sh
 $ umi dev
 ```

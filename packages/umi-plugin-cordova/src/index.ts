@@ -20,7 +20,13 @@ function setCordovaConfig(path, isProduction) {
   if (!isProduction) {
     const navPattern = `(<allow-navigation .*)href="[^"]*"(.*/>)`;
     const navRegex = new RegExp(navPattern);
-    content = content.replace(navRegex, `$1href="${webUrl}"$2`);
+    if (navRegex.test(content)) {
+      content = content.replace(navRegex, `$1href="${webUrl}"$2`);
+    } else {
+      const widgePattern = `</widget>`;
+      const widgeRegex = new RegExp(widgePattern);
+      content = content.replace(widgeRegex, `\t<allow-navigation href="${webUrl}" />\n</widget>`);
+    }
   }
   writeFileSync(configPath, content);
 }
@@ -28,7 +34,7 @@ function setCordovaConfig(path, isProduction) {
 export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
-  const isAlita = !process.env.IS_ALITA || process.env.IS_ALITA !== 'none';
+  const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
   console.log(`cordova platform use ${cordovaPlatform}`);
   api.modifyDefaultConfig(memo => {
     return {
@@ -54,7 +60,7 @@ export default function (api, options) {
           console.log(stdout)
           console.log(stderr)
         })
-        console.log('cordova platforms success');
+        console.log('cordova add platforms ...');
       }
       if (args.init) {
         const pkg = require(join(api.paths.cwd, 'package.json'));
