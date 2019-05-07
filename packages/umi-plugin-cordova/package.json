@@ -20,7 +20,8 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "umi-cordova.png"
   ],
   "license": "MIT",
   "dependencies": {
