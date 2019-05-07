@@ -3,7 +3,6 @@
   "version": "0.1.9",
   "description": "a framework like bigfish.",
   "dependencies": {
-    "alita-utils": "^0.0.1",
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "1.0.3",
     "umi": "^2.6.14",
