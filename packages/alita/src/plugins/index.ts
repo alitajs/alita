@@ -28,7 +28,7 @@ export default function (api) {
 
   const opts = {
     ...defaultOptions, ...options, umi: {
-      ...defaultOptions.umi, ...umi, hd: appType === 'h5'
+      ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     }
   };
   // import { request } from 'alita';
