@@ -1,7 +1,7 @@
 {
   "name": "alita",
   "version": "0.1.10",
-  "description": "a framework like bigfish.",
+  "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "1.0.3",

@@ -5,7 +5,7 @@ import { events, ConfigParser } from 'cordova-common';
 import { join } from 'path';
 import assert from 'assert';
 import os from 'os';
-import { lstatSync, readFileSync, writeFileSync, existsSync } from 'fs-extra';
+import { lstatSync, readFileSync, writeFileSync, existsSync, readdirSync } from 'fs-extra';
 import childProcess from 'child_process';
 
 function setCordovaConfig(path, isProduction) {
@@ -41,6 +41,9 @@ export default function (api, options) {
       // build目录默认为www
       ...memo,
       outputPath: 'www',
+      base: './',
+      publicPath: './',
+      history: 'hash',
     }
   });
   // dev
@@ -78,7 +81,8 @@ export default function (api, options) {
     },
   );
   var configPath = join(api.paths.cwd, 'config.xml');
-  if (existsSync(configPath)) {
+  var platformsPath = join(api.paths.cwd, 'platforms');
+  if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
     // 3.node config-xml.js true
     // console.log(api);
     setCordovaConfig(api.paths.cwd, isProduction);
@@ -88,7 +92,6 @@ export default function (api, options) {
     childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
       if (error) {
         console.error('exec error: ' + error);
-        return
       }
       // console.log(stdout)
       // console.log(stderr)
@@ -133,16 +136,17 @@ export default function (api, options) {
     // 2. umi build
     api.onBuildSuccess(() => {
       console.log(`[${isAlita ? 'alita' : 'umi'}]: success`);
+      console.log(`[${isAlita ? 'alita' : 'umi'}]: run build cordova ...`);
       // 3. node config-xml.js false
       setCordovaConfig(api.paths.cwd, isProduction);
       // 4. cordova build ios
       childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
         if (error) {
           console.error('exec error: ' + error);
-          return
         }
-        // console.log(stdout)
-        // console.log(stderr)
+        console.log(stdout);
+        console.log(stderr);
+        process.exit();
       })
     });
   } else {
