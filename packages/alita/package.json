@@ -1,13 +1,13 @@
 {
   "name": "alita",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "a framework like bigfish.",
   "dependencies": {
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "1.0.3",
     "umi": "^2.6.14",
     "umi-plugin-authorize": "*",
-    "umi-plugin-cordova": "0.0.4",
+    "umi-plugin-cordova": "0.0.5",
     "umi-plugin-menus": "0.2.3",
     "umi-plugin-prettier": "*",
     "umi-plugin-react": "^1.7.4",
