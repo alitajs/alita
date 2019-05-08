@@ -93,6 +93,36 @@ dev 环境有热更新，如果使用手机查看，要求需要在统一个网�
 虚拟机中查看效果
 ![](./umi-cordova.png)
 
+
+## 注意事项
+### Mac
+Xcode10 要修改编译系统
+File->Workspace Setting
+![](./ioshelp1.png)
+修改Build System -> Legacy Build System
+![](./ioshelp2.png)
+### Android Studio
+
+`umi dev` 和 `umi build` 的时候要设置环境变量`CORDOVA=android`
+
+如果使用的是Mac，可以通过命令安装java环境
+```sh
+brew cask install java
+```
+对安卓开发不熟悉的朋友，注意看右下角的窗口，会有提示需要安装sdk，先装完sdk。
+```sh
+The minSdk version should not be declared in the android manifest file. You can move the version from the manifest to the defaultConfig in the build.gradle file.
+Open Manifest File
+Move minSdkVersion to build file and sync project
+```
+
+点击 “Move minSdkVersion to build file and sync project”
+
+接着点击运行项目，在Android Studio 右上角，点击绿色小三角形按钮。
+
+然后选择一个模拟器，如果没有就点击左下角新建，随便选一个你喜欢的下载，然后弹出提示全部选择蓝色默认的选项一直下一步。（就是选择完成，安装，之类的）。
+
+![](./androidsuccess.png)
 ## LICENSE
 
 MIT
