@@ -21,7 +21,10 @@
   "files": [
     "lib",
     "src",
-    "umi-cordova.png"
+    "umi-cordova.png",
+    "ioshelp1.png",
+    "ioshelp2.png",
+    "androidsuccess.png"
   ],
   "license": "MIT",
   "dependencies": {
