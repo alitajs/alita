@@ -37,6 +37,7 @@ export default api => {
       const pathsName = api.winPath(paths.cwd).split('/');
       const context = {
         name: fileName,
+        appType:isHd?'h5':'pc',
         projectName: pathsName[pathsName.length - 1],
         componentName: uppercamelcase(fileName),
         color: randomColor().hexString(),
@@ -80,6 +81,16 @@ export default api => {
         join(paths.cwd, 'package.json'),
         context,
       );
+      this.fs.copyTpl(
+        this.templatePath('_gitignore'),
+        join(paths.cwd, '.gitignore'),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('config/config.ts'),
+        join(paths.cwd, `config/config.${jsExt}`),
+        context,
+      );
 
       if (isTypeScript) {
         this.fs.copyTpl(
@@ -96,13 +107,6 @@ export default api => {
         this.fs.copyTpl(
           this.templatePath('typings.d.ts'),
           join(paths.cwd, 'typings.d.ts'),
-          context,
-        );
-      }
-      if (isHd) {
-        this.fs.copyTpl(
-          this.templatePath('config/config.ts'),
-          join(paths.cwd, `config/config.${jsExt}`),
           context,
         );
       }
