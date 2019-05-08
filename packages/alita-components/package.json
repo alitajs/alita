@@ -1,0 +1,16 @@
+{
+  "name": "alita-components",
+  "version": "0.0.1",
+  "description": "Some common components",
+  "main": "./lib/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "qrcode.react": "^0.9.3"
+  }
+}
