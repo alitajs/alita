@@ -1,6 +1,6 @@
 {
   "name": "alita-components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Some common components",
   "main": "./lib/index.js",
   "keywords": [],
