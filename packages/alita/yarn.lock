@@ -1344,9 +1344,9 @@ address@1.0.3, address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
-af-webpack@1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/af-webpack/-/af-webpack-1.7.4.tgz#92cea2d822801f24e8b1ddc9a729f97f12fe99a1"
+af-webpack@1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/af-webpack/-/af-webpack-1.7.5.tgz#d471e1429e2baa8b34ae9c85c42bda4de9f05605"
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/plugin-transform-react-constant-elements" "7.2.0"
@@ -1375,7 +1375,7 @@ af-webpack@1.7.4:
     duplicate-package-checker-webpack-plugin "3.0.0"
     es5-imcompatible-versions "^0.1.25"
     eslint "5.13.0"
-    eslint-config-umi "1.4.2"
+    eslint-config-umi "1.4.3"
     eslint-loader "2.1.2"
     eslint-plugin-flowtype "2.50.3"
     eslint-plugin-import "2.14.0"
@@ -1464,9 +1464,9 @@ ajv@^6.1.0, ajv@^6.5.3, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alita-components@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/alita-components/-/alita-components-0.0.1.tgz#33b223b03faebb816155955e51dbd645b33ca9ad"
+alita-components@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/alita-components/-/alita-components-0.0.3.tgz#a500747bd9f9a9af162e31b3a12b1e7aa1031a3b"
   dependencies:
     qrcode.react "^0.9.3"
 
@@ -3944,9 +3944,9 @@ escodegen@^1.11.0, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-alita@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-alita/-/eslint-config-alita-1.0.3.tgz#48a09774f99739b8fff19cb652faf57550fd428e"
+eslint-config-alita@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-alita/-/eslint-config-alita-1.0.4.tgz#19f1d19040994ce5bb564cfdc1f6db515c5e90ac"
   dependencies:
     eslint-config-umi "^1.4.2"
 
@@ -3956,7 +3956,13 @@ eslint-config-react-app@3.0.8:
   dependencies:
     confusing-browser-globals "^1.0.6"
 
-eslint-config-umi@1.4.2, eslint-config-umi@^1.4.2:
+eslint-config-umi@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.4.3.tgz#bcb2eebb4f2fe026822dbd6a485a3501c617e56a"
+  dependencies:
+    eslint-config-react-app "3.0.8"
+
+eslint-config-umi@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.4.2.tgz#ce6d63e437a9f8ae5089a80706a80dc13ad609cf"
   dependencies:
@@ -10711,9 +10717,9 @@ uglifyjs-webpack-plugin@1.3.0:
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
 
-umi-build-dev@1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/umi-build-dev/-/umi-build-dev-1.8.1.tgz#9c23b00657a12eb8dca222a7124eb6ce4c30b90d"
+umi-build-dev@1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/umi-build-dev/-/umi-build-dev-1.8.4.tgz#0f99a39f738569ff9f9f97d22df91f71d072d32a"
   dependencies:
     "@babel/code-frame" "7.0.0"
     "@babel/generator" "7.3.0"
@@ -10723,7 +10729,7 @@ umi-build-dev@1.8.1:
     "@babel/template" "7.2.2"
     "@babel/traverse" "7.2.3"
     "@babel/types" "7.3.0"
-    af-webpack "1.7.4"
+    af-webpack "1.7.5"
     babel-plugin-module-resolver "3.1.1"
     babel-preset-umi "1.4.1"
     chalk "2.4.1"
@@ -10768,11 +10774,11 @@ umi-build-dev@1.8.1:
     signale "1.3.0"
     sockjs "0.3.19"
     stringify-object "3.3.0"
-    umi-core "1.2.2"
+    umi-core "1.2.3"
     umi-history "0.1.2"
-    umi-mock "1.1.2"
+    umi-mock "1.1.3"
     umi-notify "^0.1.1"
-    umi-test "1.5.4"
+    umi-test "1.5.7"
     umi-utils "1.4.1"
     uppercamelcase "3.0.0"
     url-polyfill "1.1.3"
@@ -10780,9 +10786,9 @@ umi-build-dev@1.8.1:
     whatwg-fetch "3.0.0"
     yeoman-generator "3.1.1"
 
-umi-core@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/umi-core/-/umi-core-1.2.2.tgz#7073311735cd3aa3097d03ee279b78985e233060"
+umi-core@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/umi-core/-/umi-core-1.2.3.tgz#be29824f8b1f8716c2f0d472324bf735ce4175cd"
   dependencies:
     extend2 "1.0.0"
 
@@ -10801,9 +10807,9 @@ umi-history@0.1.2:
     value-equal "^0.4.0"
     warning "^3.0.0"
 
-umi-mock@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/umi-mock/-/umi-mock-1.1.2.tgz#9e425140d177218dae571dafc5ba4404d7fbb63f"
+umi-mock@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/umi-mock/-/umi-mock-1.1.3.tgz#317d5cb4c435e7496fc6cb5be665fec438505852"
   dependencies:
     body-parser "1.18.3"
     chokidar "2.0.4"
@@ -10826,9 +10832,9 @@ umi-plugin-authorize@*:
   dependencies:
     assert "^1.4.1"
 
-umi-plugin-cordova@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/umi-plugin-cordova/-/umi-plugin-cordova-0.0.7.tgz#97fbd5f78030190475e5623e188d23c3f14e3648"
+umi-plugin-cordova@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/umi-plugin-cordova/-/umi-plugin-cordova-1.0.2.tgz#b250d0db7ce9fc15e111ee2d403f715b914d6f0b"
   dependencies:
     cordova-app-hello-world "^4.0.0"
     cordova-common "^3.1.0"
@@ -10942,9 +10948,9 @@ umi-request@^1.0.6:
     query-string "^6.0.0"
     whatwg-fetch "^2.0.0"
 
-umi-test@1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/umi-test/-/umi-test-1.5.4.tgz#7e64f70b82a710d6b5ef500e0ce3fb6644164e5b"
+umi-test@1.5.7:
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/umi-test/-/umi-test-1.5.7.tgz#ca9beb70f2f56004aaf97416f96b080e3030822c"
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/polyfill" "7.2.5"
@@ -10982,9 +10988,9 @@ umi-utils@1.4.1:
     is-url "1.2.4"
     slash2 "2.0.0"
 
-umi@^2.6.14:
-  version "2.6.14"
-  resolved "https://registry.yarnpkg.com/umi/-/umi-2.6.14.tgz#270bb798e69102f202edc20abd9fdef503b41374"
+umi@^2.6.17:
+  version "2.6.17"
+  resolved "https://registry.yarnpkg.com/umi/-/umi-2.6.17.tgz#4ba6bd994c777cca16e1514d54f553dffa68f4e1"
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/runtime" "7.3.0"
@@ -10999,7 +11005,7 @@ umi@^2.6.14:
     resolve-cwd "2.0.0"
     semver "5.6.0"
     signale "1.3.0"
-    umi-build-dev "1.8.1"
+    umi-build-dev "1.8.4"
     umi-utils "1.4.1"
     update-notifier "2.5.0"
     yargs-parser "13.0.0"
