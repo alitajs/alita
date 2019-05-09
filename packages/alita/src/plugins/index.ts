@@ -3,6 +3,7 @@ const defaultOptions = {
   history: 'hash',
   treeShaking: true,
   umi: {
+    dynamicImport: true,
     dva: true, antd: true, routes: {
       // 规定只有index文件会被识别成路由
       exclude: [
