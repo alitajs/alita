@@ -10,7 +10,7 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 或者在markdown中使用
 
 ```markdown
-[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](alitajs.com)
+[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](https://alitajs.com)
 ```
 
 ![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
