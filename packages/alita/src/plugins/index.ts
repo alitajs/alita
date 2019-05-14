@@ -55,6 +55,7 @@ export default function (api) {
         .end()
         .exclude
         .add(/node_modules/)
+        .add(/public/)
         .end()
         .enforce('pre')
         .use('eslint-loader')
