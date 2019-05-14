@@ -2,7 +2,7 @@
 tmp
 /node_modules
 /*/node_modules
-/packages/*/node_modules
+/packages/**/node_modules
 /examples/*/node_modules
 package-lock.json
 /website/dist

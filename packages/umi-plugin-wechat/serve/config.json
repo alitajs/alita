@@ -1,0 +1,11 @@
+{
+    "token":"xiaohuoni",
+    "appID":"wx***6101",
+    "appScrect":"7eb099e***228a2645f",
+    "encodingAESKey":"tsxIfmw0VFJVkU***m68NRIIQnBX7J8SrB",
+    "apiDomain":"https://api.weixin.qq.com/",
+    "apiURL":{
+        "accessTokenApi":"%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
+        "createMenu":"%scgi-bin/menu/create?access_token=%s"
+    }
+}

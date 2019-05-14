@@ -1,0 +1,12 @@
+{
+  "wechatConfig": {
+    "store": "FileStore_/Users/xiaohuoni/Documents/alita/packages/umi-plugin-wechat/serve/wechat-info.json"
+  },
+  "globalToken": {
+    "count": 0
+  },
+  "urls": {},
+  "oauth": {},
+  "card": {},
+  "mp": {}
+}

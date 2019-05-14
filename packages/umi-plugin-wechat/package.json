@@ -1,0 +1,32 @@
+{
+  "name": "umi-plugin-wechat",
+  "version": "0.0.1",
+  "description": "wechat js-sdk",
+  "authors": {
+    "name": "xiaohu123",
+    "email": "448627663@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita/tree/master/packages/umi-plugin-wechat"
+  },
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/umi-plugin-wechat",
+  "peerDependencies": {
+    "umi": "2.x"
+  },
+
+  "main":  "lib/index.js",
+  "scripts": {
+    "build":  "umi-tools build"
+  },
+  "devDependencies": {
+    "umi-tools":  "*",
+    "np": "^3.0.4"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+
+  "license": "MIT"
+}
