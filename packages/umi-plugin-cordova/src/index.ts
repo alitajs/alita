@@ -8,9 +8,26 @@ import os from 'os';
 import { lstatSync, readFileSync, writeFileSync, existsSync, readdirSync } from 'fs-extra';
 import childProcess from 'child_process';
 
+function getIpAddress() {
+  const networkInterfaces = os.networkInterfaces();
+  let ipAddress = '127.0.0.1';
+  for (const key in networkInterfaces) {
+    if (networkInterfaces.hasOwnProperty(key)) {
+      const iface = networkInterfaces[key];
+      for (let i = 0; i < iface.length; i++) {
+        let alias = iface[i];
+        if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+          ipAddress = alias.address;
+        }
+      }
+    }
+  }
+  return ipAddress;
+}
+
 function setCordovaConfig(path, isProduction) {
   const webPort = process.env.PORT || 8000;
-  const ip = os.networkInterfaces().en0.filter(item => item.family === 'IPv4')[0].address;
+  const ip = getIpAddress();
   const webUrl = !isProduction ? `http://${ip}:${webPort}` : 'index.html';
   var configPath = join(path, 'config.xml');
   let content = readFileSync(configPath).toString();
@@ -122,7 +139,7 @@ export default function (api, options) {
     //  <% } else {%>
     //    <script src="http://192.168.3.111:8001/cordova.js"></script>
     //  <% } %>
-    const ip = os.networkInterfaces().en0.filter(item => item.family === 'IPv4')[0].address;
+    const ip = getIpAddress();
     let cordovaSrc = './cordova.js';
     if (!isProduction) {
       cordovaSrc = `http://${ip}:${8723}/cordova.js`;
