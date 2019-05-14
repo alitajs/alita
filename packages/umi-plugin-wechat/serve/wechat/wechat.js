@@ -120,10 +120,7 @@ WeChat.prototype.auth = function (req, res) {
   });
 
   //1.获取微信服务器Get请求的参数 signature、timestamp、nonce、echostr
-  const { signature } = req.query; const //微信加密签名
-    { timestamp } = req.query; const //时间戳
-      { nonce } = req.query; const //随机数
-        { echostr } = req.query;//随机字符串
+  const { signature, timestamp, nonce, echostr } = req.query;
 
   //2.将token、timestamp、nonce三个参数进行字典序排序
   const array = [this.token, timestamp, nonce];
@@ -141,7 +138,66 @@ WeChat.prototype.auth = function (req, res) {
     res.send('mismatch');
   }
 };
+/**
+ * 获取微信配置
+ * @param {Request} req Request 对象
+ * @param {Response} res Response 对象
+ */
+WeChat.prototype.getWxConfig = function (req, res) {
+  const that = this;
+  return new Promise(((resolve, reject) => {
+    // eslint-disable-next-line camelcase
+    this.getTicket().then((jsapi_ticket) => {
+      //   {
+      //     timestamp: , // 必填，生成签名的时间戳
+      //     nonceStr: '', // 必填，生成签名的随机串
+      //     signature: '',// 必填，签名
+      //     jsApiList: [] // 必填，需要使用的JS接口列表
+      // }
+      console.log(jsapi_ticket);
 
+      const timestamp = new Date().getTime();
+      const noncestr = "xiaohuoni";
+      const url = 'http://192.168.2.64:8000/';
+      // const signature =
+      //2.将token、timestamp、nonce三个参数进行字典序排序
+      // eslint-disable-next-line camelcase
+      const array = [noncestr, jsapi_ticket, timestamp, url];
+      array.sort();
+
+      //3.将三个参数字符串拼接成一个字符串进行sha1加密
+      // eslint-disable-next-line camelcase
+      const tempStr = `jsapi_ticket=${jsapi_ticket}&noncestr=${noncestr}&timestamp=${timestamp}&url=${url}`;
+      const hashCode = crypto.createHash('sha1'); //创建加密类型
+      const resultCode = hashCode.update(tempStr, 'utf8').digest('hex'); //对传入的字符串进行加密
+      resolve({
+        jsapi_ticket,
+        url,
+        timestamp, // 必填，生成签名的时间戳
+        nonceStr: noncestr, // 必填，生成签名的随机串
+        signature: resultCode, // 必填，签名
+      });
+    });
+  }));
+};
+WeChat.prototype.getTicket = function () {
+  const that = this;
+  return new Promise(((resolve, reject) => {
+    //获取当前时间
+    //格式化请求地址
+    const url = util.format(that.apiURL.getticket, that.apiDomain, accessTokenJson.access_token);
+    //判断 本地存储的 access_token 是否有效
+    that.requestGet(url).then((data) => {
+      const result = JSON.parse(data);
+      if (data.indexOf("errcode") < 0) {
+        resolve(result.ticket);
+      } else {
+        //将错误返回
+        resolve(result);
+      }
+    });
+  }));
+};
 /**
  * 获取微信 access_token
  */

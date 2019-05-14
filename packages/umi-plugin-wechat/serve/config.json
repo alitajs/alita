@@ -1,11 +1,12 @@
 {
     "token":"xiaohuoni",
-    "appID":"wx***6101",
-    "appScrect":"7eb099e***228a2645f",
-    "encodingAESKey":"tsxIfmw0VFJVkU***m68NRIIQnBX7J8SrB",
+    "appID":"wx05f89de68e1bdcbc",
+    "appScrect":"a5f819a3ef14978aff1f05e1299ab1a8",
+    "encodingAESKey":"",
     "apiDomain":"https://api.weixin.qq.com/",
     "apiURL":{
         "accessTokenApi":"%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
+        "getticket":"%scgi-bin/ticket/getticket?access_token=%s&type=jsapi",
         "createMenu":"%scgi-bin/menu/create?access_token=%s"
     }
 }
