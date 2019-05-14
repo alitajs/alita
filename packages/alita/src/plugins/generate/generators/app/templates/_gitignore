@@ -16,3 +16,4 @@
 # umi
 .umi
 .umi-production
+/src/menus.json
