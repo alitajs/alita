@@ -114,10 +114,27 @@ export default function (api) {
     process.env.PAGES_PATH = opts.pagePath;
   }
 
+
   const plugins = {
-    menu: () => require('umi-plugin-menus').default,
     authority: () => require('./authorize').default,
-  };
+  } as any;
+
+  api._registerConfig(() => {
+    return () => {
+      return {
+        name: 'exportMenu',
+        validate: noop,
+        onChange(newConfig) {
+          api.service.restart(`${name} changed`);
+        },
+      };
+    };
+  });
+
+  if (opts.exportMenu) {
+    plugins.menu = () => require('umi-plugin-menus').default;
+  }
+
   // 一些只有功能没有配置的插件
   const comPlugins = {
     prettier: () => require('./prettier').default,

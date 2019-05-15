@@ -48,5 +48,8 @@
     "shelljs": "0.8.3",
     "test-build-result": "^1.1.2",
     "umi-tools": "^0.4.0"
+  },
+  "dependencies": {
+    "antd": "^3.18.1"
   }
 }
