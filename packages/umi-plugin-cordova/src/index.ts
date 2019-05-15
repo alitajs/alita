@@ -52,7 +52,10 @@ export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
-  console.log(`cordova platform use ${cordovaPlatform}`);
+  if (isAlita && api.config.appType !== 'cordova') {
+    return;
+  };
+
   api.modifyDefaultConfig(memo => {
     return {
       // build目录默认为www
@@ -100,6 +103,7 @@ export default function (api, options) {
   var configPath = join(api.paths.cwd, 'config.xml');
   var platformsPath = join(api.paths.cwd, 'platforms');
   if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
+    console.log(`cordova platform use ${cordovaPlatform}`);
     // 3.node config-xml.js true
     // console.log(api);
     setCordovaConfig(api.paths.cwd, isProduction);
@@ -116,8 +120,9 @@ export default function (api, options) {
 
     // 5.node serve-cordova.js ios
     const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
+    const servePort = 8723;
     const serveProcess = childProcess.exec(
-      'serve -l 8723',
+      `serve -l ${servePort}`,
       { stdio: 'inherit', cwd: dirToServe } as any,
       (error, stdout, stderr) => {
         console.error(error.message);
@@ -142,7 +147,7 @@ export default function (api, options) {
     const ip = getIpAddress();
     let cordovaSrc = './cordova.js';
     if (!isProduction) {
-      cordovaSrc = `http://${ip}:${8723}/cordova.js`;
+      cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
     }
     api.addHTMLScript({
       src: cordovaSrc,
