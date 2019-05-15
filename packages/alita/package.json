@@ -3,7 +3,7 @@
   "version": "0.1.20",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
-    "alita-components": "0.0.3",
+    "alita-components": "*",
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "*",
     "umi": "^2.6.17",
