@@ -1,4 +1,5 @@
 import path from 'path';
+
 const defaultOptions = {
   history: 'hash',
   treeShaking: true,
@@ -23,7 +24,7 @@ const defaultOptions = {
 };
 
 export default function (api) {
-  const { debug } = api;
+  const { debug, findJS, paths } = api;
   const options = api.config;
   const { umi = {}, appType = "pc" } = options;
 
@@ -32,10 +33,9 @@ export default function (api) {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     }
   };
+
   // import { request } from 'alita';
   api.addRuntimePluginKey('request');
-
-  // api.addVersionInfo([`alita@${require('../../package.json').version}`]);
 
   if (!process.env.ALITA_ESLINT || process.env.ALITA_ESLINT !== 'none') {
     api.chainWebpackConfig(config => {
@@ -116,9 +116,21 @@ export default function (api) {
 
 
   const plugins = {
-    authority: () => require('./authorize').default,
   } as any;
 
+  // add convention authority
+  if (findJS(paths.absSrcPath, 'Authority')) {
+    plugins.authority = () => require('./authorize').default;
+    opts.authority = {
+      authorize: [
+        {
+          guard: ['src/Authority'],
+          include: /\//,
+          exclude: /\/user/i,
+        },
+      ],
+    }
+  }
   api._registerConfig(() => {
     return () => {
       return {
