@@ -18,7 +18,7 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 ## [Future](https://github.com/alitajs/alita/issues/1)
 |产品|项目|备注|
 |  :-:  | :-:  |:-:  |
-|web-components| https://github.com/alitajs/components||
+|web-components| https://github.com/alitajs/components|这只是技术尝试，可以直接用@ionic/react替代|
 |blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
 |alitax||https://github.com/refect/refect|
 |kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
