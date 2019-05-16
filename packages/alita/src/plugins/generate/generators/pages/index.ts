@@ -4,9 +4,11 @@ import randomColor from 'random-color';
 import assert from 'assert';
 import chalk from 'chalk';
 import uppercamelcase from 'uppercamelcase';
+import { readFileSync, writeFileSync, existsSync } from 'fs-extra';
+
 
 export default api => {
-  const { paths, config, log } = api;
+  const { paths, config, log, findJS } = api;
   return class Generator extends api.Generator {
     constructor(args, options) {
       super(args, options);
@@ -18,7 +20,7 @@ ${chalk.underline.cyan('name')} should be supplied
 
 Example:
 
-  umi g pages users
+  alita g pages users
         `.trim(),
       );
       if (config.routes) {
@@ -51,9 +53,10 @@ Example:
       const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
       const fileName = basename(path);
+      const componentName = uppercamelcase(fileName);
       const context = {
         name: fileName,
-        componentName: uppercamelcase(fileName),
+        componentName,
         color: randomColor().hexString(),
         isTypeScript: isTypeScript,
         cssExt,
@@ -76,6 +79,21 @@ Example:
         context,
       );
 
+      // 简单的修改了src/models/connect.d.ts
+      if (isTypeScript && existsSync(join(paths.cwd, 'src/models/connect.d.ts'))) {
+        var connectPath = join(paths.cwd, 'src/models/connect.d.ts');
+        let content = readFileSync(connectPath).toString();
+        const exportPattern = `export {`;
+        const exportRegex = new RegExp(exportPattern);
+        const importModelState = `import { ${componentName}ModelState } from './${fileName}';`
+        content = content.replace(exportRegex, `${importModelState}\nexport {\n\t${componentName}ModelState,`);
+        const connectPattern = `export interface ConnectState {`;
+        const connectRegex = new RegExp(connectPattern);
+        const interfaceModelState = `${fileName}?: ${componentName}ModelState;`
+        content = content.replace(connectRegex, `export interface ConnectState {\n\t${interfaceModelState}\n`);
+        writeFileSync(connectPath, content);
+        console.log('   modification src/models/connect.d.ts')
+      }
     }
   };
 };

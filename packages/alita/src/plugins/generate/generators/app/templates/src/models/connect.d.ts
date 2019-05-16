@@ -1,11 +1,11 @@
 import { EffectsCommandMap } from 'dva';
 import { match } from 'react-router-dom';
 import { AnyAction } from 'redux';
-import { RouterTypes } from 'umi';
-import { AppModelState } from './app';
+import { RouterTypes } from 'alita';
+import { <%= componentName %>ModelState } from './<%= name %>';
 
 export {
-  AppModelState
+  <%= componentName %>ModelState
 };
 
 export interface MenuDataItem {
@@ -62,7 +62,7 @@ export interface Loading {
 }
 
 export interface ConnectState {
-  app?: AppModelState;
+  <%= name %>?: <%= componentName %>ModelState;
 }
 
 /**
