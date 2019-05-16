@@ -52,9 +52,6 @@ export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
-  if (isAlita && api.config.appType !== 'cordova') {
-    return;
-  };
 
   api.modifyDefaultConfig(memo => {
     return {
@@ -83,7 +80,7 @@ export default function (api, options) {
           console.log(stdout)
           console.log(stderr)
         })
-        console.log('cordova add platforms ...');
+        console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
       }
       if (args.init) {
         const pkg = require(join(api.paths.cwd, 'package.json'));
@@ -100,78 +97,80 @@ export default function (api, options) {
       }
     },
   );
-  var configPath = join(api.paths.cwd, 'config.xml');
-  var platformsPath = join(api.paths.cwd, 'platforms');
-  if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
-    console.log(`cordova platform use ${cordovaPlatform}`);
-    // 3.node config-xml.js true
-    // console.log(api);
-    setCordovaConfig(api.paths.cwd, isProduction);
-
-    // 4.cordova build ios
-    // api.devServerPort 需要提交PR来支持
-    childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
-      if (error) {
-        console.error('exec error: ' + error);
-      }
-      // console.log(stdout)
-      // console.log(stderr)
-    })
-
-    // 5.node serve-cordova.js ios
-    const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
-    const servePort = 8723;
-    const serveProcess = childProcess.exec(
-      `serve -l ${servePort}`,
-      { stdio: 'inherit', cwd: dirToServe } as any,
-      (error, stdout, stderr) => {
-        console.error(error.message);
-        console.log(stdout.toString('utf8'));
-      }
-    );
-    console.log(`cordova serve(pid:${serveProcess.pid})`);
-    // 6.add app.js
-    //  export function render(oldRender) {
-    //    function onDeviceReady() {
-    //      oldRender();
-    //    }
-    //    document.addEventListener('deviceready', onDeviceReady, false);
-    //  }
-    api.addRuntimePlugin(join(__dirname, './runtime'));
-    // 7.add cordova.js
-    //  <% if(context.env === 'production') { %>
-    //    <script src="./cordova.js"></script>
-    //  <% } else {%>
-    //    <script src="http://192.168.3.111:8001/cordova.js"></script>
-    //  <% } %>
-    const ip = getIpAddress();
-    let cordovaSrc = './cordova.js';
-    if (!isProduction) {
-      cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
-    }
-    api.addHTMLScript({
-      src: cordovaSrc,
-    });
-    // 8.umi dev
-    // build
-    // 1. outputPath:'www',
-    // 2. umi build
-    api.onBuildSuccess(() => {
-      console.log(`[${isAlita ? 'alita' : 'umi'}]: success`);
-      console.log(`[${isAlita ? 'alita' : 'umi'}]: run build cordova ...`);
-      // 3. node config-xml.js false
+  api.onStart(()=>{
+    var configPath = join(api.paths.cwd, 'config.xml');
+    var platformsPath = join(api.paths.cwd, 'platforms');
+    if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
+      console.log(`cordova platform use ${cordovaPlatform}`);
+      // 3.node config-xml.js true
+      // console.log(api);
       setCordovaConfig(api.paths.cwd, isProduction);
-      // 4. cordova build ios
+
+      // 4.cordova build ios
+      // api.devServerPort 需要提交PR来支持
       childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
         if (error) {
           console.error('exec error: ' + error);
         }
-        console.log(stdout);
-        console.log(stderr);
-        process.exit();
+        // console.log(stdout)
+        // console.log(stderr)
       })
-    });
-  } else {
-    console.log(`please run "${isAlita ? 'alita' : 'umi'} cordova --init --ios" to init cordova and add cordova platform`);
-  }
+
+      // 5.node serve-cordova.js ios
+      const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
+      const servePort = 8723;
+      const serveProcess = childProcess.exec(
+        `serve -l ${servePort}`,
+        { stdio: 'inherit', cwd: dirToServe } as any,
+        (error, stdout, stderr) => {
+          console.error(error.message);
+          console.log(stdout.toString('utf8'));
+        }
+      );
+      console.log(`cordova serve(pid:${serveProcess.pid})`);
+      // 6.add app.js
+      //  export function render(oldRender) {
+      //    function onDeviceReady() {
+      //      oldRender();
+      //    }
+      //    document.addEventListener('deviceready', onDeviceReady, false);
+      //  }
+      api.addRuntimePlugin(join(__dirname, './runtime'));
+      // 7.add cordova.js
+      //  <% if(context.env === 'production') { %>
+      //    <script src="./cordova.js"></script>
+      //  <% } else {%>
+      //    <script src="http://192.168.3.111:8001/cordova.js"></script>
+      //  <% } %>
+      const ip = getIpAddress();
+      let cordovaSrc = './cordova.js';
+      if (!isProduction) {
+        cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
+      }
+      api.addHTMLScript({
+        src: cordovaSrc,
+      });
+      // 8.umi dev
+      // build
+      // 1. outputPath:'www',
+      // 2. umi build
+      api.onBuildSuccess(() => {
+        console.log(`[${isAlita ? 'alita' : 'umi'}]: success`);
+        console.log(`[${isAlita ? 'alita' : 'umi'}]: run build cordova ...`);
+        // 3. node config-xml.js false
+        setCordovaConfig(api.paths.cwd, isProduction);
+        // 4. cordova build ios
+        childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
+          if (error) {
+            console.error('exec error: ' + error);
+          }
+          console.log(stdout);
+          console.log(stderr);
+          process.exit();
+        })
+      });
+    } else {
+      console.log(`please run "${isAlita ? 'alita' : 'umi'} cordova --init --ios" to init cordova and add cordova platform`);
+    }
+  })
 }
