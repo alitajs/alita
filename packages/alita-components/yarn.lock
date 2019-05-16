@@ -2,6 +2,22 @@
 # yarn lockfile v1
 
 
+"@ionic/core@^4.0.2":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-4.4.0.tgz#250dbd85000558416b34317cadcc365aefb818c0"
+  dependencies:
+    ionicons "4.5.6"
+
+"@ionic/react@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ionic/react/-/react-0.0.5.tgz#7a0bc4531244acd2f1dd0be92c2accb1086136f9"
+  dependencies:
+    "@ionic/core" "^4.0.2"
+
+ionicons@4.5.6:
+  version "4.5.6"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-4.5.6.tgz#f3b5d2446e7e1b30e67ddcd1fc563271acc60f3c"
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
