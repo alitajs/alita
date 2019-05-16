@@ -1,14 +1,14 @@
 {
   "name": "alita",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
-    "alita-components": "*",
+    "alita-components": "0.0.5",
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "*",
     "umi": "^2.6.17",
     "umi-plugin-authorize": "*",
-    "umi-plugin-cordova": "*",
+    "umi-plugin-cordova": "1.0.4",
     "umi-plugin-menus": "0.2.3",
     "umi-plugin-prettier": "*",
     "umi-plugin-react": "^1.7.4",
