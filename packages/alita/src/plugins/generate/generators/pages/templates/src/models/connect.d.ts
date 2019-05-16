@@ -1,7 +1,4 @@
-import { EffectsCommandMap } from 'dva';
-import { match } from 'react-router-dom';
-import { AnyAction } from 'redux';
-import { RouterTypes } from 'umi';
+import { RouterTypes, AnyAction, match, EffectsCommandMap } from 'alita';
 import { AppModelState } from './app';
 
 export {
