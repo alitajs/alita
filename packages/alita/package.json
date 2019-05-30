@@ -9,7 +9,6 @@
     "umi": "^2.6.17",
     "umi-plugin-authorize": "*",
     "umi-plugin-cordova": "1.0.4",
-    "umi-plugin-menus": "0.2.3",
     "umi-plugin-prettier": "*",
     "umi-plugin-react": "^1.7.4",
     "umi-plugin-whale": "*",
