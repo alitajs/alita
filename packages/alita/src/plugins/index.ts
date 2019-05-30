@@ -18,9 +18,6 @@ const defaultOptions = {
       ]
     },
   },
-  menu: {
-    build: path.resolve('.', './src/menus.json'),
-  }
 };
 
 export default function (api) {
@@ -130,21 +127,6 @@ export default function (api) {
         },
       ],
     }
-  }
-  api._registerConfig(() => {
-    return () => {
-      return {
-        name: 'exportMenu',
-        validate: noop,
-        onChange(newConfig) {
-          api.service.restart(`${name} changed`);
-        },
-      };
-    };
-  });
-
-  if (opts.exportMenu) {
-    plugins.menu = () => require('umi-plugin-menus').default;
   }
 
   // 一些只有功能没有配置的插件
