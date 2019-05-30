@@ -5,13 +5,13 @@
   "dependencies": {
     "alita-components": "0.0.6",
     "babel-eslint": "10.0.1",
-    "eslint-config-alita": "*",
+    "eslint-config-alita": "latest",
     "umi": "^2.6.17",
-    "umi-plugin-authorize": "*",
-    "umi-plugin-cordova": "last",
-    "umi-plugin-prettier": "*",
+    "umi-plugin-authorize": "latest",
+    "umi-plugin-cordova": "latest",
+    "umi-plugin-prettier": "latest",
     "umi-plugin-react": "^1.7.4",
-    "umi-plugin-whale": "*",
+    "umi-plugin-whale": "latest",
     "umi-request": "^1.0.6"
   },
   "module": "index.js",
