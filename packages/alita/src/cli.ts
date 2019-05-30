@@ -12,6 +12,8 @@ if (p[0] === 'version' || p[0] === '-v' || p[0] === '-version') {
   p[0] = 'alitaVersion'
 }
 
+process.env.ALITA_NOW_COMMAND = p[0];
+
 process.env.ALITA_DIR = dirname(require.resolve('../package'));
 const umiBinPath = require.resolve('umi/bin/umi');
 require('child_process').fork(umiBinPath, p, {
