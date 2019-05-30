@@ -97,7 +97,7 @@ export default function (api, options) {
       }
     },
   );
-  api.onStart(()=>{
+  // api.onStart(()=>{
     var configPath = join(api.paths.cwd, 'config.xml');
     var platformsPath = join(api.paths.cwd, 'platforms');
     if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
@@ -172,5 +172,5 @@ export default function (api, options) {
     } else {
       console.log(`please run "${isAlita ? 'alita' : 'umi'} cordova --init --ios" to init cordova and add cordova platform`);
     }
-  })
+  // })
 }
