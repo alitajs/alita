@@ -52,9 +52,8 @@ export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
-  if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build' || process.env.ALITA_NOW_COMMAND === 'cordova')) {
-    return;
-  }
+
+
   api.modifyDefaultConfig(memo => {
     return {
       // build目录默认为www
@@ -99,6 +98,9 @@ export default function (api, options) {
       }
     },
   );
+  if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build')) {
+    return;
+  }
   var configPath = join(api.paths.cwd, 'config.xml');
   var platformsPath = join(api.paths.cwd, 'platforms');
   if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
@@ -118,17 +120,36 @@ export default function (api, options) {
     })
 
     // 5.node serve-cordova.js ios
-    const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
-    const servePort = 8723;
-    const serveProcess = childProcess.exec(
-      `serve -l ${servePort}`,
-      { stdio: 'inherit', cwd: dirToServe } as any,
-      (error, stdout, stderr) => {
-        console.error(error.message);
-        console.log(stdout.toString('utf8'));
+    api.afterDevServer(({ serve, devServerPort }) => {
+      // You can get the actual port number of the service monitor here.
+      // console.log(devServerPort); https://github.com/umijs/umi/pull/2386
+      const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
+      const servePort = devServerPort || 8723;
+      const serveProcess = childProcess.exec(
+        `serve -l ${servePort}`,
+        { stdio: 'inherit', cwd: dirToServe } as any,
+        (error, stdout, stderr) => {
+          console.error(error.message);
+          console.log(stdout.toString('utf8'));
+        }
+      );
+      console.log(`cordova serve(pid:${serveProcess.pid})`);
+      // 7.add cordova.js
+      //  <% if(context.env === 'production') { %>
+      //    <script src="./cordova.js"></script>
+      //  <% } else {%>
+      //    <script src="http://192.168.3.111:8001/cordova.js"></script>
+      //  <% } %>
+      const ip = getIpAddress();
+      let cordovaSrc = './cordova.js';
+      if (!isProduction) {
+        cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
       }
-    );
-    console.log(`cordova serve(pid:${serveProcess.pid})`);
+      api.addHTMLScript({
+        src: cordovaSrc,
+      });
+    });
+
     // 6.add app.js
     //  export function render(oldRender) {
     //    function onDeviceReady() {
@@ -137,20 +158,6 @@ export default function (api, options) {
     //    document.addEventListener('deviceready', onDeviceReady, false);
     //  }
     api.addRuntimePlugin(join(__dirname, './runtime'));
-    // 7.add cordova.js
-    //  <% if(context.env === 'production') { %>
-    //    <script src="./cordova.js"></script>
-    //  <% } else {%>
-    //    <script src="http://192.168.3.111:8001/cordova.js"></script>
-    //  <% } %>
-    const ip = getIpAddress();
-    let cordovaSrc = './cordova.js';
-    if (!isProduction) {
-      cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
-    }
-    api.addHTMLScript({
-      src: cordovaSrc,
-    });
     // 8.umi dev
     // build
     // 1. outputPath:'www',
