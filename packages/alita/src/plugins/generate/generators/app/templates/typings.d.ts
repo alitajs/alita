@@ -9,6 +9,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
+declare module '*.json';
 declare module 'rc-animate';
 declare module 'omit.js';
 declare module 'react-copy-to-clipboard';

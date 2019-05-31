@@ -61,6 +61,16 @@ export default api => {
         context,
       );
       this.fs.copyTpl(
+        this.templatePath('src/layouts/index.tsx'),
+        join(paths.cwd, this.hasName ? this.appName : '', `src/layouts/index.${jsxExt}`),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('src/layouts/index.less'),
+        join(paths.cwd, this.hasName ? this.appName : '', `src/layouts/index.${cssExt}`),
+        context,
+      );
+      this.fs.copyTpl(
         this.templatePath('src/pages/index/index.less'),
         join(paths.cwd, this.hasName ? this.appName : '', `src/pages/${fileName}/index.${cssExt}`),
         context,
