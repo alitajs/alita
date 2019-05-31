@@ -53,6 +53,16 @@ export default function (api, options) {
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
 
+  api.addHTMLMeta(memo => {
+    const addItem = [{
+      "content": "no",
+      "name": "msapplication-tap-highlight"
+    }, {
+      "http-equiv": "Content-Security-Policy",
+      "content": "default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+    }]
+    return [...addItem, ...memo];
+  })
 
   api.modifyDefaultConfig(memo => {
     return {
@@ -121,33 +131,33 @@ export default function (api, options) {
 
     // 5.node serve-cordova.js ios
     // api.afterDevServer(({ serve, devServerPort }) => {
-      // You can get the actual port number of the service monitor here.
-      // console.log(devServerPort); https://github.com/umijs/umi/pull/2386
-      const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
-      const servePort = 8723;
-      const serveProcess = childProcess.exec(
-        `serve -l ${servePort}`,
-        { stdio: 'inherit', cwd: dirToServe } as any,
-        (error, stdout, stderr) => {
-          console.error(error.message);
-          console.log(stdout.toString('utf8'));
-        }
-      );
-      console.log(`cordova serve(pid:${serveProcess.pid})`);
-      // 7.add cordova.js
-      //  <% if(context.env === 'production') { %>
-      //    <script src="./cordova.js"></script>
-      //  <% } else {%>
-      //    <script src="http://192.168.3.111:8001/cordova.js"></script>
-      //  <% } %>
-      const ip = getIpAddress();
-      let cordovaSrc = './cordova.js';
-      if (!isProduction) {
-        cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
+    // You can get the actual port number of the service monitor here.
+    // console.log(devServerPort); https://github.com/umijs/umi/pull/2386
+    const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
+    const servePort = 8723;
+    const serveProcess = childProcess.exec(
+      `serve -l ${servePort}`,
+      { stdio: 'inherit', cwd: dirToServe } as any,
+      (error, stdout, stderr) => {
+        console.error(error.message);
+        console.log(stdout.toString('utf8'));
       }
-      api.addHTMLScript({
-        src: cordovaSrc,
-      });
+    );
+    console.log(`cordova serve(pid:${serveProcess.pid})`);
+    // 7.add cordova.js
+    //  <% if(context.env === 'production') { %>
+    //    <script src="./cordova.js"></script>
+    //  <% } else {%>
+    //    <script src="http://192.168.3.111:8001/cordova.js"></script>
+    //  <% } %>
+    const ip = getIpAddress();
+    let cordovaSrc = './cordova.js';
+    if (!isProduction) {
+      cordovaSrc = `http://${ip}:${servePort}/cordova.js`;
+    }
+    api.addHTMLScript({
+      src: cordovaSrc,
+    });
     // });
 
     // 6.add app.js
