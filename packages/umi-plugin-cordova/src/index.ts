@@ -57,9 +57,6 @@ export default function (api, options) {
     const addItem = [{
       "content": "no",
       "name": "msapplication-tap-highlight"
-    }, {
-      "http-equiv": "Content-Security-Policy",
-      "content": "default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
     }]
     return [...addItem, ...memo];
   })
