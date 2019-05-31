@@ -120,11 +120,11 @@ export default function (api, options) {
     })
 
     // 5.node serve-cordova.js ios
-    api.afterDevServer(({ serve, devServerPort }) => {
+    // api.afterDevServer(({ serve, devServerPort }) => {
       // You can get the actual port number of the service monitor here.
       // console.log(devServerPort); https://github.com/umijs/umi/pull/2386
       const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
-      const servePort = devServerPort || 8723;
+      const servePort = 8723;
       const serveProcess = childProcess.exec(
         `serve -l ${servePort}`,
         { stdio: 'inherit', cwd: dirToServe } as any,
@@ -148,7 +148,7 @@ export default function (api, options) {
       api.addHTMLScript({
         src: cordovaSrc,
       });
-    });
+    // });
 
     // 6.add app.js
     //  export function render(oldRender) {
