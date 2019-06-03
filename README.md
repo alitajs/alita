@@ -28,7 +28,7 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 |cordova|https://www.npmjs.com/package/umi-plugin-cordova| 已完成，可用于生产 |
 
 ## 低门槛
-学习成本低，完整的上手教程只需要五分钟,等发布正式版会附上开发手册。试运行手册 https://www.yuque.com/alita/imnuas/hgd9ly
+学习成本低，简单的上手文档 https://www.yuque.com/alita/course
 ## 高性能
 自动压缩代码，自动使用摇树算法，去掉业务中不需要的多余代码，以路由为单元的代码分割
 ## 多环境
