@@ -105,6 +105,8 @@ export default function (api, options) {
       }
     },
   );
+
+
   if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build')) {
     return;
   }
@@ -127,9 +129,6 @@ export default function (api, options) {
     })
 
     // 5.node serve-cordova.js ios
-    // api.afterDevServer(({ serve, devServerPort }) => {
-    // You can get the actual port number of the service monitor here.
-    // console.log(devServerPort); https://github.com/umijs/umi/pull/2386
     const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
     const servePort = 8723;
     const serveProcess = childProcess.exec(
@@ -141,6 +140,16 @@ export default function (api, options) {
       }
     );
     console.log(`cordova serve(pid:${serveProcess.pid})`);
+
+    // 6.add app.js
+    //  export function render(oldRender) {
+    //    function onDeviceReady() {
+    //      oldRender();
+    //    }
+    //    document.addEventListener('deviceready', onDeviceReady, false);
+    //  }
+    api.addRuntimePlugin(join(__dirname, './runtime'));
+
     // 7.add cordova.js
     //  <% if(context.env === 'production') { %>
     //    <script src="./cordova.js"></script>
@@ -155,16 +164,7 @@ export default function (api, options) {
     api.addHTMLScript({
       src: cordovaSrc,
     });
-    // });
 
-    // 6.add app.js
-    //  export function render(oldRender) {
-    //    function onDeviceReady() {
-    //      oldRender();
-    //    }
-    //    document.addEventListener('deviceready', onDeviceReady, false);
-    //  }
-    api.addRuntimePlugin(join(__dirname, './runtime'));
     // 8.umi dev
     // build
     // 1. outputPath:'www',
