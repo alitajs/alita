@@ -4,7 +4,8 @@
       "pr: enhancement": ":rocket: Enhancement",
       "pr: bug": ":bug: Bug Fix",
       "pr: documentation": ":book: Documentation",
-      "pr: dependency": ":deciduous_tree: Dependency"
+      "pr: dependency": ":deciduous_tree: Dependency",
+      "pr: remove":":heavy_minus_sign: remove function or plugin"
     },
     "repo": "alitajs/alita",
     "cacheDir": ".changelog"
