@@ -12,7 +12,6 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@ionic/react": "^0.0.5",
     "qrcode.react": "^0.9.3"
   }
 }
