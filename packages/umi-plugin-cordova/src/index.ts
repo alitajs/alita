@@ -69,6 +69,9 @@ export default function (api, options) {
       base: './',
       publicPath: './',
       history: 'hash',
+      targets: {
+        ie: 9,
+      },
     }
   });
   // dev
