@@ -18,7 +18,10 @@ const defaultOptions = {
   treeShaking: true,
   uglifyJSOptions,
   umi: {
-    dynamicImport: true,
+    dynamicImport: {
+      webpackChunkName: true,
+      level: 3,
+    },
     dva: true, antd: true, routes: {
       // 规定只有index文件会被识别成路由
       exclude: [
