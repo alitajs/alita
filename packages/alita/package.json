@@ -39,7 +39,6 @@
   ],
   "umiTools": {
     "browserFiles": [
-      "src/cli.ts",
       "src/request.ts"
     ]
   }
