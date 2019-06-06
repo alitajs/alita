@@ -44,10 +44,5 @@
     "serve": "^11.0.0",
     "tmp": "^0.1.0",
     "valid-identifier": "^0.0.2"
-  },
-  "umiTools": {
-    "browserFiles": [
-      "src/create-cordova.ts"
-    ]
   }
 }
