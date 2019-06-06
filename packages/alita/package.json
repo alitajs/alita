@@ -1,9 +1,9 @@
 {
   "name": "alita",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
-    "alita-components": "0.0.6",
+    "alita-components": "0.0.7",
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "latest",
     "umi": "2.7.1",
