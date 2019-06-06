@@ -1,8 +1,22 @@
 import path from 'path';
+const { NODE_ENV } = process.env;
 
+const uglifyJSOptions =
+  NODE_ENV === 'production'
+    ? {
+        uglifyOptions: {
+          // remove console.* except console.error
+          compress: {
+            drop_console: true,
+            pure_funcs: ['console.error'],
+          },
+        },
+      }
+    : {};
 const defaultOptions = {
   history: 'hash',
   treeShaking: true,
+  uglifyJSOptions,
   umi: {
     dynamicImport: true,
     dva: true, antd: true, routes: {
