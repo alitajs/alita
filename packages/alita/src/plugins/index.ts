@@ -48,7 +48,10 @@ export default function (api) {
   const opts = {
     ...defaultOptions, ...options, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
-    }
+    },
+    block: {
+      defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
+    },
   };
 
   // import { request } from 'alita';
