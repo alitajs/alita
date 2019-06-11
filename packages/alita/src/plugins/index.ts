@@ -4,14 +4,14 @@ const { NODE_ENV } = process.env;
 const uglifyJSOptions =
   NODE_ENV === 'production'
     ? {
-        uglifyOptions: {
-          // remove console.* except console.error
-          compress: {
-            drop_console: true,
-            pure_funcs: ['console.error'],
-          },
+      uglifyOptions: {
+        // remove console.* except console.error
+        compress: {
+          drop_console: true,
+          pure_funcs: ['console.error'],
         },
-      }
+      },
+    }
     : {};
 const defaultOptions = {
   history: 'hash',
