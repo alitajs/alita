@@ -16,6 +16,9 @@ const uglifyJSOptions =
 const defaultOptions = {
   history: 'hash',
   treeShaking: true,
+  targets: {
+    ie: 9,
+  },
   uglifyJSOptions,
   umi: {
     dynamicImport: {
