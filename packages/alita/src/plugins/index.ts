@@ -53,7 +53,13 @@ export default function (api) {
       defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
     },
   };
-
+  api.modifyDefaultConfig(memo => {
+    return {
+      // build目录默认为www
+      ...memo,
+      ...opts
+    }
+  });
   // import { request } from 'alita';
   api.addRuntimePluginKey('request');
 

@@ -13,6 +13,7 @@ package-lock.json
 /packages/**/.docz
 /packages/*/lib
 dist
+demo
 coverage
 .nyc_output
 npm-debug.log*
