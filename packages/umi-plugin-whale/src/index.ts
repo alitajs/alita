@@ -13,6 +13,7 @@ export default function (api, options) {
       }
       return [addItem, ...memo];
     })
+
     api.addHTMLStyle(memo => {
       const addItem = {
         "content": `* {
