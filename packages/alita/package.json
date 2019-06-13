@@ -11,7 +11,7 @@
     "umi-plugin-cordova": "1.1.8",
     "umi-plugin-prettier": "0.0.6",
     "umi-plugin-react": "1.8.2",
-    "umi-plugin-whale": "0.0.8",
+    "umi-plugin-whale": "0.0.10",
     "umi-request": "1.0.7"
   },
   "module": "index.js",
