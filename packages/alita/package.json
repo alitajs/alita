@@ -6,11 +6,11 @@
     "alita-components": "0.0.7",
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "1.0.4",
-    "umi": "2.7.3",
+    "umi": "2.6.17",
     "umi-plugin-authorize": "1.0.3",
     "umi-plugin-cordova": "1.1.8",
     "umi-plugin-prettier": "0.0.6",
-    "umi-plugin-react": "1.8.2",
+    "umi-plugin-react": "1.7.4",
     "umi-plugin-whale": "0.0.10",
     "umi-request": "1.0.7"
   },

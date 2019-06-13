@@ -19,12 +19,13 @@ const defaultOptions = {
   targets: {
     ie: 9,
   },
-  uglifyJSOptions,
+  // uglifyJSOptions,
   umi: {
-    dynamicImport: {
-      webpackChunkName: true,
-      level: 3,
-    },
+    // dynamicImport: {
+    //   webpackChunkName: true,
+    //   level: 3,
+    // },
+    dynamicImport: true,
     dva: true, antd: true, routes: {
       // 规定只有index文件会被识别成路由
       exclude: [
@@ -49,9 +50,9 @@ export default function (api) {
     ...defaultOptions, ...options, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     },
-    block: {
-      defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
-    },
+    // block: {
+    //   defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
+    // },
   };
   api.modifyDefaultConfig(memo => {
     return {
