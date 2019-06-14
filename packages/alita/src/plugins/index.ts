@@ -1,4 +1,3 @@
-import path from 'path';
 const { NODE_ENV } = process.env;
 
 const uglifyJSOptions =
@@ -21,11 +20,10 @@ const defaultOptions = {
   },
   // uglifyJSOptions,
   umi: {
-    // dynamicImport: {
-    //   webpackChunkName: true,
-    //   level: 3,
-    // },
-    dynamicImport: true,
+    dynamicImport: {
+      webpackChunkName: true,
+      level: 3,
+    },
     dva: true, antd: true, routes: {
       // 规定只有index文件会被识别成路由
       exclude: [
@@ -44,12 +42,13 @@ const defaultOptions = {
 export default function (api) {
   const { debug, findJS, paths } = api;
   const options = api.config;
-  const { umi = {}, appType = "pc" } = options;
+  const { umi = {}, appType = "pc", retainLog = false } = options;
 
   const opts = {
     ...defaultOptions, ...options, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     },
+    uglifyJSOptions: retainLog ? {} : uglifyJSOptions,
     // block: {
     //   defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
     // },
@@ -101,6 +100,18 @@ export default function (api) {
   const reactPlugin = require('umi-plugin-react').default;
 
   reactPlugin(api, opts.umi);
+
+  api._registerConfig(() => {
+    return () => {
+      return {
+        name: 'retainLog',
+        validate: noop,
+        onChange(newConfig) {
+          api.restart('retainLog changed');
+        },
+      };
+    };
+  });
 
   api._registerConfig(() => {
     return () => {
