@@ -1,31 +1,6 @@
 # Alita
 <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 
-alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
-
-```html
-<a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
-```
-
-或者在markdown中使用
-
-```markdown
-[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](https://alitajs.com)
-```
-
-![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
-
-## [Future](https://github.com/alitajs/alita/issues/1)
-|产品|项目|备注|
-|  :-:  | :-:  |:-:  |
-|web-components| https://github.com/alitajs/components|这只是技术尝试，可以直接用@ionic/react替代|
-|blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
-|alitax||https://github.com/refect/refect|
-|kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
-|ice||https://github.com/alibaba/ice/|
-|landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
-|static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。使得 umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
-|cordova|https://www.npmjs.com/package/umi-plugin-cordova| 已完成，可用于生产 |
 
 ## 低门槛
 学习成本低，简单的上手文档 https://www.yuque.com/alita/course
@@ -54,3 +29,29 @@ h5 的模版库暂时没有，但只要承接几个 h5 项目就可以沉淀�
 我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
 
 请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
+
+alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
+
+```html
+<a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
+```
+
+或者在markdown中使用
+
+```markdown
+[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](https://alitajs.com)
+```
+
+![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
+
+## [Future](https://github.com/alitajs/alita/issues/1)
+|产品|项目|备注|
+|  :-:  | :-:  |:-:  |
+|web-components| https://github.com/alitajs/components|这只是技术尝试，可以直接用@ionic/react替代|
+|blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
+|alitax||https://github.com/refect/refect|
+|kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
+|ice||https://github.com/alibaba/ice/|
+|landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
+|static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。使得 umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
+|cordova|https://www.npmjs.com/package/umi-plugin-cordova| 已完成，可用于生产 |
