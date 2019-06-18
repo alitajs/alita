@@ -9,3 +9,7 @@ packages/af-webpack/src/getConfig/css.js
 packages/af-webpack/src/getConfig/eslint.js
 packages/af-webpack/src/getConfig/dev.js
 packages/af-webpack/src/getConfig/prod.js
+*.json
+*.xml
+demo/
+scripts/
