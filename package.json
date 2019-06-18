@@ -12,17 +12,19 @@
     "doc:dev": "./website/node_modules/.bin/vuepress dev ./docs",
     "doc:deploy": "rm -rf ./website/yarn.lock && cd ./website && npm run deploy && cd -",
     "publish": "./scripts/publish.js",
+    "prettier": "prettier -c --write **/*",
     "ui:dev": "APP_ROOT=umi-build-dev/src/plugins/commands/ui ./packages/alita/bin/alita.js dev",
     "ui:build": "APP_ROOT=umi-build-dev/src/plugins/commands/ui ./packages/alita/bin/alita.js build"
   },
   "lint-staged": {
     "*.(t|j)s": [
-      "prettier --trailing-comma all --single-quote --write",
+      "prettier --write",
       "git add"
     ]
   },
   "devDependencies": {
     "@types/jest": "^24.0.5",
+    "@umijs/fabric": "^1.0.6",
     "babel-eslint": "10.0.1",
     "chokidar": "2.0.4",
     "coveralls": "3.0.2",
