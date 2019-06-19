@@ -7,6 +7,7 @@
     "babel-eslint": "10.0.1",
     "eslint-config-alita": "1.0.5",
     "eslint-loader": "2.1.2",
+    "eslint-plugin-flowtype": "2.50.3",
     "umi": "2.7.7",
     "umi-plugin-authorize": "1.0.3",
     "umi-plugin-cordova": "1.1.8",
