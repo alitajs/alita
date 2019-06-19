@@ -12,8 +12,8 @@ eslint-config-react-app@3.0.8:
   dependencies:
     confusing-browser-globals "^1.0.6"
 
-eslint-config-umi@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.4.2.tgz#ce6d63e437a9f8ae5089a80706a80dc13ad609cf"
+eslint-config-umi@1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.4.5.tgz#2bf9729f70967737a11a9c7eb6f01258a56921e3"
   dependencies:
     eslint-config-react-app "3.0.8"

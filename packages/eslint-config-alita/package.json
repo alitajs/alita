@@ -14,6 +14,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "eslint-config-umi": "^1.4.2"
+    "eslint-config-umi": "1.4.5"
+  },
+  "peerDependencies": {
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x"
   }
 }
