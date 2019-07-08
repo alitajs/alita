@@ -1,5 +1,225 @@
-# Alita
+
+<p align="center">
+  <a href="http://ant.design">
+    <img width="300" src="https://user-images.githubusercontent.com/11746742/60695674-2bd4b280-9f15-11e9-9e71-a93b44504c0c.png">
+  </a>
+</p>
+
+<h1 align="center">Alita</h1>
+
+<div align="center">
+
+不仅仅是一个框架，更是一种开发提效生态
+
+[![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/)
 <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
+</div>
+
+随着业界的不断发展和新技术的不断涌现，越来越多的开发者开始注重自身的开发体验。带着这样的一个终极目标，我们开始逐步探索低门槛、高性能、易拓展、高效率的开发与维护方案，通过可插拔的特性，提升开发体验，让开发者更多地专注于项目本身。
+
+## Install
+
+通过npm安装即可
+
+`npm install -g alita`
+
+通过yarn安装即可
+
+`yarn global add alita`
+
+若有权限问题，需要`sudo`
+
+## Getting Started
+
+### 新建项目
+
+```bash
+$ alita g app myApp
+```
+
+![2019-07-02 21 05 53](https://user-images.githubusercontent.com/11746742/60694246-190baf00-9f10-11e9-9f88-06f5378cc214.gif)
+
+### 启动项目
+
+```sh
+$ cd myApp
+$ yarn  (或 npm i)
+$ yarn start (或 npm start)
+```
+
+## 新建页面
+
+### 新建空白页面
+
+```sh
+$ alita g pages home
+```
+
+![2019-07-02 21 10 03](https://user-images.githubusercontent.com/11746742/60694280-32acf680-9f10-11e9-8a28-6638308a76fb.gif)
+
+### 新建区块页面
+
+#### 增加配置
+
+```ts
+export default {
+  appType: 'pc',
+  block: {
+    defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
+  },
+};
+```
+
+#### 使用命令安装
+
+```sh
+$ npx umi block add DashboardAnalysis --path=/dashboard/analysis
+```
+![snapshot](https://user-images.githubusercontent.com/11746742/60694664-73593f80-9f11-11e9-8c02-d347791c36aa.png)
+
+有网络问题，请重试。一直失败。可以删除，用户目录下的 `.umi` 文件
+如 `/Users/xiaohuoni/.umi`
+
+#### 后续可以使用umi ui安装
+
+![umiui 2019-07-03 17_06_36](https://user-images.githubusercontent.com/11746742/60694711-a26fb100-9f11-11e9-951b-f3e28c079875.gif)
+
+## 配置文档
+
+alita基于[umi](https://github.com/umijs/umi),支持umi的所有配置项。umi-plugin-react的配置项在umi中配置。
+如
+
+```bash
+export default {
+  umi: {
+    dva: {
+      immer: true,
+    },
+    antd: true,
+    polyfills: ['ie9'],
+    locale: {},
+    dynamicImport: {
+      webpackChunkName: true,
+      loadingComponent: './components/Loading.js',
+    },
+    hd: true
+  }
+};
+```
+
+umi中的有四十几个[配置项](https://umijs.org/config/),面向各种前端开发需求，
+但是对于业务开发人员或非专业的前端开发人员，在使用alita的时候，只要两个配置就足够了。
+
+### arrType
+
+- 类型：String
+
+定义项目类型 （值为pc、h5、cordova）
+
+### proxy
+
+如果要代理请求到其他服务器，可以这样配：
+
+```js
+"proxy": {
+  "/api": {
+    "target": "http://jsonplaceholder.typicode.com/",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api" : "" }
+  }
+}
+```
+
+然后访问 /api/users` 就能访问到 [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users) 的数据。
+
+## 原生打包
+
+### 修改配置
+
+```js
+export default {
+  appType: 'cordova',
+};
+```
+
+### 初始化cordova项目
+
+```sh
+$ alita cordova --init
+```
+
+### 生成ios项目
+
+```sh
+$ alita cordova --ios
+```
+
+### 生成android项目
+
+```sh
+$ alita cordova --android
+```
+
+注意：安卓开发的时候，启动时需要配置环境变量
+
+```json
+"scripts":{
+  "start":"CORDOVA=android alita dev"
+}
+```
+
+## 其他配套生态
+
+### 接口翻译
+
+[米莱狄(Milady)](https://github.com/alitajs/milady) 通过解析接口文档生成前端代码
+![jiekou4 2019-07-05 10_45_29](https://user-images.githubusercontent.com/11746742/60694824-114d0a00-9f12-11e9-85e3-0213e35e602a.gif)
+ 后续还会加入接口版本控制等功能
+
+### 图表封装
+
+[rc-charts](https://github.com/alitajs/rc-charts) 一个基于BizCharts的图表库
+![image](https://user-images.githubusercontent.com/11746742/60695149-4d349f00-9f13-11e9-89d0-eae52b1a9b99.png)
+
+### H5通用布局
+
+[alita-layout](https://github.com/alitajs/alita-layout) H5通用布局,直接使用微信小程序的API定义，简单易用。
+![image](https://user-images.githubusercontent.com/11746742/60695238-9f75c000-9f13-11e9-935c-7fbea42d18f9.png)
+
+可以算是[ant-design-pro-layout](https://github.com/ant-design/ant-design-pro-layout)的补充项目
+
+### VC Code 插件
+
+现在VS Code插件[Umi Pro](https://marketplace.visualstudio.com/items?itemName=DiamondYuan.umi-pro)也支持alita了。
+
+![action1](https://user-images.githubusercontent.com/11746742/60695328-ebc10000-9f13-11e9-8ce4-163fa51c816d.gif)
+
+### 国际化
+
+和阿里巴巴国际化全流程解决方案 kiwi 结合使用，能实现一键提取中文文案 、一键替换文本、一键翻译、一键导出文本等功能。配合 vscode 插件使用，甚至可以实现可视化操作功能，后续国际化版本甚至可以让客服人员点点鼠标就能高效快速完成。
+（还未兼容umi的locale）
+
+### 页面权限
+
+直接新建 src/Authority.js 文件，然后在配置文件中，写上需要检测权限的页面 url 即可。甚至可以使用正则，通配符的形式进行页面矫权。
+
+### 京东Alita
+
+五月份的时候京东开源了一套把React Native代码转换成微信小程序代码的转换引擎工具，也叫做[Alita](https://github.com/areslabs/alita)。因为这个包发的是`@areslabs/alita` ，所以并没有注意到包名冲突问题。
+
+通过npm安装, `npm install -g @areslabs/alita` 。
+
+使用 `alita -i myproject -o myprojectwp` 将现有的Rn项目转化成小程序项目。
+
+导致同时安装 `alita` 和 `@areslabs/alita` 时，会有命令冲突的情况发生。
+
+### 其他业务
+
+其他业务需求都可以通过，插件的形式实现，有需要的项目按需添加，也是只要简单的更改配置文件即可，不需要写多余的代码。
+
+我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
+
+请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
 
 alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
 
@@ -10,44 +230,20 @@ alita是一个社区组织，请把这个徽章添加到你的项目的README.md
 或者在markdown中使用
 
 ```markdown
-[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](alitajs.com)
+[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](https://alitajs.com)
 ```
 
 ![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
 
 ## [Future](https://github.com/alitajs/alita/issues/1)
+
 |产品|项目|备注|
 |  :-:  | :-:  |:-:  |
-|web-components| https://github.com/alitajs/components||
+|web-components| https://github.com/alitajs/components|这只是技术尝试，可以直接用@ionic/react替代|
 |blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
 |alitax||https://github.com/refect/refect|
 |kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
 |ice||https://github.com/alibaba/ice/|
 |landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
 |static mock|| 将mock数据解析成静态json，去掉参数，保留正确响应。使得 umi build 之后，不需要部署服务器就可以预览页面，用于项目演示|
-
-## 低门槛
-学习成本低，完整的上手教程只需要五分钟,等发布正式版会附上开发手册。
-## 高性能
-自动压缩代码，自动使用摇树算法，去掉业务中不需要的多余代码，以路由为单元的代码分割
-## 多环境
-同时支持 pc 端和 h5 端，适配各种环境，比如中台业务、无线业务、egg、支付宝钱包等
-## 前端工程化
-使用 webpack 打包，配套有 vscode 插件。使用脚本对代码格式化。另外增加了提交代码前的代码质量检测，不合格的代码无法上传到 git 上,减轻代码 review 的工作量。
-## 低维护性
-alita 基于蚂蚁金服内部唯一的前端标准方案 umi 开发，后续 umi 添加的所有特性都能够及时享受。有用的方案也可以反馈到 umi 社区。
-## 其他配套生态
-### 国际化
-和阿里巴巴国际化全流程解决方案 kiwi 结合使用，能实现一键提取中文文案 、一键替换文本、一键翻译、一键导出文本等功能。配合 vscode 插件使用，甚至可以实现可视化操作功能，后续国际化版本甚至可以让客服人员点点鼠标就能高效快速完成。
-
-### 页面权限
-直接新建 src/Authority.js 文件，然后在配置文件中，写上需要检测权限的页面 url 即可。甚至可以使用正则，通配符的形式进行页面较权。
-### 模版库代码
-pc 端的模版库可以直接使用 ant-design-pro 的代码，也可以享受到 antd 区块的开发福利。
-h5 的模版库暂时没有，但只要承接几个 h5 项目就可以沉淀下来业务代码，因为不需要编写组件库，只需要保留简单的业务堆叠。
-### 其他业务
-其他业务需求都可以通过，插件的形式实现，有需要的项目按需添加，也是只要简单的更改配置文件即可，不需要写多余的代码。
-
-我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
-
-请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
+|cordova|https://www.npmjs.com/package/umi-plugin-cordova| 已完成，可用于生产 |
