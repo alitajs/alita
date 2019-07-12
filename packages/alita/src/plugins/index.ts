@@ -101,41 +101,20 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  api._registerConfig(() => {
-    return () => {
-      return {
-        name: 'retainLog',
-        validate: noop,
-        onChange(newConfig) {
-          api.restart('retainLog changed');
-        },
+  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode'];
+  registerConfigArr.forEach(item=>{
+    api._registerConfig(() => {
+      return () => {
+        return {
+          name: item,
+          validate: noop,
+          onChange(newConfig) {
+            api.restart(`${item} change`);
+          },
+        };
       };
-    };
-  });
-
-  api._registerConfig(() => {
-    return () => {
-      return {
-        name: 'appType',
-        validate: noop,
-        onChange(newConfig) {
-          api.restart('appType changed');
-        },
-      };
-    };
-  });
-
-  api._registerConfig(() => {
-    return () => {
-      return {
-        name: 'umi',
-        validate: noop,
-        onChange(newConfig) {
-          api.service.restart(`umi config changed`);
-        },
-      };
-    };
-  });
+    });
+  })
 
   if (opts.pagePath) {
     api._registerConfig(() => {
@@ -169,7 +148,21 @@ export default function (api) {
       ],
     }
   }
-
+api.log.success(opts.tongjiCode)
+  if(opts.tongjiCode){
+    plugins.tongji = () => require('./tongji').default;
+    opts.tongji = {
+     code: opts.tongjiCode,
+     judge: ()=>true // true or false
+   }
+  }
+  if(opts.gaCode){
+    plugins.ga = () => require('./ga').default;
+    opts.ga = {
+     code: opts.gaCode,
+     judge: ()=>true // true or false
+   }
+  }
   // 一些只有功能没有配置的插件
   const comPlugins = {
     prettier: () => require('./prettier').default,
