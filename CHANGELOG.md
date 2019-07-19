@@ -13,7 +13,7 @@ Types of changes
 - `Added` 配置tongjiCode，添加百度统计
 
 > 在JS中调用事件跟踪代码。
-> `_hmt.push(['_trackEvent', category, action, opt_label, opt_value]);`
+> `window._hmt.push(['_trackEvent', category, action, opt_label, opt_value]);`
 
 | 参数 | 说明 |
 |  :-  | :-:  |
