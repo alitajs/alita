@@ -148,7 +148,7 @@ export default function (api) {
       ],
     }
   }
-api.log.success(opts.tongjiCode)
+
   if(opts.tongjiCode){
     plugins.tongji = () => require('./tongji').default;
     opts.tongji = {
