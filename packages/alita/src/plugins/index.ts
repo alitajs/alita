@@ -1,3 +1,5 @@
+import resetMainPath from '../utils/resetMainPath';
+
 const { NODE_ENV } = process.env;
 
 const uglifyJSOptions =
@@ -101,7 +103,7 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode'];
+  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode','mainPath'];
   registerConfigArr.forEach(item=>{
     api._registerConfig(() => {
       return () => {
@@ -131,6 +133,11 @@ export default function (api) {
     process.env.PAGES_PATH = opts.pagePath;
   }
 
+  if(opts.mainPath){
+    api.modifyRoutes((routes: any[]) => {
+      return resetMainPath(routes,opts.mainPath);
+    });
+  }
 
   const plugins = {
   } as any;
@@ -163,6 +170,7 @@ export default function (api) {
      judge: ()=>true // true or false
    }
   }
+
   // 一些只有功能没有配置的插件
   const comPlugins = {
     prettier: () => require('./prettier').default,
