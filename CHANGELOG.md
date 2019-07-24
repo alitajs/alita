@@ -8,9 +8,20 @@ Types of changes
 :Security: in case of vulnerabilities. 对安全的改进
 ---
 
+### 1.0.1
+
+- `Added` 配置 `mainPath` 增加自定义主路由，即定义 `/` 路由映射的文件
+
+  如 `mainPath='/home'` ，访问 `http://localhost:8000`
+  即访问 `http://localhost:8000/home`，如果需要访问之前的主页，需要指定 `/index`。
+
+### 1.0.0
+
+- `Added` 增加文档官网 https://docs.alitajs.com
+
 ### 0.4.0
 
-- `Added` 配置tongjiCode，添加百度统计
+- `Added` 配置 `tongjiCode` ，添加百度统计
 
 > 在JS中调用事件跟踪代码。
 > `window._hmt.push(['_trackEvent', category, action, opt_label, opt_value]);`
@@ -22,4 +33,4 @@ Types of changes
 | opt_label | 事件的一些额外信息，通常可以是歌曲的名称、软件的名称、链接的名称等等。该项选填，不填、填"-"代表此项为空。 |
 | opt_value | 事件的一些数值信息，比如权重、时长、价格等等，在报表中可以看到其平均值等数据。该项可选。 |
 
-- `Added` 配置gaCode，添加谷歌统计
+- `Added` 配置 `gaCode` ，添加谷歌统计
