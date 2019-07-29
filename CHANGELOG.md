@@ -7,6 +7,9 @@ Types of changes
 :Fixed: for any bug fixes. 对bug的修复
 :Security: in case of vulnerabilities. 对安全的改进
 ---
+### 1.0.2
+
+- `Changed` `maiPath`插件化，[umi-plugin-main-path](https://www.npmjs.com/package/umi-plugin-main-path)
 
 ### 1.0.1
 
@@ -14,7 +17,6 @@ Types of changes
 
   如 `mainPath='/home'` ，访问 `http://localhost:8000`
   即访问 `http://localhost:8000/home`，如果需要访问之前的主页，需要指定 `/index`。
-
 ### 1.0.0
 
 - `Added` 增加文档官网 https://docs.alitajs.com

@@ -11170,6 +11170,10 @@ umi-plugin-locale@2.8.3:
     react-intl "2.7.2"
     umi-utils "1.4.4"
 
+umi-plugin-main-path@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/umi-plugin-main-path/-/umi-plugin-main-path-1.0.0.tgz#2cb9fc6c5222fe8f643163f35a004bfb2294126b"
+
 umi-plugin-polyfills@1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/umi-plugin-polyfills/-/umi-plugin-polyfills-1.4.2.tgz#ae13ff99efd7c8b1513dd6632d792b645aa02853"

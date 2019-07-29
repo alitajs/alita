@@ -12,6 +12,7 @@
     "umi-plugin-authorize": "1.0.3",
     "umi-plugin-cordova": "1.1.8",
     "umi-plugin-ga": "^1.1.5",
+    "umi-plugin-main-path": "^1.0.0",
     "umi-plugin-prettier": "0.0.6",
     "umi-plugin-react": "1.8.4",
     "umi-plugin-tongji": "^0.0.2",

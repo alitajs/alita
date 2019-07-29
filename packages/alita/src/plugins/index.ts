@@ -1,4 +1,3 @@
-import resetMainPath from '../utils/resetMainPath';
 
 const { NODE_ENV } = process.env;
 
@@ -42,12 +41,11 @@ const defaultOptions = {
 };
 
 export default function (api) {
-  const { debug, findJS, paths } = api;
-  const options = api.config;
-  const { umi = {}, appType = "pc", retainLog = false } = options;
+  const { debug, findJS, paths,config } = api;
+  const { umi = {}, appType = "pc", retainLog = false } = config;
 
   const opts = {
-    ...defaultOptions, ...options, umi: {
+    ...defaultOptions, ...config, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     },
     uglifyJSOptions: retainLog ? {} : uglifyJSOptions,
@@ -103,7 +101,7 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode','mainPath'];
+  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode'];
   registerConfigArr.forEach(item=>{
     api._registerConfig(() => {
       return () => {
@@ -131,12 +129,6 @@ export default function (api) {
       };
     });
     process.env.PAGES_PATH = opts.pagePath;
-  }
-
-  if(opts.mainPath){
-    api.modifyRoutes((routes: any[]) => {
-      return resetMainPath(routes,opts.mainPath);
-    });
   }
 
   const plugins = {
@@ -177,6 +169,7 @@ export default function (api) {
     whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
     alitaversion: () => require('./version').default,
+    mainpath: () => require('./mainpath').default,
   } as any;
 
   if (opts.appType === 'cordova') {
