@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
     "alita-components": "0.0.7",
