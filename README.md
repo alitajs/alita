@@ -220,30 +220,3 @@ $ alita cordova --android
 我们将为你提供技术指导与技术支持，使umi更适用于你们内部业务，这一切都是免费的。
 
 请告诉我们你的需求[Alita/Issues](https://github.com/alitajs/alita/issues) 、[umi/Issues](https://github.com/umijs/umi/issues) 、 [ant-design-pro/Issues](https://github.com/ant-design/ant-design-pro/issues)
-
-alita是一个社区组织，请把这个徽章添加到你的项目的README.md来支持alita
-
-```html
-<a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
-```
-
-或者在markdown中使用
-
-```markdown
-[![Alita](https://img.shields.io/badge/alitajs-alita-blue.svg)](https://alitajs.com)
-```
-
-![2019-04-10 11 37 33](https://user-images.githubusercontent.com/11746742/55874614-75875880-5bc5-11e9-8890-9d10c7f46ca9.gif)
-
-## [Future](https://github.com/alitajs/alita/issues/1)
-
-|产品|项目|备注|
-|  :-:  | :-:  |:-:  |
-|web-components| https://github.com/alitajs/components|这只是技术尝试，可以直接用@ionic/react替代|
-|blocks||充分用上抽象语法树 https://github.com/angular/angular-cli 感觉可以归到umi ui里面|
-|alitax||https://github.com/refect/refect|
-|kiwi|https://github.com/alitajs/umi-plugin-kiwi|https://github.com/alibaba/kiwi|
-|ice||https://github.com/alibaba/ice/|
-|landing||可视化编辑页面 https://github.com/ant-design/ant-design-landing|
-|data | https://github.com/alitajs/milady | 数据相关的需求，如自动化翻译接口文档，静态话部署等 |
-|cordova|https://www.npmjs.com/package/umi-plugin-cordova| 已完成，可用于生产 |
