@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href="http://ant.design">
     <img width="300" src="https://user-images.githubusercontent.com/11746742/60695674-2bd4b280-9f15-11e9-9e71-a93b44504c0c.png">
@@ -212,6 +211,16 @@ $ alita cordova --android
 使用 `alita -i myproject -o myprojectwp` 将现有的Rn项目转化成小程序项目。
 
 导致同时安装 `alita` 和 `@areslabs/alita` 时，会有命令冲突的情况发生。
+
+### 社区
+
+* 钉钉，请扫描下面的二维码加群
+
+<img height="200" src="https://github.com/alitajs/alita/blob/master/public/dingding.png"></img> 
+
+* 微信，扫描二维码添加机器人，回复alita进群
+
+<img height="200" src="https://github.com/alitajs/alita/blob/master/public/wechat.png"></img> 
 
 ### 其他业务
 
