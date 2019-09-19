@@ -44,9 +44,9 @@ const defaultOptions = {
 export default function (api) {
   const { debug, findJS, paths } = api;
   const options = api.config;
-  const { umi = {}, appType = "pc", retainLog = false } = options;
+  const { umi = {}, appType = "pc", retainLog = false, complexRoute = false } = options;
 
-  const opts = {
+  let opts = {
     ...defaultOptions, ...options, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
     },
@@ -55,6 +55,19 @@ export default function (api) {
     //   defaultGitUrl: appType !== 'pc' ? 'https://github.com/alitajs/h5blocks' : 'https://github.com/ant-design/pro-blocks',
     // },
   };
+  if (complexRoute) {
+    opts.umi.routes = {
+      // 规定只有index文件会被识别成路由
+      exclude: [
+        /model\.(j|t)sx?$/,
+        /\.test\.(j|t)sx?$/,
+        /service\.(j|t)sx?$/,
+        /models\//,
+        /components\//,
+        /services\//
+      ]
+    }
+  }
   api.modifyDefaultConfig(memo => {
     return {
       // build目录默认为www
@@ -103,8 +116,8 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  const registerConfigArr = ['retainLog','appType','umi','tongjiCode','gaCode','mainPath'];
-  registerConfigArr.forEach(item=>{
+  const registerConfigArr = ['retainLog', 'appType', 'umi', 'tongjiCode', 'gaCode', 'mainPath', 'complexRoute'];
+  registerConfigArr.forEach(item => {
     api._registerConfig(() => {
       return () => {
         return {
@@ -133,9 +146,9 @@ export default function (api) {
     process.env.PAGES_PATH = opts.pagePath;
   }
 
-  if(opts.mainPath){
+  if (opts.mainPath) {
     api.modifyRoutes((routes: any[]) => {
-      return resetMainPath(routes,opts.mainPath);
+      return resetMainPath(routes, opts.mainPath);
     });
   }
 
@@ -156,19 +169,19 @@ export default function (api) {
     }
   }
 
-  if(opts.tongjiCode){
+  if (opts.tongjiCode) {
     plugins.tongji = () => require('./tongji').default;
     opts.tongji = {
-     code: opts.tongjiCode,
-     judge: ()=>true // true or false
-   }
+      code: opts.tongjiCode,
+      judge: () => true // true or false
+    }
   }
-  if(opts.gaCode){
+  if (opts.gaCode) {
     plugins.ga = () => require('./ga').default;
     opts.ga = {
-     code: opts.gaCode,
-     judge: ()=>true // true or false
-   }
+      code: opts.gaCode,
+      judge: () => true // true or false
+    }
   }
 
   // 一些只有功能没有配置的插件
