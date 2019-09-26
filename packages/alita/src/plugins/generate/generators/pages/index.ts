@@ -39,6 +39,11 @@ Example:
           type: 'confirm',
           message: 'Do you want to use typescript?',
           default: false,
+        }, {
+          name: 'useReactHooks',
+          type: 'confirm',
+          message: 'Do you want to use react hooks?',
+          default: false,
         }
       ];
       return this.prompt(prompts).then(props => {
@@ -48,7 +53,7 @@ Example:
 
     writing() {
       const path = this.args[0].toString();
-      const { isTypeScript } = this.prompts;
+      const { isTypeScript, useReactHooks } = this.prompts;
       const jsxExt = isTypeScript ? 'tsx' : 'js';
       const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
@@ -62,12 +67,15 @@ Example:
         cssExt,
         jsxExt,
       };
+      const indexPageTemp = useReactHooks ? 'src/pages/indexhooks/index.tsx' : 'src/pages/index/index.tsx';
 
       this.fs.copyTpl(
-        this.templatePath('src/pages/index/index.tsx'),
+        this.templatePath(indexPageTemp),
         join(paths.cwd, `src/pages/${fileName}/index.${jsxExt}`),
         context,
       );
+
+
       this.fs.copyTpl(
         this.templatePath('src/pages/index/index.less'),
         join(paths.cwd, `src/pages/${fileName}/index.${cssExt}`),
