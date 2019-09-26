@@ -19,7 +19,7 @@ class Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% }
     const {
       <%= name %>: { name },
     } = this.props;
-    return <div className={styles.userCenter}>Hello {name}</div>;
+    return <div className={styles.center}>Hello {name}</div>;
   }
 }
 
