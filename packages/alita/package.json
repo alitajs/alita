@@ -16,7 +16,7 @@
     "umi-plugin-react": "1.8.4",
     "umi-plugin-tongji": "^0.0.2",
     "umi-plugin-whale": "0.0.10",
-    "umi-request": "1.0.7"
+    "umi-request": "1.2.7"
   },
   "module": "index.js",
   "bin": {
