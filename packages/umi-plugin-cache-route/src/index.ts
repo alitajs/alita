@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import update from './update';
 
 const target = path.resolve('../../node_modules/umi/lib/renderRoutes.js');
 const source = path.resolve('../renderRoutes.js');
@@ -17,13 +18,6 @@ function optsToArray(item) {
   }
 }
 
-function update(routes, keepalive) {
-  return routes.map(route => {
-    if (keepalive.indexOf(route.path)) {
-      route.keepAlive = true;
-    }
-  })
-}
 export default function (api, options: IOpts) {
 
   // keep alive init
@@ -51,10 +45,21 @@ export default function (api, options: IOpts) {
     options = newOpts;
     api.rebuildTmpFiles();
   });
-
+  if (!options.keepalive) {
+    return
+  }
   api.modifyRoutes(routes => {
     routes = update(routes, optsToArray(options.keepalive));
     return routes;
   });
+
+
+  // import { dropByCacheKey } from 'react-router-cache-route';
+  api.addUmiExports([
+    {
+      specifiers: ['dropByCacheKey'],
+      source: 'react-router-cache-route',
+    },
+  ]);
 }
 

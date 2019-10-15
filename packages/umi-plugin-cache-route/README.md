@@ -12,9 +12,72 @@ Configure in `.umirc.js`,
 ```js
 export default {
   plugins: [
-    ['umi-plugin-cache-route', options],
+    ['umi-plugin-cache-route', {
+      keepalive:['route path','route path']
+    }],
   ],
 }
+```
+
+### Configuration Routing 配置路由
+
+Configure in `.umirc.js`,
+
+```js
+export default {
+  plugins: [
+    ['umi-plugin-cache-route'],
+  ],
+  routes: [
+    {
+      path: '/',
+      component: '../layouts/index',
+      routes: [
+        {
+          path: '/list',
+          component: './list',
+          keepAlive: true,
+        },
+        {
+          path: '/item',
+          component: './item',
+        },
+      ],
+    },
+  ]
+};
+```
+
+### Conventional Routing 约定式路由
+
+Configure in `.umirc.js`,
+
+```js
+export default {
+  plugins: [
+    ['umi-plugin-cache-route', {
+      keepalive:['/list']
+    }],
+  ],
+}
+```
+
+### Manual release 手动解除keep
+
+```js
+import { dropByCacheKey } from 'umi';
+
+export default () => {
+  const clearCache = () => {
+    dropByCacheKey('/list');
+  };
+  return (
+    <Card>
+      <Button onClick={clearCache}>clear list page cache</Button>
+    </Card>
+  );
+};
+
 ```
 
 ## Options

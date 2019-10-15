@@ -1,6 +1,6 @@
 import { Card, Button } from 'antd';
 import router from 'umi/router';
-import dropByCacheKey from 'umi/dropByCacheKey';
+import { dropByCacheKey } from 'umi';
 
 export default () => {
   const goBack = () => {

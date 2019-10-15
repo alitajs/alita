@@ -9,6 +9,10 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _reactRouterCacheRoute = _interopRequireWildcard(require("react-router-cache-route"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -64,7 +68,23 @@ var RouteWithProps = function RouteWithProps(_ref) {
       _render = _ref.render,
       location = _ref.location,
       sensitive = _ref.sensitive,
-      rest = _objectWithoutProperties(_ref, ["path", "exact", "strict", "render", "location", "sensitive"]);
+      keepAlive = _ref.keepAlive,
+      rest = _objectWithoutProperties(_ref, ["path", "exact", "strict", "render", "location", "sensitive", "keepAlive"]);
+
+  if (keepAlive) {
+    return _react.default.createElement(_reactRouterCacheRoute.default, {
+      when: "always",
+      cacheKey: path,
+      path: path,
+      exact: exact,
+      strict: strict,
+      location: location,
+      sensitive: sensitive,
+      render: function render(props) {
+        return _render(_objectSpread({}, props, {}, rest));
+      }
+    });
+  }
 
   return _react.default.createElement(_reactRouterDom.Route, {
     path: path,
@@ -238,7 +258,8 @@ function wrapWithInitialProps(WrappedComponent, initialProps) {
       }, {
         key: "render",
         value: function render() {
-          return _react.default.createElement(WrappedComponent, _objectSpread({}, this.props, {}, this.state.extraProps));
+          var extraProps = this.state.extraProps;
+          return _react.default.createElement(WrappedComponent, _objectSpread({}, this.props, {}, extraProps));
         }
       }]);
 
@@ -253,7 +274,11 @@ function renderRoutes(routes) {
 
   var plugins = require('umi/_runtimePlugin');
 
-  return routes ? _react.default.createElement(_reactRouterDom.Switch, switchProps, routes.map(function (route, i) {
+  return routes ? _react.default.createElement(_reactRouterCacheRoute.CacheSwitch, _extends({}, switchProps, {
+    which: function which(element) {
+      return element.props.keepAlive;
+    }
+  }), routes.map(function (route, i) {
     if (route.redirect) {
       return _react.default.createElement(_reactRouterDom.Redirect, {
         key: route.key || i,
@@ -271,6 +296,7 @@ function renderRoutes(routes) {
       exact: route.exact,
       strict: route.strict,
       sensitive: route.sensitive,
+      keepAlive: route.keepAlive,
       render: function render(props) {
         var childRoutes = renderRoutes(route.routes, extraProps, {
           location: props.location
@@ -284,7 +310,7 @@ function renderRoutes(routes) {
               route: route
             }
           });
-          var Component = route.component;
+          var Component = route.component; // eslint-disable-next-line no-undef
 
           if (__IS_BROWSER && Component.getInitialProps) {
             var initialProps = plugins.apply('modifyInitialProps', {
