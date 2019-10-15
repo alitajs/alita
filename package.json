@@ -49,6 +49,7 @@
     "serve-static": "^1.13.2",
     "shelljs": "0.8.3",
     "test-build-result": "^1.1.2",
-    "umi-tools": "^0.4.0"
+    "umi-tools": "^0.4.0",
+    "umi-types": "^0.5.3"
   }
 }
