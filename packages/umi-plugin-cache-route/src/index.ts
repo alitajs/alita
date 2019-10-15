@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import update from './update';
 
-const target = path.resolve('../../node_modules/umi/lib/renderRoutes.js');
-const source = path.resolve('../renderRoutes.js');
+const target = path.resolve('./node_modules/umi/lib/renderRoutes.js');
+const source = path.resolve('./node_modules/umi-plugin-cache-route/renderRoutes.js');
 
 interface IOpts {
   keepalive: string[] | string;

@@ -116,7 +116,7 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  const registerConfigArr = ['retainLog', 'appType', 'umi', 'tongjiCode', 'gaCode', 'mainPath', 'complexRoute'];
+  const registerConfigArr = ['retainLog', 'appType', 'umi', 'tongjiCode', 'gaCode', 'mainPath', 'complexRoute', 'keepalive'];
   registerConfigArr.forEach(item => {
     api._registerConfig(() => {
       return () => {
@@ -176,11 +176,19 @@ export default function (api) {
       judge: () => true // true or false
     }
   }
+
   if (opts.gaCode) {
     plugins.ga = () => require('./ga').default;
     opts.ga = {
       code: opts.gaCode,
       judge: () => true // true or false
+    }
+  }
+
+  if (opts.keepalive) {
+    plugins.keepalive = () => require('./keepalive').default;
+    opts.keepalive = {
+      keepalive: opts.keepalive,
     }
   }
 
