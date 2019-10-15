@@ -45,14 +45,15 @@ export default function (api, options: IOpts) {
     options = newOpts;
     api.rebuildTmpFiles();
   });
+
   if (!options.keepalive) {
     return
   }
+
   api.modifyRoutes(routes => {
     routes = update(routes, optsToArray(options.keepalive));
     return routes;
   });
-
 
   // import { dropByCacheKey } from 'react-router-cache-route';
   api.addUmiExports([
