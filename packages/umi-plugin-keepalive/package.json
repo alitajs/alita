@@ -1,5 +1,5 @@
 {
-  "name": "umi-plugin-umi-plugin-keepalive",
+  "name": "umi-plugin-keepalive",
   "version": "0.0.2-alpha.0",
   "description": "umi keep alive",
   "authors": {
@@ -16,7 +16,8 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "renderRoutes.js"
   ],
   "dependencies": {
     "react-router-cache-route": "^1.7.0"
