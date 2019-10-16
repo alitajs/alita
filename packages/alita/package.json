@@ -5,7 +5,6 @@
   "dependencies": {
     "alita-components": "0.0.7",
     "babel-eslint": "10.0.1",
-    "dva": "2.4.1",
     "eslint-config-alita": "1.0.5",
     "eslint-loader": "2.1.2",
     "eslint-plugin-flowtype": "2.50.3",
@@ -18,7 +17,8 @@
     "umi-plugin-react": "1.9.19",
     "umi-plugin-tongji": "^0.0.2",
     "umi-plugin-whale": "0.0.10",
-    "umi-request": "1.2.7"
+    "umi-request": "1.2.7",
+    "dva": "2.4.1"
   },
   "module": "index.js",
   "bin": {
