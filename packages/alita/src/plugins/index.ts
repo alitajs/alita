@@ -68,6 +68,16 @@ export default function (api) {
       ]
     }
   }
+  api.modifyAFWebpackOpts(memo => {
+    return {
+      ...memo,
+      define: {
+        ...memo.define,
+        __IS_BROWSER: true,
+      }
+    }
+  });
+
   api.modifyDefaultConfig(memo => {
     return {
       // build目录默认为www
