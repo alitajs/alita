@@ -4,31 +4,29 @@
   </a>
 </p>
 
-<h1 align="center">Alita</h1>
-
 <div align="center">
 
-不仅仅是一个框架，更是一种开发提效生态
+Umi 的封装脚手架，但又不仅仅是一个脚手架，还是一种开发提效生态
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/)
 <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 </div>
 
-随着业界的不断发展和新技术的不断涌现，越来越多的开发者开始注重自身的开发体验。带着这样的一个终极目标，我们开始逐步探索低门槛、高性能、易拓展、高效率的开发与维护方案，通过可插拔的特性，提升开发体验，让开发者更多地专注于项目本身。
+简单好用，无脑撸业务。
 
-## Install
+## 安装
 
-通过npm安装即可
+通过 npm 安装即可
 
 `npm install -g alita`
 
-通过yarn安装即可
+通过 yarn 安装即可
 
 `yarn global add alita`
 
-若有权限问题，需要`sudo`
+若有权限问题，需要 `sudo`
 
-## Getting Started
+## 快速开始
 
 ### 新建项目
 
@@ -44,6 +42,134 @@ $ alita g app myApp
 $ cd myApp
 $ yarn  (或 npm i)
 $ yarn start (或 npm start)
+```
+
+## 配置文档
+
+### umi
+
+alita 基于 [umi](https://github.com/umijs/umi) ,支持 umi 的所有配置项。`umi-plugin-react` 的配置项在 `umi` 中配置。
+如
+
+```bash
+export default {
+  umi: {
+    dva: {
+      immer: true,
+    },
+    antd: true,
+    polyfills: ['ie9'],
+    locale: {},
+    dynamicImport: {
+      webpackChunkName: true,
+      loadingComponent: './components/Loading.js',
+    },
+    hd: true
+  }
+};
+```
+
+### appType
+
+- 类型：String
+
+定义项目类型 （ 值为 pc 、 h5 、 cordova ）
+
+默认：
+
+```js
+appType:'pc'
+```
+
+### proxy
+
+如果要代理请求到其他服务器，可以这样配：
+
+```js
+"proxy": {
+  "/api": {
+    "target": "http://jsonplaceholder.typicode.com/",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api" : "" }
+  }
+}
+```
+
+然后访问 `/api/users` 就能访问到 [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users) 的数据。
+
+### retainLog
+
+默认会在打包 ( build ) 的时候，移除 `console.*` ，保留 `console.error` 。
+
+如果你需要在打包之后仍然保留 `console` ，请配置
+
+```js
+retainLog:true
+```
+
+### complexRoute
+
+alita 默认只识别 index 文件（ pages/*/index ）生成路由，如果你需要嵌套路由功能，请配置
+
+```js
+complexRoute:true
+```
+
+### mainPath
+
+alita 默认把 `pages/index/index` 文件作为根路由，如果你希望使用其他文件，请配置
+
+```js
+mainPath:'/home'
+```
+
+### tongjiCode
+
+增加百度统计功能
+
+```js
+tongjiCode:'baidu code'
+```
+
+### gaCode
+
+增加谷歌统计功能
+
+```js
+gaCode:'google code'
+```
+
+### keepalive
+
+支持 keep alive 功能，底层实现是 [react-router-cache-route](https://github.com/CJY0208/react-router-cache-route) ，如果你需要使用，请配置
+
+```js
+ keepalive:['/list']
+```
+
+#### keep alive 初始化
+
+由于 umi 还不支持 keep alive ，暂时通过覆盖 umi 库文件的方式实现，所以每次重装模块之后都要先执行初始化
+
+```sh
+alita keepalive
+```
+
+配置中的页面，会被保持，你可以在不需要的时候手动解除
+
+```js
+import { dropByCacheKey } from 'alita';
+
+export default () => {
+  const clearCache = () => {
+    dropByCacheKey('/list');
+  };
+  return (
+    <Card>
+      <Button onClick={clearCache}>clear list page cache</Button>
+    </Card>
+  );
+};
 ```
 
 ## 新建页面
@@ -69,68 +195,6 @@ export default {
 };
 ```
 
-#### 使用命令安装
-
-```sh
-$ npx umi block add DashboardAnalysis --path=/dashboard/analysis
-```
-![snapshot](https://user-images.githubusercontent.com/11746742/60694664-73593f80-9f11-11e9-8c02-d347791c36aa.png)
-
-有网络问题，请重试。一直失败。可以删除，用户目录下的 `.umi` 文件
-如 `/Users/xiaohuoni/.umi`
-
-#### 后续可以使用umi ui安装
-
-![umiui 2019-07-03 17_06_36](https://user-images.githubusercontent.com/11746742/60694711-a26fb100-9f11-11e9-951b-f3e28c079875.gif)
-
-## 配置文档
-
-alita基于[umi](https://github.com/umijs/umi),支持umi的所有配置项。umi-plugin-react的配置项在umi中配置。
-如
-
-```bash
-export default {
-  umi: {
-    dva: {
-      immer: true,
-    },
-    antd: true,
-    polyfills: ['ie9'],
-    locale: {},
-    dynamicImport: {
-      webpackChunkName: true,
-      loadingComponent: './components/Loading.js',
-    },
-    hd: true
-  }
-};
-```
-
-umi中的有四十几个[配置项](https://umijs.org/config/),面向各种前端开发需求，
-但是对于业务开发人员或非专业的前端开发人员，在使用alita的时候，只要两个配置就足够了。
-
-### arrType
-
-- 类型：String
-
-定义项目类型 （值为pc、h5、cordova）
-
-### proxy
-
-如果要代理请求到其他服务器，可以这样配：
-
-```js
-"proxy": {
-  "/api": {
-    "target": "http://jsonplaceholder.typicode.com/",
-    "changeOrigin": true,
-    "pathRewrite": { "^/api" : "" }
-  }
-}
-```
-
-然后访问 /api/users` 就能访问到 [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users) 的数据。
-
 ## 原生打包
 
 ### 修改配置
@@ -141,19 +205,19 @@ export default {
 };
 ```
 
-### 初始化cordova项目
+### 初始化 cordova 项目
 
 ```sh
 $ alita cordova --init
 ```
 
-### 生成ios项目
+### 生成 ios 项目
 
 ```sh
 $ alita cordova --ios
 ```
 
-### 生成android项目
+### 生成 android 项目
 
 ```sh
 $ alita cordova --android
@@ -177,19 +241,19 @@ $ alita cordova --android
 
 ### 图表封装
 
-[rc-charts](https://github.com/alitajs/rc-charts) 一个基于BizCharts的图表库
+[rc-charts](https://github.com/alitajs/rc-charts) 一个基于 BizCharts 的图表库
 ![image](https://user-images.githubusercontent.com/11746742/60695149-4d349f00-9f13-11e9-89d0-eae52b1a9b99.png)
 
 ### H5通用布局
 
-[alita-layout](https://github.com/alitajs/alita-layout) H5通用布局,直接使用微信小程序的API定义，简单易用。
+[alita-layout](https://github.com/alitajs/alita-layout) H5 通用布局,直接使用微信小程序的 API 定义，简单易用。
 ![image](https://user-images.githubusercontent.com/11746742/60695238-9f75c000-9f13-11e9-935c-7fbea42d18f9.png)
 
 可以算是[ant-design-pro-layout](https://github.com/ant-design/ant-design-pro-layout)的补充项目
 
 ### VC Code 插件
 
-现在VS Code插件[Umi Pro](https://marketplace.visualstudio.com/items?itemName=DiamondYuan.umi-pro)也支持alita了。
+现在 VS Code 插件[Umi Pro](https://marketplace.visualstudio.com/items?itemName=DiamondYuan.umi-pro)也支持alita了。
 
 ![action1](https://user-images.githubusercontent.com/11746742/60695328-ebc10000-9f13-11e9-8ce4-163fa51c816d.gif)
 
@@ -216,11 +280,11 @@ $ alita cordova --android
 
 * 钉钉，请扫描下面的二维码加群
 
-<img height="200" src="https://github.com/alitajs/alita/blob/master/public/dingding.png"></img> 
+<img height="200" src="https://github.com/alitajs/alita/blob/master/public/dingding.png"></img>
 
 * 微信，扫描二维码添加机器人，回复alita进群
 
-<img height="200" src="https://github.com/alitajs/alita/blob/master/public/wechat.png"></img> 
+<img height="200" src="https://github.com/alitajs/alita/blob/master/public/wechat.png"></img>
 
 ### 其他业务
 
