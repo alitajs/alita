@@ -1,0 +1,25 @@
+{
+  "name": "umi-plugin-cache-route",
+  "version": "1.0.1",
+  "description": "umi keep alive",
+  "authors": {
+    "name": "xiaohuoni",
+    "email": "448627663@qq.com"
+  },
+  "repository": "alitajs/alita",
+  "main": "lib/index.js",
+  "bugs": {
+    "url": "https://github.com/alitajs/alita/issues"
+  },
+  "peerDependencies": {
+    "umi": "2.6.10"
+  },
+  "files": [
+    "lib",
+    "src",
+    "renderRoutes.js"
+  ],
+  "dependencies": {
+    "react-router-cache-route": "^1.7.0"
+  }
+}

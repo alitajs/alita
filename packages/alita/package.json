@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "1.1.1",
+  "version": "1.2.5",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
     "alita-components": "0.0.7",
@@ -10,6 +10,7 @@
     "eslint-plugin-flowtype": "2.50.3",
     "umi": "2.7.7",
     "umi-plugin-authorize": "1.0.3",
+    "umi-plugin-cache-route": "1.0.1",
     "umi-plugin-cordova": "1.1.8",
     "umi-plugin-ga": "^1.1.5",
     "umi-plugin-prettier": "0.0.6",
