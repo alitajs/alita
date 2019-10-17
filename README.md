@@ -44,7 +44,7 @@ $ yarn  (或 npm i)
 $ yarn start (或 npm start)
 ```
 
-## 配置文档
+## 配置文档(9)
 
 ### umi
 
