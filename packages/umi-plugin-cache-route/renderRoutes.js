@@ -11,7 +11,9 @@ var _reactRouterDom = require("react-router-dom");
 
 var _reactRouterCacheRoute = _interopRequireWildcard(require("react-router-cache-route"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69,12 +71,14 @@ var RouteWithProps = function RouteWithProps(_ref) {
       location = _ref.location,
       sensitive = _ref.sensitive,
       keepAlive = _ref.keepAlive,
-      rest = _objectWithoutProperties(_ref, ["path", "exact", "strict", "render", "location", "sensitive", "keepAlive"]);
+      multiple = _ref.multiple,
+      rest = _objectWithoutProperties(_ref, ["path", "exact", "strict", "render", "location", "sensitive", "keepAlive", "multiple"]);
 
   if (keepAlive) {
     return _react.default.createElement(_reactRouterCacheRoute.default, {
       when: "always",
       cacheKey: path,
+      multiple: multiple,
       path: path,
       exact: exact,
       strict: strict,
@@ -297,6 +301,7 @@ function renderRoutes(routes) {
       strict: route.strict,
       sensitive: route.sensitive,
       keepAlive: route.keepAlive,
+      multiple: route.multiple || false,
       render: function render(props) {
         var childRoutes = renderRoutes(route.routes, extraProps, {
           location: props.location
