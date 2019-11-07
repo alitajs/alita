@@ -15,11 +15,12 @@
     "umi": "2.6.10"
   },
   "files": [
+    "backups",
     "lib",
     "src",
     "renderRoutes.js"
   ],
   "dependencies": {
-    "react-router-cache-route": "^1.7.0"
+    "react-router-cache-route": "1.8.3"
   }
 }
