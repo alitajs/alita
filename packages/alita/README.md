@@ -9,9 +9,11 @@
 Umi 的封装脚手架，但又不仅仅是一个脚手架，还是一种开发提效生态
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/)
+[![NPM downloads](http://img.shields.io/npm/dy/alita.svg?style=flat)](https://npmjs.org/package/alita)
 <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 </div>
-[![NPM downloads](http://img.shields.io/npm/dy/alita.svg?style=flat)](https://npmjs.org/package/alita)
+
+
 简单好用，无脑撸业务。
 
 ## 安装
