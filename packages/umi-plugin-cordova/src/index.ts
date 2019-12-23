@@ -48,6 +48,35 @@ function setCordovaConfig(path, isProduction) {
   writeFileSync(configPath, content);
 }
 
+// android 支持 view port
+export function supportViewPortForAndroid(path) {
+  const configPath = join(path, 'config.xml');
+  const config = new ConfigParser(configPath);
+  const packageName = config.packageName();
+  const paths = packageName.split('.');
+  const mainActivityPath = join(path, 'platforms/android/app/src/main/java', ...paths, 'MainActivity.java');
+  if (!existsSync(mainActivityPath)) return;
+  let content = readFileSync(mainActivityPath).toString();
+  if (!/WebView webView = \(WebView\)[\s]?this\.appView\.getView\(\);/.test(content)) {
+    content = content.replace('loadUrl(launchUrl);', 'loadUrl(launchUrl);\n\t//下面能让 Android 设备支持 viewport\n\tWebView webView = (WebView) this.appView.getView();\n\twebView.getSettings().setLoadWithOverviewMode(true);\n\twebView.getSettings().setUseWideViewPort(true);');
+    writeFileSync(mainActivityPath, content);
+  }
+}
+
+// 修复ios外层滚动
+function fixScrollIssueForIOS(path) {
+  const configPath = join(path, 'config.xml');
+  const config = new ConfigParser(configPath);
+  const appName = config.name();
+  const mainViewControllerPath = join(path, 'platforms/ios/', appName, 'Classes/MainViewController.m');
+  if (!existsSync(mainViewControllerPath)) return;
+  let content = readFileSync(mainViewControllerPath).toString();
+  if (!/self\.webView\.scrollView\.bounces[\s]?=[\s]?NO;/.test(content)) {
+    content = content.replace('[super viewDidLoad];', '[super viewDidLoad];\n\tself.webView.scrollView.bounces = NO;\n\tself.webView.scrollView.scrollEnabled = NO;');
+    writeFileSync(mainViewControllerPath, content);
+  }
+}
+
 export default function (api, options) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
@@ -84,6 +113,12 @@ export default function (api, options) {
           if (error) {
             console.error('exec error: ' + error);
             return
+          } else {
+            if (!isIos) {
+              supportViewPortForAndroid(api.paths.cwd);
+            } else {
+              fixScrollIssueForIOS(api.paths.cwd);
+            }
           }
           console.log(stdout)
           console.log(stderr)
