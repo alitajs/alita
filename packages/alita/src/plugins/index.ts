@@ -6,6 +6,10 @@ const uglifyJSOptions =
   NODE_ENV === 'production'
     ? {
       uglifyOptions: {
+        // remove comments
+        output: {
+          comments: false,
+        },
         // remove console.* except console.error
         compress: {
           drop_console: true,
