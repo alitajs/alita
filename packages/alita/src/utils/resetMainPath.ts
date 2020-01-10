@@ -19,5 +19,5 @@ export default function resetMainPath(routes: any[], mainPath: string) {
       element.routes = resetMainPath(element.routes, mainPath);
     }
     return element;
-  });;
+  });
 }

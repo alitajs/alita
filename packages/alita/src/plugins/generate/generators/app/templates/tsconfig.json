@@ -21,6 +21,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "allowJs": true,
+    // "strict": true,
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -106,6 +106,31 @@ export default api => {
         context,
       );
       this.fs.copyTpl(
+        this.templatePath('_eslintignore'),
+        join(paths.cwd, this.hasName ? this.appName : '', '.eslintignore'),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('_eslintrc.js'),
+        join(paths.cwd, this.hasName ? this.appName : '', '.eslintrc.js'),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('_prettierignore'),
+        join(paths.cwd, this.hasName ? this.appName : '', '.prettierignore'),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('_prettierrc.js'),
+        join(paths.cwd, this.hasName ? this.appName : '', '.prettierrc.js'),
+        context,
+      );
+      this.fs.copyTpl(
+        this.templatePath('_stylelintrc.js'),
+        join(paths.cwd, this.hasName ? this.appName : '', '.stylelintrc.js'),
+        context,
+      );
+      this.fs.copyTpl(
         this.templatePath('config/config.ts'),
         join(paths.cwd, this.hasName ? this.appName : '', `config/config.${jsExt}`),
         context,

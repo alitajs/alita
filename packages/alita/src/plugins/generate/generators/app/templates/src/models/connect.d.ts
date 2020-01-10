@@ -2,7 +2,7 @@ import { RouterTypes, AnyAction, match, EffectsCommandMap } from 'alita';
 import { <%= componentName %>ModelState } from './<%= name %>';
 
 export {
-  <%= componentName %>ModelState
+  <%= componentName %>ModelState,
 };
 
 export interface MenuDataItem {
@@ -40,21 +40,7 @@ export interface Loading {
   global: boolean;
   effects: { [key: string]: boolean | undefined };
   models: {
-    activities?: boolean;
-    chart?: boolean;
-    form?: boolean;
-    geographic?: boolean;
-    global?: boolean;
-    list?: boolean;
-    login?: boolean;
-    menu?: boolean;
-    monitor?: boolean;
-    profile?: boolean;
-    project?: boolean;
-    register?: boolean;
-    rule?: boolean;
-    setting?: boolean;
-    user?: boolean;
+    <%= name %>?: boolean;
   };
 }
 
@@ -72,4 +58,5 @@ export interface ConnectProps<P extends { [K in keyof P]?: string } = {}>
   match?: match<P>;
 }
 
+// eslint-disable-next-line no-undef
 export default ConnectState;
