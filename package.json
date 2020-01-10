@@ -7,6 +7,7 @@
     "chore:update-deps": "./scripts/update_deps.sh",
     "test": "node scripts/test.js",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "link:cli": "cd packages/alita && yarn link && cd -",
     "lint": "eslint --ext .js packages",
     "pre-commit": "lint-staged",
     "doc:dev": "./website/node_modules/.bin/vuepress dev ./docs",

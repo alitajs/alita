@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-react-router-cache-route@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/react-router-cache-route/-/react-router-cache-route-1.7.0.tgz#001b32b3c328e19b55cfafb0bb472b46b6ca7b6c"
+react-router-cache-route@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/react-router-cache-route/-/react-router-cache-route-1.8.3.tgz#8e7e57cedc32b234a48a25804400c56179e04d20"

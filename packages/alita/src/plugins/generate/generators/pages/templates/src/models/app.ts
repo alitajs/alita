@@ -1,8 +1,9 @@
-import { query } from '@/services/api';
 <% if (isTypeScript) { %>
-import { Effect } from '@/models/connect';
 import { Reducer } from 'redux';
 import { Subscription } from 'dva';
+import { query } from '@/services/api';
+import { Effect } from '@/models/connect';
+
 export interface <%= componentName %>ModelState {
   name: string;
 }
@@ -14,41 +15,41 @@ export interface <%= componentName %>ModelType {
     query: Effect;
   };
   reducers: {
-    save:  Reducer<<%= componentName %>ModelState>;
+    save: Reducer<<%= componentName %>ModelState>;
   };
   subscriptions: { setup: Subscription };
 }
+<% } else { %>
+  import { query } from '@/services/api';
 <% } %>
 
 const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>ModelType<% } %> = {
   namespace: '<%= name %>',
 
   state: {
-    name: ''
+    name: '',
   },
 
   effects: {
-    *query({ payload }, { call, put, select }) {
+    *query({ payload }, { call, put }) {
       const data = yield call(query, payload);
       console.log(data)
       yield put({
         type: 'save',
         payload: { name: data.text },
       });
-
     },
-
   },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
-        if (pathname === '/<%= name %>') {
+        if (pathname === '/') {
           dispatch({
-            type: 'query'
+            type: 'query',
           })
         }
       });
-    }
+    },
   },
   reducers: {
     save(state, action) {

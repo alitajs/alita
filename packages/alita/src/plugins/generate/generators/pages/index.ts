@@ -32,6 +32,7 @@ Example:
         console.log();
       }
     }
+
     prompting() {
       const prompts = [
         {
@@ -44,7 +45,12 @@ Example:
           type: 'confirm',
           message: 'Do you want to use react hooks?',
           default: false,
-        }
+        }, {
+          name: 'autoCreateModel',
+          type: 'confirm',
+          message: 'Do you want to create page model?',
+          default: true,
+        },
       ];
       return this.prompt(prompts).then(props => {
         this.prompts = props;
@@ -53,7 +59,7 @@ Example:
 
     writing() {
       const path = this.args[0].toString();
-      const { isTypeScript, useReactHooks } = this.prompts;
+      const { isTypeScript, useReactHooks, autoCreateModel } = this.prompts;
       const jsxExt = isTypeScript ? 'tsx' : 'js';
       const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
@@ -63,7 +69,7 @@ Example:
         name: fileName,
         componentName,
         color: randomColor().hexString(),
-        isTypeScript: isTypeScript,
+        isTypeScript,
         cssExt,
         jsxExt,
       };
@@ -81,6 +87,7 @@ Example:
         join(paths.cwd, `src/pages/${fileName}/index.${cssExt}`),
         context,
       );
+      if (!autoCreateModel) return;
       this.fs.copyTpl(
         this.templatePath('src/models/app.ts'),
         join(paths.cwd, `src/models/${fileName}.${jsExt}`),
@@ -89,16 +96,20 @@ Example:
 
       // 简单的修改了src/models/connect.d.ts
       if (isTypeScript && existsSync(join(paths.cwd, 'src/models/connect.d.ts'))) {
-        var connectPath = join(paths.cwd, 'src/models/connect.d.ts');
+        const connectPath = join(paths.cwd, 'src/models/connect.d.ts');
         let content = readFileSync(connectPath).toString();
-        const exportPattern = `export {`;
+        const exportPattern = 'export {';
         const exportRegex = new RegExp(exportPattern);
         const importModelState = `import { ${componentName}ModelState } from './${fileName}';`
         content = content.replace(exportRegex, `${importModelState}\nexport {\n\t${componentName}ModelState,`);
-        const connectPattern = `export interface ConnectState {`;
+        const connectPattern = 'export interface ConnectState {';
         const connectRegex = new RegExp(connectPattern);
         const interfaceModelState = `${fileName}?: ${componentName}ModelState;`
         content = content.replace(connectRegex, `export interface ConnectState {\n\t${interfaceModelState}\n`);
+        const loadingPattern = 'export interface Loading {';
+        const loadingRegex = new RegExp(loadingPattern);
+        const loadingState = `${fileName}?: boolean;`
+        content = content.replace(loadingRegex, `export interface ConnectState {\n\t${loadingState}\n`);
         writeFileSync(connectPath, content);
         console.log('   modification src/models/connect.d.ts')
       }

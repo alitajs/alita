@@ -13,7 +13,7 @@ interface PageState {}
 <% } %>
 @connect(({ <%= name %> }) => ({ <%= name %> }))
 class Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% } %>{
-  state<% if (isTypeScript) { %>: PageState <% } %> = {};
+  state<% if (isTypeScript) { %>: PageState <% } %>= {};
 
   render() {
     const {

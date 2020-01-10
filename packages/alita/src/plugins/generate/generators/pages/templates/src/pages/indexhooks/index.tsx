@@ -10,9 +10,9 @@ interface PageProps extends ConnectProps {
 }
 
 <% } %>
-const Page: FC<% if (isTypeScript) { %><PageProps> <% } %> = ({ <%= name %> }) => {
+const <%= componentName %>Page: FC<% if (isTypeScript) { %><PageProps><% } %> = ({ <%= name %> }) => {
   const { name } = <%= name %>;
   return <div className={styles.center}>Hello {name}</div>;
 };
 
-export default connect(({ <%= name %> }) => ({ <%= name %> }))(Page);
+export default connect(({ <%= name %> }) => ({ <%= name %> }))(<%= componentName %>Page);

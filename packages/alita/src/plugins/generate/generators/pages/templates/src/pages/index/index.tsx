@@ -12,8 +12,8 @@ interface PageProps extends ConnectProps {
 interface PageState {}
 <% } %>
 @connect(({ <%= name %> }) => ({ <%= name %> }))
-class Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% } %>{
-  state<% if (isTypeScript) { %>: PageState <% } %> = {};
+class <%= componentName %>Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% } %>{
+  state<% if (isTypeScript) { %>: PageState<% } %> = {};
 
   render() {
     const {
@@ -23,4 +23,4 @@ class Page extends Component<% if (isTypeScript) { %><PageProps, PageState> <% }
   }
 }
 
-export default Page;
+export default <%= componentName %>Page;
