@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "eslint-config-umi": "1.4.5"
+    "eslint-config-umi": "1.6.0"
   },
   "peerDependencies": {
     "eslint-plugin-flowtype": "2.x",

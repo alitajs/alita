@@ -46,7 +46,7 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
           dispatch({
             type: 'query',
           })
-        },
+        }
       });
     }
   },

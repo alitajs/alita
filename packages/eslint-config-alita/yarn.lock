@@ -2,18 +2,18 @@
 # yarn lockfile v1
 
 
-confusing-browser-globals@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.6.tgz#5918188e8244492cdd46d6be1cab60edef3063ce"
+confusing-browser-globals@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.9.tgz#72bc13b483c0276801681871d4898516f8f54fdd"
 
-eslint-config-react-app@3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-3.0.8.tgz#6f606828ba30bafee7d744c41cd07a3fea8f3035"
+eslint-config-react-app@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-5.0.2.tgz#df40d73a1402986030680c040bbee520db5a32a4"
   dependencies:
-    confusing-browser-globals "^1.0.6"
+    confusing-browser-globals "^1.0.9"
 
-eslint-config-umi@1.4.5:
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.4.5.tgz#2bf9729f70967737a11a9c7eb6f01258a56921e3"
+eslint-config-umi@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-umi/-/eslint-config-umi-1.6.0.tgz#a2bf913d5656a8da65ef095db60e0b11c4e72fe0"
   dependencies:
-    eslint-config-react-app "3.0.8"
+    eslint-config-react-app "5.0.2"
