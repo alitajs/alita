@@ -1,6 +1,3 @@
-<% if (!isTypeScript) { %>
-import { query } from '@/services/api';
-}
 <% if (isTypeScript) { %>
 import { Reducer } from 'redux';
 import { Subscription } from 'dva';
@@ -21,6 +18,8 @@ export interface <%= componentName %>ModelType {
   };
   subscriptions: { setup: Subscription };
 }
+<% } else { %>
+import { query } from '@/services/api';
 <% } %>
 
 const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>ModelType<% } %> = {
@@ -47,7 +46,7 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
           dispatch({
             type: 'query',
           })
-        },
+        }
       });
     }
   },
