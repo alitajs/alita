@@ -109,7 +109,7 @@ Example:
         const loadingPattern = 'export interface Loading {';
         const loadingRegex = new RegExp(loadingPattern);
         const loadingState = `${fileName}?: boolean;`
-        content = content.replace(loadingRegex, `export interface ConnectState {\n\t${loadingState}\n`);
+        content = content.replace(loadingRegex, `export interface Loading {\n\t${loadingState}\n`);
         writeFileSync(connectPath, content);
         console.log('   modification src/models/connect.d.ts')
       }
