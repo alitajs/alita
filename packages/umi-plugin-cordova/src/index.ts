@@ -1,22 +1,28 @@
 // ref:
 // - https://umijs.org/plugin/develop.html
-import create from './create-cordova';
 import { events, ConfigParser } from 'cordova-common';
 import { join } from 'path';
-import assert from 'assert';
 import os from 'os';
-import { lstatSync, readFileSync, writeFileSync, existsSync, readdirSync } from 'fs-extra';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs-extra';
 import childProcess from 'child_process';
+import create from './create-cordova';
 
 function getIpAddress() {
   const networkInterfaces = os.networkInterfaces();
   let ipAddress = '127.0.0.1';
+  // eslint-disable-next-line no-restricted-syntax
   for (const key in networkInterfaces) {
     if (networkInterfaces.hasOwnProperty(key)) {
       const iface = networkInterfaces[key];
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < iface.length; i++) {
-        let alias = iface[i];
-        if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.address.startsWith('169.254') && !alias.internal) {
+        const alias = iface[i];
+        if (
+          alias.family === 'IPv4' &&
+          alias.address !== '127.0.0.1' &&
+          !alias.address.startsWith('169.254') &&
+          !alias.internal
+        ) {
           ipAddress = alias.address;
         }
       }
@@ -29,18 +35,18 @@ function setCordovaConfig(path, isProduction) {
   const webPort = process.env.PORT || 8000;
   const ip = getIpAddress();
   const webUrl = !isProduction ? `http://${ip}:${webPort}` : 'index.html';
-  var configPath = join(path, 'config.xml');
+  const configPath = join(path, 'config.xml');
   let content = readFileSync(configPath).toString();
-  const contentPattern = `<content (.*)src="[^"]*"(.*)/>`;
+  const contentPattern = '<content (.*)src="[^"]*"(.*)/>';
   const contentRegex = new RegExp(contentPattern);
   content = content.replace(contentRegex, `<content $1src="${webUrl}"$2/>`);
   if (!isProduction) {
-    const navPattern = `(<allow-navigation .*)href="[^"]*"(.*/>)`;
+    const navPattern = '(<allow-navigation .*)href="[^"]*"(.*/>)';
     const navRegex = new RegExp(navPattern);
     if (navRegex.test(content)) {
       content = content.replace(navRegex, `$1href="${webUrl}"$2`);
     } else {
-      const widgePattern = `</widget>`;
+      const widgePattern = '</widget>';
       const widgeRegex = new RegExp(widgePattern);
       content = content.replace(widgeRegex, `\t<allow-navigation href="${webUrl}" />\n</widget>`);
     }
@@ -54,11 +60,19 @@ export function supportViewPortForAndroid(path) {
   const config = new ConfigParser(configPath);
   const packageName = config.packageName();
   const paths = packageName.split('.');
-  const mainActivityPath = join(path, 'platforms/android/app/src/main/java', ...paths, 'MainActivity.java');
+  const mainActivityPath = join(
+    path,
+    'platforms/android/app/src/main/java',
+    ...paths,
+    'MainActivity.java',
+  );
   if (!existsSync(mainActivityPath)) return;
   let content = readFileSync(mainActivityPath).toString();
   if (!/WebView webView = \(WebView\)[\s]?this\.appView\.getView\(\);/.test(content)) {
-    content = content.replace('loadUrl(launchUrl);', 'loadUrl(launchUrl);\n\t//下面能让 Android 设备支持 viewport\n\tWebView webView = (WebView) this.appView.getView();\n\twebView.getSettings().setLoadWithOverviewMode(true);\n\twebView.getSettings().setUseWideViewPort(true);');
+    content = content.replace(
+      'loadUrl(launchUrl);',
+      'loadUrl(launchUrl);\n\t//下面能让 Android 设备支持 viewport\n\tWebView webView = (WebView) this.appView.getView();\n\twebView.getSettings().setLoadWithOverviewMode(true);\n\twebView.getSettings().setUseWideViewPort(true);',
+    );
     writeFileSync(mainActivityPath, content);
   }
 }
@@ -68,27 +82,37 @@ function fixScrollIssueForIOS(path) {
   const configPath = join(path, 'config.xml');
   const config = new ConfigParser(configPath);
   const appName = config.name();
-  const mainViewControllerPath = join(path, 'platforms/ios/', appName, 'Classes/MainViewController.m');
+  const mainViewControllerPath = join(
+    path,
+    'platforms/ios/',
+    appName,
+    'Classes/MainViewController.m',
+  );
   if (!existsSync(mainViewControllerPath)) return;
   let content = readFileSync(mainViewControllerPath).toString();
   if (!/self\.webView\.scrollView\.bounces[\s]?=[\s]?NO;/.test(content)) {
-    content = content.replace('[super viewDidLoad];', '[super viewDidLoad];\n\tself.webView.scrollView.bounces = NO;\n\tself.webView.scrollView.scrollEnabled = NO;');
+    content = content.replace(
+      '[super viewDidLoad];',
+      '[super viewDidLoad];\n\tself.webView.scrollView.bounces = NO;\n\tself.webView.scrollView.scrollEnabled = NO;',
+    );
     writeFileSync(mainViewControllerPath, content);
   }
 }
 
-export default function (api, options) {
+export default function (api) {
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
 
   api.addHTMLMeta(memo => {
-    const addItem = [{
-      "content": "no",
-      "name": "msapplication-tap-highlight"
-    }]
+    const addItem = [
+      {
+        content: 'no',
+        name: 'msapplication-tap-highlight',
+      },
+    ];
     return [...addItem, ...memo];
-  })
+  });
 
   api.modifyDefaultConfig(memo => {
     return {
@@ -98,7 +122,7 @@ export default function (api, options) {
       base: './',
       publicPath: './',
       history: 'hash',
-    }
+    };
   });
   // dev
   // 1.cordova create
@@ -108,24 +132,27 @@ export default function (api, options) {
       description: 'cordova init',
     },
     args => {
-      const addPlatforms = (isIos) => {
-        childProcess.exec(`cordova platforms add ${isIos ? 'ios' : 'android'}`, {}, (error, stdout, stderr) => {
-          if (error) {
-            console.error('exec error: ' + error);
-            return
-          } else {
-            if (!isIos) {
+      const addPlatforms = (isIos: boolean) => {
+        childProcess.exec(
+          `cordova platforms add ${isIos ? 'ios' : 'android'}`,
+          {},
+          (error, stdout, stderr) => {
+            if (error) {
+              console.error(`exec error: ${error}`);
+            } else if (!isIos) {
               supportViewPortForAndroid(api.paths.cwd);
             } else {
               fixScrollIssueForIOS(api.paths.cwd);
             }
-          }
-          console.log(stdout)
-          console.log(stderr)
-        })
+            console.log(stdout);
+            console.log(stderr);
+          },
+        );
         console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
-      }
+      };
       if (args.init) {
+        // eslint-disable-next-line global-require
+        // eslint-disable-next-line import/no-dynamic-require
         const pkg = require(join(api.paths.cwd, 'package.json'));
         const optionalName = pkg.name || 'alitaapp';
         const optionalId = `com.alitaexample.${optionalName}`;
@@ -133,7 +160,11 @@ export default function (api, options) {
         if (args.ios || args.android) {
           addPlatforms(args.ios);
         } else {
-          console.log(`cordova init success,please run "${isAlita ? 'alita' : 'umi'} cordova --ios" or "${isAlita ? 'alita' : 'umi'} cordova --android"  to add cordova platforms`);
+          console.log(
+            `cordova init success,please run "${isAlita ? 'alita' : 'umi'} cordova --ios" or "${
+            isAlita ? 'alita' : 'umi'
+            } cordova --android"  to add cordova platforms`,
+          );
         }
       } else if (args.ios || args.android) {
         addPlatforms(args.ios);
@@ -141,13 +172,16 @@ export default function (api, options) {
     },
   );
 
-
   if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build')) {
     return;
   }
-  var configPath = join(api.paths.cwd, 'config.xml');
-  var platformsPath = join(api.paths.cwd, 'platforms');
-  if (existsSync(configPath) && existsSync(platformsPath) && readdirSync(platformsPath).length > 0) {
+  const configPath = join(api.paths.cwd, 'config.xml');
+  const platformsPath = join(api.paths.cwd, 'platforms');
+  if (
+    existsSync(configPath) &&
+    existsSync(platformsPath) &&
+    readdirSync(platformsPath).length > 0
+  ) {
     console.log(`cordova platform use ${cordovaPlatform}`);
     // 3.node config-xml.js true
     // console.log(api);
@@ -157,11 +191,11 @@ export default function (api, options) {
     // api.devServerPort 需要提交PR来支持
     childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
       if (error) {
-        console.error('exec error: ' + error);
+        console.error(`exec error: ${error}`);
       }
-      // console.log(stdout)
-      // console.log(stderr)
-    })
+      console.log(stdout);
+      console.log(stderr);
+    });
 
     // 5.node serve-cordova.js ios
     const dirToServe = join(api.paths.cwd, 'platforms', cordovaPlatform, 'platform_www');
@@ -169,10 +203,10 @@ export default function (api, options) {
     const serveProcess = childProcess.exec(
       `serve -l ${servePort}`,
       { stdio: 'inherit', cwd: dirToServe } as any,
-      (error, stdout, stderr) => {
+      (error, stdout) => {
         console.error(error.message);
         console.log(stdout.toString('utf8'));
-      }
+      },
     );
     console.log(`cordova serve(pid:${serveProcess.pid})`);
 
@@ -212,14 +246,18 @@ export default function (api, options) {
       // 4. cordova build ios
       childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
         if (error) {
-          console.error('exec error: ' + error);
+          console.error(`exec error: ${error}`);
         }
         console.log(stdout);
         console.log(stderr);
         process.exit();
-      })
+      });
     });
   } else {
-    console.log(`please run "${isAlita ? 'alita' : 'umi'} cordova --init --ios" to init cordova and add cordova platform`);
+    console.log(
+      `please run "${
+      isAlita ? 'alita' : 'umi'
+      } cordova --init --ios" to init cordova and add cordova platform`,
+    );
   }
 }

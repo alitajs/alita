@@ -61,7 +61,7 @@ export default function (api) {
   };
   if (complexRoute) {
     opts.umi.routes = {
-      // 规定只有index文件会被识别成路由
+      // 保留 umi 的约定
       exclude: [
         /model\.(j|t)sx?$/,
         /\.test\.(j|t)sx?$/,
@@ -92,33 +92,6 @@ export default function (api) {
   // import { request } from 'alita';
   api.addRuntimePluginKey('request');
 
-  if (!process.env.ALITA_ESLINT || process.env.ALITA_ESLINT !== 'none') {
-    api.chainWebpackConfig(config => {
-      const eslintOptions = {
-        baseConfig: {
-          extends: [require.resolve('eslint-config-alita')],
-        },
-        ignore: false,
-        eslintPath: require.resolve('eslint'),
-        useEslintrc: false,
-      };
-
-      config.module
-        .rule('eslint-alita')
-        .test(/\.(js|jsx)$/)
-        .include.add(api.paths.cwd)
-        .end()
-        .exclude
-        .add(/node_modules/)
-        .add(/public/)
-        .end()
-        .enforce('pre')
-        .use('eslint-loader')
-        .loader(require.resolve('eslint-loader'))
-        .options(eslintOptions);
-    });
-  }
-
   function getId(id) {
     return `alita:${id}`;
   }
@@ -130,7 +103,7 @@ export default function (api) {
 
   reactPlugin(api, opts.umi);
 
-  const registerConfigArr = ['retainLog', 'appType', 'umi', 'tongjiCode', 'gaCode', 'mainPath', 'complexRoute', 'keepalive'];
+  const registerConfigArr = ['retainLog', 'appType', 'umi', 'tongjiCode', 'gaCode', 'mainPath', 'complexRoute'];
   registerConfigArr.forEach(item => {
     api._registerConfig(() => {
       return () => {
@@ -169,20 +142,6 @@ export default function (api) {
   const plugins = {
   } as any;
 
-  // add convention authority
-  if (findJS(paths.absSrcPath, 'Authority')) {
-    plugins.authority = () => require('./authorize').default;
-    opts.authority = {
-      authorize: [
-        {
-          guard: ['src/Authority'],
-          include: /\//,
-          exclude: /\/user/i,
-        },
-      ],
-    }
-  }
-
   if (opts.tongjiCode) {
     plugins.tongji = () => require('./tongji').default;
     opts.tongji = {
@@ -199,17 +158,8 @@ export default function (api) {
     }
   }
 
-  if (opts.keepalive) {
-    plugins.keepalive = () => require('./keepalive').default;
-    opts.keepalive = {
-      keepalive: opts.keepalive,
-    }
-  }
-
   // 一些只有功能没有配置的插件
   const comPlugins = {
-    prettier: () => require('./prettier').default,
-    whale: () => require('./whale').default,
     alitagenerate: () => require('./generate/index').default,
     alitaversion: () => require('./version').default,
   } as any;
