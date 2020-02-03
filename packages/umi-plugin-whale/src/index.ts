@@ -25,7 +25,7 @@ export default function (api, options) {
         body,
         #root {
           width: 100%;
-          height: 100%;
+          height: 100vh;
         }
         body {
           -webkit-touch-callout: none;
