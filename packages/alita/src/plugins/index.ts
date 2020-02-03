@@ -50,6 +50,22 @@ export default function (api) {
   const options = api.config;
   const { umi = {}, appType = "pc", retainLog = false, complexRoute = false } = options;
 
+  // export { match } from 'react-router-dom';
+  // export { AnyAction, Reducer } from 'redux';
+  api.addUmiExports([
+    {
+      specifiers: ['AnyAction', 'Reducer'],
+      source: 'redux',
+    },
+    {
+      specifiers: ['match'],
+      source: 'react-router-dom',
+    },
+    {
+      specifiers: ['EffectsCommandMap'],
+      source: 'dva',
+    },
+  ]);
   let opts = {
     ...defaultOptions, ...options, umi: {
       ...defaultOptions.umi, ...umi, hd: appType !== 'pc'
@@ -84,7 +100,6 @@ export default function (api) {
 
   api.modifyDefaultConfig(memo => {
     return {
-      // build目录默认为www
       ...memo,
       ...opts
     }
@@ -161,6 +176,7 @@ export default function (api) {
   // 一些只有功能没有配置的插件
   const comPlugins = {
     alitagenerate: () => require('./generate/index').default,
+    alitawhale: () => require('./whale').default,
     alitaversion: () => require('./version').default,
   } as any;
 
@@ -175,13 +191,14 @@ export default function (api) {
       opts: opts[key],
     });
 
+    // eslint-disable-next-line no-underscore-dangle
     api._registerConfig(() => {
       return () => {
         return {
           name: key,
           validate: noop,
-          onChange(newConfig) {
-            api.service.restart(`${name} changed`);
+          onChange() {
+            api.service.restart(`${key} changed`);
           },
         };
       };

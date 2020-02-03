@@ -1,8 +1,9 @@
-import { AnyAction, EffectsCommandMap, RouterTypes, match } from 'alita';
-import { IndexModelState } from './index';
-import { SettingsModelState } from './settings';
-import { ListModelState } from './list';
-export { ListModelState, SettingsModelState, IndexModelState };
+import { RouterTypes, AnyAction, match, EffectsCommandMap } from 'alita';
+import { <%= componentName %>ModelState } from './<%= name %>';
+
+export {
+  <%= componentName %>ModelState,
+};
 
 export interface MenuDataItem {
   authority?: string[] | string;
@@ -28,31 +29,23 @@ export type Effect = (
  * @type P: Type of payload
  * @type C: Type of callback
  */
-export type Dispatch = <P = any, C = (payload: P) => void>(
-  action: {
-    type: string;
-    payload?: P;
-    callback?: C;
-    [key: string]: any;
-  },
-) => any;
+export type Dispatch = <P = any, C = (payload: P) => void>(action: {
+  type: string;
+  payload?: P;
+  callback?: C;
+  [key: string]: any;
+}) => any;
 
 export interface Loading {
   global: boolean;
   effects: { [key: string]: boolean | undefined };
   models: {
-    index?: boolean;
-    list?: boolean;
-    settings?: boolean;
+    <%= name %>?: boolean;
   };
 }
 
 export interface ConnectState {
-  list?: ListModelState;
-
-  settings?: SettingsModelState;
-
-  index?: IndexModelState;
+  <%= name %>?: <%= componentName %>ModelState;
 }
 
 /**

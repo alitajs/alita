@@ -34,21 +34,17 @@ Example:
     }
 
     prompting() {
+      if (config.useModel) {
+        log.warn(
+          'useModel,auto create useModel demo'
+        );
+        console.log();
+      }
       const prompts = [
         {
-          name: 'isTypeScript',
-          type: 'confirm',
-          message: 'Do you want to use typescript?',
-          default: false,
-        }, {
-          name: 'useReactHooks',
-          type: 'confirm',
-          message: 'Do you want to use react hooks?',
-          default: false,
-        }, {
           name: 'autoCreateModel',
           type: 'confirm',
-          message: 'Do you want to create page model?',
+          message: 'Do you want to create dva model? 需要创建对应的dva model吗？',
           default: true,
         },
       ];
@@ -59,7 +55,8 @@ Example:
 
     writing() {
       const path = this.args[0].toString();
-      const { isTypeScript, useReactHooks, autoCreateModel } = this.prompts;
+      const { autoCreateModel } = this.prompts;
+      const isTypeScript = true;
       const jsxExt = isTypeScript ? 'tsx' : 'js';
       const jsExt = isTypeScript ? 'ts' : 'js';
       const cssExt = 'less';
@@ -73,7 +70,7 @@ Example:
         cssExt,
         jsxExt,
       };
-      const indexPageTemp = useReactHooks ? 'src/pages/indexhooks/index.tsx' : 'src/pages/index/index.tsx';
+      const indexPageTemp = 'src/pages/indexhooks/index.tsx';
 
       this.fs.copyTpl(
         this.templatePath(indexPageTemp),
@@ -106,10 +103,10 @@ Example:
         const connectRegex = new RegExp(connectPattern);
         const interfaceModelState = `${fileName}?: ${componentName}ModelState;`
         content = content.replace(connectRegex, `export interface ConnectState {\n\t${interfaceModelState}\n`);
-        const loadingPattern = 'export interface Loading {';
+        const loadingPattern = /index\?: boolean;/;
         const loadingRegex = new RegExp(loadingPattern);
         const loadingState = `${fileName}?: boolean;`
-        content = content.replace(loadingRegex, `export interface Loading {\n\t${loadingState}\n`);
+        content = content.replace(loadingRegex, `index?: boolean;\n\t${loadingState}\n`);
         writeFileSync(connectPath, content);
         console.log('   modification src/models/connect.d.ts')
       }

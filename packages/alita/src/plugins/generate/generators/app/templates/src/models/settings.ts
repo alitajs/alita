@@ -1,28 +1,24 @@
-<% if (isTypeScript) { %>
 import { Reducer } from 'redux';
 import { query } from '@/services/api';
 import { Effect } from '@/models/connect';
 
-export interface <%= componentName %>ModelState {
+export interface SettingsModelState {
   name: string;
 }
 
-export interface <%= componentName %>ModelType {
-  namespace: '<%= name %>';
-  state: <%= componentName %>ModelState;
+export interface SettingsModelType {
+  namespace: 'settings';
+  state: SettingsModelState;
   effects: {
     query: Effect;
   };
   reducers: {
-    save: Reducer<<%= componentName %>ModelState>;
+    save: Reducer<SettingsModelState>;
   };
 }
-<% } else { %>
-  import { query } from '@/services/api';
-<% } %>
 
-const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>ModelType<% } %> = {
-  namespace: '<%= name %>',
+const SettingsModel: SettingsModelType = {
+  namespace: 'settings',
 
   state: {
     name: '',
@@ -31,7 +27,7 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
   effects: {
     *query({ payload }, { call, put }) {
       const data = yield call(query, payload);
-      console.log(data)
+      console.log(data);
       yield put({
         type: 'save',
         payload: { name: data.text },
@@ -48,4 +44,4 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
   },
 };
 
-export default <%= componentName %>Model;
+export default SettingsModel;

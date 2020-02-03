@@ -20,34 +20,19 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@alitajs/alita-layout": "^1.0.9",
-    "alita": "1.4.3-alpha.0"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
-  },
-  "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx}": "npm run lint-staged:js",
-    "**/*.{js,ts,tsx,json,jsx,less}": [
-      "npm run prettier",
-      "git add"
-    ]
+    "alita": "*"
   },
   "devDependencies": {
-    "@umijs/fabric": "2.0.0",
-    "chalk": "^3.0.0",
+    "@umijs/fabric": "2.0.0-beta.4",
     "check-prettier": "^1.0.3",
     "cross-env": "^6.0.3",
-    "eslint": "6.8.0",
-    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint": "5.10.0",
+    "husky": "^3.1.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-module": "^6.0.0",
     "lint-staged": "^9.5.0",
-    "stylelint": "^12.0.1",
-    "yorkie": "^2.0.0"
+    "stylelint": "^12.0.1"
   }
 }
