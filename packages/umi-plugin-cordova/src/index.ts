@@ -155,7 +155,7 @@ export default function (api) {
         // eslint-disable-next-line import/no-dynamic-require
         const pkg = require(join(api.paths.cwd, 'package.json'));
         const optionalName = pkg.name || 'alitaapp';
-        const optionalId = `com.alitaexample.${optionalName}`;
+        const optionalId = `com.alita.${optionalName}`;
         create(api.paths.cwd, optionalId, optionalName, {}, events);
         if (args.ios || args.android) {
           addPlatforms(args.ios);
