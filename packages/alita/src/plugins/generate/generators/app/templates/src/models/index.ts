@@ -1,6 +1,7 @@
 import { Effect } from '@/models/connect';
 import { Reducer } from 'redux';
 import { query } from '@/services/api';
+
 export interface IndexModelState {
   name: string;
 }

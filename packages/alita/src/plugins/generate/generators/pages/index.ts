@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs-extra';
 
 
 export default api => {
-  const { paths, config, log, findJS } = api;
+  const { paths, config, log } = api;
   return class Generator extends api.Generator {
     constructor(args, options) {
       super(args, options);
