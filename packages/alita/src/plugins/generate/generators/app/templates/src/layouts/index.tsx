@@ -34,6 +34,7 @@ const BasicLayout: React.FC = ({ children }) => {
   const navList: NarBarListItem[] = [];
   const navBar: NavBarProps = {
     navList,
+    fixed: true,
     onLeftClick: () => {
       router.goBack();
     },
