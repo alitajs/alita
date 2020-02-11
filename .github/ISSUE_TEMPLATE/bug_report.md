@@ -12,7 +12,7 @@ A clear and concise description of what the bug is.
 
 ## Mini Showcase Repository(REQUIRED)
 
-> Provide a mini GitHub repository which can reproduce the issue. Use `yarn create umi` then upload to your GitHub
+> Provide a mini GitHub repository which can reproduce the issue. Use `yarn create alita` then upload to your GitHub
 
 <!-- https://github.com/YOUR_REPOSITORY_URL -->
 
@@ -24,6 +24,6 @@ A clear and concise description of what the bug is.
 
 ## Context
 
-- **Umi Version**:
+- **Alita Version**:
 - **Node Version**:
 - **Platform**:
