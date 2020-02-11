@@ -1,23 +1,23 @@
 {
+  "version": "3.0.0-beta.1",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "changelog": {
-    "labels": {
-      "pr: enhancement": ":rocket: Enhancement",
-      "pr: bug": ":bug: Bug Fix",
-      "pr: documentation": ":book: Documentation",
-      "pr: dependency": ":deciduous_tree: Dependency",
-      "pr: remove":":heavy_minus_sign: remove function or plugin"
-    },
     "repo": "alitajs/alita",
+    "labels": {
+      "pr(enhancement)": ":rocket: Enhancement",
+      "pr(bug)": ":bug: Bug Fix",
+      "pr(documentation)": ":book: Documentation",
+      "pr(dependency)": ":deciduous_tree: Dependency",
+      "pr(chore)": ":turtle: Chore"
+    },
     "cacheDir": ".changelog"
   },
-  "packages": [
-    "packages/*"
-  ],
-  "command": {
-    "version": {
-      "exact": true
-    }
-  },
-  "npmClient": "yarn",
-  "version": "independent"
+  "ignoreChanges": [
+    "**/*.md",
+    "**/*.test.ts",
+    "**/*.e2e.ts",
+    "**/fixtures/**",
+    "**/test/**"
+  ]
 }

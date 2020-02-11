@@ -1,12 +1,9 @@
 {
-  "name": "alita",
+  "name": "@alitajs/utils",
   "version": "3.0.0-beta.1",
-  "description": "alita",
+  "description": "@alitajs/utils",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "bin": {
-    "alita": "./bin/alita.js"
-  },
   "files": [
     "lib"
   ],
@@ -24,12 +21,8 @@
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita-utils#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "umi": "3.0.0-beta.10",
-    "@alitajs/umi-presets-alita": "3.0.0-beta.1"
   }
 }

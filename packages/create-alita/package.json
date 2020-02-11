@@ -1,14 +1,16 @@
 {
-  "name": "alita",
+  "name": "create-alita",
   "version": "3.0.0-beta.1",
-  "description": "alita",
+  "description": "create-alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "alita": "./bin/alita.js"
+    "create-alita": "bin/create-alita.js"
   },
   "files": [
-    "lib"
+    "lib",
+    "generate/generators/app/templates",
+    "bin"
   ],
   "repository": {
     "type": "git",
@@ -24,12 +26,12 @@
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/create-alita#readme",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "umi": "3.0.0-beta.10",
-    "@alitajs/umi-presets-alita": "3.0.0-beta.1"
+    "@umijs/utils": "3.0.0-beta.9",
+    "@umijs/types": "3.0.0-beta.9"
   }
 }

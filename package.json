@@ -1,57 +1,46 @@
 {
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "build": "./scripts/build.js",
-    "changelog": "lerna-changelog",
-    "chore:update-deps": "./scripts/update_deps.sh",
-    "test": "node scripts/test.js",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "link:cli": "cd packages/alita && yarn link && cd -",
-    "lint": "eslint --ext .js packages",
+    "bootstrap": "node ./scripts/bootstrap.js",
+    "build": "father-build",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "link:alita": "cd packages/alita && yarn link && cd -",
+    "release": "node ./scripts/release.js",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "test:update": "umi-test --updateSnapshot",
+    "update:deps": "yarn upgrade-interactive --latest"
+  },
+  "gitHooks": {
     "pre-commit": "lint-staged",
-    "doc:dev": "./website/node_modules/.bin/vuepress dev ./docs",
-    "doc:deploy": "rm -rf ./website/yarn.lock && cd ./website && npm run deploy && cd -",
-    "publish": "./scripts/publish.js",
-    "prettier": "prettier -c --write **/*",
-    "ui:dev": "APP_ROOT=umi-build-dev/src/plugins/commands/ui ./packages/alita/bin/alita.js dev",
-    "ui:build": "APP_ROOT=umi-build-dev/src/plugins/commands/ui ./packages/alita/bin/alita.js build"
+    "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "*.(t|j)s": [
-      "prettier --write",
-      "git add"
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
     ]
   },
   "devDependencies": {
-    "@types/jest": "^24.0.5",
-    "@umijs/fabric": "^1.0.6",
-    "babel-eslint": "10.0.1",
-    "chokidar": "2.0.4",
-    "coveralls": "3.0.2",
-    "dva": "2.4.1",
-    "eslint": "5.10.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-react": "7.11.1",
-    "form-data": "^2.3.3",
-    "got": "9.3.2",
-    "husky": "1.2.0",
-    "lerna": "3.6.0",
-    "lerna-changelog": "0.8.2",
-    "lint-staged": "8.1.0",
-    "mkdirp": "^0.5.1",
-    "prettier": "1.15.3",
-    "puppeteer": "1.11.0",
-    "react-router-dom": "4.3.1",
-    "react-test-renderer": "16.6.3",
-    "serve-handler": "5.0.8",
-    "serve-static": "^1.13.2",
-    "shelljs": "0.8.3",
-    "test-build-result": "^1.1.2",
-    "umi-tools": "^0.4.0",
-    "umi-types": "^0.5.3"
+    "@babel/core": "7.8.4",
+    "@testing-library/react": "^9.4.0",
+    "@types/babel__core": "7.1.3",
+    "@types/babel__traverse": "7.0.8",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.0",
+    "@umijs/core": "3.0.0-beta.1",
+    "@umijs/test": "3.0.0-beta.1",
+    "@umijs/utils": "3.0.0-beta.1",
+    "father-build": "^1.17.2",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "yorkie": "^2.0.0"
   }
 }

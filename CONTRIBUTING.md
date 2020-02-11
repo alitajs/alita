@@ -1,76 +1,88 @@
-# Contribute
-
-> Notice: `y` is the alias for `yarn`, `n` is the alias for `npm`.
+# Contributing to umi
 
 ## Set up
 
 Install dev deps after git clone the repo.
 
 ```bash
-$ y
+# npm is not allowed.
+$ yarn
 ```
 
-Bootstrap every package with yarn. (Need to execute when new package is included)
+Link umi globally.
 
 ```bash
-$ y bootstrap
+$ cd packages/umi
+$ yarn link
+$ cd -
 ```
 
-Link alita globally.
+Try the `umi` cli.
 
 ```bash
-$ cd packages/alita
-$ y link
+$ yarn build
+$ umi -v
+umi@0.0.1-alpha.1@local
 ```
 
-## Common Tasks
+## Build
 
-Monitor file changes and transform with babel.
+Transform with babel and rollup.
 
 ```bash
-$ y build --watch
+$ yarn build
+
+# Build and monitor file changes
+$ yarn build --watch
+
+# Build specified package only
+$ PACKAGE=core yarn build --watch
 ```
 
-Run test.
+## Test
 
 ```bash
-# Including e2e test
-$ y test
-
-# Unit test only
-$ y debug .test.(t|j)s
+$ yarn test
 
 # Test specified file and watch
-$ y debug getMockData.test.js -w
+$ yarn test getMockData.test.js -w
+
+# Test specified package
+$ yarn test --package core
+
+# Generate coverage
+$ yarn test --coverage
 ```
 
-Run `alita dev` in examples/func-test.
+## Release
 
 ```bash
-$ cd examples/func-test
-$ alita dev
+$ npm run release
+$ npm run release -- --publish-only
+$ npm run release -- --skip-git-status-check
+$ npm run release -- --skip-build
 ```
 
-Then open http://localhost:8000/ in your browser.
+## Create new package
 
-Run `alita build` in examples/simple.
+Such as creating package `foo`.
 
 ```bash
-$ cd examples/func-test
-$ alita build
-
-# Build without compress
-$ COMPRESS=none alita build
+$ mkdir -p packages/foo
+$ yarn bootstrap
 ```
 
-Publish to npm.
+Then you will find the `README.md` and `package.json` is generated in `packages/foo`.
 
 ```bash
-# Can't use yarn for this command.
-$ n run publish
+$ tree packages/foo
+packages/foo
+├── README.md
+└── package.json
 ```
 
-after publish, sync to npm.taobao
-```sh
-open https://npm.taobao.org/sync/alita
+## Upgrade dependencies
+
+```bash
+$ yarn update:deps
 ```

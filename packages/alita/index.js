@@ -1,4 +1,3 @@
-import request from './lib/request';
+const ex = require('umi');
 
-export { request };
-export * from 'umi';
+module.exports = ex;
