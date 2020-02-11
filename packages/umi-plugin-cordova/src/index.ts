@@ -75,6 +75,10 @@ export function supportViewPortForAndroid(path) {
     );
     writeFileSync(mainActivityPath, content);
   }
+  if (!/import android.webkit.*;/.test(content)) {
+    content = content.replace('import android.os.Bundle;','import android.os.Bundle;\nimport android.webkit.*;');
+    writeFileSync(mainActivityPath, content);
+  }
 }
 
 // 修复ios外层滚动
