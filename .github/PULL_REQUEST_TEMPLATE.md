@@ -1,11 +1,11 @@
 <!--
 Thank you for your pull request. Please review the below requirements.
 Bug fixes and new features should include tests.
-Contributors guide: https://github.com/umijs/umi/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/alitajs/alita/blob/master/CONTRIBUTING.md
 
 感谢您贡献代码。请确认下列 checklist 的完成情况。
 Bug 修复和新功能必须包含测试。
-Contributors guide: https://github.com/umijs/umi/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/alitajs/alita/blob/master/CONTRIBUTING.md
 -->
 
 ##### Checklist
@@ -22,4 +22,4 @@ Contributors guide: https://github.com/umijs/umi/blob/master/CONTRIBUTING.md
 <!-- Provide a description of the change below this comment. -->
 
 - any feature?
-- close https://github.com/umijs/umi/ISSUE_URL
+- close https://github.com/alitajs/alita/ISSUE_URL

@@ -16,7 +16,7 @@ assignees: ''
 
 ## 最小可复现仓库
 
-> 请使用 `yarn create umi` 创建，并上传到你的 GitHub 仓库
+> 请使用 `yarn create alita` 创建，并上传到你的 GitHub 仓库
 
 <!-- 为节约大家的时间，无复现步骤的 ISSUE 会被关闭，提供之后再 REOPEN -->
 <!-- https://github.com/YOUR_REPOSITORY_URL -->
@@ -28,6 +28,6 @@ assignees: ''
 
 ## 相关环境信息
 
-- **Umi 版本**：
+- **Alita 版本**：
 - **Node 版本**：
 - **操作系统**：
