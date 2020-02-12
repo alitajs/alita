@@ -1,13 +1,13 @@
 {
   "name": "alita",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A simple and easy-to-use UMI framework.",
   "dependencies": {
     "babel-eslint": "10.0.1",
     "eslint-loader": "2.1.2",
     "eslint-plugin-flowtype": "2.50.3",
     "umi": "2.12.9",
-    "umi-plugin-cordova": "1.1.12",
+    "umi-plugin-cordova": "1.1.13",
     "umi-plugin-ga": "^1.1.5",
     "umi-plugin-prettier": "0.0.6",
     "umi-plugin-react": "1.14.12",
