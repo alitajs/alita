@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/umi-presets-alita",
-  "version": "3.0.0-beta.1",
+  "version": "2.0.0-beta.1",
   "description": "@alitajs/umi-presets-alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,6 @@
     "alita"
   ],
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
@@ -24,5 +23,7 @@
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/umi-presets-alita#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
   }
 }
