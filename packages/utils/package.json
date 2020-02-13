@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/utils",
-  "version": "3.0.0-beta.1",
+  "version": "2.0.0-beta.1",
   "description": "@alitajs/utils",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,6 @@
     "alita"
   ],
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
