@@ -1,0 +1,48 @@
+{
+  "name": "umi-plugin-cordova",
+  "version": "2.0.0-beta.1",
+  "description": "umi support cordova",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita"
+  },
+  "keywords": [
+    "umi",
+    "alita",
+    "cordova"
+  ],
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)",
+    "ashoka <savebtc11@gmail.com> (https://github.com/falcon11)"
+  ],
+  "license": "MIT",
+  "bugs": "http://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/cordova#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@umijs/types": "3.0.0-beta.10",
+    "@umijs/utils": "3.0.0-beta.10",
+    "cordova-app-hello-world": "^4.0.0",
+    "cordova-common": "^3.1.0",
+    "cordova-create": "^2.0.0",
+    "cordova-fetch": "^2.0.1",
+    "fs-extra": "^7.0.1",
+    "import-fresh": "^3.0.0",
+    "is-url": "^1.2.4",
+    "isobject": "^4.0.0",
+    "path-is-inside": "^1.0.2",
+    "serve": "^11.0.0",
+    "tmp": "^0.1.0",
+    "valid-identifier": "^0.0.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1"
+  }
+}
