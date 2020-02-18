@@ -1,5 +1,5 @@
 {
-  "name": "umi-plugin-cordova",
+  "name": "@alitajs/cordova",
   "version": "2.0.0-beta.1",
   "description": "umi support cordova",
   "main": "lib/index.js",
