@@ -7,6 +7,7 @@ export default (api: IApi) => {
     targets: {
       ie: 9,
     },
+    dynamicImport: true,
     // dynamicImport: {
     //   webpackChunkName: true,
     //   level: 3,

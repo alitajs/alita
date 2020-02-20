@@ -54,9 +54,9 @@ export default function (api: IApi) {
               if (error) {
                 console.error(`exec error: ${error}`);
               } else if (!isIos) {
-                supportViewPortForAndroid(api.paths.cwd);
+                supportViewPortForAndroid(api.paths.cwd!);
               } else {
-                fixScrollIssueForIOS(api.paths.cwd);
+                fixScrollIssueForIOS(api.paths.cwd!);
               }
               console.log(stdout);
               console.log(stderr);
@@ -99,7 +99,7 @@ export default function (api: IApi) {
     console.log(`cordova platform use ${cordovaPlatform}`);
     // 3.node config-xml.js true
     // console.log(api);
-    setCordovaConfig(api.paths.cwd, isProduction);
+    setCordovaConfig(api.paths.cwd!, isProduction);
 
     // 4.cordova build ios
     // api.devServerPort 需要提交PR来支持
@@ -158,7 +158,7 @@ export default function (api: IApi) {
       console.log(`[${isAlita ? 'alita' : 'umi'}]: success`);
       console.log(`[${isAlita ? 'alita' : 'umi'}]: run build cordova ...`);
       // 3. node config-xml.js false
-      setCordovaConfig(api.paths.cwd, isProduction);
+      setCordovaConfig(api.paths.cwd!, isProduction);
       // 4. cordova build ios
       childProcess.exec(`cordova build ${cordovaPlatform}`, {}, (error, stdout, stderr) => {
         if (error) {
