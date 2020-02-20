@@ -1,33 +1,34 @@
 {
-  "name": "alita",
+  "name": "@alitajs/hd",
   "version": "2.0.0-beta.1",
-  "description": "alita",
+  "description": "@umijs/plugin-hd 先移到本地测试使用",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "bin": {
-    "alita": "./bin/alita.js"
-  },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/alitajs/alita"
   },
   "keywords": [
-    "umi",
-    "alita"
+    "umi"
   ],
   "authors": [
-    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+    "ycjcl868"
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/hd#readme",
+  "peerDependencies": {
+    "umi": "3.0.0-beta.19"
+  },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.0.0-beta.1"
+    "postcss-plugin-px2rem": "0.8.1",
+    "umi-hd": "5.0.1"
   }
 }

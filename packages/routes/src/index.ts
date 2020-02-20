@@ -16,7 +16,7 @@ interface IOpts {
   update: Function;
 }
 
-export default function(api: IApi) {
+export default function (api: IApi) {
   // disable if routes if configured
   if (api.userConfig.routes) return;
 
@@ -31,6 +31,7 @@ export default function(api: IApi) {
 
   api.modifyRoutes(routes => {
     const { routesExtend } = api.config;
+    if (!routesExtend) return routes;
     routes = exclude(routes, optsToArray(routesExtend.exclude));
 
     if (routesExtend.update) {
