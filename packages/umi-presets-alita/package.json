@@ -27,6 +27,7 @@
   "dependencies": {
     "@alitajs/routes":"2.0.0-beta.1",
     "@alitajs/cordova":"2.0.0-beta.1",
-    "@alitajs/hd":"2.0.0-beta.1"
+    "@alitajs/hd":"2.0.0-beta.1",
+    "@alitajs/native":"2.0.0-beta.1"
   }
 }
