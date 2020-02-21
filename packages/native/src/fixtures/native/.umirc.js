@@ -1,4 +1,5 @@
 
 module.exports = {
-  native:[]
+  appType: 'cordova',
+  native:[],
 };
