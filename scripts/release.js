@@ -88,7 +88,7 @@ async function release() {
     logStep('sync version to root package.json');
     const rootPkg = require('../package');
     Object.keys(rootPkg.devDependencies).forEach(name => {
-      if (name.startsWith('@umijs/')) {
+      if (name.startsWith('@alitajs/')) {
         rootPkg.devDependencies[name] = currVersion;
       }
     });
