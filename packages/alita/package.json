@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.4",
   "description": "alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "umi": "3.0.0-beta.20",
-    "@alitajs/umi-presets-alita": "2.0.0-beta.2"
+    "@alitajs/umi-presets-alita": "2.0.0-beta.2",
+    "umi": "3.0.0-beta.20"
   }
 }
