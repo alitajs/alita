@@ -1,7 +1,7 @@
 {
-  "name": "@alitajs/umi-presets-alita",
+  "name": "@alitajs/native",
   "version": "2.0.0-beta.1",
-  "description": "@alitajs/umi-presets-alita",
+  "description": "@alitajs/native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -20,14 +20,8 @@
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/umi-presets-alita#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/native#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@alitajs/routes":"2.0.0-beta.1",
-    "@alitajs/cordova":"2.0.0-beta.1",
-    "@alitajs/hd":"2.0.0-beta.1",
-    "@alitajs/native":"2.0.0-beta.1"
   }
 }
