@@ -53,7 +53,7 @@ async function release() {
     updated = updatedStdout
       .split('\n')
       .map(pkg => {
-        if (pkg === 'umi') return pkg;
+        if (pkg === 'alita') return pkg;
         else return pkg.split('/')[1];
       })
       .filter(Boolean);
@@ -120,7 +120,7 @@ async function release() {
   const isNext = isNextVersion(currVersion);
   pkgs
     .sort(a => {
-      return a === 'umi' ? 1 : -1;
+      return a === 'alita' ? 1 : -1;
     })
     .forEach((pkg, index) => {
       const pkgPath = join(cwd, 'packages', pkg);
