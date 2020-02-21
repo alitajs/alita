@@ -27,10 +27,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "umi": "3.0.0-beta.19"
-  },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.0.0-beta.3"
+    "umi": "3.0.0-beta.20",
+    "@alitajs/umi-presets-alita": "2.0.0-beta.2"
   }
 }
