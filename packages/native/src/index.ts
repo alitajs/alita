@@ -39,7 +39,7 @@ export default function(api: IApi) {
           if (!installed) {
             console.log(`${plugin} install ...`);
             childProcess.execSync(
-              `cordova plugin add ${nativePlugin.cordova}`,
+              `cordova plugin add ${nativePlugin.cordova} --save`,
               options,
             );
             childProcess.execSync(`yarn add ${nativePlugin.ionic}`, options);

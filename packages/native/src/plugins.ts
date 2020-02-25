@@ -75,4 +75,34 @@ export const supportedPlugins: NativePlugin[] = [
     cordova: 'cordova-plugin-vibration',
     ionic: '@ionic-native/vibration',
   },
+  {
+    name: 'document-viewer',
+    cordova: 'cordova-plugin-document-viewer',
+    ionic: '@ionic-native/document-viewer',
+  },
+  {
+    name: 'file-opener',
+    cordova: 'cordova-plugin-file-opener2',
+    ionic: '@ionic-native/file-opener',
+  },
+  {
+    name: 'fingerprint-aio',
+    cordova: 'cordova-plugin-fingerprint-aio',
+    ionic: '@ionic-native/fingerprint-aio',
+  },
+  {
+    name: 'native-storage',
+    cordova: 'cordova-plugin-nativestorage',
+    ionic: '@ionic-native/native-storage',
+  },
+  {
+    name: 'qr-scanner',
+    cordova: 'cordova-plugin-qrscanner',
+    ionic: '@ionic-native/qr-scanner',
+  },
+  {
+    name: 'sqlite-storage',
+    cordova: 'cordova-sqlite-storage',
+    ionic: '@ionic-native/sqlite',
+  },
 ];
