@@ -42,7 +42,7 @@ export const mobileLayout = {
 ## 在页面中修改配置
 
 ```ts
-import { setPageNavBar } from 'umi';
+import { setPageNavBar } from 'alita';
 // pagePath 可以从 props.location.pathname 取得
 useEffect(() => {
     setPageNavBar({
