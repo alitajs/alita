@@ -14,7 +14,6 @@ test('native', async () => {
       ),
     ],
   });
-  console.log('config====', service.userConfig);
   await service.run({
     name: 'native',
     args: [],
