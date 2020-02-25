@@ -7,6 +7,9 @@ export default function () {
       require.resolve('@alitajs/native'),
 
       // bundle configs
+      require.resolve('@umijs/plugin-request'),
+      require.resolve('@umijs/plugin-dva'),
+      require.resolve('@umijs/plugin-antd'),
       require.resolve('@alitajs/hd'),
       require.resolve('@alitajs/routes'),
       require.resolve('./plugins/features/appType'),
