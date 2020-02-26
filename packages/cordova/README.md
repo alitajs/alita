@@ -1,7 +1,7 @@
 # @alitajs/cordova
 
-[![NPM version](https://img.shields.io/npm/v/umi-plugin-cordova.svg?style=flat)](https://npmjs.org/package/umi-plugin-cordova)
-[![NPM downloads](http://img.shields.io/npm/dm/umi-plugin-cordova.svg?style=flat)](https://npmjs.org/package/umi-plugin-cordova)
+[![NPM version](https://img.shields.io/npm/v/@alitajs/cordova.svg?style=flat)](https://npmjs.org/package/@alitajs/cordova)
+[![NPM downloads](http://img.shields.io/npm/dm/@alitajs/cordova.svg?style=flat)](https://npmjs.org/package/@alitajs/cordova)
 
 umi support cordova
 
@@ -38,13 +38,13 @@ sudo yarn global add cordova
 Configure in `.umirc.js`,
 
 ```sh
-yarn add umi-plugin-cordova
+yarn add @alitajs/cordova
 ```
 
 ```js
 export default {
   plugins: [
-    ['umi-plugin-cordova', options],
+    ['@alitajs/cordova', options],
   ],
 }
 ```
