@@ -3,7 +3,22 @@ import { supportedPlugins, NativePlugin } from './plugins';
 import childProcess from 'child_process';
 import { checkPluginInstalled, checkDependenceInstalled } from './utils';
 
-export default function(api: IApi) {
+interface ExportNative {
+  exportAll: boolean;
+  source: string;
+}
+export default function (api: IApi) {
+  if (!api.userConfig.native) return;
+
+  const exportsNative = [] as ExportNative[];
+  for (const plugin of api.userConfig.native) {
+    exportsNative.push({
+      exportAll: true,
+      source: plugin.ionic,
+    })
+  }
+  api.addUmiExports(() => exportsNative);
+
   api.describe({
     key: 'native',
     config: {
