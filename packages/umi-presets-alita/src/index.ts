@@ -12,6 +12,7 @@ export default function () {
       require.resolve('@umijs/plugin-antd'),
       require.resolve('@alitajs/hd'),
       require.resolve('@alitajs/routes'),
+      require.resolve('@alitajs/layout'),
       require.resolve('./plugins/features/appType'),
       require.resolve('./plugins/defaultConfig'),
       require.resolve('./plugins/features/complexRoute'),

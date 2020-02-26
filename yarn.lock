@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@alitajs/alita-layout@2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.0.0-beta.2.tgz#28ace0f7b6e2b208815aaa9d345869b7326c6c0f"
+  dependencies:
+    antd-mobile "^2.2.14"
+    history "^4.9.0"
+    react "^16.8.6"
+    react-document-title "^2.0.3"
+    react-router-dom "^5.1.2"
+
 "@ant-design/colors@^3.1.0":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-3.2.2.tgz#5ad43d619e911f3488ebac303d606e66a8423903"
@@ -2888,6 +2898,12 @@
     dva-immer "^0.4.19"
     dva-loading "^3.0.20"
 
+"@umijs/plugin-model@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-model/-/plugin-model-2.1.0.tgz#1ba6397f7b2a134c938c2ea1103d72673dae94ec"
+  dependencies:
+    lodash.isequal "4.5.0"
+
 "@umijs/plugin-request@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@umijs/plugin-request/-/plugin-request-2.1.1.tgz#8c3ae09b746e0d402c6734002f099a135dabd7ab"
@@ -3487,7 +3503,7 @@ ansicolors@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/ansicolors/-/ansicolors-0.3.2.tgz#665597de86a9ffe3aa9bfbe6cae5c6ea426b4979"
 
-antd-mobile@^2.3.1:
+antd-mobile@^2.2.14, antd-mobile@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-2.3.1.tgz#04d8709c198eee27c3c41b903cb2ad77a16028e3"
   dependencies:
@@ -8546,6 +8562,10 @@ lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
 
+lodash.isequal@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
 lodash.ismatch@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.ismatch/-/lodash.ismatch-4.4.0.tgz#756cb5150ca3ba6f11085a78849645f188f85f37"
@@ -11305,6 +11325,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-document-title@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-document-title/-/react-document-title-2.0.3.tgz#bbf922a0d71412fc948245e4283b2412df70f2b9"
+  dependencies:
+    prop-types "^15.5.6"
+    react-side-effect "^1.0.2"
+
 react-dom@^16.12.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
@@ -11371,6 +11398,12 @@ react-router@5.1.2:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
+react-side-effect@^1.0.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.2.0.tgz#0e940c78faba0c73b9b0eba9cd3dda8dfb7e7dae"
+  dependencies:
+    shallowequal "^1.0.1"
+
 react-tween-state@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/react-tween-state/-/react-tween-state-0.1.5.tgz#e98b066551efb93cb92dd1be14995c2e3deae339"
@@ -11378,7 +11411,7 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react@^16.12.0:
+react@^16.12.0, react@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   dependencies:
