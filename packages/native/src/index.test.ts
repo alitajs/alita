@@ -8,9 +8,14 @@ test('native', async () => {
   const service = new Service({
     cwd,
     plugins: [
-      require.resolve('./index.ts')
+      require.resolve('./index.ts'),
+      require.resolve(
+        '../../umi-presets-alita/src/plugins/features/appType.ts',
+      ),
     ],
   });
-  await service.init();
-  expect(service.userConfig!.native).toEqual([]);
+  await service.run({
+    name: 'native',
+    args: [],
+  });
 });
