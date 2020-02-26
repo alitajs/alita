@@ -11,11 +11,16 @@ export default function (api: IApi) {
   if (!api.userConfig.native) return;
 
   const exportsNative = [] as ExportNative[];
-  for (const plugin of api.userConfig.native) {
-    exportsNative.push({
-      exportAll: true,
-      source: plugin.ionic,
-    })
+  for (const plugins of api.userConfig.native) {
+    const nativePlugins = supportedPlugins.find(
+      item => item.name === plugins,
+    );
+    if (nativePlugins) {
+      exportsNative.push({
+        exportAll: true,
+        source: nativePlugins!.ionic,
+      })
+    }
   }
   api.addUmiExports(() => exportsNative);
 
