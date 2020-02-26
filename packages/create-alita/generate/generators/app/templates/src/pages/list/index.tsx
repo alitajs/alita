@@ -1,9 +1,8 @@
-import { connect } from 'dva';
 import React, { FC, useEffect } from 'react';
 import { List } from 'antd-mobile';
 import { queryList } from '@/services/api';
 import LoadMoreListView from '@alitajs/list-view';
-import { ListModelState, ConnectProps } from '@/models/connect';
+import { ListModelState, ConnectProps, connect } from 'alita';
 import Logo from '@/assets/logo.png';
 
 import styles from './index.less';
@@ -35,17 +34,17 @@ const ListPage: FC<PageProps> = ({ list, dispatch }) => {
   );
   return (
     <>
-        Model Name:{name}
-        <LoadMoreListView
-          requestFunc={queryList}
-          renderRow={renderRow}
-          requestParams={{
-            abc: '123',
-            token: 'alita',
-            pageSize: 0,
-            offset: 0,
-          }}
-        />
+      Model Name:{name}
+      <LoadMoreListView
+        requestFunc={queryList}
+        renderRow={renderRow}
+        requestParams={{
+          abc: '123',
+          token: 'alita',
+          pageSize: 0,
+          offset: 0,
+        }}
+      />
     </>
   );
 };

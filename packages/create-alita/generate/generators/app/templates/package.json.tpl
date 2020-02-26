@@ -1,5 +1,6 @@
 {
   "name": "{{projectName}}",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,16 +14,14 @@
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:prettier": "check-prettier lint",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
-    "prettier": "prettier -c --write \"**/*\"",
-    "format-imports": "cross-env import-sort --write '**/*.{js,jsx,ts,tsx}'"
+    "prettier": "prettier -c --write \"**/*\""
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@alitajs/alita-layout": "^1.1.1",
     "@alitajs/list-view": "^0.0.4",
-    "alita": "^1.5.1"
+    "alita": "^2.0.0-beta.7"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -45,10 +44,6 @@
     "eslint": "6.8.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "express": "^4.17.1",
-    "import-sort-cli": "^6.0.0",
-    "import-sort-parser-babylon": "^6.0.0",
-    "import-sort-parser-typescript": "^6.0.0",
-    "import-sort-style-module": "^6.0.0",
     "lint-staged": "^9.5.0",
     "stylelint": "^12.0.1",
     "yorkie": "^2.0.0"

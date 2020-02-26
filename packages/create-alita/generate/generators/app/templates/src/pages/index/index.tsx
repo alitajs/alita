@@ -1,8 +1,5 @@
-import { connect } from 'dva';
 import React, { FC, useEffect } from 'react';
-
-import { IndexModelState, ConnectProps } from '@/models/connect';
-
+import { IndexModelState, ConnectProps, connect } from 'alita';
 import styles from './index.less';
 
 interface PageProps extends ConnectProps {
