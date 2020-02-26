@@ -2898,12 +2898,6 @@
     dva-immer "^0.4.19"
     dva-loading "^3.0.20"
 
-"@umijs/plugin-model@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@umijs/plugin-model/-/plugin-model-2.1.0.tgz#1ba6397f7b2a134c938c2ea1103d72673dae94ec"
-  dependencies:
-    lodash.isequal "4.5.0"
-
 "@umijs/plugin-request@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@umijs/plugin-request/-/plugin-request-2.1.1.tgz#8c3ae09b746e0d402c6734002f099a135dabd7ab"
@@ -8561,10 +8555,6 @@ lodash.flatten@^4.2.0:
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-
-lodash.isequal@4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
 lodash.ismatch@^4.4.0:
   version "4.4.0"
