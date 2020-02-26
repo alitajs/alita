@@ -23,13 +23,17 @@ export default class AppGenerator extends Generator {
   }
   appName: any;
   async writing() {
+    let dirPath = '../../generate/generators/app/templates';
+    if (this.args.pc) {
+      dirPath = '../../generate/generators/app/templates-pc';
+    }
     this.copyDirectory({
       context: {
         appType: 'h5',
         projectName: this.appName,
         isTypeScript: true,
       },
-      path: join(__dirname, '../../generate/generators/app/templates'),
+      path: join(__dirname, dirPath),
       target: this.cwd,
     });
   }
