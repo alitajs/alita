@@ -4,6 +4,19 @@
 
 `camera`, `device`, `dialogs`, `file`, `geolocation`, `inappbrowser`, `media`, `media-capture`, `keyboard`, `secure-storage`, `network`, `screen-orientation`, `statusbar`, `vibration`, `document-viewer`, `file-opener`, `fingerprint-aio`, `native-storage`, `qr-scanner`, `sqlite-storage`,
 
+## usage
+`config/config.ts`
+```
+export default {
+  appType: 'cordova',
+  native: ['file', 'device', 'camera', 'qr-scanner'],   // add the plugin name you want to add to the array, you can find the plugin name above.
+};
+````
+then run
+```shell
+alita native
+```
+
 ## documents
 
 ### camera
