@@ -12,6 +12,8 @@ A mobile React framework based on umi.
 yarn create alita
 ```
 
+> create pc app, use `yarn create alita --pc`
+
 ## Community
 
 | Github Issue | 钉钉群 | 微信群 |
