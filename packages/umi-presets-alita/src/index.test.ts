@@ -1,4 +1,4 @@
-import { Service } from '@umijs/core';
+import { Service } from 'umi';
 import { join } from 'path';
 import cheerio from 'cheerio';
 import { render, cleanup } from '@testing-library/react';
@@ -11,11 +11,7 @@ test('default config', async () => {
   const cwd = join(fixtures, 'default-config');
   const service = new Service({
     cwd,
-    presets: [require.resolve('@umijs/preset-built-in')],
-    plugins: [
-      require.resolve('@alitajs/routes'),
-      require.resolve('./plugins/defaultConfig.ts')
-    ],
+    presets: [require.resolve('./index')],
   });
   await service.init();
   expect(service.config!.routesExtend).toEqual({
@@ -35,11 +31,7 @@ test('appType-h5', async () => {
   const cwd = join(fixtures, 'app-type-h5');
   const service = new Service({
     cwd,
-    presets: [require.resolve('@umijs/preset-built-in')],
-    plugins: [
-      require.resolve('@alitajs/hd'),
-      require.resolve('./plugins/features/appType.ts')
-    ],
+    presets: [require.resolve('./index')],
   });
   // await service.init();
   await service.run({
@@ -69,9 +61,7 @@ test('appType-pc', async () => {
   const cwd = join(fixtures, 'app-type-pc');
   const service = new Service({
     cwd,
-    plugins: [
-      require.resolve('./plugins/features/appType.ts')
-    ],
+    presets: [require.resolve('./index')],
   });
   await service.init();
   expect(service.userConfig!.appType).toEqual('pc');
@@ -81,11 +71,7 @@ test('complexRoute', async () => {
   const cwd = join(fixtures, 'complex-route');
   const service = new Service({
     cwd,
-    presets: [require.resolve('@umijs/preset-built-in')],
-    plugins: [
-      require.resolve('@alitajs/routes'),
-      require.resolve('./plugins/features/complexRoute.ts')
-    ],
+    presets: [require.resolve('./index')],
   });
   await service.init();
   expect(service.config!.routesExtend).toEqual({
@@ -104,11 +90,7 @@ test('complexRoute', async () => {
   const cwd = join(fixtures, 'complex-route');
   const service = new Service({
     cwd,
-    presets: [require.resolve('@umijs/preset-built-in')],
-    plugins: [
-      require.resolve('@alitajs/routes'),
-      require.resolve('./plugins/features/complexRoute.ts')
-    ],
+    presets: [require.resolve('./index')],
   });
   await service.init();
   expect(service.config!.routesExtend).toEqual({
