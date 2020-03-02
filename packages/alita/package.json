@@ -8,7 +8,11 @@
     "alita": "./bin/alita.js"
   },
   "files": [
-    "lib"
+    "bin",
+    "lib",
+    "src",
+    "dist",
+    "types.d.ts"
   ],
   "repository": {
     "type": "git",
