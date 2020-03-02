@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "alita",
   "main": "index.js",
   "types": "types.d.ts",
@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.0.0",
+    "@alitajs/umi-presets-alita": "2.0.1",
     "umi": "3.0.0"
   }
 }
