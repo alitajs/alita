@@ -1,6 +1,6 @@
 import { IApi } from 'umi';
-import createPageGenerator from 'create-alita/generate/generators/pages/index';
-import createAppGenerator from 'create-alita/generate/generators/app/index';
+import createPageGenerator from './generate/generators/pages/index';
+import createAppGenerator from './generate/generators/app/index';
 
 export default (api: IApi) => {
   api.registerGenerator({
