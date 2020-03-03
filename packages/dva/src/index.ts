@@ -64,7 +64,7 @@ export default (api: IApi) => {
               return `import { ${lodash.upperFirst(basename(path, extname(path)))}ModelState } from '${winPath(dirname(path) + "/" + basename(path, extname(path)))}';`.trim();
             })
             .join('\r\n'),
-          alitaDvaHeadExport: `export { ${models
+          alitaDvaHeadExport: `export type { ${models
             .map(path => {
               // prettier-ignore
               return lodash.upperFirst(basename(path, extname(path))) + 'ModelState';
@@ -87,9 +87,9 @@ export default (api: IApi) => {
     },
     stage: -1,
   });
-
   // src/models 下的文件变化会触发临时文件生成
   api.addTmpGenerateWatcherPaths(() => [getSrcModelsPath()]);
+  if (!hasModels) return;
   api.addUmiExports(() => [
     {
       exportAll: true,
