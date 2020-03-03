@@ -5,6 +5,7 @@ export default function () {
       require.resolve('./plugins/commands/version/version'),
       require.resolve('./plugins/commands/cordova/cordova'),
       require.resolve('@alitajs/native'),
+      require.resolve('@alitajs/generate'),
 
       // bundle configs
       require.resolve('@umijs/plugin-request'),

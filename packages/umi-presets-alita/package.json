@@ -28,6 +28,7 @@
     "@alitajs/cordova": "2.0.5-beta.2",
     "@alitajs/dva": "2.0.5-beta.2",
     "@alitajs/hd": "2.0.5-beta.2",
+    "@alitajs/generate": "2.0.5-beta.2",
     "@alitajs/layout": "2.0.5-beta.2",
     "@alitajs/native": "2.0.5-beta.2",
     "@alitajs/routes": "2.0.5-beta.2",

@@ -1,28 +1,24 @@
-<% if (isTypeScript) { %>
 import { Reducer } from 'redux';
 import { query } from '@/services/api';
 import { Effect } from '@/models/connect';
 
-export interface <%= componentName %>ModelState {
+export interface {{{ componentName }}}ModelState {
   name: string;
 }
 
-export interface <%= componentName %>ModelType {
-  namespace: '<%= name %>';
-  state: <%= componentName %>ModelState;
+export interface {{{ componentName }}}ModelType {
+  namespace: '{{{ name }}}';
+  state: {{{ componentName }}}ModelState;
   effects: {
     query: Effect;
   };
   reducers: {
-    save: Reducer<<%= componentName %>ModelState>;
+    save: Reducer<{{{ componentName }}}ModelState>;
   };
 }
-<% } else { %>
-  import { query } from '@/services/api';
-<% } %>
 
-const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>ModelType<% } %> = {
-  namespace: '<%= name %>',
+const {{{ componentName }}}Model: {{{ componentName }}}ModelType = {
+  namespace: '{{{ name }}}',
 
   state: {
     name: '',
@@ -48,4 +44,4 @@ const <%= componentName %>Model<% if (isTypeScript) { %>: <%= componentName %>Mo
   },
 };
 
-export default <%= componentName %>Model;
+export default {{{ componentName }}}Model;

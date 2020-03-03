@@ -1,16 +1,11 @@
 {
-  "name": "create-alita",
-  "version": "2.0.6",
-  "description": "create-alita",
+  "name": "@alitajs/generate",
+  "version": "2.0.5-beta.2",
+  "description": "@alitajs/generate",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "bin": {
-    "create-alita": "bin/create-alita.js"
-  },
   "files": [
-    "lib",
-    "generate",
-    "bin"
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -21,16 +16,16 @@
     "alita"
   ],
   "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/create-alita#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/generate#readme",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@umijs/types": "3.0.0-beta.10",
-    "@umijs/utils": "3.0.0-beta.10"
+    "create-alita": "2.0.6"
   }
 }
