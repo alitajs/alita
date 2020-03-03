@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { getModels } from './getModels/getModels';
 
 
-const DIR_NAME = 'plugin-dva';
+const DIR_NAME = 'plugin-dva-types';
 const FILE_NAME = 'alitaconnect.d';
 const RELATIVE_FILE = join(DIR_NAME, FILE_NAME);
 const RELATIVE_FILE_PATH = `${RELATIVE_FILE}.ts`;
