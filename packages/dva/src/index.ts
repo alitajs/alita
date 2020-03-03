@@ -4,8 +4,8 @@ import { readFileSync } from 'fs';
 import { getModels } from './getModels/getModels';
 
 
-const DIR_NAME = 'plugin-dva-types';
-const FILE_NAME = 'alitaconnect.d';
+const DIR_NAME = 'plugin-dva';
+const FILE_NAME = 'alitaconnect';
 const RELATIVE_FILE = join(DIR_NAME, FILE_NAME);
 const RELATIVE_FILE_PATH = `${RELATIVE_FILE}.ts`;
 
@@ -37,22 +37,10 @@ export default (api: IApi) => {
     ];
   }
 
-  let hasModels = false;
-
-  // 初始检测一遍
-  api.onStart(() => {
-    hasModels = getAllModels().length > 0;
-  });
-
   // 生成临时文件
   api.onGenerateFiles({
     fn() {
       const models = getAllModels();
-      hasModels = models.length > 0;
-
-      // 没有 models 不生成文件
-      if (!hasModels) return;
-
       // connect.d.ts
       const dvaTpl = readFileSync(join(__dirname, 'connect.tpl'), 'utf-8');
       api.writeTmpFile({
@@ -64,7 +52,7 @@ export default (api: IApi) => {
               return `import { ${lodash.upperFirst(basename(path, extname(path)))}ModelState } from '${winPath(dirname(path) + "/" + basename(path, extname(path)))}';`.trim();
             })
             .join('\r\n'),
-          alitaDvaHeadExport: `export type { ${models
+          alitaDvaHeadExport: `export { ${models
             .map(path => {
               // prettier-ignore
               return lodash.upperFirst(basename(path, extname(path))) + 'ModelState';
@@ -89,15 +77,10 @@ export default (api: IApi) => {
   });
   // src/models 下的文件变化会触发临时文件生成
   api.addTmpGenerateWatcherPaths(() => [getSrcModelsPath()]);
-  if (!hasModels) return;
   api.addUmiExports(() => [
     {
       exportAll: true,
       source: `../${RELATIVE_FILE}`,
-    },
-    {
-      specifiers: ['Reducer'],
-      source: 'redux',
-    },
+    }
   ]);
 };

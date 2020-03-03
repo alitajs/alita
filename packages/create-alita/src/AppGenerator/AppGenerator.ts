@@ -12,10 +12,15 @@ export default class AppGenerator extends Generator {
     super({ cwd, args });
     if (args._ && args._[0]) {
       this.appName = args._[0] || '';
-    } else {
-      const pathsName = winPath(this.cwd).split('/');
-      this.appName = pathsName[pathsName.length - 1];
     }
+    assert(
+      this.appName,
+      '文件名必须提供，你可以使用 yarn create alita appName',
+    );
+    // else {
+    //   const pathsName = winPath(this.cwd).split('/');
+    //   this.appName = pathsName[pathsName.length - 1];
+    // }
     assert(
       !/-/.test(this.appName),
       'The filename is not allowed to contain the "-" string. (文件名不允许包含"-",因为会导致cordova项目初始化失败)',
@@ -34,7 +39,7 @@ export default class AppGenerator extends Generator {
         isTypeScript: true,
       },
       path: join(__dirname, dirPath),
-      target: this.cwd,
+      target: join(this.cwd, this.appName),
     });
   }
 }

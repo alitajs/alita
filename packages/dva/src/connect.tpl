@@ -11,7 +11,7 @@ import { Location, LocationState } from 'history';
 {{{ alitaDvaHeadImport }}}
 
 {{{ alitaDvaHeadExport }}}
-
+export { Reducer  } from 'redux';
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
