@@ -13,9 +13,7 @@ export default (api: IApi) => {
 
   if (api.userConfig.mainPath) {
     api.modifyRoutes((routes: any[]) => {
-      console.log(routes);
-      console.log(resetMainPath(routes, api.config.mainPath));
-      return routes;
+      return resetMainPath(routes, api.config.mainPath);
     });
   }
 };

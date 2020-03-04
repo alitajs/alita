@@ -18,6 +18,7 @@ export default function () {
       require.resolve('@alitajs/layout'),
       require.resolve('./plugins/defaultConfig'),
       require.resolve('./plugins/features/complexRoute'),
+      require.resolve('./plugins/features/mainPath'),
     ],
   };
 }
