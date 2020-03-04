@@ -9,8 +9,7 @@
   },
   "files": [
     "lib",
-    "generate/generators/app/templates",
-    "generate/generators/app/templates-pc",
+    "app",
     "bin"
   ],
   "repository": {

@@ -35,19 +35,3 @@ test('generate page', async () => {
   rimraf.sync(join(cwd, 'pages'));
   rimraf.sync(join(cwd, 'models'));
 });
-
-// test('generate tmp', async () => {
-//   await runGenerator({
-//     _: ['generate', 'tmp'],
-//   });
-//   expect(existsSync(join(cwd, '.umi-test'))).toEqual(true);
-//   rimraf.sync(join(cwd, '.umi-test'));
-// });
-
-// test('Generator not found', async () => {
-//   await expect(
-//     runGenerator({
-//       _: ['generate', 'foo'],
-//     }),
-//   ).rejects.toThrow(/Generator foo not found/);
-// });

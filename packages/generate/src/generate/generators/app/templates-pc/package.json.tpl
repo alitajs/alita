@@ -7,6 +7,13 @@
   "scripts": {
     "start": "alita dev",
     "build": "alita build",
+    "cordova-init": "alita cordova --init",
+    "cordova-add-ios": "alita cordova --ios",
+    "cordova-add-android": "alita cordova --android",
+    "start-ios": "alita dev",
+    "build-ios": "alita build",
+    "start-android": "cross-env CORDOVA=android alita dev",
+    "build-android": "cross-env CORDOVA=android alita build",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
@@ -20,8 +27,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@alitajs/alita-layout": "^1.1.2",
     "@alitajs/list-view": "^0.0.4",
-    "alita": "^2.0.0"
+    "alita": "^2.0.5-beta.6"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
