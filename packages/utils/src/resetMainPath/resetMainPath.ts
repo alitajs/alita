@@ -9,11 +9,16 @@ export default function resetMainPath(routes: any[], mainPath: string) {
     newPath = `/${newPath}`;
   }
   return routes.map(element => {
+    if(element.isResetMainEdit) {
+      return element;
+    }
     if (element.path === '/' && !element.routes) {
       element.path = '/index';
+      element.isResetMainEdit = true;
     }
     if (element.path === newPath) {
       element.path = '/';
+      element.isResetMainEdit = true;
     }
     if (Array.isArray(element.routes)) {
       element.routes = resetMainPath(element.routes, mainPath);
