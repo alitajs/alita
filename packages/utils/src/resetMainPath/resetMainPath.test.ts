@@ -15,7 +15,7 @@ test('resetMainPath', () => {
   const mainPath = '/home';
   expect(resetMainPath(routes, mainPath)).toEqual([
     { path: '/abc' },
-    { path: '/index' },
-    { path: '/' },
+    { isResetMainEdit:true, path: '/index' },
+    { isResetMainEdit:true, path: '/' },
   ]);
 });
