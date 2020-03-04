@@ -13,6 +13,23 @@ export default function (api: IApi) {
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
 
+  api.describe({
+    key: 'packageId',
+    config: {
+      schema(joi) {
+        return joi.string();
+      },
+    },
+  });
+  api.describe({
+    key: 'displayName',
+    config: {
+      schema(joi) {
+        return joi.string();
+      },
+    },
+  });
+
   // 通过下方metas设置
   // api.addHTMLMetas(memo => {
   //   const addItem = [
@@ -46,6 +63,14 @@ export default function (api: IApi) {
     {
       name: 'cordova',
       fn: ({ args }) => {
+        if(!api.userConfig.packageId){
+          console.error('config/config.ts 中 packageId 是必填项，请增加配置 packageId');
+          return ;
+        }
+        if(!api.userConfig.displayName){
+          console.error('config/config.ts 中 displayName 是必填项，请增加配置 displayName');
+          return ;
+        }
         const addPlatforms = (isIos: boolean) => {
           childProcess.exec(
             `cordova platforms add ${isIos ? 'ios' : 'android'}`,
@@ -65,12 +90,7 @@ export default function (api: IApi) {
           console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
         };
         if (args.init) {
-          // eslint-disable-next-line global-require
-          // eslint-disable-next-line import/no-dynamic-require
-          const pkg = require(join(api.paths.cwd || '', 'package.json'));
-          const optionalName = pkg.name || 'alitaapp';
-          const optionalId = `com.alita.${optionalName}`;
-          create(api.paths.cwd, optionalId, optionalName, {}, events);
+          create(api.paths.cwd, api.userConfig.packageId, api.userConfig.displayName, {}, events);
           if (args.ios || args.android) {
             addPlatforms(!!args.ios);
           } else {

@@ -40,6 +40,18 @@ export default (api: IApi) => {
             width: 100%;
             height: 100vh;
           }
+          #root > div {
+            /* Status bar height on iOS 11.0 */
+            padding-top: constant(safe-area-inset-top);
+            padding-bottom: constant(safe-area-inset-bottom);
+            /* Status bar height on iOS 11+ */
+            padding-top: calc(env(safe-area-inset-top) * 2);
+            padding-bottom: calc(env(safe-area-inset-bottom) * 2);
+          }
+
+          .am-tab-bar-item > div > div:first-child {
+            top: calc(env(safe-area-inset-top) * 2) !important;
+          }
           body {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -57,7 +69,6 @@ export default (api: IApi) => {
             position: relative;
             overflow: scroll;
           }
-
           textarea:disabled,
           input:disabled {
             background-color: transparent;
