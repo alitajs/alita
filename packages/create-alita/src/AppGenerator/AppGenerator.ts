@@ -28,9 +28,9 @@ export default class AppGenerator extends Generator {
   }
   appName: any;
   async writing() {
-    let dirPath = '../../generate/generators/app/templates';
+    let dirPath = '../../app/templates';
     if (this.args.pc) {
-      dirPath = '../../generate/generators/app/templates-pc';
+      dirPath = '../../app/templates-pc';
     }
     this.copyDirectory({
       context: {
