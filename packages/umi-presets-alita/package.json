@@ -31,6 +31,7 @@
     "@alitajs/hd": "2.1.0",
     "@alitajs/layout": "2.1.0",
     "@alitajs/native": "2.1.0",
+    "@alitajs/main-path": "2.1.0",
     "@alitajs/routes": "2.1.0",
     "@umijs/plugin-antd": "^0.2.0",
     "@umijs/plugin-dva": "^0.2.0",
