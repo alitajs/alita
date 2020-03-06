@@ -49,5 +49,9 @@ export default (api: IApi) => {
       exportAll: true,
       source: `../${RELATIVE_MODEL}`,
     },
+    {
+      exportAll: true,
+      source: '@alitajs/alita-layout',
+    },
   ]);
 };
