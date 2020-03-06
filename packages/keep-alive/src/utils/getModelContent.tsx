@@ -99,16 +99,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
         </div>
       </>
     )
-    return React.Children.map(this.props.children, child => {
-      if(child.type.name === 'Route'){
-        return abc;
-      }
-      return React.cloneElement(child, null, React.Children.map(child.props.children, child1 => {
-        return React.cloneElement(child1, null, React.Children.map(child1.props.children, child2 => {
-          return abc;
-        }));;
-      }));
-    });
+    return abc;
   }
 }
 

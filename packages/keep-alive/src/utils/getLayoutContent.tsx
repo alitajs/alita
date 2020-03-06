@@ -1,9 +1,10 @@
 export default (keepalive: [], path: string) => `import React from 'react';
 
-export default (props) => {
+const KeepAliveLayout = (props:any) => {
   return React.createElement(require('${path}').default, {
     keepalive:${JSON.stringify(keepalive)},
     ...props
   })
 }
+export {KeepAliveLayout}
 `;

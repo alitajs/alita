@@ -4,7 +4,7 @@ import getLayoutContent from './utils/getLayoutContent';
 import getModelContent from './utils/getModelContent';
 
 const DIR_NAME = 'keep-alive';
-const MODEL_NAME = 'KeepAliveLayout';
+const MODEL_NAME = 'KeepAlive';
 const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
 const RELATIVE_MODEL_PATH = `${RELATIVE_MODEL}.ts`;
 
@@ -37,14 +37,6 @@ export default (api: IApi) => {
     });
 
   });
-
-  api.modifyRoutes(routes => [
-    {
-      path: '/',
-      component: join(api.paths.absTmpPath || '', DIR_NAME, 'KeepAlive.tsx'),
-      routes,
-    },
-  ]);
 
   api.addUmiExports(() => [
     {
