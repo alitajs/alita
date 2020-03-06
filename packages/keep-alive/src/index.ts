@@ -1,13 +1,12 @@
 import { IApi, utils } from 'umi';
 import { join } from 'path';
 import getLayoutContent from './utils/getLayoutContent';
+import getKeepAliveLayout from './utils/getKeepAliveLayout';
 import getModelContent from './utils/getModelContent';
 
 const DIR_NAME = 'keep-alive';
 const MODEL_NAME = 'KeepAlive';
 const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
-const RELATIVE_MODEL_PATH = `${RELATIVE_MODEL}.ts`;
-
 
 // keepalive:['route path','route path']
 // import { dropByCacheKey } from 'umi';
@@ -29,19 +28,26 @@ export default (api: IApi) => {
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveLayout.tsx'),
-      content: getModelContent(api.paths.absTmpPath || ''),
+      content: getKeepAliveLayout(api.paths.absTmpPath || ''),
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAlive.tsx'),
       content: getLayoutContent(api.userConfig.keepalive,'./KeepAliveLayout'),
     });
-
+    api.writeTmpFile({
+      path: join(DIR_NAME, 'KeepAliveModel.tsx'),
+      content: getModelContent(),
+    });
   });
 
   api.addUmiExports(() => [
     {
       exportAll: true,
       source: `../${RELATIVE_MODEL}`,
+    },
+    {
+      exportAll: true,
+      source: `../${join(DIR_NAME, 'KeepAliveModel')}`,
     },
   ]);
 };

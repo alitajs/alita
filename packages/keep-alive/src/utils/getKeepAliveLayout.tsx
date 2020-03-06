@@ -1,18 +1,25 @@
+export default (absTmpPath: string) => `
 import React from 'react';
-
-
-let BasicLayoutInstance: BasicLayout;
-
-export function dropByCacheKey(pathname: string) {
-  if (BasicLayoutInstance) {
-    const { alivePathnames, keepAliveViewMap } = BasicLayoutInstance;
-    const index = alivePathnames.findIndex(item => item === pathname);
-    if (index !== -1) {
-      alivePathnames.splice(index, 1);
-      // 用来当作key，只有key发生变化才会remout组件
-      keepAliveViewMap[pathname].recreateTimes += 1;
+import { routes } from '${absTmpPath}/core/routes';
+import { setLayoutInstance } from 'umi';
+const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
+  let keepAliveMap = {};
+  function find(routess: any[], list:any[]) {
+    if(!routess|| !list ){
+      return routess;
     }
+    return routess.map(element => {
+      if (!Array.isArray(element.routes)&&list.includes(element.path)) {
+        element.recreateTimes = 0;
+        keepAliveMap[element.path] = element;
+      }else{
+        element.routes = find(element.routes,aliveList);
+      }
+      return element;
+    });
   }
+  find(routeList,aliveList)
+  return keepAliveMap;
 }
 
 interface PageProps {
@@ -23,10 +30,10 @@ interface PageProps {
 export default class BasicLayout extends React.PureComponent<PageProps> {
   constructor(props: any) {
     super(props);
-    this.keepAliveViewMap = props.keepAliveViewMap;
+    this.keepAliveViewMap = getKeepAliveViewMap(routes,props.keepalive);
   }
   componentDidMount() {
-    BasicLayoutInstance = this;
+    setLayoutInstance(this);
   }
 
   keepAliveViewMap = {};
@@ -56,7 +63,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             const View = this.keepAliveViewMap[curPathname].component;
             return View ? (
               <div
-                id={`BasicLayout-${curPathname}`}
+                id={\`BasicLayout-\${curPathname}\`}
                 key={
                   curPathname + this.keepAliveViewMap[curPathname].recreateTimes
                 }
@@ -78,6 +85,8 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
           {!showKeepAlive && this.props.children}
         </div>
       </>
-    );
+    )
   }
 }
+
+`;
