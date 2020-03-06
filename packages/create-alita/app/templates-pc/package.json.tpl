@@ -27,7 +27,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@alitajs/alita-layout": "^1.1.2",
+    "@alitajs/alita-layout": "^2.0.2",
     "@alitajs/list-view": "^0.0.4",
     "alita": "^2.1.2"
   },
