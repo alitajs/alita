@@ -8,10 +8,18 @@ import { Location, LocationState } from 'history';
 // import { ListModelState } from './list';
 
 // export { ListModelState, SettingsModelState, IndexModelState };
-{{{ alitaDvaHeadImport }}}
 
 {{{ alitaDvaHeadExport }}}
-export { Reducer  } from 'redux';
+
+export interface Action<T = any> {
+  type: T
+}
+
+export type Reducer<S = any, A extends Action = AnyAction> = (
+  state: S | undefined,
+  action: A
+) => S
+
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
