@@ -46,17 +46,12 @@ export default (api: IApi) => {
       api.writeTmpFile({
         path: RELATIVE_FILE_PATH,
         content: Mustache.render(dvaTpl, {
-          alitaDvaHeadImport: models
+          alitaDvaHeadExport: models
             .map(path => {
               // prettier-ignore
-              return `import { ${lodash.upperFirst(basename(path, extname(path)))}ModelState } from '${winPath(dirname(path) + "/" + basename(path, extname(path)))}';`.trim();
+              return `export * from '${winPath(dirname(path) + "/" + basename(path, extname(path)))}';`.trim();
             })
             .join('\r\n'),
-          alitaDvaHeadExport: `export { ${models
-            .map(path => {
-              // prettier-ignore
-              return lodash.upperFirst(basename(path, extname(path))) + 'ModelState';
-            })} }`,
           alitaDvaLoadingModels: models
             .map(path => {
               // prettier-ignore
