@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/routes",
-  "version": "2.1.3",
+  "version": "2.1.3-beta.2",
   "description": "@alitajs/routes",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
