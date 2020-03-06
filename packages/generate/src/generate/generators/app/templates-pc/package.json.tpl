@@ -29,7 +29,7 @@
   "dependencies": {
     "@alitajs/alita-layout": "^1.1.2",
     "@alitajs/list-view": "^0.0.4",
-    "alita": "^2.0.5-beta.6"
+    "alita": "^2.1.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",

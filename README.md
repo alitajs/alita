@@ -14,6 +14,8 @@ yarn create alita
 
 > create pc app, use `yarn create alita --pc`
 
+Please refer to [the official website](https://alitajs.com) for details.
+
 ## Community
 
 | Github Issue | 钉钉群 | 微信群 |
