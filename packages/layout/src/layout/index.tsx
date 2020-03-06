@@ -10,6 +10,7 @@ import AlitaLayout, {
 
 interface BasicLayoutProps {
   layoutConfig: AlitaLayoutProps;
+  hasKeepAlive: boolean;
 }
 const changeNavBarConfig = (
   preConfig: NavBarProps | undefined,
@@ -37,7 +38,7 @@ const changeNavBarConfig = (
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { children, layoutConfig, ...otherProps } = props;
+  const { children, layoutConfig, hasKeepAlive, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
   const pageNavBar = getPageNavBar();
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
@@ -49,7 +50,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   };
   return (
     <AlitaLayout {...layout}>
-      <KeepAliveLayout {...otherProps}>{children}</KeepAliveLayout>
+      {hasKeepAlive && (
+        <KeepAliveLayout {...otherProps}>{children}</KeepAliveLayout>
+      )}
+      {!hasKeepAlive && children}
     </AlitaLayout>
   );
 };
