@@ -1,6 +1,8 @@
 export default () => `
+import { NavBarListItem } from '@alitajs/alita-layout';
+
 let pageNavBar = {};
-const setPageNavBar = (value:any)=>{
+const setPageNavBar = (value:NavBarListItem)=>{
   if(!value.pagePath||!value.navBar){
     console.error('setPageNavBar: value.pagePath can not be undefined')
     return;
