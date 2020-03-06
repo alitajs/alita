@@ -1,10 +1,11 @@
 import React from 'react';
 // @ts-ignore
-import { getPageNavBar } from 'umi';
+import { getPageNavBar, KeepAliveLayout } from 'umi';
+
 import AlitaLayout, {
   AlitaLayoutProps,
   NavBarProps,
-  NarBarListItem,
+  NavBarListItem,
 } from '@alitajs/alita-layout';
 
 interface BasicLayoutProps {
@@ -17,7 +18,7 @@ const changeNavBarConfig = (
   if (!changeData) return preConfig;
   const { navList, ...other } = preConfig as NavBarProps;
   if (!navList || navList!.length === 0) {
-    const config = [] as NarBarListItem[];
+    const config = [] as NavBarListItem[];
     Object.keys(changeData).forEach(i => {
       config.push({
         pagePath: i,
@@ -36,19 +37,21 @@ const changeNavBarConfig = (
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { children, layoutConfig } = props;
+  const { children, layoutConfig, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
   const pageNavBar = getPageNavBar();
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
   const layout = {
-    children,
     documentTitle,
     navBar: newNavBar,
     tabBar,
     titleList,
   };
-
-  return <AlitaLayout {...layout} />;
+  return (
+    <AlitaLayout {...layout}>
+      <KeepAliveLayout {...otherProps}>{children}</KeepAliveLayout>
+    </AlitaLayout>
+  );
 };
 
 export default BasicLayout;

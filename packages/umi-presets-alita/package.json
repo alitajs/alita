@@ -34,6 +34,7 @@
     "@alitajs/native": "2.1.2",
     "@alitajs/router": "2.1.2",
     "@alitajs/routes": "2.1.2",
+    "@alitajs/keep-alive": "2.1.2",
     "@umijs/plugin-antd": "^0.2.0",
     "@umijs/plugin-dva": "^0.2.0",
     "@umijs/plugin-request": "^2.1.1"

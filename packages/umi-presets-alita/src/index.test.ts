@@ -53,7 +53,7 @@ test('appType-h5', async () => {
         .eq(0)
         .html(),
     ),
-  ).toEqual('*{padding:0;margin:0;box-sizing:border-box;}html,body,#root{width:100%;height:100vh;}#root>div{/*StatusbarheightoniOS11.0*/padding-top:constant(safe-area-inset-top);padding-bottom:constant(safe-area-inset-bottom);/*StatusbarheightoniOS11+*/padding-top:calc(env(safe-area-inset-top)*2);padding-bottom:calc(env(safe-area-inset-bottom)*2);}.am-tab-bar-item>div>div:first-child{top:calc(env(safe-area-inset-top)*2)!important;}body{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;}input{border:none;outline:none;}#root{position:relative;overflow:scroll;}textarea:disabled,input:disabled{background-color:transparent;}');
+  ).toEqual('*{padding:0;margin:0;box-sizing:border-box;}html,body,#root{width:100%;height:100vh;}#root>div{/*StatusbarheightoniOS11.0*/padding-top:constant(safe-area-inset-top);padding-bottom:constant(safe-area-inset-bottom);/*StatusbarheightoniOS11+*/padding-top:calc(env(safe-area-inset-top)*2);padding-bottom:calc(env(safe-area-inset-bottom)*2);}.alita-layout-head{top:calc(env(safe-area-inset-top)*2)!important;}body{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;}input{border:none;outline:none;}#root{position:relative;overflow:scroll;}textarea:disabled,input:disabled{background-color:transparent;}');
 });
 
 
