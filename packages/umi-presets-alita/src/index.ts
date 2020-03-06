@@ -15,10 +15,11 @@ export default function () {
       require.resolve('./plugins/features/appType'),
       require.resolve('@alitajs/hd'),
       require.resolve('@alitajs/routes'),
+      require.resolve('@alitajs/router'),
       require.resolve('@alitajs/layout'),
+      require.resolve('@alitajs/main-path'),
       require.resolve('./plugins/defaultConfig'),
       require.resolve('./plugins/features/complexRoute'),
-      require.resolve('./plugins/features/mainPath'),
     ],
   };
 }

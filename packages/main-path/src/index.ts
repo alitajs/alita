@@ -1,4 +1,4 @@
-import { IApi } from '@umijs/types';
+import { IApi } from 'umi';
 import { resetMainPath } from '@alitajs/utils';
 
 export default (api: IApi) => {

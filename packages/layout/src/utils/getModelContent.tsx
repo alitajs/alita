@@ -1,6 +1,6 @@
 export default () => `
 let pageNavBar = {};
-const setPageNavBar = (value)=>{
+const setPageNavBar = (value:any)=>{
   if(!value.pagePath||!value.navBar){
     console.error('setPageNavBar: value.pagePath can not be undefined')
     return;

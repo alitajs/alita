@@ -1,7 +1,7 @@
 {
-  "name": "@alitajs/layout",
+  "name": "@alitajs/main-path",
   "version": "2.1.2",
-  "description": "@alitajs/layout",
+  "description": "@alitajs/main-path",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -20,11 +20,11 @@
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/layout#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/main-path#readme",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/alita-layout": "^2.0.2"
+    "@alitajs/utils": "2.1.2"
   }
 }

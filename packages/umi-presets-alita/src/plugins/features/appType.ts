@@ -49,7 +49,7 @@ export default (api: IApi) => {
             padding-bottom: calc(env(safe-area-inset-bottom) * 2);
           }
 
-          .am-tab-bar-item > div > div:first-child {
+          .alita-layout-head {
             top: calc(env(safe-area-inset-top) * 2) !important;
           }
           body {
