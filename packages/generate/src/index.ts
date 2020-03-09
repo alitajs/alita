@@ -1,6 +1,6 @@
 import { IApi } from 'umi';
-import createPageGenerator from './generate/generators/pages/index';
-import createAppGenerator from './generate/generators/app/index';
+import createPageGenerator from './generate/pages';
+import createAppGenerator from './generate/app';
 
 export default (api: IApi) => {
   api.registerGenerator({
