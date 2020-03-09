@@ -39,7 +39,7 @@ export default (api: IApi) => {
   api.modifyRoutes(routes => [
     {
       path: '/',
-      component: join(api.paths.absTmpPath || '', DIR_NAME, 'AlitaLayout.tsx'),
+      component: utils.winPath(join(api.paths.absTmpPath || '', DIR_NAME, 'AlitaLayout.tsx')),
       routes,
     },
   ]);
