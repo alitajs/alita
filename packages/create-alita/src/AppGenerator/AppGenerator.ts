@@ -28,9 +28,9 @@ export default class AppGenerator extends Generator {
   }
   appName: any;
   async writing() {
-    let dirPath = '../../app/templates';
+    let dirPath = require.resolve('@alitajs/generate/templates/app/templates');
     if (this.args.pc) {
-      dirPath = '../../app/templates-pc';
+      dirPath = require.resolve('@alitajs/generate/templates/app/templates-pc');
     }
     this.copyDirectory({
       context: {

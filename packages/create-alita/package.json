@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@umijs/types": "3.0.0-beta.10",
-    "@umijs/utils": "3.0.0-beta.10"
+    "@umijs/utils": "3.0.0-beta.10",
+    "@alitajs/generate":"2.1.4"
   }
 }
