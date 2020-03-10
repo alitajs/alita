@@ -67,6 +67,12 @@ export default function (api: IApi) {
           console.error('config/config.ts 中 packageId 是必填项，请增加配置 packageId');
           return ;
         }
+
+        if(/-/.test(api.userConfig.packageId)){
+          console.error('config/config.ts 中 packageId 不允许包含"-",因为会导致cordova项目初始化失败');
+          return ;
+        }
+
         if(!api.userConfig.displayName){
           console.error('config/config.ts 中 displayName 是必填项，请增加配置 displayName');
           return ;

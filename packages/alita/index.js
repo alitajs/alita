@@ -1,3 +1,1 @@
-const ex = require('umi');
-
-module.exports = ex;
+export * from 'umi';
