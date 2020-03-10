@@ -9,6 +9,7 @@ import { Location, LocationState } from 'history';
 
 // export { ListModelState, SettingsModelState, IndexModelState };
 
+
 {{{ alitaDvaHeadExport }}}
 
 export interface Action<T = any> {
@@ -63,7 +64,6 @@ export interface ConnectState {
   // list?: ListModelState;
   // settings?: SettingsModelState;
   // index?: IndexModelState;
-  {{{ alitaDvaConnectState }}}
 }
 
 /**

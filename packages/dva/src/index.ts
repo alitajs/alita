@@ -59,12 +59,6 @@ export default (api: IApi) => {
                 } ?: boolean; `.trim();
             })
             .join('\r\n'),
-          alitaDvaConnectState: models
-            .map(path => {
-              // prettier-ignore
-              return `${basename(path, extname(path))}?: ${lodash.upperFirst(basename(path, extname(path)))}ModelState; `.trim();
-            })
-            .join('\r\n'),
         }),
       });
     },
