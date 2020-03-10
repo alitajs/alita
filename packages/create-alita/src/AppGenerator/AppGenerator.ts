@@ -21,10 +21,6 @@ export default class AppGenerator extends Generator {
     //   const pathsName = winPath(this.cwd).split('/');
     //   this.appName = pathsName[pathsName.length - 1];
     // }
-    assert(
-      !/-/.test(this.appName),
-      'The filename is not allowed to contain the "-" string. (文件名不允许包含"-",因为会导致cordova项目初始化失败)',
-    );
   }
   appName: any;
   async writing() {
