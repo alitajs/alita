@@ -1,7 +1,19 @@
 export default (absTmpPath: string) => `
 import React from 'react';
 import { routes } from '${absTmpPath}/core/routes';
-import { setLayoutInstance } from 'umi';
+import { setLayoutInstance } from './KeepAliveModel';
+const isKeepPath = (aliveList:any[],path:string)=>{
+  let isKeep = false;
+  aliveList.map(item=>{
+    if(item === path){
+      isKeep = true;
+    }
+    if(item instanceof RegExp && item.test(path)){
+      isKeep = true;
+    }
+  })
+  return isKeep;
+}
 const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
   let keepAliveMap = {};
   function find(routess: any[], list:any[]) {
@@ -9,7 +21,7 @@ const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
       return routess;
     }
     return routess.map(element => {
-      if (!Array.isArray(element.routes)&&list.includes(element.path)) {
+      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path)) {
         element.recreateTimes = 0;
         keepAliveMap[element.path] = element;
       }else{
