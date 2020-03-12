@@ -28,7 +28,8 @@ export default (api: IApi) => {
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'AlitaLayout.tsx'),
-      content: getLayoutContent(utils.winPath(join(__dirname, './layout/index.js')), !!api.userConfig.keepalive),
+      // content: getLayoutContent(utils.winPath(join(__dirname, './layout/index.js')), !!api.userConfig.keepalive),
+      content: getLayoutContent(utils.winPath(join(__dirname, './layout/index.js')), true),
     });
     api.writeTmpFile({
       path: RELATIVE_MODEL_PATH,
