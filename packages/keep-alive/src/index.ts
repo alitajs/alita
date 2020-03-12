@@ -3,6 +3,7 @@ import { join } from 'path';
 import getLayoutContent from './utils/getLayoutContent';
 import getKeepAliveLayout from './utils/getKeepAliveLayout';
 import getModelContent from './utils/getModelContent';
+import { type } from 'os';
 
 const DIR_NAME = 'keep-alive';
 const MODEL_NAME = 'KeepAlive';
@@ -11,6 +12,8 @@ const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
 // keepalive:['route path','route path']
 // import { dropByCacheKey } from 'umi';
 // dropByCacheKey('/list');
+type KeepAliveType = (string | RegExp)[]
+
 export default (api: IApi) => {
   if (!api.userConfig.keepalive) return;
 
@@ -24,7 +27,16 @@ export default (api: IApi) => {
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
   });
+  console.log(api.userConfig.keepalive)
+  const configStringify = (config: (string | RegExp)[]) => {
+    return config.map(item => {
+      if (item instanceof RegExp) {
+        return item;
+      }
+      return `'${item}'`
+    })
 
+  }
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveLayout.tsx'),
@@ -32,7 +44,7 @@ export default (api: IApi) => {
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAlive.tsx'),
-      content: getLayoutContent(api.userConfig.keepalive,'./KeepAliveLayout'),
+      content: getLayoutContent(configStringify(api.userConfig.keepalive as KeepAliveType), './KeepAliveLayout'),
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveModel.tsx'),
