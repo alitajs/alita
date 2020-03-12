@@ -1,3 +1,3 @@
 # @alitajs/dva
 
-https://alitajs.com/plugins/dva
+合并到 @umijs/plugin-dva
