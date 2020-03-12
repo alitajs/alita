@@ -3,7 +3,6 @@ import { join } from 'path';
 import getLayoutContent from './utils/getLayoutContent';
 import getKeepAliveLayout from './utils/getKeepAliveLayout';
 import getModelContent from './utils/getModelContent';
-import { type } from 'os';
 
 const DIR_NAME = 'keep-alive';
 const MODEL_NAME = 'KeepAlive';
@@ -27,7 +26,6 @@ export default (api: IApi) => {
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
   });
-  console.log(api.userConfig.keepalive)
   const configStringify = (config: (string | RegExp)[]) => {
     return config.map(item => {
       if (item instanceof RegExp) {
