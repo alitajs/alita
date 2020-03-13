@@ -1,17 +1,11 @@
 import { IApi, utils } from 'umi';
 import { join } from 'path';
 import getLayoutContent from './utils/getLayoutContent';
-import getKeepAliveLayout from './utils/getKeepAliveLayout';
-import getModelContent from './utils/getModelContent';
+import getTabsLayout from './utils/getTabsLayout';
 
-const DIR_NAME = 'keep-alive';
-const MODEL_NAME = 'KeepAlive';
+const DIR_NAME = 'tabs-layout';
+const MODEL_NAME = 'Tabs';
 const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
-
-// keepalive:['route path','route path']
-// import { dropByCacheKey } from 'umi';
-// dropByCacheKey('/list');
-type KeepAliveType = (string | RegExp)[]
 
 export default (api: IApi) => {
   if (api.userConfig.keepalive) {
@@ -26,7 +20,7 @@ export default (api: IApi) => {
     config: {
       default: {},
       schema(joi) {
-        return joi.boolean();
+        return joi.array();
       },
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
@@ -34,16 +28,12 @@ export default (api: IApi) => {
 
   api.onGenerateFiles(() => {
     api.writeTmpFile({
-      path: join(DIR_NAME, 'KeepAliveLayout.tsx'),
-      content: getKeepAliveLayout(api.paths.absTmpPath || ''),
+      path: join(DIR_NAME, 'TabsLayout.tsx'),
+      content: getTabsLayout(api.paths.absTmpPath || ''),
     });
     api.writeTmpFile({
-      path: join(DIR_NAME, 'KeepAlive.tsx'),
-      content: getLayoutContent([/./], './KeepAliveLayout'),
-    });
-    api.writeTmpFile({
-      path: join(DIR_NAME, 'KeepAliveModel.tsx'),
-      content: getModelContent(),
+      path: join(DIR_NAME, 'Tabs.tsx'),
+      content: getLayoutContent(api.userConfig.tabsLayout, './TabsLayout'),
     });
   });
 
@@ -51,10 +41,6 @@ export default (api: IApi) => {
     {
       exportAll: true,
       source: `../${RELATIVE_MODEL}`,
-    },
-    {
-      exportAll: true,
-      source: `../${join(DIR_NAME, 'KeepAliveModel')}`,
     },
   ]);
 };
