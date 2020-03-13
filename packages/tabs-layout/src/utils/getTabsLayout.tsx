@@ -23,9 +23,9 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
       return routess;
     }
     return routess.map(element => {
-      if (!Array.isArray(element.routes) && isKeepPath(list, element.path)) {
+      if (!Array.isArray(element.routes) && isKeepPath(list, element.path.toLowerCase())) {
         element.recreateTimes = 0;
-        keepAliveMap[element.path] = element;
+        keepAliveMap[element.path.toLowerCase()] = element;
       } else {
         element.routes = find(element.routes, aliveList);
       }
@@ -63,11 +63,11 @@ const BasicLayout: FC<PageProps> = (props) => {
         setTimeout(() => setDelectKey(''), 1000);
       }
     }
-    if(pathname !== activeKey)
-    setActiveKey(pathname);
+    if(pathname !== activeKey){
+      setActiveKey(pathname);
+    }
   }
   const onEdit = (targetKey, action) => {
-    console.log('onEdit', targetKey)
     let lastIndex;
     let lastActiveKey;
     panels.forEach((pane, i) => {
@@ -92,7 +92,7 @@ const BasicLayout: FC<PageProps> = (props) => {
   };
   return (
     <>
-      <div hidden={!showKeepAlive}>
+      <div hidden={!showKeepAlive} className="rumtime-tabs-layout" >
         <Tabs
           onChange={(targetKey)=>{
             history.push(targetKey)
@@ -112,9 +112,7 @@ const BasicLayout: FC<PageProps> = (props) => {
           })}
         </Tabs>
       </div>
-      <div hidden={showKeepAlive}>
-        {!showKeepAlive && children}
-      </div>
+      {!showKeepAlive && children}
     </>)
 }
 export default BasicLayout;
