@@ -23,10 +23,11 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
       return routess;
     }
     return routess.map(element => {
-      if (!Array.isArray(element.routes) && isKeepPath(list, element.path.toLowerCase())) {
+      if (isKeepPath(list, element.path.toLowerCase())) {
         element.recreateTimes = 0;
         keepAliveMap[element.path.toLowerCase()] = element;
-      } else {
+      }
+      if(Array.isArray(element.routes)){
         element.routes = find(element.routes, aliveList);
       }
       return element;
@@ -35,6 +36,23 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
   find(routeList, aliveList)
   return keepAliveMap;
 }
+
+const getPageView = (keepAliveView, path) => {
+  let TrueView = false;
+  const pathArr = path.split('/');
+  const pathKey = [];
+  for (let k = pathArr.length; k >= 0; k--) {
+    pathKey.push(pathArr.join('/'));
+    pathArr.length = k;
+  }
+  pathKey.forEach(key => {
+    if (key !== path && keepAliveView[key] && keepAliveView[key].component) {
+      TrueView = true;
+    }
+  });
+  return TrueView ? null : keepAliveView[path].component;
+}
+
 const { TabPane } = Tabs;
 
 interface PageProps {
@@ -102,14 +120,16 @@ const BasicLayout: FC<PageProps> = (props) => {
           onEdit={onEdit}
           hideAdd
         >
-          {panels.map(curPathname => {
-            const View = keepAliveViewMap[curPathname].component;
-            return View ? (
-              <TabPane tab={keepAliveViewMap[curPathname].title || curPathname} key={curPathname}>
-                <View {...props} />
-              </TabPane>
-            ) : { children };
-          })}
+        {panels.map(curPathname => {
+          const View = getPageView(keepAliveViewMap, curPathname);
+          return View ? (
+            <TabPane tab={keepAliveViewMap[curPathname].title || curPathname} key={curPathname}>
+              <View {...props} />
+            </TabPane>
+          ) : <TabPane tab={keepAliveViewMap[curPathname].title || curPathname} key={curPathname}>
+              {children}
+            </TabPane>;
+        })}
         </Tabs>
       </div>
       {!showKeepAlive && children}
