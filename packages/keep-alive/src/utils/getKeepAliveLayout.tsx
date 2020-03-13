@@ -21,9 +21,9 @@ const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
       return routess;
     }
     return routess.map(element => {
-      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path)) {
+      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path.toLowerCase())) {
         element.recreateTimes = 0;
-        keepAliveMap[element.path] = element;
+        keepAliveMap[element.path.toLowerCase()] = element;
       }else{
         element.routes = find(element.routes,aliveList);
       }
@@ -70,6 +70,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
         <div
           style={{ position: 'relative' }}
           hidden={!showKeepAlive}
+          className="rumtime-keep-alive-layout"
         >
           {this.alivePathnames.map(curPathname => {
             const View = this.keepAliveViewMap[curPathname].component;
@@ -93,7 +94,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             ) : null;
           })}
         </div>
-        <div hidden={showKeepAlive}>
+        <div hidden={showKeepAlive} className="rumtime-keep-slive-layout-no" >
           {!showKeepAlive && this.props.children}
         </div>
       </>
