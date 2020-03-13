@@ -28,7 +28,6 @@
     "@alitajs/cordova": "2.1.6",
     "@alitajs/generate": "2.1.6",
     "@alitajs/hd": "2.1.6",
-    "@alitajs/tabs-layout": "2.1.6",
     "@alitajs/keep-alive": "2.1.6",
     "@alitajs/layout": "2.1.6",
     "@alitajs/main-path": "2.1.6",
