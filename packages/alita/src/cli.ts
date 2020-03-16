@@ -1,7 +1,7 @@
 import { dirname } from 'path';
 import { fork } from 'child_process';
 
-process.env.UMI_UI = 'none';
+// process.env.UMI_UI = 'none';
 process.env.IS_ALITA = 'true';
 process.env.UMI_PRESETS = require.resolve('@alitajs/umi-presets-alita');
 
