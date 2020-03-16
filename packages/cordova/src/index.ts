@@ -14,21 +14,33 @@ export default function (api: IApi) {
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
 
   api.describe({
-    key: 'packageId',
+    key: 'cordova',
     config: {
       schema(joi) {
-        return joi.string();
+        return joi.object({
+          packageId: joi.string(),
+          displayName: joi.string(),
+        });
       },
     },
   });
-  api.describe({
-    key: 'displayName',
-    config: {
-      schema(joi) {
-        return joi.string();
-      },
-    },
-  });
+
+  // api.describe({
+  //   key: 'packageId',
+  //   config: {
+  //     schema(joi) {
+  //       return joi.string();
+  //     },
+  //   },
+  // });
+  // api.describe({
+  //   key: 'displayName',
+  //   config: {
+  //     schema(joi) {
+  //       return joi.string();
+  //     },
+  //   },
+  // });
 
   // 通过下方metas设置
   // api.addHTMLMetas(memo => {
@@ -63,19 +75,19 @@ export default function (api: IApi) {
     {
       name: 'cordova',
       fn: ({ args }) => {
-        if(!api.userConfig.packageId){
+        if (!api.userConfig.cordova.packageId) {
           console.error('config/config.ts 中 packageId 是必填项，请增加配置 packageId');
-          return ;
+          return;
         }
 
-        if(/-/.test(api.userConfig.packageId)){
+        if (/-/.test(api.userConfig.cordova.packageId)) {
           console.error('config/config.ts 中 packageId 不允许包含"-",因为会导致cordova项目初始化失败');
-          return ;
+          return;
         }
 
-        if(!api.userConfig.displayName){
+        if (!api.userConfig.cordova.displayName) {
           console.error('config/config.ts 中 displayName 是必填项，请增加配置 displayName');
-          return ;
+          return;
         }
         const addPlatforms = (isIos: boolean) => {
           childProcess.exec(
@@ -96,7 +108,7 @@ export default function (api: IApi) {
           console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
         };
         if (args.init) {
-          create(api.paths.cwd, api.userConfig.packageId, api.userConfig.displayName, {}, events);
+          create(api.paths.cwd, api.userConfig.cordova.packageId, api.userConfig.cordova.displayName, {}, events);
           if (args.ios || args.android) {
             addPlatforms(!!args.ios);
           } else {
