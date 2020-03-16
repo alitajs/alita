@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/dva",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "@alitajs/dva",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
