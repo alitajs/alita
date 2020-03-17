@@ -13,6 +13,9 @@ export default function (api: IApi) {
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
 
+  const packageId = isAlita ? api.userConfig.packageId : api.userConfig.cordova.packageId;
+  const displayName = isAlita ? api.userConfig.displayName : api.userConfig.cordova.displayName;
+
   api.describe({
     key: 'cordova',
     config: {
@@ -25,33 +28,6 @@ export default function (api: IApi) {
     },
   });
 
-  // api.describe({
-  //   key: 'packageId',
-  //   config: {
-  //     schema(joi) {
-  //       return joi.string();
-  //     },
-  //   },
-  // });
-  // api.describe({
-  //   key: 'displayName',
-  //   config: {
-  //     schema(joi) {
-  //       return joi.string();
-  //     },
-  //   },
-  // });
-
-  // 通过下方metas设置
-  // api.addHTMLMetas(memo => {
-  //   const addItem = [
-  //     {
-  //       content: 'no',
-  //       name: 'msapplication-tap-highlight',
-  //     },
-  //   ];
-  //   return [...addItem, ...memo];
-  // });
 
   api.modifyDefaultConfig(memo => {
     return {
@@ -75,17 +51,17 @@ export default function (api: IApi) {
     {
       name: 'cordova',
       fn: ({ args }) => {
-        if (!api.userConfig.cordova.packageId) {
+        if (!packageId) {
           console.error('config/config.ts 中 packageId 是必填项，请增加配置 packageId');
           return;
         }
 
-        if (/-/.test(api.userConfig.cordova.packageId)) {
+        if (/-/.test(packageId)) {
           console.error('config/config.ts 中 packageId 不允许包含"-",因为会导致cordova项目初始化失败');
           return;
         }
 
-        if (!api.userConfig.cordova.displayName) {
+        if (!displayName) {
           console.error('config/config.ts 中 displayName 是必填项，请增加配置 displayName');
           return;
         }
@@ -108,7 +84,7 @@ export default function (api: IApi) {
           console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
         };
         if (args.init) {
-          create(api.paths.cwd, api.userConfig.cordova.packageId, api.userConfig.cordova.displayName, {}, events);
+          create(api.paths.cwd, packageId, displayName, {}, events);
           if (args.ios || args.android) {
             addPlatforms(!!args.ios);
           } else {
