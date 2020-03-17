@@ -16,11 +16,11 @@ export default (api: IApi) => {
       return {
         ...memo,
         hd: true,
-        lessLoader: {
-          modifyVars: {
-            'hack': `true; @import "~antd-mobile/es/style/themes/default.less";`
-          }
-        }
+        // lessLoader: {
+        //   modifyVars: {
+        //     'hack': `true; @import "~antd-mobile/es/style/themes/default.less";`
+        //   }
+        // }
       }
     });
 
@@ -82,17 +82,15 @@ export default (api: IApi) => {
       return [addItem];
     })
   }else{
-    api.modifyDefaultConfig(memo => {
-      return {
-        ...memo,
-        lessLoader: {
-          modifyVars: {
-            'hack': `true; @import "~antd/es/style/themes/default.less";`
-          }
-        }
-      }
-    });
+    // api.modifyDefaultConfig(memo => {
+    //   return {
+    //     ...memo,
+    //     lessLoader: {
+    //       modifyVars: {
+    //         'hack': `true; @import "~antd/es/style/themes/default.less";`
+    //       }
+    //     }
+    //   }
+    // });
   }
-
-
 };

@@ -5,7 +5,7 @@ export default (api: IApi) => {
     key: 'displayName',
     config: {
       schema(joi) {
-        return joi.boolean();
+        return joi.string();
       },
       default: 'Alita Demo',
     },

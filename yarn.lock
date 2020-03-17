@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@alitajs/alita-layout@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.1.0.tgz#bc33ca96232417894c5fd46bdb9414817f9c7211"
+"@alitajs/alita-layout@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.1.1.tgz#261f8275fbd0c5588007c5db9d4329266c441e92"
   dependencies:
     antd-mobile "^2.2.14"
     history "^4.9.0"
