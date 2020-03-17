@@ -9,10 +9,13 @@ import create from './create-cordova';
 import { getIpAddress, setCordovaConfig, supportViewPortForAndroid, fixScrollIssueForIOS } from './utils';
 
 export default function (api: IApi) {
+  if (!api.userConfig.cordova) {
+    api.userConfig.cordova = {}
+  }
+
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
-
   const packageId = isAlita ? api.userConfig.packageId : api.userConfig.cordova.packageId;
   const displayName = isAlita ? api.userConfig.displayName : api.userConfig.cordova.displayName;
 
@@ -27,30 +30,17 @@ export default function (api: IApi) {
       },
     },
   });
-
-
-  api.modifyDefaultConfig(memo => {
-    return {
-      // build目录默认为www
-      ...memo,
-      outputPath: 'www',
-      base: './',
-      publicPath: './',
-      history: 'hash',
-      metas: [
-        {
-          content: 'no',
-          name: 'msapplication-tap-highlight',
-        }
-      ],
-    };
-  });
   // dev
   // 1.cordova create
   api.registerCommand(
     {
       name: 'cordova',
       fn: ({ args }) => {
+        if (api.userConfig.appType !== 'cordova') {
+          console.error('cordova 命令，appType 必须为 cordova，请修改配置 appType');
+          return;
+        }
+
         if (!packageId) {
           console.error('config/config.ts 中 packageId 是必填项，请增加配置 packageId');
           return;
@@ -68,14 +58,15 @@ export default function (api: IApi) {
         const addPlatforms = (isIos: boolean) => {
           childProcess.exec(
             `cordova platforms add ${isIos ? 'ios' : 'android'}`,
-            {},
             (error, stdout, stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
-              } else if (!isIos) {
-                supportViewPortForAndroid(api.paths.cwd!);
               } else {
-                fixScrollIssueForIOS(api.paths.cwd!);
+                if (!isIos) {
+                  supportViewPortForAndroid(api.paths.cwd!);
+                } else {
+                  fixScrollIssueForIOS(api.paths.cwd!);
+                }
               }
               console.log(stdout);
               console.log(stderr);
@@ -99,6 +90,23 @@ export default function (api: IApi) {
         }
       }
     });
+
+  api.modifyDefaultConfig(memo => {
+    return {
+      // build目录默认为www
+      ...memo,
+      outputPath: 'www',
+      base: './',
+      publicPath: './',
+      history: 'hash',
+      metas: [
+        {
+          content: 'no',
+          name: 'msapplication-tap-highlight',
+        }
+      ],
+    };
+  });
 
   if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build')) {
     return;

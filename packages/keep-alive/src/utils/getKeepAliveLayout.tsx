@@ -94,7 +94,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             ) : null;
           })}
         </div>
-        <div hidden={showKeepAlive} className="rumtime-keep-slive-layout-no" >
+        <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
           {!showKeepAlive && this.props.children}
         </div>
       </>

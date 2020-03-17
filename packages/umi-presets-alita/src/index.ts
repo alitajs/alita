@@ -2,8 +2,8 @@ export default function () {
   return {
     plugins: [
       // commands
-      require.resolve('./plugins/commands/version/version'),
-      require.resolve('./plugins/commands/cordova/cordova'),
+      require.resolve('./plugins/commands/version'),
+      require.resolve('./plugins/commands/cordova'),
       require.resolve('@alitajs/native'),
       require.resolve('@alitajs/generate'),
 
