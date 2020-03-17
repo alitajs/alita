@@ -9,14 +9,27 @@ import create from './create-cordova';
 import { getIpAddress, setCordovaConfig, supportViewPortForAndroid, fixScrollIssueForIOS } from './utils';
 
 export default function (api: IApi) {
-  api.registerPlugins([require.resolve('./displayName')]);
-  api.registerPlugins([require.resolve('./packageId')]);
+  if (!api.userConfig.cordova) {
+    api.userConfig.cordova = {}
+  }
 
   const isProduction = process.env.NODE_ENV === 'production';
   const cordovaPlatform = process.env.CORDOVA || 'ios';
   const isAlita = process.env.IS_ALITA && process.env.IS_ALITA !== 'none';
-  const packageId = api.userConfig.packageId;
-  const displayName = api.userConfig.displayName;
+  const packageId = isAlita ? api.userConfig.packageId : api.userConfig.cordova.packageId;
+  const displayName = isAlita ? api.userConfig.displayName : api.userConfig.cordova.displayName;
+
+  api.describe({
+    key: 'cordova',
+    config: {
+      schema(joi) {
+        return joi.object({
+          packageId: joi.string(),
+          displayName: joi.string(),
+        });
+      },
+    },
+  });
   // dev
   // 1.cordova create
   api.registerCommand(
@@ -77,9 +90,7 @@ export default function (api: IApi) {
         }
       }
     });
-  if (api.userConfig.appType !== 'cordova') {
-    return;
-  }
+
   api.modifyDefaultConfig(memo => {
     return {
       // build目录默认为www

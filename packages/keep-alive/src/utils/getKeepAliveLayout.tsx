@@ -68,7 +68,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     return (
       <>
         <div
-          style={{ position: 'relative',height:'100%' }}
+          style={{ position: 'relative' }}
           hidden={!showKeepAlive}
           className="rumtime-keep-alive-layout"
         >
@@ -94,7 +94,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             ) : null;
           })}
         </div>
-        <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no" style={{ height:'100%' }}>
+        <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
           {!showKeepAlive && this.props.children}
         </div>
       </>

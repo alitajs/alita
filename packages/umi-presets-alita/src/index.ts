@@ -2,8 +2,8 @@ export default function () {
   return {
     plugins: [
       // commands
-      require.resolve('./plugins/commands/version/version'),
-      require.resolve('@alitajs/cordova'),
+      require.resolve('./plugins/commands/version'),
+      require.resolve('./plugins/commands/cordova'),
       require.resolve('@alitajs/native'),
       require.resolve('@alitajs/generate'),
 
@@ -12,6 +12,8 @@ export default function () {
       require.resolve('@umijs/plugin-dva'),
       require.resolve('@umijs/plugin-antd'),
       require.resolve('./plugins/features/appType'),
+      require.resolve('./plugins/features/displayName'),
+      require.resolve('./plugins/features/packageId'),
       require.resolve('@alitajs/hd'),
       require.resolve('@alitajs/routes'),
       require.resolve('@alitajs/router'),
