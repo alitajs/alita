@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Location, LocationState } from 'history';
 // @ts-ignore
 import { getPageNavBar, KeepAliveLayout } from 'umi';
 
@@ -11,6 +12,7 @@ import AlitaLayout, {
 interface BasicLayoutProps {
   layoutConfig: AlitaLayoutProps;
   hasKeepAlive: boolean;
+  location: Location<LocationState>;
 }
 const changeNavBarConfig = (
   preConfig: NavBarProps | undefined,
@@ -38,9 +40,12 @@ const changeNavBarConfig = (
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
+  const [pageNavBar, setPageNavBar] = useState({});
   const { children, layoutConfig, hasKeepAlive, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
-  const pageNavBar = getPageNavBar();
+  useEffect(() => {
+    setPageNavBar(getPageNavBar());
+  }, [props.location.pathname]);
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
   const layout = {
     documentTitle,
