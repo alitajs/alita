@@ -11,6 +11,9 @@ const isKeepPath = (aliveList:any[],path:string)=>{
     if(item instanceof RegExp && item.test(path)){
       isKeep = true;
     }
+    if(typeof item === 'string' && item.toLowerCase() === path){
+      isKeep = true;
+    }
   })
   return isKeep;
 }
@@ -56,13 +59,13 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     const {
       location: { pathname },
     } = this.props;
-    const showKeepAlive = !!this.keepAliveViewMap[pathname];
+    const showKeepAlive = !!this.keepAliveViewMap[pathname.toLowerCase()];
     if (showKeepAlive) {
       const index = this.alivePathnames.findIndex(
-        tPathname => tPathname === pathname,
+        tPathname => tPathname === pathname.toLowerCase(),
       );
       if (index === -1) {
-        this.alivePathnames.push(pathname);
+        this.alivePathnames.push(pathname.toLowerCase());
       }
     }
     return (
@@ -101,5 +104,4 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     )
   }
 }
-
 `;
