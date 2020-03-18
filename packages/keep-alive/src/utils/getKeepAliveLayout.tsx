@@ -90,7 +90,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
                   right: 0,
                   bottom: 0,
                 }}
-                hidden={curPathname !== pathname}
+                hidden={curPathname !== pathname.toLowerCase()}
               >
                 <View {...this.props} />
               </div>
