@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/umi-presets-alita",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "@alitajs/umi-presets-alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -25,15 +25,15 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/cordova": "2.2.1",
-    "@alitajs/generate": "2.2.1",
-    "@alitajs/hd": "2.2.1",
-    "@alitajs/keep-alive": "2.2.1",
-    "@alitajs/layout": "2.2.1",
-    "@alitajs/main-path": "2.2.1",
-    "@alitajs/native": "2.2.1",
-    "@alitajs/router": "2.2.1",
-    "@alitajs/routes": "2.2.1",
+    "@alitajs/cordova": "2.2.2",
+    "@alitajs/generate": "2.2.2",
+    "@alitajs/hd": "2.2.2",
+    "@alitajs/keep-alive": "2.2.2",
+    "@alitajs/layout": "2.2.2",
+    "@alitajs/main-path": "2.2.2",
+    "@alitajs/native": "2.2.2",
+    "@alitajs/router": "2.2.2",
+    "@alitajs/routes": "2.2.2",
     "@umijs/plugin-antd": "^0.3.0",
     "@umijs/plugin-dva": "^0.6.1",
     "@umijs/plugin-request": "^2.2.1"
