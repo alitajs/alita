@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/activation",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "@alitajs/activation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
