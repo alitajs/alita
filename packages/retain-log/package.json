@@ -1,7 +1,7 @@
 {
-  "name": "@alitajs/layout",
+  "name": "@alitajs/retain-log",
   "version": "2.2.3",
-  "description": "@alitajs/layout",
+  "description": "@alitajs/retain-log",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -16,15 +16,13 @@
     "alita"
   ],
   "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/layout#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/retain-log#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@alitajs/alita-layout": "^2.1.2"
   }
 }

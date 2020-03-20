@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
