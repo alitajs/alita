@@ -24,9 +24,9 @@ export default class AppGenerator extends Generator {
   }
   appName: any;
   async writing() {
-    let dirPath = require.resolve('@alitajs/generate/templates/app/templates');
+    let dirPath = join(require.resolve('@alitajs/generate'), '..', '..', 'templates/app/templates');
     if (this.args.pc) {
-      dirPath = require.resolve('@alitajs/generate/templates/app/templates-pc');
+      dirPath = join(require.resolve('@alitajs/generate'), '..', '..', 'templates/app/templates-pc');
     }
     this.copyDirectory({
       context: {
@@ -34,7 +34,7 @@ export default class AppGenerator extends Generator {
         projectName: this.appName,
         isTypeScript: true,
       },
-      path: join(__dirname, dirPath),
+      path: dirPath,
       target: join(this.cwd, this.appName),
     });
   }

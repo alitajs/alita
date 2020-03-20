@@ -1,6 +1,6 @@
 {
   "name": "create-alita",
-  "version": "2.2.6",
+  "version": "2.2.8",
   "description": "create-alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,6 @@
   },
   "files": [
     "lib",
-    "app",
     "bin"
   ],
   "repository": {
