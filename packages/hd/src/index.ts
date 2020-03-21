@@ -16,7 +16,7 @@ export default (api: IApi) => {
     key: 'hd',
     config: {
       schema(joi) {
-        return joi.boolean();
+        return joi.object();
       },
     },
   });
