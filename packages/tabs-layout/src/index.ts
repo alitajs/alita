@@ -18,7 +18,7 @@ export default (api: IApi) => {
   api.describe({
     key: 'tabsLayout',
     config: {
-      default: {},
+      default: [/./],
       schema(joi) {
         return joi.array();
       },
