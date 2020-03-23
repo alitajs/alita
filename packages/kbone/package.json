@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/kbone",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "@alitajs/kbone",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
