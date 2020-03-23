@@ -1,6 +1,5 @@
 const { yParser, execa, chalk } = require('@umijs/utils');
 const { join } = require('path');
-const fetch = require('node-fetch');
 const { writeFileSync } = require('fs');
 const exec = require('./utils/exec');
 const getPackages = require('./utils/getPackages');
@@ -137,9 +136,8 @@ async function release() {
           cwd: pkgPath,
         });
         console.log(stdout);
-        (function syncPkg(name) {
-          fetch(`https://npm.taobao.org/sync/${name}`);
-        })(name);
+        const syncRes = execa.sync('cnpm', 'sync', name);
+        console.log(syncRes.stdout);
       }
     });
 
