@@ -136,7 +136,7 @@ async function release() {
           cwd: pkgPath,
         });
         console.log(stdout);
-        const syncRes = execa.sync('cnpm', 'sync', name);
+        const syncRes = execa.sync('cnpm', ['sync', name]);
         console.log(syncRes.stdout);
       }
     });
