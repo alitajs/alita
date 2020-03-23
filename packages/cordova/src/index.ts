@@ -75,16 +75,19 @@ export default function (api: IApi) {
           console.log(`cordova add ${isIos ? 'ios' : 'android'} platforms ...`);
         };
         if (args.init) {
-          create(api.paths.cwd, packageId, displayName, {}, events);
-          if (args.ios || args.android) {
-            addPlatforms(!!args.ios);
-          } else {
-            console.log(
-              `cordova init success,please run "${isAlita ? 'alita' : 'umi'} cordova --ios" or "${
-              isAlita ? 'alita' : 'umi'
-              } cordova --android"  to add cordova platforms`,
-            );
-          }
+          create(api.paths.cwd, packageId, displayName, {}, events).then((value) => {
+            if (args.ios || args.android) {
+              addPlatforms(!!args.ios);
+            } else {
+              console.log(
+                `cordova init success,please run "${isAlita ? 'alita' : 'umi'} cordova --ios" or "${
+                isAlita ? 'alita' : 'umi'
+                } cordova --android"  to add cordova platforms`,
+              );
+            }
+          }, (error) => {
+            console.error(error.message);
+          });
         } else if (args.ios || args.android) {
           addPlatforms(!!args.ios);
         }
