@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Location, LocationState } from 'history';
 // @ts-ignore
-import { getPageNavBar, KeepAliveLayout } from 'umi';
+import { getPageNavBar, KeepAliveLayout, getTabBarList } from 'umi';
 
 import AlitaLayout, {
   AlitaLayoutProps,
   NavBarProps,
   NavBarListItem,
+  TabBarProps
 } from '@alitajs/alita-layout';
 
 interface BasicLayoutProps {
@@ -32,25 +33,46 @@ const changeNavBarConfig = (
   }
   const newNavList = navList!.map(i => {
     if (changeData[i.pagePath]) {
-      i.navBar = changeData[i.pagePath];
+      i.navBar = { ...i.navBar, ...changeData[i.pagePath] };
     }
     return i;
   });
   return { ...other, navList: newNavList };
 };
 
+const changeTabBarListConfig = (
+  preConfig: TabBarProps | undefined,
+  changeData: {},
+) => {
+  if (!changeData) return preConfig;
+  const { list, ...other } = preConfig as TabBarProps;
+  if (!list || list!.length === 0) {
+    return preConfig;
+  }
+  const newNavList = list!.map(i => {
+    if (changeData[i.pagePath]) {
+      i = { ...i, ...changeData[i.pagePath] };
+    }
+    return i;
+  });
+  return { ...other, list: newNavList };
+};
+
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [pageNavBar, setPageNavBar] = useState({});
+  const [tabBarList, setTabBarList] = useState({});
   const { children, layoutConfig, hasKeepAlive, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
   useEffect(() => {
     setPageNavBar(getPageNavBar());
+    setTabBarList(getTabBarList());
   }, [props.location.pathname]);
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
+  const newTabBarList = changeTabBarListConfig(tabBar, tabBarList);
   const layout = {
     documentTitle,
     navBar: newNavBar,
-    tabBar,
+    tabBar: newTabBarList,
     titleList,
   };
   return (
