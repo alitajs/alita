@@ -16,3 +16,4 @@ declare module 'react-copy-to-clipboard';
 declare module 'react-fittext';
 declare module '@antv/data-set';
 declare module 'nzh/cn';
+declare module 'classnames';
