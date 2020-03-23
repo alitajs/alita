@@ -6,7 +6,7 @@ export default {
       initialEntries: ['/'],
     },
   },
-  hd: true,
+  hd: {},
   mountElementId: '',
   routes: [
     { path: '/', component: 'index' },
