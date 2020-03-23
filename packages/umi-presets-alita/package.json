@@ -30,6 +30,7 @@
     "@alitajs/hd": "2.2.8",
     "@alitajs/keep-alive": "2.2.8",
     "@alitajs/layout": "2.2.8",
+    "@alitajs/tabs-layout": "2.2.8",
     "@alitajs/main-path": "2.2.8",
     "@alitajs/native": "2.2.8",
     "@alitajs/retain-log": "2.2.8",
