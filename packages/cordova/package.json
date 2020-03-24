@@ -27,8 +27,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@umijs/types": "3.0.0-beta.10",
-    "@umijs/utils": "3.0.0-beta.10",
     "cordova-app-hello-world": "^4.0.0",
     "cordova-common": "^3.1.0",
     "cordova-create": "^2.0.0",

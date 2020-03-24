@@ -4,7 +4,7 @@ import { events } from 'cordova-common';
 import { join } from 'path';
 import { existsSync, readdirSync } from 'fs-extra';
 import childProcess from 'child_process';
-import { IApi } from '@umijs/types';
+import { IApi, IConfig } from '@umijs/types';
 import create from './create-cordova';
 import { getIpAddress, setCordovaConfig, supportViewPortForAndroid, fixScrollIssueForIOS } from './utils';
 
@@ -94,21 +94,25 @@ export default function (api: IApi) {
       }
     });
 
+  const defaultOptions = {
+    // build目录默认为www
+    outputPath: 'www',
+    history: { type: 'hash' },
+    base: './',
+    publicPath: './',
+    metas: [
+      {
+        content: 'no',
+        name: 'msapplication-tap-highlight',
+      }
+    ],
+  } as IConfig;
+
   api.modifyDefaultConfig(memo => {
     return {
-      // build目录默认为www
       ...memo,
-      outputPath: 'www',
-      base: './',
-      publicPath: './',
-      history: 'hash',
-      metas: [
-        {
-          content: 'no',
-          name: 'msapplication-tap-highlight',
-        }
-      ],
-    };
+      ...defaultOptions,
+    }
   });
 
   if (!(process.env.ALITA_NOW_COMMAND === 'dev' || process.env.ALITA_NOW_COMMAND === 'build')) {
