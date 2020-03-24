@@ -15,7 +15,7 @@ export default (api: IApi) => {
     api.modifyDefaultConfig(memo => {
       return {
         ...memo,
-        hd: true,
+        hd: {},
         // lessLoader: {
         //   modifyVars: {
         //     'hack': `true; @import "~antd-mobile/es/style/themes/default.less";`
@@ -81,7 +81,7 @@ export default (api: IApi) => {
       }
       return [addItem];
     })
-  }else{
+  } else {
     // api.modifyDefaultConfig(memo => {
     //   return {
     //     ...memo,

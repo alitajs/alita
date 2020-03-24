@@ -12,8 +12,8 @@ export default (api: IApi) => {
     //   webpackChunkName: true,
     //   level: 3,
     // },
-    dva: true,
-    antd: true,
+    dva: {},
+    antd: {},
     routesExtend: {
       // 规定只有index文件会被识别成路由
       exclude: [
