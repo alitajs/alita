@@ -29,8 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/generate": "2.3.2",
-    "@umijs/types": "3.0.0-beta.10",
-    "@umijs/utils": "3.0.0-beta.10"
+    "@alitajs/generate": "2.3.2"
   }
 }

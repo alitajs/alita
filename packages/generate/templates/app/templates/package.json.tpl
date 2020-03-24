@@ -35,9 +35,9 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx}": "npm run lint-staged:js",
-    "**/*.{js,ts,tsx,json,jsx,less}": [
+    "src/**/*.less": "stylelint --syntax less",
+    "src/**/*.{js,jsx}": "npm run lint-staged:js",
+    "src/**/*.{js,ts,tsx,json,jsx,less}": [
       "npm run prettier",
       "git add"
     ]
