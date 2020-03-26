@@ -36,10 +36,10 @@
     "@alitajs/router": "2.3.3",
     "@alitajs/routes": "2.3.3",
     "@alitajs/tabs-layout": "2.3.3",
-    "@umijs/plugin-antd": "^0.3.0",
-    "@umijs/plugin-dva": "^0.6.1",
-    "@umijs/plugin-locale": "^0.4.1",
-    "@umijs/plugin-request": "^2.2.1",
-    "@umijs/preset-ui": "^2.0.10"
+    "@umijs/plugin-antd": "^0.4.0",
+    "@umijs/plugin-dva": "^0.6.4",
+    "@umijs/plugin-locale": "^0.4.3",
+    "@umijs/plugin-request": "^2.3.2",
+    "@umijs/preset-ui": "^2.1.3"
   }
 }
