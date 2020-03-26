@@ -1,6 +1,6 @@
 import { ResponseError, Context } from 'umi-request';
 
-// 请求中间件 就是发起请求和响应之后需要统一操作数据就写着
+// 请求中间件 就是发起请求和响应之后需要统一操作数据就写这
 // https://github.com/umijs/umi-request#example-1
 const middleware = async (ctx: Context, next: any) => {
   console.log('a1');
