@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@alitajs/alita-layout@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.1.2.tgz#c5f24cc4ac79d49848ab2ce3e47a71a9b654d2e3"
+"@alitajs/alita-layout@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.1.4.tgz#f373d184fceb3f33111c82fcb681157bb8d14120"
   dependencies:
     antd-mobile "^2.2.14"
     history "^4.9.0"
@@ -3668,7 +3668,7 @@
     sockjs "0.3.20"
     spdy "4.0.1"
 
-"@umijs/test@^3.0.14":
+"@umijs/test@^^3.0.14":
   version "3.0.14"
   resolved "https://registry.yarnpkg.com/@umijs/test/-/test-3.0.14.tgz#2ebf0d5b58158d7c81d2bb070bd57a6a4b52ed4b"
   dependencies:
@@ -3685,7 +3685,7 @@
     regenerator-runtime "^0.13.5"
     whatwg-fetch "^3.0.0"
 
-"@umijs/types@3.0.14":
+"@umijs/types@3.0.14", "@umijs/types@^3.0.14":
   version "3.0.14"
   resolved "https://registry.yarnpkg.com/@umijs/types/-/types-3.0.14.tgz#413cb56f0568f230c543b23129bbb28b9a898c40"
   dependencies:
@@ -3735,7 +3735,7 @@
     lodash.throttle "^4.1.1"
     umi-request "^1.2.17"
 
-"@umijs/utils@3.0.14":
+"@umijs/utils@3.0.14", "@umijs/utils@^3.0.14":
   version "3.0.14"
   resolved "https://registry.yarnpkg.com/@umijs/utils/-/utils-3.0.14.tgz#77aa8267720780cbe74ec7c112dd0e8c8a66e5f5"
   dependencies:
