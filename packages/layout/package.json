@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/layout",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "@alitajs/layout",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
