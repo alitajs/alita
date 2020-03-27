@@ -32,6 +32,7 @@
     "access": "public"
   },
   "dependencies": {
+    "umi": "^3.0.14",
     "@alitajs/umi-presets-alita": "2.3.4"
   }
 }

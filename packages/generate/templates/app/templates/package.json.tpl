@@ -19,7 +19,7 @@
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-    "lint:prettier": "check-prettier lint",
+    "lint:prettier": "prettier --check \"**/*\" --end-of-line auto",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "prettier": "prettier -c --write \"**/*\""
   },
@@ -46,7 +46,7 @@
     "@types/express": "^4.17.2",
     "@umijs/fabric": "2.0.0",
     "chalk": "^3.0.0",
-    "check-prettier": "^1.0.3",
+    "prettier": "^2.0.2",
     "cross-env": "^6.0.3",
     "eslint": "6.8.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
