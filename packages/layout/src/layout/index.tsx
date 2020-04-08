@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Location, LocationState } from 'history';
 // @ts-ignore
-import { getPageNavBar, KeepAliveLayout, getTabBarList } from 'umi';
+import { getPageNavBar, KeepAliveLayout, getTabBarList, layoutEmitter } from 'umi';
 
 import AlitaLayout, {
   AlitaLayoutProps,
@@ -67,6 +67,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
   }, [props.location.pathname]);
+  layoutEmitter.useSubscription(()=>{
+    setPageNavBar(getPageNavBar());
+    setTabBarList(getTabBarList());
+  })
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
   const newTabBarList = changeTabBarListConfig(tabBar, tabBarList);
   const layout = {
