@@ -7,6 +7,9 @@ export default (api: IApi) => {
     targets: {
       ie: 9,
     },
+    nodeModulesTransfor: {
+      type: 'none'
+    },
     // dynamicImport: true,
     // dynamicImport: {
     //   webpackChunkName: true,
