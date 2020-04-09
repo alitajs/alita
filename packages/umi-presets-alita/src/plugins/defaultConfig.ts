@@ -7,8 +7,9 @@ export default (api: IApi) => {
     targets: {
       ie: 9,
     },
-    nodeModulesTransfor: {
-      type: 'none'
+    nodeModulesTransform: {
+      type: 'none',
+      exclude: []
     },
     // dynamicImport: true,
     // dynamicImport: {
