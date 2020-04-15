@@ -474,7 +474,7 @@ DocumentViewer.viewDocument('assets/myFile.pdf', 'application/pdf', options)
 
 用法
 ```typescript
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 FingerprintAIO.show({
     clientId: 'Fingerprint-Demo', //Android: Used for encryption. iOS: used for dialogue if no `localizedReason` is given.
@@ -495,7 +495,7 @@ FingerprintAIO.show({
 
 用法
 ```typescript
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 NativeStorage.setItem('myitem', {property: 'value', anotherProperty: 'anotherValue'})
   .then(
@@ -518,7 +518,7 @@ NativeStorage.getItem('myitem')
 
 用法
 ```typescript
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 // Optionally request the permission early
 QRScanner.prepare()
@@ -555,7 +555,7 @@ sqlite 数据库插件
 
 用法
 ```typescript
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 SQLite.create({
   name: 'data.db',
