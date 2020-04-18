@@ -36,7 +36,37 @@ const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
   find(routeList,aliveList)
   return keepAliveMap;
 }
-
+const getView = (
+  pathname: string,
+  keepAliveViewMap: { [key: string]: any },
+) => {
+  let View;
+  for (const key in keepAliveViewMap) {
+    const keySplit = key.split('/');
+    const pathSplit = pathname.toLowerCase().split('/');
+    View = keepAliveViewMap[key];
+    for (const i in pathSplit) {
+      if (keySplit[i]&&keySplit[i][0] !== ':' && keySplit[i] !== pathSplit[i]) {
+        View = false;
+      }
+    }
+    if (View) {
+      break;
+    }
+  }
+  return View;
+};
+const getMatch = (path,pathname) => {
+  const pathnameSplit = pathname.split('/');
+  const pathSplit = path.split('/');
+  const params={}
+  for (const i in pathSplit) {
+    if (pathSplit[i][0] === ':') {
+      params[pathSplit[i].replace(':','')]=pathnameSplit[i]
+    }
+  }
+  return {match:{params,url:pathname,path}}
+};
 interface PageProps {
   location: {
     pathname: string;
@@ -59,7 +89,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     const {
       location: { pathname },
     } = this.props;
-    const showKeepAlive = !!this.keepAliveViewMap[pathname.toLowerCase()];
+    const showKeepAlive = !!getView(pathname, this.keepAliveViewMap);
     if (showKeepAlive) {
       const index = this.alivePathnames.findIndex(
         tPathname => tPathname === pathname.toLowerCase(),
@@ -76,7 +106,11 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
           className="rumtime-keep-alive-layout"
         >
           {this.alivePathnames.map(curPathname => {
-            const View = this.keepAliveViewMap[curPathname].component;
+            const { component:View, recreateTimes, path } = getView(
+              curPathname,
+              this.keepAliveViewMap,
+            );
+            const pageProps = {...this.props,...getMatch(path,pathname)};
             return View ? (
               <div
                 id={\`BasicLayout-\${curPathname}\`}
@@ -92,7 +126,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
                 }}
                 hidden={curPathname !== pathname.toLowerCase()}
               >
-                <View {...this.props} />
+                <View {...pageProps} />
               </div>
             ) : null;
           })}
