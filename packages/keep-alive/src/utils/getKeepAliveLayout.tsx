@@ -2,7 +2,7 @@ export default (absTmpPath: string) => `
 import React from 'react';
 import { routes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
-import { match, pathToRegexp } from 'path-to-regexp';
+import { match, pathToRegexp } from '@alitajs/keep-alive/node_modules/path-to-regexp';
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -102,7 +102,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
               <div
                 id={\`BasicLayout-\${curPathname}\`}
                 key={
-                  curPathname + this.keepAliveViewMap[curPathname].recreateTimes
+                  curPathname + recreateTimes
                 }
                 style={{
                   position: 'absolute',
