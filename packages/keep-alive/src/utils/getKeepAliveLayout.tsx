@@ -2,6 +2,7 @@ export default (absTmpPath: string) => `
 import React from 'react';
 import { routes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
+import { match, pathToRegexp } from 'path-to-regexp';
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -42,29 +43,15 @@ const getView = (
 ) => {
   let View;
   for (const key in keepAliveViewMap) {
-    const keySplit = key.split('/');
-    const pathSplit = pathname.toLowerCase().split('/');
-    View = keepAliveViewMap[key];
-    for (const i in pathSplit) {
-      if (keySplit[i]&&keySplit[i][0] !== ':' && keySplit[i] !== pathSplit[i]) {
-        View = false;
-      }
-    }
-    if (View) {
+    if (pathToRegexp(key).test(pathname)) {
+      View = keepAliveViewMap[key]
       break;
     }
   }
   return View;
 };
 const getMatch = (path,pathname) => {
-  const pathnameSplit = pathname.split('/');
-  const pathSplit = path.split('/');
-  const params={}
-  for (const i in pathSplit) {
-    if (pathSplit[i][0] === ':') {
-      params[pathSplit[i].replace(':','')]=pathnameSplit[i]
-    }
-  }
+  const {params}:any=match(path, { decode: decodeURIComponent })(pathname)
   return {match:{params,url:pathname,path}}
 };
 interface PageProps {
@@ -110,7 +97,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
               curPathname,
               this.keepAliveViewMap,
             );
-            const pageProps = {...this.props,...getMatch(path,pathname)};
+            const pageProps = {...this.props,...getMatch(path,curPathname)};
             return View ? (
               <div
                 id={\`BasicLayout-\${curPathname}\`}
