@@ -2,6 +2,7 @@ export default (absTmpPath: string) => `
 import React from 'react';
 import { routes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
+import { match, pathToRegexp } from 'path-to-regexp';
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -36,7 +37,23 @@ const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
   find(routeList,aliveList)
   return keepAliveMap;
 }
-
+const getView = (
+  pathname: string,
+  keepAliveViewMap: { [key: string]: any },
+) => {
+  let View;
+  for (const key in keepAliveViewMap) {
+    if (pathToRegexp(key).test(pathname)) {
+      View = keepAliveViewMap[key]
+      break;
+    }
+  }
+  return View;
+};
+const getMatch = (path,pathname) => {
+  const {params}:any=match(path, { decode: decodeURIComponent })(pathname)
+  return {match:{params,url:pathname,path}}
+};
 interface PageProps {
   location: {
     pathname: string;
@@ -59,7 +76,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     const {
       location: { pathname },
     } = this.props;
-    const showKeepAlive = !!this.keepAliveViewMap[pathname.toLowerCase()];
+    const showKeepAlive = !!getView(pathname, this.keepAliveViewMap);
     if (showKeepAlive) {
       const index = this.alivePathnames.findIndex(
         tPathname => tPathname === pathname.toLowerCase(),
@@ -76,7 +93,11 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
           className="rumtime-keep-alive-layout"
         >
           {this.alivePathnames.map(curPathname => {
-            const View = this.keepAliveViewMap[curPathname].component;
+            const { component:View, recreateTimes, path } = getView(
+              curPathname,
+              this.keepAliveViewMap,
+            );
+            const pageProps = {...this.props,...getMatch(path,curPathname)};
             return View ? (
               <div
                 id={\`BasicLayout-\${curPathname}\`}
@@ -92,7 +113,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
                 }}
                 hidden={curPathname !== pathname.toLowerCase()}
               >
-                <View {...this.props} />
+                <View {...pageProps} />
               </div>
             ) : null;
           })}
