@@ -1,6 +1,6 @@
 {
   "name": "create-alita",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "description": "create-alita",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/generate": "2.3.8"
+    "@alitajs/generate": "2.3.9"
   }
 }
