@@ -2,7 +2,8 @@ export default (absTmpPath: string) => `
 import React from 'react';
 import { routes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
-import { match, pathToRegexp } from '@alitajs/keep-alive/node_modules/path-to-regexp';
+import pathToRegexp from 'path-to-regexp';
+import { matchRoutes } from 'react-router-config';
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -50,10 +51,6 @@ const getView = (
   }
   return View;
 };
-const getMatch = (path,pathname) => {
-  const {params}:any=match(path, { decode: decodeURIComponent })(pathname)
-  return {match:{params,url:pathname,path}}
-};
 interface PageProps {
   location: {
     pathname: string;
@@ -93,11 +90,10 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
           className="rumtime-keep-alive-layout"
         >
           {this.alivePathnames.map(curPathname => {
-            const { component:View, recreateTimes, path } = getView(
-              curPathname,
-              this.keepAliveViewMap,
-            );
-            const pageProps = {...this.props,...getMatch(path,curPathname)};
+            const currentView = getView(curPathname, this.keepAliveViewMap);
+            const { component: View, recreateTimes } = currentView;
+            const matchRoute = matchRoutes([currentView], curPathname)[0];
+            const pageProps: any = { ...this.props,...matchRoute };
             return View ? (
               <div
                 id={\`BasicLayout-\${curPathname}\`}

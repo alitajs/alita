@@ -23,8 +23,5 @@
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/keep-alive#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "path-to-regexp": "^6.1.0"
   }
 }
