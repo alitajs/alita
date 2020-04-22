@@ -1,4 +1,4 @@
-# @umijs/plugin-hd
+# @alitajs/hd
 
 Hd plugin for umi.
 
@@ -7,7 +7,7 @@ Hd plugin for umi.
 ```js
 // .umirc.ts
 export default {
-  plugins: ['@umijs/plugin-hd'],
+  plugins: ['@alitajs/hd'],
   hd: true,
 };
 ```
