@@ -26,7 +26,7 @@ const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
       return routess;
     }
     return routess.map(element => {
-      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path.toLowerCase())) {
+      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path?element.path.toLowerCase():'')) {
         element.recreateTimes = 0;
         keepAliveMap[element.path.toLowerCase()] = element;
       }else{
