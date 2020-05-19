@@ -3917,6 +3917,12 @@
     dva-immer "^0.4.19"
     dva-loading "^3.0.20"
 
+"@umijs/plugin-esbuild@^1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-esbuild/-/plugin-esbuild-1.0.0-beta.2.tgz#7940a22bac2a30a0f3a121329a591f4e3f612339"
+  dependencies:
+    esbuild-webpack-plugin "^1.0.0-beta.3"
+
 "@umijs/plugin-locale@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@umijs/plugin-locale/-/plugin-locale-0.4.3.tgz#e7a2dc78d412d154f7c950cf47e7915d4899bf32"
@@ -7605,6 +7611,16 @@ es6-weak-map@^2.0.2:
     es5-ext "^0.10.46"
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
+
+esbuild-webpack-plugin@^1.0.0-beta.3:
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/esbuild-webpack-plugin/-/esbuild-webpack-plugin-1.0.0-beta.4.tgz#2a678c2a10ef1986c5a2a40f10ef75ca3d2ad13b"
+  dependencies:
+    esbuild "^0.2.3"
+
+esbuild@^0.2.3:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.2.12.tgz#77db901f471de7e8732729ff928ffc12687be453"
 
 escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"

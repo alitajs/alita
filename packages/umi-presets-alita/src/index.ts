@@ -1,7 +1,6 @@
 import { IApi } from '@umijs/types';
 
 export default function (api: IApi) {
-  let presets = [];
   let plugins = [
     // commands
     require.resolve('./plugins/commands/version'),
@@ -19,6 +18,7 @@ export default function (api: IApi) {
     require.resolve('@alitajs/retain-log'),
     require.resolve('./plugins/defaultConfig'),
     require.resolve('./plugins/features/complexRoute'),
+    require.resolve('@umijs/plugin-esbuild'),
   ];
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
@@ -30,9 +30,6 @@ export default function (api: IApi) {
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
   }
-  if (api.userConfig.appType == 'pc' && process.env.UMI_UI !== 'none') {
-    presets.push(require.resolve('@umijs/preset-ui'));
-  }
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
   }
@@ -40,7 +37,6 @@ export default function (api: IApi) {
     plugins.push(require.resolve('@umijs/plugin-locale'));
   }
   return {
-    presets,
     plugins
   };
 }

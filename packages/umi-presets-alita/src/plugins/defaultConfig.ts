@@ -7,6 +7,7 @@ export default (api: IApi) => {
     targets: {
       ie: 9,
     },
+    esbuild: {},
     nodeModulesTransform: {
       type: 'none',
       exclude: []
