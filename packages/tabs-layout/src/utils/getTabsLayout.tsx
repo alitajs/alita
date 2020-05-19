@@ -1,6 +1,7 @@
 export default (absTmpPath: string) => `
 import React, { FC, useState } from 'react';
 import { Tabs } from 'antd';
+import pathToRegexp from 'path-to-regexp';
 import { history } from '../core/history';
 import { routes } from '${absTmpPath}/core/routes';
 
@@ -23,7 +24,7 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
       return routess;
     }
     return routess.map(element => {
-      if (isKeepPath(list, element.path.toLowerCase())) {
+      if (isKeepPath(list, element.path?element.path.toLowerCase())) {
         element.recreateTimes = 0;
         keepAliveMap[element.path.toLowerCase()] = element;
       }
@@ -54,7 +55,19 @@ const getPageView = (keepAliveView, path) => {
 }
 
 const { TabPane } = Tabs;
-
+const getView = (
+  pathname: string,
+  keepAliveViewMap: { [key: string]: any },
+) => {
+  let View;
+  for (const key in keepAliveViewMap) {
+    if (pathToRegexp(key).test(pathname)) {
+      View = keepAliveViewMap[key]
+      break;
+    }
+  }
+  return View;
+};
 interface PageProps {
   location: {
     pathname: string;
@@ -68,7 +81,7 @@ const BasicLayout: FC<PageProps> = (props) => {
   const [delectKey, setDelectKey] = useState('');
   const [panels, setPanels] = useState([]);
   const [keepAliveViewMap, setKeepAliveViewMap] = useState(getKeepAliveViewMap(routes, props.keepalive));
-  const showKeepAlive = !!keepAliveViewMap[pathname];
+  const showKeepAlive = !!getView(pathname, keepAliveViewMap);
   if (showKeepAlive) {
     const index = panels.findIndex(
       tPathname => tPathname === pathname,
