@@ -73,10 +73,10 @@ interface PageProps {
     pathname: string;
   };
   keepalive: [];
-  menu: [],
-  alias: {
-    path: string;
-    title: string;
+  menu?: [],
+  alias?: {
+    path?: string;
+    title?: string;
   }
 }
 
