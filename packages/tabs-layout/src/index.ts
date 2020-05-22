@@ -25,7 +25,14 @@ export default (api: IApi) => {
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
   });
-
+  const configStringify = (config: (string | RegExp)[]) => {
+    return config.map(item => {
+      if (item instanceof RegExp) {
+        return item;
+      }
+      return `'${item}'`
+    })
+  }
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'TabsLayout.tsx'),
@@ -33,7 +40,7 @@ export default (api: IApi) => {
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'Tabs.tsx'),
-      content: getLayoutContent(api.userConfig.tabsLayout, './TabsLayout'),
+      content: getLayoutContent(configStringify(api.userConfig.tabsLayout), './TabsLayout'),
     });
   });
 

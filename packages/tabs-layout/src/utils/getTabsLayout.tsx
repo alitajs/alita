@@ -24,7 +24,7 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
       return routess;
     }
     return routess.map(element => {
-      if (isKeepPath(list, element.path?element.path.toLowerCase())) {
+      if (isKeepPath(list, element.path?element.path.toLowerCase():'')) {
         element.recreateTimes = 0;
         keepAliveMap[element.path.toLowerCase()] = element;
       }
@@ -136,10 +136,10 @@ const BasicLayout: FC<PageProps> = (props) => {
         {panels.map(curPathname => {
           const View = getPageView(keepAliveViewMap, curPathname);
           return View ? (
-            <TabPane tab={keepAliveViewMap[curPathname].title || curPathname} key={curPathname}>
+            <TabPane tab={View.title || curPathname} key={curPathname}>
               <View {...props} />
             </TabPane>
-          ) : <TabPane tab={keepAliveViewMap[curPathname].title || curPathname} key={curPathname}>
+          ) : <TabPane tab={curPathname} key={curPathname}>
               {children}
             </TabPane>;
         })}
