@@ -73,6 +73,11 @@ interface PageProps {
     pathname: string;
   };
   keepalive: [];
+  menu: [],
+  alias: {
+    path: string;
+    title: string;
+  }
 }
 
 const BasicLayout: FC<PageProps> = (props) => {
@@ -125,7 +130,7 @@ const BasicLayout: FC<PageProps> = (props) => {
   const getTabName = (curPathname) => {
     const list = menu.filter(it => pathToRegexp(it[alias.path]).test(curPathname));
     if(list && list.length) return list[0][alias.title];
-    return curPathname;
+    return '';
   }
   
   return (
@@ -144,7 +149,7 @@ const BasicLayout: FC<PageProps> = (props) => {
           const View = getPageView(keepAliveViewMap, curPathname);
           const tabName = getTabName(curPathname);
           return View ? (
-            <TabPane tab={tabName || curPathname} key={curPathname}>
+            <TabPane tab={tabName || View.title || curPathname} key={curPathname}>
               <View {...props} />
             </TabPane>
           ) : <TabPane tab={curPathname} key={curPathname}>
