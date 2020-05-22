@@ -73,10 +73,15 @@ interface PageProps {
     pathname: string;
   };
   keepalive: [];
+  menu?: [],
+  alias?: {
+    path?: string;
+    title?: string;
+  }
 }
 
 const BasicLayout: FC<PageProps> = (props) => {
-  const { location: { pathname }, children } = props;
+  const { location: { pathname }, children, menu = [], alias = { path: 'path', title: 'title'} } = props;
   const [activeKey, setActiveKey] = useState('');
   const [delectKey, setDelectKey] = useState('');
   const [panels, setPanels] = useState([]);
@@ -121,6 +126,13 @@ const BasicLayout: FC<PageProps> = (props) => {
       history.push(lastActiveKey);
     }
   };
+
+  const getTabName = (curPathname) => {
+    const list = menu.filter(it => pathToRegexp(it[alias.path]).test(curPathname));
+    if(list && list.length) return list[0][alias.title];
+    return '';
+  }
+  
   return (
     <>
       <div hidden={!showKeepAlive} className="rumtime-tabs-layout" >
@@ -135,8 +147,9 @@ const BasicLayout: FC<PageProps> = (props) => {
         >
         {panels.map(curPathname => {
           const View = getPageView(keepAliveViewMap, curPathname);
+          const tabName = getTabName(curPathname);
           return View ? (
-            <TabPane tab={View.title || curPathname} key={curPathname}>
+            <TabPane tab={tabName || View.title || curPathname} key={curPathname}>
               <View {...props} />
             </TabPane>
           ) : <TabPane tab={curPathname} key={curPathname}>
