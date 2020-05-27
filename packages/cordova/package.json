@@ -36,7 +36,7 @@
     "is-url": "^1.2.4",
     "isobject": "^4.0.0",
     "path-is-inside": "^1.0.2",
-    "serve": "^11.0.0",
+    "serve": "^11.3.1",
     "tmp": "^0.1.0",
     "valid-identifier": "^0.0.2"
   },

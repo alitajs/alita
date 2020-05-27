@@ -23,12 +23,12 @@ export default function (api: IApi) {
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
     plugins.push(require.resolve('@alitajs/layout'));
-    plugins.push(require.resolve('./plugins/features/displayName'));
-    plugins.push(require.resolve('./plugins/features/packageId'));
-    plugins.push(require.resolve('@alitajs/native'));
   }
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
+    plugins.push(require.resolve('./plugins/features/displayName'));
+    plugins.push(require.resolve('./plugins/features/packageId'));
+    plugins.push(require.resolve('@alitajs/native'));
   }
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
