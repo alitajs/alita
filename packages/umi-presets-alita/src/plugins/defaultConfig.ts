@@ -8,6 +8,7 @@ export default (api: IApi) => {
       ie: 9,
     },
     esbuild: {},
+    devtool: 'eval',
     nodeModulesTransform: {
       type: 'none',
       exclude: []
@@ -32,7 +33,19 @@ export default (api: IApi) => {
       ]
     },
   } as IConfig;
-
+  if (api.userConfig.appType === 'pc') {
+    defaultOptions.externals = {
+      'react': 'window.React',
+      'react-dom': 'window.ReactDOM',
+    }
+    defaultOptions.scripts = process.env.NODE_ENV === 'development' ? [
+      'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
+      'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
+    ] : [
+        'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js',
+        'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js',
+      ];
+  }
   api.modifyDefaultConfig(memo => {
     return {
       ...memo,
