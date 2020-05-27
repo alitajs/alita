@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-authorize",
-  "version": "2.3.14",
+  "version": "2.3.16-beta.0",
   "description": "configure authorize",
   "license": "MIT",
   "repository": {
