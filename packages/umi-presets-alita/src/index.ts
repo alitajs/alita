@@ -36,6 +36,11 @@ export default function (api: IApi) {
   if (api.userConfig.locale) {
     plugins.push(require.resolve('@umijs/plugin-locale'));
   }
+  // pc
+  if(api.userConfig.appType === 'pc'){
+    plugins.push(require.resolve('@umijs/plugin-model'));
+    plugins.push(require.resolve('@umijs/plugin-access-layout'));
+  }
   return {
     plugins
   };

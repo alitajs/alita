@@ -36,10 +36,12 @@
     "@alitajs/router": "2.3.16-beta.0",
     "@alitajs/routes": "2.3.16-beta.0",
     "@alitajs/tabs-layout": "2.3.16-beta.0",
+    "@umijs/plugin-access-layout": "^1.0.0",
     "@umijs/plugin-antd": "^0.5.1",
     "@umijs/plugin-dva": "^0.7.2",
     "@umijs/plugin-esbuild": "^1.0.0-beta.2",
     "@umijs/plugin-locale": "^0.7.0",
+    "@umijs/plugin-model": "^2.3.1",
     "@umijs/plugin-request": "^2.3.2"
   }
 }
