@@ -3494,9 +3494,9 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@umijs/error-code-map/-/error-code-map-1.0.1.tgz#2a2dd7b4bcd11869e968264ff3dabacfabe8b874"
 
-"@umijs/plugin-access-layout@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@umijs/plugin-access-layout/-/plugin-access-layout-1.0.0.tgz#e85087f0f41211468bcafed9c9b663b18e818276"
+"@umijs/plugin-access-layout@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-access-layout/-/plugin-access-layout-1.1.0.tgz#119fcbd923ceb25df68dd1406021f65cb299607c"
   dependencies:
     "@ant-design/pro-layout" "^6.0.0-4"
     "@umijs/route-utils" "^1.0.12"
@@ -3517,9 +3517,9 @@
     dva-immer "^0.4.19"
     dva-loading "^3.0.20"
 
-"@umijs/plugin-esbuild@^1.0.0-beta.2":
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@umijs/plugin-esbuild/-/plugin-esbuild-1.0.0-beta.2.tgz#7940a22bac2a30a0f3a121329a591f4e3f612339"
+"@umijs/plugin-esbuild@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-esbuild/-/plugin-esbuild-1.0.0-beta.3.tgz#e9ce54c2ff566100a859cb47a57fbe7659da52dd"
   dependencies:
     esbuild-webpack-plugin "^1.0.0-beta.3"
 
