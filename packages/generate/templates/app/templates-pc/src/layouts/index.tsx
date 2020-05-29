@@ -1,26 +1,10 @@
 import React, { useEffect } from 'react';
-import ProLayout, { MenuDataItem } from '@ant-design/pro-layout';
-import { ConnectRC, GlobalModelState, connect, Link } from 'alita';
-import { SmileOutlined, HeartOutlined } from '@ant-design/icons';
+import { ConnectRC, GlobalModelState, connect, AccessLayout } from 'alita';
 import { HeaderSearch, AvatarDropdown, SelectLang, NoticeIconView } from '@/components';
 import { LanguageItem } from '@/components/SelectLang';
 import { NoticeItem } from '@/components/NoticeIconView';
 import logo from '../assets/logo.png';
-
 import styles from './index.less';
-
-const IconMap = {
-  smile: <SmileOutlined />,
-  heart: <HeartOutlined />,
-};
-
-// 替换服务端数据中的icon
-const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
-  menus.map(({ icon, children, ...item }) => ({
-    ...item,
-    icon: icon && IconMap[icon as string],
-    children: children && loopMenuItem(children),
-  }));
 
 const headSearchDataList = [
   {
@@ -53,7 +37,7 @@ export interface RightContentProps {
   notices?: NoticeItem[];
 }
 
-const RightContent: React.SFC<RightContentProps> = props => {
+const RightContent: React.SFC<RightContentProps> = (props) => {
   const { theme = 'dark', layout = 'sidemenu', language, headSearchData, notices = [] } = props;
   let className = styles.right;
 
@@ -87,7 +71,8 @@ interface PageProps {
   global: GlobalModelState;
 }
 
-const BasicLayout: ConnectRC<PageProps> = ({ children, dispatch, global, location, route }) => {
+const BasicLayout: ConnectRC<PageProps> = ({ dispatch, global, ...other }) => {
+  const { menu } = global;
   useEffect(() => {
     dispatch!({
       type: 'global/menu',
@@ -96,7 +81,7 @@ const BasicLayout: ConnectRC<PageProps> = ({ children, dispatch, global, locatio
       type: 'global/fetchNotices',
     });
   }, []);
-  console.log(route);
+
   const language = [
     {
       key: 'zh-CN',
@@ -111,31 +96,20 @@ const BasicLayout: ConnectRC<PageProps> = ({ children, dispatch, global, locatio
   ];
   const { notices } = global;
   return (
-    <ProLayout
-      title="Alita Demo"
-      logo={logo}
-      // menuHeaderRender={() => null}
-      location={location}
-      menuItemRender={(menuItemProps, defaultDom) => {
-        if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {
-          return defaultDom;
-        }
-
-        return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+    <AccessLayout
+      title="Demo"
+      initState={{
+        currentUser: {
+          access: 'admin',
+        },
       }}
-      menuDataRender={() => loopMenuItem(route.routes as MenuDataItem[])}
+      logo={logo}
+      menuData={menu}
       rightContentRender={() => (
         <RightContent headSearchData={headSearchDataList} language={language} notices={notices} />
       )}
-    >
-      <div
-        style={{
-          height: '100vh',
-        }}
-      >
-        {children}
-      </div>
-    </ProLayout>
+      {...other}
+    ></AccessLayout>
   );
 };
 

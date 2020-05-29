@@ -27,7 +27,7 @@ class NoticeIconView extends Component<NoticeIconViewProps> {
       return {};
     }
 
-    const newNotices = notices.map(notice => {
+    const newNotices = notices.map((notice) => {
       const newNotice = { ...notice };
 
       if (newNotice.datetime) {
@@ -66,7 +66,7 @@ class NoticeIconView extends Component<NoticeIconViewProps> {
     const unreadMsg: {
       [key: string]: number;
     } = {};
-    Object.keys(noticeData).forEach(key => {
+    Object.keys(noticeData).forEach((key) => {
       const value = noticeData[key];
 
       if (!unreadMsg[key]) {
@@ -74,7 +74,7 @@ class NoticeIconView extends Component<NoticeIconViewProps> {
       }
 
       if (Array.isArray(value)) {
-        unreadMsg[key] = value.filter(item => !item.read).length;
+        unreadMsg[key] = value.filter((item) => !item.read).length;
       }
     });
     return unreadMsg;
@@ -95,7 +95,7 @@ class NoticeIconView extends Component<NoticeIconViewProps> {
       <NoticeIcon
         className={styles.action}
         count={currentUser && currentUser.unreadCount}
-        onItemClick={item => {
+        onItemClick={(item) => {
           changeReadState(item as NoticeItem);
         }}
         loading={fetchingNotices}

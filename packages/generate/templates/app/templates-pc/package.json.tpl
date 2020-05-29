@@ -19,9 +19,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/icons": "^4.0.0-alpha.19",
-    "@ant-design/pro-layout": "^5.0.6",
-    "alita": "^2.2.3",
+    "@ant-design/icons": "^4.1.0",
+    "@ant-design/pro-layout": "^6.0.0-4",
+    "@ant-design/pro-table": "^2.3.0",
+    "@umijs/route-utils": "^1.0.12",
+    "alita": "^2.3.16",
     "classnames": "^2.2.6"
   },
   "gitHooks": {
@@ -40,12 +42,12 @@
     "@types/express": "^4.17.2",
     "@umijs/fabric": "2.0.0",
     "chalk": "^3.0.0",
-    "prettier": "^2.0.2",
     "cross-env": "^6.0.3",
     "eslint": "6.8.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "express": "^4.17.1",
     "lint-staged": "^9.5.0",
+    "prettier": "^2.0.2",
     "stylelint": "^12.0.1",
     "yorkie": "^2.0.0"
   }

@@ -17,7 +17,7 @@ interface SelectLangProps {
   language?: LanguageItem[];
 }
 
-const SelectLang: React.FC<SelectLangProps> = props => {
+const SelectLang: React.FC<SelectLangProps> = (props) => {
   const defaultLanguage = [
     {
       key: 'zh-CN',
@@ -47,7 +47,7 @@ const SelectLang: React.FC<SelectLangProps> = props => {
 
   const langMenu = (
     <Menu className={styles.menu} selectedKeys={[selectedLang]} onClick={changeLang}>
-      {language.map(locale => (
+      {language.map((locale) => (
         <Menu.Item key={locale.key}>
           <span role="img" aria-label={locale.label}>
             {locale.icon}

@@ -32,7 +32,7 @@ const AvatarDropdown: FC<AvatarDropdownProps> = ({
 }) => {
   const menuHeaderDropdown = (
     <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick}>
-      {menuItemList.map(item => item)}
+      {menuItemList.map((item) => item)}
       {!hideLogout && (
         <Menu.Item key="logout">
           <LogoutOutlined />

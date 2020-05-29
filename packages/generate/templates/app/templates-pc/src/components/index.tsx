@@ -1,3 +1,4 @@
+export * from './Exception';
 export { default as AvatarDropdown } from './AvatarDropdown';
 export { default as HeaderDropdown } from './HeaderDropdown';
 export { default as HeaderSearch } from './HeaderSearch';

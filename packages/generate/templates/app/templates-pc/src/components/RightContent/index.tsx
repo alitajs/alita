@@ -19,7 +19,7 @@ export interface RightContentProps {
   notices?: NoticeItem[];
 }
 
-const RightContent: React.SFC<RightContentProps> = props => {
+const RightContent: React.SFC<RightContentProps> = (props) => {
   const {
     theme = 'dark',
     layout = 'sidemenu',
