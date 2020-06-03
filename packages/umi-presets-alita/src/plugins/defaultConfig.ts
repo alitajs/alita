@@ -8,16 +8,10 @@ export default (api: IApi) => {
       ie: 9,
     },
     esbuild: {},
-    devtool: 'eval',
     nodeModulesTransform: {
       type: 'none',
       exclude: []
     },
-    // dynamicImport: true,
-    // dynamicImport: {
-    //   webpackChunkName: true,
-    //   level: 3,
-    // },
     dva: {},
     antd: {},
     routesExtend: {
