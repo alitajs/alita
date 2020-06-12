@@ -24,9 +24,9 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
       return routess;
     }
     return routess.map(element => {
-      if (isKeepPath(list, element.path?element.path.toLowerCase():'')) {
+      if (isKeepPath(list, element.path?element.path :'')) {
         element.recreateTimes = 0;
-        keepAliveMap[element.path.toLowerCase()] = element;
+        keepAliveMap[element.path] = element;
       }
       if(Array.isArray(element.routes)){
         element.routes = find(element.routes, aliveList);
@@ -38,9 +38,9 @@ const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
   return keepAliveMap;
 }
 
-const getPageView = (keepAliveView, path) => {
+const getPageView = (keepAliveView, path='') => {
   let TrueView = false;
-  const pathArr = path.split('/');
+  const pathArr = path .split('/');
   const pathKey = [];
   for (let k = pathArr.length; k >= 0; k--) {
     pathKey.push(pathArr.join('/'));
@@ -128,11 +128,11 @@ const BasicLayout: FC<PageProps> = (props) => {
   };
 
   const getTabName = (curPathname) => {
-    const list = menu.filter(it => pathToRegexp(it[alias.path]).test(curPathname));
-    if(list && list.length) return list[0][alias.title];
+    const list = menu.filter(it => pathToRegexp(it[alias.path||'path']).test(curPathname));
+    if(list && list.length) return list[0][alias.title||'title'];
     return '';
   }
-  
+
   return (
     <>
       <div hidden={!showKeepAlive} className="rumtime-tabs-layout" >
