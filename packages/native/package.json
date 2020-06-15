@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/native",
-  "version": "2.5.2",
+  "version": "2.5.3-beta.0",
   "description": "@alitajs/native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
