@@ -8,6 +8,7 @@ export default (api: IApi) => {
       ie: 9,
     },
     esbuild: {},
+    dynamicImport: {},
     nodeModulesTransform: {
       type: 'none',
       exclude: []
@@ -27,7 +28,7 @@ export default (api: IApi) => {
       ]
     },
   } as IConfig;
-  if (api.userConfig.appType === 'pc' && process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== 'development') {
     defaultOptions.externals = {
       'react': 'window.React',
       'react-dom': 'window.ReactDOM',
