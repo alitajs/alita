@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/auto-split-chunks",
-  "version": "2.5.5",
+  "version": "2.5.6-beta.0",
   "description": "@alitajs/auto-split-chunks",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
