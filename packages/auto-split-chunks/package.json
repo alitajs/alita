@@ -1,7 +1,7 @@
 {
-  "name": "@alitajs/activation",
+  "name": "@alitajs/auto-split-chunks",
   "version": "2.5.5",
-  "description": "@alitajs/activation",
+  "description": "@alitajs/auto-split-chunks",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -16,12 +16,11 @@
     "alita"
   ],
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/activation#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/auto-split-chunks#readme",
   "publishConfig": {
     "access": "public"
   }

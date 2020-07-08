@@ -1,1 +1,0 @@
-# @alitajs/activation

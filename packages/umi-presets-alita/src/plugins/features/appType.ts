@@ -1,5 +1,6 @@
 import { IApi } from '@umijs/types';
 
+// h5,cordova,pc,micro
 export default (api: IApi) => {
   api.describe({
     key: 'appType',

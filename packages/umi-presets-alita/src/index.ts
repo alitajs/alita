@@ -30,6 +30,9 @@ export default function (api: IApi) {
     plugins.push(require.resolve('./plugins/features/packageId'));
     plugins.push(require.resolve('@alitajs/native'));
   }
+  if (api.userConfig.appType === 'micro') {
+    plugins.push(require.resolve('@alitajs/auto-split-chunks'));
+  }
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
   }

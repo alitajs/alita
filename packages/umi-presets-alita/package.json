@@ -36,6 +36,7 @@
     "@alitajs/router": "2.5.5",
     "@alitajs/routes": "2.5.5",
     "@alitajs/tabs-layout": "2.5.5",
+    "@alitajs/auto-split-chunks": "2.5.5",
     "@umijs/plugin-access-layout": "^1.1.0",
     "@umijs/plugin-antd": "^0.5.1",
     "@umijs/plugin-dva": "^0.7.2",
