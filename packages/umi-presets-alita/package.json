@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/auto-split-chunks": "2.5.6-beta.0",
+    "@alitajs/micro": "2.5.6-beta.0",
     "@alitajs/cordova": "2.5.6-beta.0",
     "@alitajs/generate": "2.5.6-beta.0",
     "@alitajs/hd": "2.5.6-beta.0",

@@ -9,12 +9,12 @@ const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
 
 export default (api: IApi) => {
   if (api.userConfig.keepalive) {
-    console.error('请不要和 keep alive 插件一起使用，两个功能相同')
+    console.error('请不要和 keep alive 插件一起使用，两个功能相同');
     return;
-  };
+  }
   if (!api.userConfig.tabsLayout) {
     return;
-  };
+  }
   api.describe({
     key: 'tabsLayout',
     config: {
@@ -26,13 +26,13 @@ export default (api: IApi) => {
     },
   });
   const configStringify = (config: (string | RegExp)[]) => {
-    return config.map(item => {
+    return config.map((item) => {
       if (item instanceof RegExp) {
         return item;
       }
-      return `'${item}'`
-    })
-  }
+      return `'${item}'`;
+    });
+  };
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'TabsLayout.tsx'),
@@ -40,7 +40,10 @@ export default (api: IApi) => {
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'Tabs.tsx'),
-      content: getLayoutContent(configStringify(api.userConfig.tabsLayout), './TabsLayout'),
+      content: getLayoutContent(
+        configStringify(api.userConfig.tabsLayout),
+        './TabsLayout',
+      ),
     });
   });
 

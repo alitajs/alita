@@ -12,21 +12,30 @@ interface AuthorizeItem {
   exclude?: string | RegExp;
 }
 function patchRoutes(routes: IRoute[], authorize: AuthorizeItem[]) {
-  routes.forEach(route => {
+  routes.forEach((route) => {
     if (route.routes) {
       patchRoutes(route.routes, authorize);
     } else {
-      authorize.forEach(auth => {
+      authorize.forEach((auth) => {
         const { guard, include, exclude } = auth;
         //exclude和include可能是正则表达式或者字符串
         if (
           (!exclude ||
             (exclude instanceof RegExp && !exclude.test(route.path!)) ||
-            (route.path && typeof exclude === 'string' && route.path.indexOf(exclude) === -1)) &&
-          ((include && (include instanceof RegExp && include.test(route.path!))) ||
-            (route.path && typeof include === 'string' && route.path.indexOf(include) !== -1))
+            (route.path &&
+              typeof exclude === 'string' &&
+              route.path.indexOf(exclude) === -1)) &&
+          ((include &&
+            include instanceof RegExp &&
+            include.test(route.path!)) ||
+            (route.path &&
+              typeof include === 'string' &&
+              route.path.indexOf(include) !== -1))
         ) {
-          assert(Array.isArray(guard), `The guard must be Array, but got ${guard}`);
+          assert(
+            Array.isArray(guard),
+            `The guard must be Array, but got ${guard}`,
+          );
           route.wrappers = guard;
         }
       });
@@ -44,11 +53,11 @@ export default function (api: IApi) {
       },
     },
   });
-  api.modifyRoutes(routes => {
+  api.modifyRoutes((routes) => {
     if (api.userConfig.authorize) {
       assert(
         Array.isArray(api.userConfig.authorize),
-        `The authorize must be Array, but got ${api.userConfig.authorize}`
+        `The authorize must be Array, but got ${api.userConfig.authorize}`,
       );
       patchRoutes(routes, api.userConfig.authorize);
     }

@@ -1,1 +1,0 @@
-# @alitajs/auto-split-chunks

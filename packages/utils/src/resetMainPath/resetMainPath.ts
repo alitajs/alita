@@ -8,8 +8,8 @@ export default function resetMainPath(routes: any[], mainPath: string) {
   if (newPath !== '/' && newPath.slice(0, 1) !== '/') {
     newPath = `/${newPath}`;
   }
-  return routes.map(element => {
-    if(element.isResetMainEdit) {
+  return routes.map((element) => {
+    if (element.isResetMainEdit) {
       return element;
     }
     if (element.path === '/' && !element.routes) {

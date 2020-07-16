@@ -11,7 +11,7 @@ export default (api: IApi) => {
     },
   });
   if (api.userConfig.complexRoute) {
-    api.modifyDefaultConfig(memo => {
+    api.modifyDefaultConfig((memo) => {
       return {
         ...memo,
         routesExtend: {
@@ -22,10 +22,10 @@ export default (api: IApi) => {
             /service\.(j|t)sx?$/,
             /models\//,
             /components\//,
-            /services\//
-          ]
+            /services\//,
+          ],
         },
-      }
+      };
     });
   }
 };

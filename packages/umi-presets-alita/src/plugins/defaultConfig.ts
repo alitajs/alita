@@ -12,7 +12,7 @@ export default (api: IApi) => {
     dynamicImport: {},
     nodeModulesTransform: {
       type: 'none',
-      exclude: []
+      exclude: [],
     },
     dva: {},
     antd: {},
@@ -25,34 +25,35 @@ export default (api: IApi) => {
         /service\.(j|t)sx?$/,
         /models\//,
         /components\//,
-        /services\//
-      ]
+        /services\//,
+      ],
     },
   } as IConfig;
-  if (process.env.NODE_ENV !== 'development') {
-    defaultOptions.externals = {
-      ...{
-        'react': 'window.React',
-        'react-dom': 'window.ReactDOM',
-      },
-      ...externals
-    }
-    // 临时方案，scripts 配置会覆盖
-    // defaultOptions.scripts = [
-    //   'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js',
-    //   'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js',
-    // ].concat(scripts);
-    api.addHTMLScripts(() => {
-      return [
-        { src: 'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js', },
-        { src: 'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js', }
-      ]
-    });
-  }
-  api.modifyDefaultConfig(memo => {
+  // 优化程度不高
+  // if (process.env.NODE_ENV !== 'development') {
+  //   defaultOptions.externals = {
+  //     ...{
+  //       'react': 'window.React',
+  //       'react-dom': 'window.ReactDOM',
+  //     },
+  //     ...externals
+  //   }
+  //   // 临时方案，scripts 配置会覆盖
+  //   // defaultOptions.scripts = [
+  //   //   'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js',
+  //   //   'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js',
+  //   // ].concat(scripts);
+  //   api.addHTMLScripts(() => {
+  //     return [
+  //       { src: 'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js', },
+  //       { src: 'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js', }
+  //     ]
+  //   });
+  // }
+  api.modifyDefaultConfig((memo) => {
     return {
       ...memo,
       ...defaultOptions,
-    }
+    };
   });
 };

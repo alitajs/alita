@@ -1,4 +1,3 @@
-
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs-extra';
 import os from 'os';
 import { join } from 'path';
@@ -45,7 +44,10 @@ export function setCordovaConfig(path: string, isProduction: boolean) {
     } else {
       const widgePattern = '</widget>';
       const widgeRegex = new RegExp(widgePattern);
-      content = content.replace(widgeRegex, `\t<allow-navigation href="${webUrl}" />\n</widget>`);
+      content = content.replace(
+        widgeRegex,
+        `\t<allow-navigation href="${webUrl}" />\n</widget>`,
+      );
     }
   }
   writeFileSync(configPath, content);
@@ -65,7 +67,11 @@ export function supportViewPortForAndroid(path: string) {
   );
   if (!existsSync(mainActivityPath)) return;
   let content = readFileSync(mainActivityPath).toString();
-  if (!/WebView webView = \(WebView\)[\s]?this\.appView\.getView\(\);/.test(content)) {
+  if (
+    !/WebView webView = \(WebView\)[\s]?this\.appView\.getView\(\);/.test(
+      content,
+    )
+  ) {
     content = content.replace(
       'loadUrl(launchUrl);',
       'loadUrl(launchUrl);\n\t//下面能让 Android 设备支持 viewport\n\tWebView webView = (WebView) this.appView.getView();\n\twebView.getSettings().setLoadWithOverviewMode(true);\n\twebView.getSettings().setUseWideViewPort(true);',
@@ -73,7 +79,10 @@ export function supportViewPortForAndroid(path: string) {
     writeFileSync(mainActivityPath, content);
   }
   if (!/import android.webkit.*;/.test(content)) {
-    content = content.replace('import android.os.Bundle;', 'import android.os.Bundle;\nimport android.webkit.*;');
+    content = content.replace(
+      'import android.os.Bundle;',
+      'import android.os.Bundle;\nimport android.webkit.*;',
+    );
     writeFileSync(mainActivityPath, content);
   }
 }

@@ -1,6 +1,6 @@
 # @alitajs/layout
 
-将@alitajs/alita-layout改成 umi 插件，为了能够在运行时配置。
+将@alitajs/alita-layout 改成 umi 插件，为了能够在运行时配置。
 
 ## Usage
 
@@ -14,20 +14,20 @@ Configure it in the `.umirc.js`.
 
 ```js
 export default {
-   plugins: ['@alitajs/layout'],
-   mobileLayout: true
-}
+  plugins: ['@alitajs/layout'],
+  mobileLayout: true,
+};
 ```
 
 ## mobileLayout
 
-是否使用layout插件
+是否使用 layout 插件
 
 ## 运行时配置
 
 在 src/app 中配置
 
-与在layout中配置相同。详细配置，请阅读 [alita-layout](https://github.com/alitajs/alita-layout)
+与在 layout 中配置相同。详细配置，请阅读 [alita-layout](https://github.com/alitajs/alita-layout)
 
 ```ts
 export const mobileLayout = {
@@ -36,7 +36,6 @@ export const mobileLayout = {
   tabBar,
   titleList,
 };
-
 ```
 
 ## 在页面中修改配置
@@ -45,16 +44,16 @@ export const mobileLayout = {
 import { setPageNavBar } from 'alita';
 // pagePath 可以从 props.location.pathname 取得
 useEffect(() => {
-    setPageNavBar({
-      pagePath: location.pathname,
-      navBar: {
-        onLeftClick:()=>{},
-        rightContent: [
-          <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-          <Icon key="1" type="ellipsis" />,
-        ],
-      },
-    });
+  setPageNavBar({
+    pagePath: location.pathname,
+    navBar: {
+      onLeftClick: () => {},
+      rightContent: [
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        <Icon key="1" type="ellipsis" />,
+      ],
+    },
+  });
 }, []);
 // class 中使用，建议在 componentDidMount 中设置，也可以在任意地方动态设置。
 ```

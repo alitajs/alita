@@ -6,7 +6,7 @@ describe('umi-plugin-routes:exclude', () => {
       exclude(
         [{ foo: 1 }, { bar: 1 }],
         [
-          route => {
+          (route) => {
             return 'foo' in route;
           },
         ],
@@ -37,7 +37,7 @@ describe('umi-plugin-routes:exclude', () => {
       exclude(
         [{ foo: 1 }, { bar: 1, routes: [{ foo: 1 }, { bar: 1 }] }],
         [
-          route => {
+          (route) => {
             return 'foo' in route;
           },
         ],

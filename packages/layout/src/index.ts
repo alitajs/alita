@@ -28,7 +28,10 @@ export default (api: IApi) => {
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'AlitaLayout.tsx'),
-      content: getLayoutContent(utils.winPath(join(__dirname, './layout/index.js')), !!api.userConfig.keepalive),
+      content: getLayoutContent(
+        utils.winPath(join(__dirname, './layout/index.js')),
+        !!api.userConfig.keepalive,
+      ),
     });
     api.writeTmpFile({
       path: RELATIVE_MODEL_PATH,
@@ -36,10 +39,12 @@ export default (api: IApi) => {
     });
   });
 
-  api.modifyRoutes(routes => [
+  api.modifyRoutes((routes) => [
     {
       path: '/',
-      component: utils.winPath(join(api.paths.absTmpPath || '', DIR_NAME, 'AlitaLayout.tsx')),
+      component: utils.winPath(
+        join(api.paths.absTmpPath || '', DIR_NAME, 'AlitaLayout.tsx'),
+      ),
       routes,
     },
   ]);

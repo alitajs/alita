@@ -14,7 +14,7 @@ export default (api: IApi) => {
   // process.env.NODE_ENV = 'production';
   api.chainWebpack((config, { webpack }) => {
     // Set alias
-    console.log(config.mode)
+    console.log(config.mode);
     // Delete progress bar plugin
     return config;
   });

@@ -12,7 +12,7 @@ yarn add @alitajs/tabs-layout
 
 ```ts
 export default {
-  plugins:['@alitajs/tabs-layout'],
+  plugins: ['@alitajs/tabs-layout'],
   tabsLayout: [/./], // 这里表示所有的页面
 };
 ```
@@ -27,11 +27,11 @@ export default {
 import React from 'react';
 import { TabsLayout } from 'alita';
 
-const BasicLayout: React.FC = props => {
+const BasicLayout: React.FC = (props) => {
   return (
     <div>
--     { props.children }
-+     <TabsLayout {...props}/>
+      - {props.children}
+      + <TabsLayout {...props} />
     </div>
   );
 };

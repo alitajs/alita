@@ -8,12 +8,12 @@ test('checkPluginInstalled', async () => {
     name: 'camera',
     cordova: 'cordova-plugin-camera',
     ionic: '@ionic-native/camera',
-  })
+  });
   expect(installed).toEqual(false);
 });
 
 test('checkDependenceInstalled', async () => {
   const cwd = join(fixtures, 'native');
-  const installed = checkDependenceInstalled(cwd, '@ionic-native/core')
+  const installed = checkDependenceInstalled(cwd, '@ionic-native/core');
   expect(installed).toEqual(true);
 });

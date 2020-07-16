@@ -21,8 +21,12 @@ test('generate app', async () => {
   await runGenerator({
     _: ['generate', 'app', 'hello'],
   });
-  expect(existsSync(join(cwd, 'hello', 'src', 'pages', 'index', 'index.tsx'))).toEqual(true);
-  expect(existsSync(join(cwd, 'hello', 'src', 'pages', 'list', 'index.less'))).toEqual(true);
+  expect(
+    existsSync(join(cwd, 'hello', 'src', 'pages', 'index', 'index.tsx')),
+  ).toEqual(true);
+  expect(
+    existsSync(join(cwd, 'hello', 'src', 'pages', 'list', 'index.less')),
+  ).toEqual(true);
   rimraf.sync(join(cwd, 'hello'));
 });
 

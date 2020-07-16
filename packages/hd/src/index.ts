@@ -22,7 +22,7 @@ export default (api: IApi) => {
   });
 
   if (api.userConfig.hd || api.userConfig.appType !== 'pc') {
-    api.modifyDefaultConfig(config => {
+    api.modifyDefaultConfig((config) => {
       const draftConfig = config;
       const { theme, px2rem: configPx2rem } = api.userConfig?.hd || {};
       draftConfig.theme = {
@@ -55,5 +55,4 @@ export default (api: IApi) => {
       };
     });
   }
-
 };

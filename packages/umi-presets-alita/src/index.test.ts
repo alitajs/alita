@@ -22,8 +22,8 @@ test('default config', async () => {
       /service\.(j|t)sx?$/,
       /models\//,
       /components\//,
-      /services\//
-    ]
+      /services\//,
+    ],
   });
 });
 
@@ -46,16 +46,13 @@ test('appType-h5', async () => {
     str?.replace(/[\r\n]/g, '')?.replace(/\ +/g, '');
   const html = readFileSync(join(cwd, 'dist', 'index.html'), 'utf-8');
   const $ = cheerio.load(html);
-  expect($('head meta[name="format-detection"]').attr('content')).toEqual('telephone=no');
-  expect(
-    removeSpace(
-      $('head style')
-        .eq(0)
-        .html(),
-    ),
-  ).toEqual('*{padding:0;margin:0;box-sizing:border-box;}html,body,#root{width:100%;height:100vh;}#root>div{/*StatusbarheightoniOS11.0*/padding-top:constant(safe-area-inset-top);padding-bottom:constant(safe-area-inset-bottom);/*StatusbarheightoniOS11+*/padding-top:calc(env(safe-area-inset-top)*2);padding-bottom:calc(env(safe-area-inset-bottom)*2);}.alita-layout-head{top:calc(env(safe-area-inset-top)*2)!important;}body{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;}input{border:none;outline:none;}#root{position:relative;overflow:scroll;}textarea:disabled,input:disabled{background-color:transparent;}');
+  expect($('head meta[name="format-detection"]').attr('content')).toEqual(
+    'telephone=no',
+  );
+  expect(removeSpace($('head style').eq(0).html())).toEqual(
+    '*{padding:0;margin:0;box-sizing:border-box;}html,body,#root{width:100%;height:100vh;}#root>div{/*StatusbarheightoniOS11.0*/padding-top:constant(safe-area-inset-top);padding-bottom:constant(safe-area-inset-bottom);/*StatusbarheightoniOS11+*/padding-top:calc(env(safe-area-inset-top)*2);padding-bottom:calc(env(safe-area-inset-bottom)*2);}.alita-layout-head{top:calc(env(safe-area-inset-top)*2)!important;}body{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;}input{border:none;outline:none;}#root{position:relative;overflow:scroll;}textarea:disabled,input:disabled{background-color:transparent;}',
+  );
 });
-
 
 test('appType-pc', async () => {
   const cwd = join(fixtures, 'app-type-pc');
@@ -81,8 +78,8 @@ test('complexRoute', async () => {
       /service\.(j|t)sx?$/,
       /models\//,
       /components\//,
-      /services\//
-    ]
+      /services\//,
+    ],
   });
 });
 
@@ -100,8 +97,8 @@ test('complexRoute', async () => {
       /service\.(j|t)sx?$/,
       /models\//,
       /components\//,
-      /services\//
-    ]
+      /services\//,
+    ],
   });
 });
 

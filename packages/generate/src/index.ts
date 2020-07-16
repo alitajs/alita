@@ -13,4 +13,4 @@ export default (api: IApi) => {
     // @ts-ignore
     Generator: createAppGenerator({ api }),
   });
-}
+};

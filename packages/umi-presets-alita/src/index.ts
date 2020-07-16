@@ -19,6 +19,9 @@ export default function (api: IApi) {
     require.resolve('./plugins/defaultConfig'),
     require.resolve('./plugins/features/complexRoute'),
     require.resolve('@umijs/plugin-esbuild'),
+    require.resolve('./plugins/features/displayName'),
+    require.resolve('./plugins/features/packageId'),
+    require.resolve('./plugins/features/displayIcon'),
   ];
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
@@ -26,12 +29,10 @@ export default function (api: IApi) {
   }
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
-    plugins.push(require.resolve('./plugins/features/displayName'));
-    plugins.push(require.resolve('./plugins/features/packageId'));
     plugins.push(require.resolve('@alitajs/native'));
   }
   if (api.userConfig.appType === 'micro') {
-    plugins.push(require.resolve('@alitajs/auto-split-chunks'));
+    plugins.push(require.resolve('@alitajs/micro'));
   }
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
@@ -40,11 +41,11 @@ export default function (api: IApi) {
     plugins.push(require.resolve('@umijs/plugin-locale'));
   }
   // pc
-  if(api.userConfig.appType === 'pc'){
+  if (api.userConfig.appType === 'pc') {
     plugins.push(require.resolve('@umijs/plugin-model'));
     plugins.push(require.resolve('@umijs/plugin-access-layout'));
   }
   return {
-    plugins
+    plugins,
   };
 }

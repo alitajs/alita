@@ -2,7 +2,7 @@ import assert from 'assert';
 import { IRoute } from 'umi';
 type IExclude = Function | RegExp;
 
-export default function(routes: IRoute[], excludes: IExclude[]) {
+export default function (routes: IRoute[], excludes: IExclude[]) {
   function exclude(routes: IRoute[]) {
     return routes.filter((route: IRoute) => {
       for (const exclude of excludes) {

@@ -13,7 +13,7 @@ export default (api: IApi) => {
   });
 
   if (api.userConfig.appType !== 'pc') {
-    api.modifyDefaultConfig(memo => {
+    api.modifyDefaultConfig((memo) => {
       return {
         ...memo,
         hd: {},
@@ -22,20 +22,20 @@ export default (api: IApi) => {
         //     'hack': `true; @import "~antd-mobile/es/style/themes/default.less";`
         //   }
         // }
-      }
+      };
     });
 
     api.addHTMLMetas(() => {
       const addItem = {
-        "content": "telephone=no",
-        "name": "format-detection"
-      }
+        content: 'telephone=no',
+        name: 'format-detection',
+      };
       return [addItem];
-    })
+    });
 
     api.addHTMLStyles(() => {
       const addItem = {
-        "content": `* {
+        content: `* {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
@@ -79,9 +79,9 @@ export default (api: IApi) => {
           input:disabled {
             background-color: transparent;
           }`,
-      }
+      };
       return [addItem];
-    })
+    });
   } else {
     // api.modifyDefaultConfig(memo => {
     //   return {

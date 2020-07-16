@@ -6,7 +6,7 @@ import { join } from 'path';
 const headPkgs = ['utils'];
 const tailPkgs = ['alita'];
 const otherPkgs = readdirSync(join(__dirname, 'packages')).filter(
-  pkg =>
+  (pkg) =>
     pkg.charAt(0) !== '.' && !headPkgs.includes(pkg) && !tailPkgs.includes(pkg),
 );
 

@@ -13,13 +13,13 @@ export default function (api: IApi) {
   const exportsNative = [] as ExportNative[];
   for (const plugins of api.userConfig.native) {
     const nativePlugins = supportedPlugins.find(
-      item => item.name === plugins,
+      (item) => item.name === plugins,
     );
     if (nativePlugins) {
       exportsNative.push({
         exportAll: true,
         source: nativePlugins!.ionic,
-      })
+      });
     }
   }
   api.addUmiExports(() => exportsNative);
@@ -49,7 +49,7 @@ export default function (api: IApi) {
       const nativePlugins = native || [];
       for (const plugin of nativePlugins) {
         const nativePlugin = supportedPlugins.find(
-          item => item.name === plugin,
+          (item) => item.name === plugin,
         );
         if (nativePlugin) {
           const installed = checkPluginInstalled(

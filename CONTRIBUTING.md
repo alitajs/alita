@@ -87,5 +87,4 @@ packages/foo
 $ yarn update:deps
 ```
 
-
 https://npm.taobao.org/sync/alita

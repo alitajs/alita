@@ -1,6 +1,6 @@
 export default (
   path: string,
-  hasKeepAlive: boolean
+  hasKeepAlive: boolean,
 ) => `import React from 'react';
 import { ApplyPluginsType } from 'umi';
 import { plugin } from '../core/umiExports';

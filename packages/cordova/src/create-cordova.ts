@@ -26,7 +26,12 @@ import pathIsInside from 'path-is-inside';
 import requireFresh from 'import-fresh';
 import validateIdentifier from 'valid-identifier';
 import fetch from 'cordova-fetch';
-import { events as CEvents, CordovaError, ConfigParser, CordovaLogger as CLog } from 'cordova-common';
+import {
+  events as CEvents,
+  CordovaError,
+  ConfigParser,
+  CordovaLogger as CLog,
+} from 'cordova-common';
 
 const CordovaLogger = CLog.get();
 const DEFAULT_VERSION = '1.0.0';
@@ -53,9 +58,15 @@ function setupEvents(externalEventEmitter: any) {
 export default cordovaCreateLegacyAdapter;
 
 /**
-* Legacy interface. See README for documentation
-*/
-function cordovaCreateLegacyAdapter(dir: string | undefined, id: string, name: any, cfg: any, extEvents: any) {
+ * Legacy interface. See README for documentation
+ */
+function cordovaCreateLegacyAdapter(
+  dir: string | undefined,
+  id: string,
+  name: any,
+  cfg: any,
+  extEvents: any,
+) {
   // Unwrap and shallow-clone that nasty nested config object
   const opts = Object.assign({}, ((cfg || { lib: {} }).lib || {}).www);
 
@@ -77,47 +88,50 @@ function cordovaCreate(dest: any, opts = {} as any) {
   // TODO this is to avoid having a huge diff. Remove later.
   let dir = dest;
 
-  return Promise.resolve().then(function () {
-    if (!dir) {
-      throw new CordovaError('Directory not specified. See `cordova help`.');
-    }
+  return Promise.resolve()
+    .then(function () {
+      if (!dir) {
+        throw new CordovaError('Directory not specified. See `cordova help`.');
+      }
 
-    if (!isObject(opts)) {
-      throw new CordovaError('Given options must be an object');
-    }
+      if (!isObject(opts)) {
+        throw new CordovaError('Given options must be an object');
+      }
 
-    // Shallow copy opts
-    opts = Object.assign({}, opts);
+      // Shallow copy opts
+      opts = Object.assign({}, opts);
 
-    events = setupEvents(opts.extEvents);
-    events.emit('verbose', 'Using detached cordova-create');
+      events = setupEvents(opts.extEvents);
+      events.emit('verbose', 'Using detached cordova-create');
 
-    // Make absolute.
-    dir = path.resolve(dir);
+      // Make absolute.
+      dir = path.resolve(dir);
 
-    // if (fs.existsSync(dir) && fs.readdirSync(dir).length > 0) {
-    //     throw new CordovaError('Path already exists and is not empty: ' + dir);
-    // }
+      // if (fs.existsSync(dir) && fs.readdirSync(dir).length > 0) {
+      //     throw new CordovaError('Path already exists and is not empty: ' + dir);
+      // }
 
-    if (opts.id && !validateIdentifier(opts.id)) {
-      throw new CordovaError('App id contains a reserved word, or is not a valid identifier.');
-    }
+      if (opts.id && !validateIdentifier(opts.id)) {
+        throw new CordovaError(
+          'App id contains a reserved word, or is not a valid identifier.',
+        );
+      }
 
-    // This was changed from "uri" to "url", but checking uri for backwards compatibility.
-    opts.url = opts.url || opts.uri;
+      // This was changed from "uri" to "url", but checking uri for backwards compatibility.
+      opts.url = opts.url || opts.uri;
 
-    if (!opts.url) {
-      opts.url = require.resolve('cordova-app-hello-world');
-      opts.template = true;
-    }
+      if (!opts.url) {
+        opts.url = require.resolve('cordova-app-hello-world');
+        opts.template = true;
+      }
 
-    // Ensure that the destination is outside the template location
-    if (pathIsInside(dir, opts.url)) {
-      throw new CordovaError(
-        `Cannot create project "${dir}" inside the template used to create it "${opts.url}".`
-      );
-    }
-  })
+      // Ensure that the destination is outside the template location
+      if (pathIsInside(dir, opts.url)) {
+        throw new CordovaError(
+          `Cannot create project "${dir}" inside the template used to create it "${opts.url}".`,
+        );
+      }
+    })
     .then(function () {
       // Finally, Ready to start!
       events.emit('log', 'Creating a new cordova project.');
@@ -149,13 +163,15 @@ function cordovaCreate(dest: any, opts = {} as any) {
           isSubDir = true;
         }
       } catch (e) {
-        events.emit('verbose', 'index.js does not specify valid sub-directory: ' + input_directory);
+        events.emit(
+          'verbose',
+          'index.js does not specify valid sub-directory: ' + input_directory,
+        );
         isSubDir = false;
       }
 
       if (!fs.existsSync(import_from_path)) {
-        throw new CordovaError('Could not find directory: ' +
-          import_from_path);
+        throw new CordovaError('Could not find directory: ' + import_from_path);
       }
 
       const dirAlreadyExisted = fs.existsSync(dir);
@@ -182,14 +198,19 @@ function cordovaCreate(dest: any, opts = {} as any) {
         copyIfNotExists(stockAssetPath('hooks'), path.join(dir, 'hooks'));
         const configXmlExists = projectConfig(dir); // moves config to root if in www
         if (!configXmlExists) {
-          fs.copySync(stockAssetPath('config.xml'), path.join(dir, 'config.xml'));
+          fs.copySync(
+            stockAssetPath('config.xml'),
+            path.join(dir, 'config.xml'),
+          );
         }
       } catch (e) {
         if (!dirAlreadyExisted) {
           fs.removeSync(dir);
         }
         if (process.platform.slice(0, 3) === 'win' && e.code === 'EPERM') {
-          throw new CordovaError('Symlinks on Windows require Administrator privileges');
+          throw new CordovaError(
+            'Symlinks on Windows require Administrator privileges',
+          );
         }
         throw e;
       }
@@ -254,7 +275,11 @@ function copyIfNotExists(src: string, dst: any) {
  * projectDir - Project directory
  * isSubDir - boolean is true if template has subdirectory structure (see code around line 229)
  */
-function copyTemplateFiles(templateDir: any, projectDir: string, isSubDir: any) {
+function copyTemplateFiles(
+  templateDir: any,
+  projectDir: string,
+  isSubDir: any,
+) {
   let copyPath = '';
   // if template is a www dir
   if (path.basename(templateDir) === 'www') {
@@ -264,13 +289,21 @@ function copyTemplateFiles(templateDir: any, projectDir: string, isSubDir: any) 
     let templateFiles = fs.readdirSync(templateDir);
     // Remove directories, and files that are unwanted
     if (!isSubDir) {
-      const excludes = ['package.json', 'RELEASENOTES.md', '.git', 'NOTICE', 'LICENSE', 'COPYRIGHT', '.npmignore'];
+      const excludes = [
+        'package.json',
+        'RELEASENOTES.md',
+        '.git',
+        'NOTICE',
+        'LICENSE',
+        'COPYRIGHT',
+        '.npmignore',
+      ];
       templateFiles = templateFiles.filter(function (value) {
         return excludes.indexOf(value) < 0;
       });
     }
     // Copy each template file after filter
-    templateFiles.forEach(f => {
+    templateFiles.forEach((f) => {
       copyPath = path.resolve(templateDir, f);
       fs.copySync(copyPath, path.resolve(projectDir, f));
     });
@@ -345,7 +378,7 @@ function stockAssetPath(p: any) {
 function getSelfDestructingTempDir() {
   return tmp.dirSync({
     prefix: 'cordova-create-',
-    unsafeCleanup: true
+    unsafeCleanup: true,
   }).name;
 }
 

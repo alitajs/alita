@@ -52,7 +52,7 @@ async function release() {
     const updatedStdout = execa.sync(lernaCli, ['changed']).stdout;
     updated = updatedStdout
       .split('\n')
-      .map(pkg => {
+      .map((pkg) => {
         if (pkg === 'alita') return pkg;
         else return pkg.split('/')[1];
       })
@@ -87,7 +87,7 @@ async function release() {
     // Sync version to root package.json
     logStep('sync version to root package.json');
     const rootPkg = require('../package');
-    Object.keys(rootPkg.devDependencies).forEach(name => {
+    Object.keys(rootPkg.devDependencies).forEach((name) => {
       if (name.startsWith('@alitajs/')) {
         rootPkg.devDependencies[name] = currVersion;
       }
@@ -119,7 +119,7 @@ async function release() {
   const currVersion = require('../lerna').version;
   const isNext = isNextVersion(currVersion);
   pkgs
-    .sort(a => {
+    .sort((a) => {
       return a === 'alita' ? 1 : -1;
     })
     .forEach((pkg, index) => {
@@ -137,7 +137,7 @@ async function release() {
         });
         console.log(stdout);
         // 如果是测试版本，不立刻同步到cnpm，加快发包速度
-        if(!isNext){
+        if (!isNext) {
           const syncRes = execa.sync('cnpm', ['sync', name]);
           console.log(syncRes.stdout);
         }
@@ -147,7 +147,7 @@ async function release() {
   logStep('done');
 }
 
-release().catch(err => {
+release().catch((err) => {
   console.error(err);
   process.exit(1);
 });

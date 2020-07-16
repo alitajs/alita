@@ -11,7 +11,7 @@ const RELATIVE_MODEL = join(DIR_NAME, MODEL_NAME);
 // keepalive:['route path','route path']
 // import { dropByCacheKey } from 'umi';
 // dropByCacheKey('/list');
-type KeepAliveType = (string | RegExp)[]
+type KeepAliveType = (string | RegExp)[];
 
 export default (api: IApi) => {
   if (!api.userConfig.keepalive) return;
@@ -27,14 +27,13 @@ export default (api: IApi) => {
     },
   });
   const configStringify = (config: (string | RegExp)[]) => {
-    return config.map(item => {
+    return config.map((item) => {
       if (item instanceof RegExp) {
         return item;
       }
-      return `'${item}'`
-    })
-
-  }
+      return `'${item}'`;
+    });
+  };
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveLayout.tsx'),
@@ -42,7 +41,10 @@ export default (api: IApi) => {
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAlive.tsx'),
-      content: getLayoutContent(configStringify(api.userConfig.keepalive as KeepAliveType), './KeepAliveLayout'),
+      content: getLayoutContent(
+        configStringify(api.userConfig.keepalive as KeepAliveType),
+        './KeepAliveLayout',
+      ),
     });
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveModel.tsx'),
