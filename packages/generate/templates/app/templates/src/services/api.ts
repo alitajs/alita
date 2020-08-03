@@ -5,5 +5,5 @@ export async function query(): Promise<any> {
 }
 
 export async function queryList(data: any): Promise<any> {
-  return request('/api/list', { data });
+  return request('/api/list', { method: "POST", data });
 }
