@@ -41,7 +41,7 @@ const ListPage: FC<PageProps> = ({ list, dispatch }) => {
         requestParams={{
           abc: '123',
           token: 'alita',
-          pageSize: 0,
+          pageSize: 10,
           offset: 0,
         }}
       />
