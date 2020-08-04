@@ -16,7 +16,7 @@ test('default config', async () => {
   await service.init();
   expect(service.config!.routesExtend).toEqual({
     exclude: [
-      /(?<!(index|\[index\])(\.(js|jsx|ts|tsx))?)$/,
+      /(?<!(index|\[index｜404\])(\.(js|jsx|ts|tsx))?)$/,
       /model\.(j|t)sx?$/,
       /\.test\.(j|t)sx?$/,
       /service\.(j|t)sx?$/,
