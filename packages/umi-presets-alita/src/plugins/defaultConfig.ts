@@ -9,7 +9,7 @@ export default (api: IApi) => {
       ie: 9,
     },
     esbuild: {},
-    dynamicImport: {},
+    // dynamicImport: {},
     nodeModulesTransform: {
       type: 'none',
       exclude: [],

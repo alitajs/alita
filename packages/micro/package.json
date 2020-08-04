@@ -23,5 +23,8 @@
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/micro#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "auto-skeleton-plugin": "^0.0.0-beta.4"
   }
 }
