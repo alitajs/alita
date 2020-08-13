@@ -30,6 +30,22 @@ export default (api: IApi) => {
     },
     ...api.userConfig
   } as IConfig;
+  defaultOptions.externals = [
+    {
+      // String
+      react: 'window.React',
+      'react-dom': 'window.ReactDOM',
+      // Object
+    },
+    // Function
+    function (context, request, callback) {
+      callback();
+    },
+  ]
+  defaultOptions.scripts = [
+    'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.production.min.js',
+    'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.production.min.js',
+  ]
   // 优化程度不高
   // if (process.env.NODE_ENV !== 'development') {
   //   defaultOptions.externals = {
