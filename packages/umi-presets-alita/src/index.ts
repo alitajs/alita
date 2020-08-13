@@ -43,7 +43,7 @@ export default function (api: IApi) {
   // pc
   if (api.userConfig.appType === 'pc') {
     plugins.push(require.resolve('@umijs/plugin-model'));
-    plugins.push(require.resolve('@umijs/plugin-access-layout'));
+    plugins.push(require.resolve('@alitajs/access-layout'));
   }
   return {
     plugins,
