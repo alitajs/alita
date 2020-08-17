@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/access-layout",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "@umijs/access-layout",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
