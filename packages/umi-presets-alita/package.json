@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/access-layout": "2.5.9",
+    "@umijs/plugin-access-layout": "^1.1.0",
     "@alitajs/cordova": "2.5.9",
     "@alitajs/generate": "2.5.9",
     "@alitajs/hd": "2.5.9",
