@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "@alitajs/umi-presets-alita": "2.5.7",
-    "umi": "^3.2.14"
+    "umi": "^3.2.16"
   }
 }

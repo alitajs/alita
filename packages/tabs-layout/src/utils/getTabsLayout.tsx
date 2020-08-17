@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import { Tabs } from 'antd';
 import pathToRegexp from 'path-to-regexp';
 import { history } from '../core/history';
-import { routes } from '${absTmpPath}/core/routes';
+import { getRoutes } from '${absTmpPath}/core/routes';
 
 const isKeepPath = (aliveList: any[], path: string) => {
   let isKeep = false;
@@ -85,7 +85,7 @@ const BasicLayout: FC<PageProps> = (props) => {
   const [activeKey, setActiveKey] = useState('');
   const [delectKey, setDelectKey] = useState('');
   const [panels, setPanels] = useState([]);
-  const [keepAliveViewMap, setKeepAliveViewMap] = useState(getKeepAliveViewMap(routes, props.keepalive));
+  const [keepAliveViewMap, setKeepAliveViewMap] = useState(getKeepAliveViewMap(getRoutes(), props.keepalive));
   const showKeepAlive = !!getView(pathname, keepAliveViewMap);
   if (showKeepAlive) {
     const index = panels.findIndex(

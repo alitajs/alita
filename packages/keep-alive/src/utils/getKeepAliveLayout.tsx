@@ -1,6 +1,6 @@
 export default (absTmpPath: string) => `
 import React from 'react';
-import { routes } from '${absTmpPath}/core/routes';
+import { getRoutes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
 import pathToRegexp from 'path-to-regexp';
 import { matchRoutes } from 'react-router-config';
@@ -59,7 +59,7 @@ interface PageProps {
 export default class BasicLayout extends React.PureComponent<PageProps> {
   constructor(props: any) {
     super(props);
-    this.keepAliveViewMap = getKeepAliveViewMap(routes,props.keepalive);
+    this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(),props.keepalive);
   }
   componentDidMount() {
     setLayoutInstance(this);
