@@ -43,6 +43,7 @@
     "@umijs/plugin-esbuild": "^1.0.0-beta.3",
     "@umijs/plugin-locale": "^0.7.0",
     "@umijs/plugin-model": "^2.3.1",
-    "@umijs/plugin-request": "^2.3.2"
+    "@umijs/plugin-request": "^2.3.2",
+    "@umijs/plugin-helmet": "^1.0.2"
   }
 }

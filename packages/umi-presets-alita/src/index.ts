@@ -22,6 +22,7 @@ export default function (api: IApi) {
     require.resolve('./plugins/features/displayName'),
     require.resolve('./plugins/features/packageId'),
     require.resolve('./plugins/features/displayIcon'),
+    require.resolve('@umijs/plugin-helmet'),
   ];
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
