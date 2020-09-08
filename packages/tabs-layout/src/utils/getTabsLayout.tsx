@@ -152,7 +152,7 @@ const BasicLayout: FC<PageProps> = (props) => {
             <TabPane tab={tabName || View.title || curPathname} key={curPathname}>
               <View {...props} />
             </TabPane>
-          ) : <TabPane tab={curPathname} key={curPathname}>
+          ) : <TabPane tab={tabName || curPathname} key={curPathname}>
               {children}
             </TabPane>;
         })}
