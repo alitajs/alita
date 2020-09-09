@@ -36,11 +36,22 @@ const changeNavBarConfig = (
     });
     return { ...other, navList: config };
   }
+  let isChanged = false;
   const newNavList = navList!.map((i) => {
     if (changeData[i.pagePath]) {
       i.navBar = { ...i.navBar, ...changeData[i.pagePath] };
+      isChanged = true;
     }
     return i;
+  });
+  if(isChanged){
+    return { ...other, navList: newNavList };
+  }
+  Object.keys(changeData).forEach((i) => {
+    newNavList.push({
+      pagePath: i,
+      navBar: changeData[i],
+    });
   });
   return { ...other, navList: newNavList };
 };
