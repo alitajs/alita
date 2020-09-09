@@ -38,12 +38,12 @@
     "@alitajs/routes": "2.5.12",
     "@alitajs/tabs-layout": "2.5.12",
     "@umijs/plugin-access-layout": "^1.1.0",
-    "@umijs/plugin-antd": "^0.5.1",
-    "@umijs/plugin-dva": "^0.7.2",
-    "@umijs/plugin-esbuild": "^1.0.0-beta.3",
-    "@umijs/plugin-helmet": "^1.0.2",
-    "@umijs/plugin-locale": "^0.7.0",
-    "@umijs/plugin-model": "^2.3.1",
-    "@umijs/plugin-request": "^2.3.2"
+    "@umijs/plugin-antd": "0.8.0",
+    "@umijs/plugin-dva": "0.8.2",
+    "@umijs/plugin-esbuild": "1.0.1",
+    "@umijs/plugin-helmet": "1.1.1",
+    "@umijs/plugin-locale": "0.10.1",
+    "@umijs/plugin-model": "2.5.3",
+    "@umijs/plugin-request": "2.5.0"
   }
 }

@@ -5,6 +5,7 @@ export default (api: IApi) => {
   const { externals = {}, scripts = [] } = api.userConfig;
   const defaultOptions = {
     history: { type: 'hash' },
+    title: false, // 默认内置了 Helmet
     targets: {
       ie: 9,
     },
