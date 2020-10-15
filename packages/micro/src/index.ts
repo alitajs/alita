@@ -71,6 +71,11 @@ export default (api: IApi) => {
       "config/config.ts 中 displayIcon 的值必须要正确的图片路径，可以尝试使用 displayIcon:'src/assets/logo.png'",
     );
   }
+
+  // 开发的时候不需要下面的构建和骨架屏幕
+  if (process.env.NODE_ENV === 'development') {
+    return;
+  }
   const outputPath = `dist/${packageId}/dist`;
   const version = new Date().getTime();
   api.chainWebpack(async (config) => {

@@ -1,6 +1,7 @@
 export default (
   path: string,
   hasKeepAlive: boolean,
+  isMicroApp?:boolean,
 ) => `import React from 'react';
 import { ApplyPluginsType } from 'umi';
 import { plugin } from '../core/umiExports';
@@ -14,7 +15,8 @@ export default (props) => {
   return React.createElement(require('${path}').default, {
     layoutConfig,
     hasKeepAlive: ${hasKeepAlive},
-    ...props
+    ...props,
+    hideNavBar:${isMicroApp},
   })
 }
 `;

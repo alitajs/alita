@@ -10,6 +10,7 @@ const RELATIVE_MODEL_PATH = `${RELATIVE_MODEL}.ts`;
 
 export default (api: IApi) => {
   if (!api.userConfig.mobileLayout) return;
+  const isMicroApp = api.userConfig.appType === 'micro';
 
   api.describe({
     key: 'mobileLayout',
@@ -31,6 +32,7 @@ export default (api: IApi) => {
       content: getLayoutContent(
         utils.winPath(join(__dirname, './layout/index.js')),
         !!api.userConfig.keepalive,
+        isMicroApp
       ),
     });
     api.writeTmpFile({

@@ -18,6 +18,7 @@ import AlitaLayout, {
 interface BasicLayoutProps {
   layoutConfig: AlitaLayoutProps;
   hasKeepAlive: boolean;
+  hideNavBar: boolean;
   location: Location<LocationState>;
 }
 const changeNavBarConfig = (
@@ -77,7 +78,7 @@ const changeTabBarListConfig = (
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});
   const [tabBarList, setTabBarList] = useState({});
-  const { children, layoutConfig, hasKeepAlive, ...otherProps } = props;
+  const { children, layoutConfig, hasKeepAlive, hideNavBar,...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
   useEffect(() => {
     setPageNavBar(getPageNavBar());
@@ -94,6 +95,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     navBar: newNavBar,
     tabBar: newTabBarList,
     titleList,
+    hideNavBar
   };
   return (
     <AlitaLayout {...layout}>
