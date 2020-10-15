@@ -1,6 +1,7 @@
 import { IApi, utils } from 'umi';
-import { copyFileSync, writeFileSync, unlinkSync, statSync, readFileSync } from 'fs';
+import { copyFileSync, writeFileSync, unlinkSync, readdirSync, rmdirSync, statSync, readFileSync, createWriteStream } from 'fs';
 import { join } from 'path';
+import archiver from 'archiver';
 // @ts-ingore
 import AutoSkeletonPlugin from 'auto-skeleton-plugin';
 
@@ -71,67 +72,7 @@ export default (api: IApi) => {
     );
   }
   const outputPath = `dist/${packageId}/dist`;
-  api.registerCommand({
-    name: 'micro',
-    fn: ({ args }) => {
-      // 判断dist目录存在，说明已经执行过编译
-      try {
-        const state = statSync(outputPath);
-        if (!state.isDirectory()) {
-          console.error(
-            `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
-          );
-          return;
-        }
-      } catch (error) {
-        console.error(
-          `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
-        );
-        return;
-      }
-
-      // 创建 asset-manifest.json
-      // 后续需要可以开放配置，展示没有多余需求
-      const content = JSON.stringify({
-        name: displayName,
-        version: new Date().getTime(),
-        appKey: packageId,
-        screen: {
-          orientation: 'vertical', // 屏幕方向，横向 horizontal 和纵向 vertical，默认 vertical
-          title: displayName, // 默认标题
-          navbar: false,// 是否启用原生导航栏 true || false，默认 true
-          type: 'web',// 页面的类型，考虑到不同的页面需要不同的逻辑，web || game，默认 web
-          language: 'alita',// 开发语言 alita || normal，默认 alita
-        }
-      });
-      const target = join(
-        api?.paths?.absOutputPath!,
-        '..',
-        'asset-manifest.json',
-      );
-      // mkdirp.sync(dirname(target));
-      console.log(`${chalk.green('Write:')} ${target}`);
-      writeFileSync(target, content, 'utf-8');
-      // 复制 icon
-      console.log(`${chalk.green('Copy: ')} ${displayIcon}`);
-      const absTarget = join(api?.paths?.absOutputPath!, '..', 'icon.png');
-      copyFileSync(displayIcon, absTarget);
-      // 删除 dist 下的 vendors.js
-      const vendors = join(api?.paths?.absOutputPath!, 'vendors.js');
-      unlinkSync(vendors);
-      console.log(`${chalk.green('Remove:')} ${vendors}`);
-
-      // 修改 index.html
-      const indexHtml = join(api?.paths?.absOutputPath!, 'index.html');
-      let indexContent = readFileSync(indexHtml).toString();
-      // console.log(indexContent);
-      indexContent = indexContent.replace('<script src="./vendors.js"></script>', `<script src="http://www.alita-micro.com/vendors.js"></script>`);
-      // <script src="./vendors.js"></script> <script src="http://www.alita-micro.com/vendors.js"></script>
-      writeFileSync(indexHtml, indexContent, 'utf-8');
-      console.log(`${chalk.green('Change:')} ${indexHtml}`);
-    }
-  })
-
+  const version = new Date().getTime();
   api.chainWebpack(async (config) => {
     const { exportStatic } = api.config;
     const dependencies = api.pkg.dependencies || {};
@@ -195,4 +136,143 @@ export default (api: IApi) => {
       chunks: ['vendors', 'micro', 'umi']
     };
   });
+
+  // TODO:调试中，先关闭事件监听
+  // api.addRuntimePlugin(() => join(__dirname, './runtime'));
+  api.onBuildComplete(({ err }) => {
+    if (err) {
+      console.error(err)
+      return;
+    }
+    // 判断dist目录存在，说明已经执行过编译
+    try {
+      const state = statSync(outputPath);
+      if (!state.isDirectory()) {
+        console.error(
+          `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
+        );
+        return;
+      }
+    } catch (error) {
+      console.error(
+        `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
+      );
+      return;
+    }
+
+    // 创建 asset-manifest.json
+    // 后续需要可以开放配置，展示没有多余需求
+    const content = JSON.stringify({
+      name: displayName,
+      version: version,
+      appId: packageId,
+      // 用不着？
+      // screen: {
+      //   orientation: 'vertical', // 屏幕方向，横向 horizontal 和纵向 vertical，默认 vertical
+      //   title: displayName, // 默认标题
+      //   navbar: false,// 是否启用原生导航栏 true || false，默认 true
+      //   type: 'web',// 页面的类型，考虑到不同的页面需要不同的逻辑，web || game，默认 web
+      //   language: 'alita',// 开发语言 alita || normal，默认 alita
+      // }
+    });
+    const target = join(
+      api?.paths?.absOutputPath!,
+      '..',
+      'asset-manifest.json',
+    );
+    // mkdirp.sync(dirname(target));
+    console.log(`${chalk.green('Write:')} ${target}`);
+    writeFileSync(target, content, 'utf-8');
+    // 复制 icon
+    console.log(`${chalk.green('Copy: ')} ${displayIcon}`);
+    const absTarget = join(api?.paths?.absOutputPath!, '..', 'icon.png');
+    copyFileSync(displayIcon, absTarget);
+    // 删除 dist 下的 alita.js
+    const alita = join(api?.paths?.absOutputPath!, 'vendors.js');
+    unlinkSync(alita);
+    console.log(`${chalk.green('Remove:')} ${alita}`);
+
+    // 修改 index.html
+    const indexHtml = join(api?.paths?.absOutputPath!, 'index.html');
+    let indexContent = readFileSync(indexHtml).toString();
+    // console.log(indexContent);
+    // 删除 alita 引入
+    indexContent = indexContent.replace('<script src="./vendors.js"></script>', ``);
+    // indexContent = indexContent.replace('<script src="./alita.js"></script>', `<script src="http://www.alita-micro.com/alita.js"></script>`);
+    // <script src="./alita.js"></script> <script src="http://www.alita-micro.com/alita.js"></script>
+    writeFileSync(indexHtml, indexContent, 'utf-8');
+    console.log(`${chalk.green('Change:')} ${indexHtml}`);
+
+    // zip
+    const archiveOutputPath = join(api?.paths?.absOutputPath!, '..', '..', `${packageId}-alitamicro-${version}.zip`);
+    console.log(`${chalk.green('Create:')} ${packageId}-alitamicro-${version}.zip`);
+
+    const output = createWriteStream(archiveOutputPath);
+    const archive = archiver('zip', {
+      zlib: { level: 9 } // Sets the compression level.
+    });
+    // listen for all archive data to be written
+    // 'close' event is fired only when a file descriptor is involved
+    output.on('close', function () {
+      console.log(archive.pointer() + ' total bytes');
+      console.log('archiver has been finalized and the output file descriptor has closed.');
+      console.log(`${chalk.green('Success:')} ${archiveOutputPath}`);
+      function delDir(p: string) {
+        // 读取文件夹中所有文件及文件夹
+        var list = readdirSync(p)
+        list.forEach((v, i) => {
+          // 拼接路径
+          var url = p + '/' + v
+          // 读取文件信息
+          var stats = statSync(url)
+          // 判断是文件还是文件夹
+          if (stats.isFile()) {
+            // 当前为文件，则删除文件
+            unlinkSync(url)
+          } else {
+            // 当前为文件夹，则递归调用自身
+            delDir(url)
+          }
+        })
+        // 删除空文件夹
+        rmdirSync(p)
+      }
+      delDir(join(api?.paths?.absOutputPath!, '..'))
+    });
+
+    // This event is fired when the data source is drained no matter what was the data source.
+    // It is not part of this library but rather from the NodeJS Stream API.
+    // @see: https://nodejs.org/api/stream.html#stream_event_end
+    output.on('end', function () {
+      console.log('Data has been drained');
+    });
+
+    // good practice to catch warnings (ie stat failures and other non-blocking errors)
+    archive.on('warning', function (err) {
+      if (err.code === 'ENOENT') {
+        // log warning
+      } else {
+        // throw error
+        throw err;
+      }
+    });
+
+    // good practice to catch this error explicitly
+    archive.on('error', function (err) {
+      throw err;
+    });
+
+    // pipe archive data to the file
+    archive.pipe(output);
+    archive.directory(join(outputPath, '..'), false);
+    // finalize the archive (ie we are done appending files but streams have to finish yet)
+    // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
+    archive.finalize();
+  });
+  api.registerCommand({
+    name: 'micro',
+    fn: ({ args }) => {
+
+    }
+  })
 };
