@@ -25,3 +25,7 @@ Please refer to [the official website](https://alitajs.com) for details.
 ## LICENSE
 
 [MIT](https://github.com/alitajs/alita/blob/master/LICENSE)
+
+## Other
+
+React Native Util [areslabs/alita](https://github.com/areslabs/alita)
