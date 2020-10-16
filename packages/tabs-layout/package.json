@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/tabs-layout",
-  "version": "2.5.16-beta.1",
+  "version": "2.5.16-beta.2",
   "description": "@alitajs/tabs-layout",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
