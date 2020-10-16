@@ -71,7 +71,14 @@ export default (api: IApi) => {
       "config/config.ts 中 displayIcon 的值必须要正确的图片路径，可以尝试使用 displayIcon:'src/assets/logo.png'",
     );
   }
-
+  api.addRuntimePlugin(() => join(__dirname, './runtime'));
+  api.addEntryImports(() => {
+    return [
+      {
+        source: 'alita-micro',
+      }
+    ]
+  });
   // 开发的时候不需要下面的构建和骨架屏幕
   if (process.env.NODE_ENV === 'development') {
     return;
@@ -142,8 +149,7 @@ export default (api: IApi) => {
     };
   });
 
-  // TODO:调试中，先关闭事件监听
-  // api.addRuntimePlugin(() => join(__dirname, './runtime'));
+
   api.onBuildComplete(({ err }) => {
     if (err) {
       console.error(err)
