@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/micro",
-  "version": "2.5.17-beta.1",
+  "version": "2.5.17-beta.2",
   "description": "@alitajs/micro",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
