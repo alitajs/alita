@@ -170,6 +170,7 @@ export default (api: IApi) => {
       );
       return;
     }
+    const pkg = require(join(process.env.ALITA_DIR || '', 'package.json'));
 
     // 创建 asset-manifest.json
     // 后续需要可以开放配置，展示没有多余需求
@@ -177,14 +178,7 @@ export default (api: IApi) => {
       name: displayName,
       version: version,
       appId: packageId,
-      // 用不着？
-      // screen: {
-      //   orientation: 'vertical', // 屏幕方向，横向 horizontal 和纵向 vertical，默认 vertical
-      //   title: displayName, // 默认标题
-      //   navbar: false,// 是否启用原生导航栏 true || false，默认 true
-      //   type: 'web',// 页面的类型，考虑到不同的页面需要不同的逻辑，web || game，默认 web
-      //   language: 'alita',// 开发语言 alita || normal，默认 alita
-      // }
+      alitaVersion: pkg.version,
     });
     const target = join(
       api?.paths?.absOutputPath!,
@@ -198,19 +192,17 @@ export default (api: IApi) => {
     console.log(`${chalk.green('Copy: ')} ${displayIcon}`);
     const absTarget = join(api?.paths?.absOutputPath!, '..', 'icon.png');
     copyFileSync(displayIcon, absTarget);
-    // 删除 dist 下的 alita.js
-    const alita = join(api?.paths?.absOutputPath!, 'vendors.js');
-    unlinkSync(alita);
-    console.log(`${chalk.green('Remove:')} ${alita}`);
+    // 删除 dist 下的 vendors.js
+    const vendors = join(api?.paths?.absOutputPath!, 'vendors.js');
+    unlinkSync(vendors);
+    console.log(`${chalk.green('Remove:')} ${vendors}`);
 
     // 修改 index.html
     const indexHtml = join(api?.paths?.absOutputPath!, 'index.html');
     let indexContent = readFileSync(indexHtml).toString();
     // console.log(indexContent);
-    // 删除 alita 引入
-    indexContent = indexContent.replace('<script src="./vendors.js"></script>', ``);
-    // indexContent = indexContent.replace('<script src="./alita.js"></script>', `<script src="http://www.alita-micro.com/alita.js"></script>`);
-    // <script src="./alita.js"></script> <script src="http://www.alita-micro.com/alita.js"></script>
+    // 不删除删除 vendors 引入
+    // indexContent = indexContent.replace('<script src="./vendors.js"></script>', ``);
     writeFileSync(indexHtml, indexContent, 'utf-8');
     console.log(`${chalk.green('Change:')} ${indexHtml}`);
 
