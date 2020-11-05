@@ -6,7 +6,7 @@ export default (api: IApi) => {
     key: 'appType',
     config: {
       schema(joi) {
-        return joi.string();
+        return joi.string().valid('h5', 'pc', 'cordova', 'micro', 'native');
       },
       default: 'h5',
     },

@@ -16,7 +16,10 @@ export default (api: IApi) => {
     key: 'hd',
     config: {
       schema(joi) {
-        return joi.object();
+        return joi.object({
+          theme: joi.object(),
+          px2rem: joi.object(),
+        });
       },
     },
   });
