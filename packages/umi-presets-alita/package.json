@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@alitajs/cordova": "2.5.17-beta.3",
+    "@alitajs/cordova-native": "2.5.17-beta.3",
     "@alitajs/generate": "2.5.17-beta.3",
     "@alitajs/hd": "2.5.17-beta.3",
     "@alitajs/keep-alive": "2.5.17-beta.3",

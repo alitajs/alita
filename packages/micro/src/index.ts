@@ -251,7 +251,7 @@ export default (api: IApi) => {
     });
 
     // good practice to catch warnings (ie stat failures and other non-blocking errors)
-    archive.on('warning', function (err) {
+    archive.on('warning', function (err: any) {
       if (err.code === 'ENOENT') {
         // log warning
       } else {
@@ -261,7 +261,7 @@ export default (api: IApi) => {
     });
 
     // good practice to catch this error explicitly
-    archive.on('error', function (err) {
+    archive.on('error', function (err: any) {
       throw err;
     });
 
@@ -272,10 +272,4 @@ export default (api: IApi) => {
     // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
     archive.finalize();
   });
-  api.registerCommand({
-    name: 'micro',
-    fn: ({ args }) => {
-
-    }
-  })
 };

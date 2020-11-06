@@ -29,10 +29,13 @@ export default function (api: IApi) {
   }
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
-    plugins.push(require.resolve('@alitajs/native'));
+    plugins.push(require.resolve('@alitajs/cordova-native'));
   }
   if (api.userConfig.appType === 'micro') {
     plugins.push(require.resolve('@alitajs/micro'));
+  }
+  if (api.userConfig.appType === 'native') {
+    plugins.push(require.resolve('@alitajs/native'));
   }
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
