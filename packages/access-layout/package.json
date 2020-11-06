@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.0.0-4",
-    "@umijs/route-utils": "^1.0.12"
+    "@umijs/route-utils": "^1.0.34"
   }
 }
