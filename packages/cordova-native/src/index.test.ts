@@ -15,7 +15,7 @@ test('native', async () => {
     ],
   });
   await service.run({
-    name: 'native',
+    name: 'cordovanative',
     args: [],
   });
 });
