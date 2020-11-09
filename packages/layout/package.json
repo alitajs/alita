@@ -25,6 +25,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/alita-layout": "^2.3.0"
+    "@alitajs/alita-layout": "2.4.0-beta.1"
   }
 }

@@ -44,7 +44,6 @@ export default (api: IApi) => {
           body,
           #root {
             width: 100%;
-            height: 100vh;
           }
           #root > div {
             /* Status bar height on iOS 11.0 */
