@@ -8,10 +8,10 @@ interface ExportNative {
   source: string;
 }
 export default function (api: IApi) {
-  if (!api.userConfig.native) return;
+  if (!api.userConfig.cordovanative) return;
 
   const exportsNative = [] as ExportNative[];
-  for (const plugins of api.userConfig.native) {
+  for (const plugins of api.userConfig.cordovanative) {
     const nativePlugins = supportedPlugins.find(
       (item) => item.name === plugins,
     );
@@ -36,7 +36,7 @@ export default function (api: IApi) {
   api.registerCommand({
     name: 'cordovanative',
     fn: ({ args }) => {
-      const { appType, native } = api.userConfig;
+      const { appType, cordovanative } = api.userConfig;
       if (appType !== 'cordova') {
         return;
       }
@@ -46,7 +46,7 @@ export default function (api: IApi) {
         console.log(`${ionicNativeCore} install ...`);
         childProcess.execSync(`yarn add ${ionicNativeCore}`, options);
       }
-      const nativePlugins = native || [];
+      const nativePlugins = cordovanative || [];
       for (const plugin of nativePlugins) {
         const nativePlugin = supportedPlugins.find(
           (item) => item.name === plugin,
