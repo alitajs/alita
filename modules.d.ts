@@ -19,3 +19,4 @@ declare namespace NodeJS {
 }
 declare module 'archiver';
 declare module 'auto-skeleton-plugin';
+declare module 'qrcode-terminal';

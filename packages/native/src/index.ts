@@ -3,16 +3,49 @@ import { statSync } from 'fs';
 import { join } from 'path';
 import { IApi, IConfig } from '@umijs/types';
 import { copyDirectory } from './utils';
+import qrCodeTerminal from 'qrcode-terminal';
 
-const { chalk } = utils;
+const { chalk, address } = utils;
 
 
 export default (api: IApi) => {
+
+  api.describe({
+    key: 'microDevInItData',
+    config: {
+      schema(joi) {
+        return joi.any();
+      },
+    },
+  });
+
+  const { microDevInItData } = api.userConfig;
+
+
+  api.onDevCompileDone(({ isFirstCompile }) => {
+    if (!isFirstCompile) return;
+    const port = api.getPort()
+    const isHTTPS = process.env.HTTPS || api.args?.https;
+    const lanIp = address.ip();
+    const protocol = isHTTPS ? 'https' : 'http';
+    const lanUrl = `${protocol}://${lanIp}:${port}`;
+    if (lanUrl) {
+      const qrCode = {
+        type: 'dev',
+        url: lanUrl,
+        initData: microDevInItData
+      }
+      qrCodeTerminal.generate(JSON.stringify(qrCode), {
+        small: false
+      })
+    }
+    // console.log(`  - Network: ${chalk.cyan(lanUrl)}`)
+  })
   // 运行 dev 和 build 时，使用环境变量 NATIVE 来区分
-  const nativeIsIos = !(process.env.NATIVE === 'android');
+  const nativeIsIos = process.env.NATIVE !== 'android';
   const defaultOptions = {
     // build目录默认为www
-    outputPath: `platforms/${nativeIsIos ? 'android' : 'ios'}/www`,
+    outputPath: `platforms/${nativeIsIos ? 'ios' : 'android'}/www`,
     history: { type: 'hash' },
     base: './',
     publicPath: './',
@@ -38,6 +71,8 @@ export default (api: IApi) => {
       }
     ]
   });
+
+
 
   // 添加平台的命令
   api.registerCommand({
