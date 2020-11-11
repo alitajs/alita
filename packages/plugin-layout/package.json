@@ -1,7 +1,7 @@
 {
   "name": "@alitajs/plugin-layout",
   "version": "2.6.1",
-  "description": "@umijs/plugin-layout",
+  "description": "@alitajs/plugin-layout",
   "keywords": [
     "umi"
   ],
