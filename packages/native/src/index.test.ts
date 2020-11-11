@@ -13,11 +13,12 @@ test('normal', async () => {
   const target = join(cwd, 'platforms');
   const service = new Service({
     cwd,
-    plugins: [require.resolve('../../umi-presets-alita/lib/plugins/features/appType.js'),
-    require.resolve('../../umi-presets-alita/lib/plugins/features/displayName.js'),
-    require.resolve('../../umi-presets-alita/lib/plugins/features/packageId.js'),
-    require.resolve('../lib'),],
-    // presets: [require.resolve('../../umi-presets-alita/lib/index')],
+    plugins: [
+      require.resolve('../../umi-presets-alita/lib/plugins/features/appType.js'),
+      require.resolve('../../umi-presets-alita/lib/plugins/features/displayName.js'),
+      require.resolve('../../umi-presets-alita/lib/plugins/features/packageId.js'),
+      require.resolve('../lib'),
+    ],
   });
   await service.run({
     name: 'platforms',
