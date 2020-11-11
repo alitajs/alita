@@ -12,6 +12,7 @@ const replaceKeyName = (str: string, displayName: string, isIos: boolean) => {
 }
 
 const copyTpl = (opts: { templatePath: string; target: string; packageId: string; displayName: string; isIos: boolean; }) => {
+  console.log(opts)
   const tpl = readFileSync(opts.templatePath, 'utf-8');
   mkdirp.sync(dirname(opts.target));
   console.log(`${chalk.green('Write:')} ${opts.target}`);
@@ -27,6 +28,7 @@ const copyDirectory = (opts: { path: string; target: string; packageId: string; 
   console.log(opts.path)
   files.forEach((file) => {
     const absFile = join(opts.path, file);
+
     if (statSync(absFile).isDirectory()) return;
     const absTarget = join(opts.target, replaceKeyName(file, opts.displayName, opts.isIos));
     mkdirp.sync(dirname(absTarget));

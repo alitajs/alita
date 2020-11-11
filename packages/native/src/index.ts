@@ -36,7 +36,7 @@ export default (api: IApi) => {
         initData: microDevInItData
       }
       qrCodeTerminal.generate(JSON.stringify(qrCode), {
-        small: false
+        small: true
       })
     }
     // console.log(`  - Network: ${chalk.cyan(lanUrl)}`)
@@ -108,7 +108,7 @@ export default (api: IApi) => {
       }
 
       const isIos = !args.android;
-      const targetPath = join(api.paths.cwd!, 'platform', 'ios');
+      const targetPath = join(api.paths.cwd!, 'platforms', 'ios');
       try {
         const state = statSync(targetPath);
         if (state.isDirectory()) {
@@ -127,10 +127,10 @@ export default (api: IApi) => {
           packageId,
           isIos
         })
-        console.error(
+        console.log(
           `${chalk.green('Success:')} platforms ios 添加成功，请在 platforms/ios 目录下手动执行 pod install后使用 xcode 打开 ios 项目`,
         );
-        console.error(
+        console.log(
           `${chalk.green('Success:')} cd platform/ios && pod install`,
         );
       } catch (error) {
