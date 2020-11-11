@@ -44,7 +44,9 @@ export default function (api: IApi) {
   if (api.userConfig.appType === 'pc') {
     plugins.push(require.resolve('@umijs/plugin-helmet'));
     plugins.push(require.resolve('@umijs/plugin-model'));
-    plugins.push(require.resolve('@umijs/plugin-access-layout'));
+    plugins.push(require.resolve('@umijs/plugin-initial-state'));
+    plugins.push(require.resolve('@umijs/plugin-access'));
+    plugins.push(require.resolve('@alitajs/plugin-layout'));
   }
   return {
     plugins,
