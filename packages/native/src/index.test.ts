@@ -25,7 +25,6 @@ test('normal', async () => {
       ios: true
     },
   });
-  expect(existsSync(join(target, 'ios', 'Podfile'))).toEqual(true);
   expect(existsSync(join(target, 'ios', 'micro', 'Info.plist'))).toEqual(true);
   rimraf.sync(target);
 });
