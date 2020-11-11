@@ -1,0 +1,41 @@
+{
+  "name": "@alitajs/plugin-layout",
+  "version": "2.6.2",
+  "description": "@alitajs/plugin-layout",
+  "keywords": [
+    "umi"
+  ],
+  "homepage": "https://github.com/umijs/plugins/tree/master/packages/plugin-layout#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umijs/plugins"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@umijs/route-utils": "^1.0.7",
+    "antd": "^4.1.2",
+    "lodash": "^4.17.15",
+    "path-to-regexp": "1.x"
+  },
+  "peerDependencies": {
+    "@ant-design/icons": "^4.0.0",
+    "@ant-design/pro-layout": "^5.0.0",
+    "@umijs/plugin-initial-state": "2.x",
+    "@umijs/plugin-locale": "0.x",
+    "@umijs/plugin-model": "2.x",
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "Ariel <1319413542@qq.com> (https://github.com/Ariel-Cheng)"
+  ]
+}

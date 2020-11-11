@@ -1,6 +1,7 @@
 import React from 'react';
 import { Result, Button } from 'antd';
 import { history } from 'umi';
+import { IRouteLayoutConfig } from '../../types/interface.d';
 
 function backToHome() {
   history.push('/');
@@ -51,14 +52,19 @@ const Exception403 = () => (
  * - 404
  */
 const WithExceptionOpChildren: React.FC<{
-  currentPathConfig?: any;
+  currentPathConfig?: IRouteLayoutConfig;
   children: any;
 }> = props => {
   const { children, currentPathConfig } = props;
+
+  // 404 现在应该很少会发生
   if (!currentPathConfig) {
     return <Exception404 />;
   }
-  if (currentPathConfig.unaccessible) {
+  /**
+   * 这里是没有权限的意思
+   */
+  if (currentPathConfig.unAccessible || currentPathConfig.unaccessible) {
     return <Exception403 />;
   }
   return children;
