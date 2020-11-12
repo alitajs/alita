@@ -108,12 +108,12 @@ export default (api: IApi) => {
       }
 
       const isIos = !args.android;
-      const targetPath = join(api.paths.cwd!, 'platforms', 'ios');
+      const targetPath = join(api.paths.cwd!, 'platforms', `${isIos ? 'ios' : 'android'}`);
       try {
         const state = statSync(targetPath);
         if (state.isDirectory()) {
           console.error(
-            `${chalk.red('Error:')} platforms ios 已经添加无需再次执行，如果需要重制框架，请删除 platforms/ios 目录`,
+            `${chalk.red('Error:')} platforms ${isIos ? 'ios' : 'android'} 已经添加无需再次执行，如果需要重置框架，请删除 platforms/${isIos ? 'ios' : 'android'} 目录`,
           );
           return;
         }
@@ -127,15 +127,21 @@ export default (api: IApi) => {
           packageId,
           isIos
         })
-        console.log(
-          `${chalk.green('Success:')} platforms ios 添加成功，请在 platforms/ios 目录下手动执行 pod install后使用 xcode 打开 ios 项目`,
-        );
-        console.log(
-          `${chalk.green('Success:')} cd platform/ios && pod install`,
-        );
+        if (isIos) {
+          console.log(
+            `${chalk.green('Success:')} platforms ios 添加成功，请在 platforms/ios 目录下手动执行 pod install后使用 xcode 打开 ios 项目`,
+          );
+          console.log(
+            `${chalk.green('Success:')} cd platform/ios && pod install`,
+          );
+        } else {
+          console.log(
+            `${chalk.green('Success:')} platforms android 添加成功，请用 Android Studio 打开 platforms/android 目录`,
+          );
+        }
       } catch (error) {
         console.error(
-          `${chalk.red('Error:')} platforms ios 添加失败，请删除 platforms/ios 目录后重试`,
+          `${chalk.red('Error:')} platforms ${isIos ? 'ios' : 'android'} 添加失败，请删除 platforms/${isIos ? 'ios' : 'android'} 目录后重试`,
         );
       }
 

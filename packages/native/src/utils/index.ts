@@ -8,7 +8,8 @@ const replaceKeyName = (str: string, displayName: string, isIos: boolean) => {
   if (isIos) {
     return str.replace(/miniapp/g, displayName);
   }
-  return str.replace(/miniapp/g, displayName);
+  // 创建模版手误，刚好当作区分
+  return str.replace(/nimiapp/g, displayName);
 }
 
 const copyTpl = (opts: { templatePath: string; target: string; packageId: string; displayName: string; isIos: boolean; }) => {
