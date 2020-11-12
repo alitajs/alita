@@ -45,7 +45,7 @@ export default (api: IApi) => {
   const nativeIsIos = process.env.NATIVE !== 'android';
   const defaultOptions = {
     // build目录默认为www
-    outputPath: `platforms/${nativeIsIos ? 'ios' : 'android'}/www`,
+    outputPath: `platforms/${nativeIsIos ? 'ios' : 'android/app/src/main/assets'}/www`,
     history: { type: 'hash' },
     base: './',
     publicPath: './',
@@ -121,7 +121,7 @@ export default (api: IApi) => {
       }
       try {
         copyDirectory({
-          path: isIos ? join(__dirname, '../templates/alita-ios') : '',
+          path: join(__dirname, `../templates/alita-${isIos ? 'ios' : 'android'}`),
           target: targetPath,
           displayName,
           packageId,
