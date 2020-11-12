@@ -1,12 +1,11 @@
 {
-  "name": "@alitajs/native",
-  "version": "2.6.2",
-  "description": "@alitajs/native",
+  "name": "@alitajs/cordova-native",
+  "version": "2.5.17-beta.3",
+  "description": "@alitajs/cordova-native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "templates"
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -14,21 +13,16 @@
   },
   "keywords": [
     "umi",
-    "alita",
-    "micro",
-    "native"
+    "alita"
   ],
   "authors": [
-    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)",
+    "ashoka <savebtc11@gmail.com> (https://github.com/falcon11)"
   ],
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/native#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "alita-micro": "0.0.1-beta.7",
-    "qrcode-terminal": "^0.12.0"
   }
 }

@@ -1,0 +1,6 @@
+[submodule "packages/native/templates/alita-ios"]
+	path = packages/native/templates/alita-ios
+	url = https://github.com/alitajs/alita-ios.git
+[submodule "packages/native/templates/alita-android"]
+	path = packages/native/templates/alita-android
+	url = https://github.com/alitajs/alita-android.git

@@ -17,3 +17,6 @@ declare namespace NodeJS {
     SYSTEM_BELL: null | 'none';
   }
 }
+declare module 'archiver';
+declare module 'auto-skeleton-plugin';
+declare module 'qrcode-terminal';
