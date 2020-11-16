@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/cordova",
-  "version": "2.6.2-y.0",
+  "version": "2.6.2-beta.4",
   "description": "umi support cordova",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
