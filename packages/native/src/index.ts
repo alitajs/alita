@@ -19,8 +19,7 @@ export default (api: IApi) => {
     },
   });
 
-  const { microDevInItData } = api.userConfig;
-
+  const { microDevInItData, appType } = api.userConfig;
 
   api.onDevCompileDone(({ isFirstCompile }) => {
     if (!isFirstCompile) return;
@@ -41,37 +40,6 @@ export default (api: IApi) => {
     }
     // console.log(`  - Network: ${chalk.cyan(lanUrl)}`)
   })
-  // 运行 dev 和 build 时，使用环境变量 NATIVE 来区分
-  const nativeIsIos = process.env.NATIVE !== 'android';
-  const defaultOptions = {
-    // build目录默认为www
-    outputPath: `platforms/${nativeIsIos ? 'ios' : 'android/app/src/main/assets'}/www`,
-    history: { type: 'hash' },
-    base: './',
-    publicPath: './',
-    metas: [
-      {
-        content: 'no',
-        name: 'msapplication-tap-highlight',
-      },
-    ],
-  } as IConfig;
-
-  api.modifyDefaultConfig((memo) => {
-    return {
-      ...memo,
-      ...defaultOptions,
-    };
-  });
-
-  api.addEntryImports(() => {
-    return [
-      {
-        source: 'alita-micro',
-      }
-    ]
-  });
-
 
 
   // 添加平台的命令
@@ -83,28 +51,28 @@ export default (api: IApi) => {
         console.error(
           'platforms 命令，appType 必须为 native，请修改配置 appType',
         );
-        return;
+        process.exit(1);
       }
 
       if (!packageId) {
         console.error(
           'config/config.ts 中 packageId 是必填项，请增加配置 packageId',
         );
-        return;
+        process.exit(1);
       }
 
       if (!displayName) {
         console.error(
           'config/config.ts 中 displayName 是必填项，请增加配置 displayName',
         );
-        return;
+        process.exit(1);
       }
 
       if (!args.android && !args.ios) {
         console.error(
           '请使用 alita platforms --ios 或者  alita platforms --android 来标示需要添加的平台',
         );
-        return;
+        process.exit(1);
       }
 
       const isIos = !args.android;
@@ -115,7 +83,7 @@ export default (api: IApi) => {
           console.error(
             `${chalk.red('Error:')} platforms ${isIos ? 'ios' : 'android'} 已经添加无需再次执行，如果需要重置框架，请删除 platforms/${isIos ? 'ios' : 'android'} 目录`,
           );
-          return;
+          process.exit(1);
         }
       } catch (error) {
       }
@@ -147,4 +115,43 @@ export default (api: IApi) => {
 
     }
   })
+
+
+  api.addEntryImports(() => {
+    return [
+      {
+        source: 'alita-micro',
+      }
+    ]
+  });
+
+  // 上面的逻辑和 micro 插件公用
+  if (appType !== 'native') {
+    return;
+  }
+
+  // 运行 dev 和 build 时，使用环境变量 NATIVE 来区分
+  const nativeIsIos = process.env.NATIVE !== 'android';
+  const defaultOptions = {
+    // build目录默认为www
+    outputPath: `platforms/${nativeIsIos ? 'ios' : 'android/app/src/main/assets'}/www`,
+    history: { type: 'hash' },
+    base: './',
+    publicPath: './',
+    metas: [
+      {
+        content: 'no',
+        name: 'msapplication-tap-highlight',
+      },
+    ],
+  } as IConfig;
+
+  api.modifyDefaultConfig((memo) => {
+    return {
+      ...memo,
+      ...defaultOptions,
+    };
+  });
+
+
 };

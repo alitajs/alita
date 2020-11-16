@@ -34,7 +34,7 @@ export default function (api: IApi) {
   if (api.userConfig.appType === 'micro') {
     plugins.push(require.resolve('@alitajs/micro'));
   }
-  if (api.userConfig.appType === 'native') {
+  if (api.userConfig.appType === 'native' || api.userConfig.appType === 'micro') {
     plugins.push(require.resolve('@alitajs/native'));
   }
   if (api.userConfig.tabsLayout) {

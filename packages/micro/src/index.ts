@@ -32,28 +32,28 @@ export default (api: IApi) => {
     console.error(
       'config/config.ts 中 packageId 是必填项，请填写服务端提供的的appKey',
     );
-    return;
+    process.exit(1);
   }
 
   if (!displayName) {
     console.error(
       'config/config.ts 中 displayName 是必填项，将作为项目中显示的微应用名称',
     );
-    return;
+    process.exit(1);
   }
 
   if (!displayIcon) {
     console.error(
       'config/config.ts 中 displayIcon 是必填项，将作为项目中显示的微应用图标',
     );
-    return;
+    process.exit(1);
   }
 
   if (!/.png$/.test(displayIcon)) {
     console.error(
       "config/config.ts 中 displayIcon 的值必须要正确的图片路径，可以尝试使用 path.join(process.cwd(), 'src/assets/logo.png')",
     );
-    return;
+    process.exit(1);
   }
 
   try {
@@ -62,21 +62,23 @@ export default (api: IApi) => {
       console.error(
         "config/config.ts 中 displayIcon 的值必须要正确的图片路径，可以尝试使用 displayIcon:'src/assets/logo.png'",
       );
-      return;
+      process.exit(1);
     }
   } catch (error) {
     console.error(
       "config/config.ts 中 displayIcon 的值必须要正确的图片路径，可以尝试使用 displayIcon:'src/assets/logo.png'",
     );
+    process.exit(1);
   }
   api.addRuntimePlugin(() => join(__dirname, './runtime'));
-  api.addEntryImports(() => {
-    return [
-      {
-        source: 'alita-micro',
-      }
-    ]
-  });
+  // 在 native 插件中已经添加过了
+  // api.addEntryImports(() => {
+  //   return [
+  //     {
+  //       source: 'alita-micro',
+  //     }
+  //   ]
+  // });
   // 开发的时候不需要下面的构建和骨架屏幕
   if (process.env.NODE_ENV === 'development') {
     return;
@@ -146,25 +148,9 @@ export default (api: IApi) => {
     };
   });
 
-  return
   api.onBuildComplete(({ err }) => {
     if (err) {
       console.error(err)
-      return;
-    }
-    // 判断dist目录存在，说明已经执行过编译
-    try {
-      const state = statSync(outputPath);
-      if (!state.isDirectory()) {
-        console.error(
-          `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
-        );
-        return;
-      }
-    } catch (error) {
-      console.error(
-        `${chalk.red('Error:')} 请先执行 alita build 构建产物`,
-      );
       return;
     }
     const pkg = require(join(process.env.ALITA_DIR || '', 'package.json'));
