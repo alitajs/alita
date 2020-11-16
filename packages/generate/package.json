@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/generate",
-  "version": "2.6.2-beta.2",
+  "version": "2.6.2-beta.3",
   "description": "@alitajs/generate",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
