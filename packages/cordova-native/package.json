@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/cordova-native",
-  "version": "2.6.2-beta.3",
+  "version": "2.6.2-y.0",
   "description": "@alitajs/cordova-native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
