@@ -4,11 +4,9 @@ import { join } from 'path';
 import archiver from 'archiver';
 // @ts-ingore
 import AutoSkeletonPlugin from 'auto-skeleton-plugin';
+import StatsJson from './stats.json';
 
 const { chalk } = utils;
-
-const exclude = ['alita', 'classnames'];
-const include = ['antd-mobile', 'antd', 'rc-', 'rmc-'];
 
 const getRotesPath = (routes: any[]) => {
   let routesPaths = [] as any;
@@ -87,10 +85,6 @@ export default (api: IApi) => {
   const version = new Date().getTime();
   api.chainWebpack(async (config) => {
     const { exportStatic } = api.config;
-    const dependencies = api.pkg.dependencies || {};
-    const pkgNames = Object.keys(dependencies)
-      .filter((i) => !exclude.includes(i))
-      .concat(include);
     const rrr = await api.getRoutes()
     console.log();
     config.merge({
@@ -104,14 +98,14 @@ export default (api: IApi) => {
           minChunks: 1,
           cacheGroups: {
             micro: {
-              name: 'micro',
+              name: 'vendors',
               chunks: 'all',
               enforce: true,
               test: (module: any, chunks: any) => {
                 if (module.resource) {
-                  for (let key = 0; key <= pkgNames.length; key++) {
+                  for (let key = 0; key <= StatsJson.length; key++) {
                     if (
-                      module.resource.includes(`/node_modules/${pkgNames[key]}`)
+                      module.resource.includes(StatsJson[key])
                     ) {
                       return true;
                     }
@@ -122,21 +116,24 @@ export default (api: IApi) => {
               priority: -9,
             },
             vendors: {
-              name: 'vendors',
+              name: 'micro',
               chunks: 'all',
-              test: /[\\/]node_modules[\\/]/,
+              test: (module: any, chunks: any) => {
+                return true;
+              },
+              // test: /[\\/]node_modules[\\/]/,
               priority: -12,
             },
           },
         },
       },
     });
-    config
-      .plugin('auto-skeleton-plugin')
-      .use(AutoSkeletonPlugin, [{
-        staticDir: api?.paths?.absOutputPath!,
-        routes: exportStatic ? getRotesPath(rrr) : ['/'],
-      }])
+    // config
+    //   .plugin('auto-skeleton-plugin')
+    //   .use(AutoSkeletonPlugin, [{
+    //     staticDir: api?.paths?.absOutputPath!,
+    //     routes: exportStatic ? getRotesPath(rrr) : ['/'],
+    //   }])
     return config;
   });
 
@@ -149,7 +146,7 @@ export default (api: IApi) => {
     };
   });
 
-
+  return
   api.onBuildComplete(({ err }) => {
     if (err) {
       console.error(err)
