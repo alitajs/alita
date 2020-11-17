@@ -4,10 +4,8 @@ import { join } from 'path';
 import archiver from 'archiver';
 // @ts-ingore
 import AutoSkeletonPlugin from 'auto-skeleton-plugin';
-import StatsJson from './stats.json';
 
 const { chalk } = utils;
-
 const getRotesPath = (routes: any[]) => {
   let routesPaths = [] as any;
   const getPath = (routes: any[]) => {
@@ -80,79 +78,101 @@ export default (api: IApi) => {
   //   ]
   // });
   // 开发的时候不需要下面的构建和骨架屏幕
+
   if (process.env.NODE_ENV === 'development') {
     return;
   }
+
   const outputPath = `dist/${packageId}/dist`;
   const version = new Date().getTime();
-  api.chainWebpack(async (config) => {
-    const { exportStatic } = api.config;
-    const rrr = await api.getRoutes()
-    console.log();
-    config.merge({
-      optimization: {
-        usedExports: false,
-        splitChunks: {
-          chunks: 'all',
-          automaticNameDelimiter: '.',
-          name: true,
-          minSize: 30000,
-          minChunks: 1,
-          cacheGroups: {
-            micro: {
-              name: 'vendors',
-              chunks: 'all',
-              enforce: true,
-              test: (module: any, chunks: any) => {
-                if (module.resource) {
-                  for (let key = 0; key <= StatsJson.length; key++) {
-                    if (
-                      module.resource.includes(StatsJson[key])
-                    ) {
-                      return true;
-                    }
-                  }
-                }
-                return false;
-              },
-              priority: -9,
-            },
-            vendors: {
-              name: 'micro',
-              chunks: 'all',
-              test: (module: any, chunks: any) => {
-                return true;
-              },
-              // test: /[\\/]node_modules[\\/]/,
-              priority: -12,
-            },
-          },
-        },
-      },
-    });
-    // config
-    //   .plugin('auto-skeleton-plugin')
-    //   .use(AutoSkeletonPlugin, [{
-    //     staticDir: api?.paths?.absOutputPath!,
-    //     routes: exportStatic ? getRotesPath(rrr) : ['/'],
-    //   }])
-    return config;
-  });
+  // api.chainWebpack(async (config) => {
+  //   const { exportStatic } = api.config;
+  //   const rrr = await api.getRoutes()
+  //   console.log();
+  //   config.merge({
+  //     optimization: {
+  //       usedExports: false,
+  //       splitChunks: {
+  //         chunks: 'all',
+  //         automaticNameDelimiter: '.',
+  //         name: true,
+  //         minSize: 30000,
+  //         minChunks: 1,
+  //         cacheGroups: {
+  //           micro: {
+  //             name: 'micro',
+  //             chunks: 'all',
+  //             enforce: true,
+  //             test: (module: any, chunks: any) => {
+  //               if (module.resource) {
+  //                 for (let key = 0; key <= StatsJson.length; key++) {
+  //                   if (
+  //                     module.resource.includes(StatsJson[key])
+  //                   ) {
+  //                     buildInclude.push(module.resource)
+  //                     return true;
+  //                   }
+  //                 }
+  //               }
+  //               return false;
+  //             },
+  //             priority: -9,
+  //           },
+  //           vendors: {
+  //             name: 'vendors',
+  //             chunks: 'all',
+  //             test: /[\\/]node_modules[\\/]/,
+  //             priority: -12,
+  //           },
+  //         },
+  //       },
+  //     },
+  //   });
+  // config
+  //   .plugin('auto-skeleton-plugin')
+  //   .use(AutoSkeletonPlugin, [{
+  //     staticDir: api?.paths?.absOutputPath!,
+  //     routes: exportStatic ? getRotesPath(rrr) : ['/'],
+  //   }])
+  // return config;
+  // });
+
 
   api.modifyDefaultConfig((memo) => {
     return {
       ...memo,
       outputPath,
       publicPath: './',
-      chunks: ['vendors', 'micro', 'umi']
+      externals: {
+        react: 'window.React',
+        'react-dom': 'window.ReactDOM',
+        'lodash': '_',
+        'crypto-js': 'window.crypto',
+        'antd': 'antd',
+        '@alitajs/dform': 'DynamicForm',
+        "antd-mobile": "antd-mobile"
+      },
     };
   });
+
+    api.addHTMLHeadScripts(() => {
+      return [
+        {
+          src: './web-framework.js',
+        },
+      ];
+    });
 
   api.onBuildComplete(({ err }) => {
     if (err) {
       console.error(err)
       return;
     }
+    const framework = join(__dirname, './templates/web-framework.js');
+    console.log(framework)
+    const frameworkTarget = join(api?.paths?.absOutputPath!, 'web-framework.js');
+    console.log(frameworkTarget)
+    copyFileSync(framework, frameworkTarget);
     const pkg = require(join(process.env.ALITA_DIR || '', 'package.json'));
 
     // 创建 asset-manifest.json
@@ -175,17 +195,17 @@ export default (api: IApi) => {
     console.log(`${chalk.green('Copy: ')} ${displayIcon}`);
     const absTarget = join(api?.paths?.absOutputPath!, '..', 'icon.png');
     copyFileSync(displayIcon, absTarget);
-    // 删除 dist 下的 vendors.js
-    const vendors = join(api?.paths?.absOutputPath!, 'vendors.js');
-    unlinkSync(vendors);
-    console.log(`${chalk.green('Remove:')} ${vendors}`);
+    // 删除 dist 下的 micro.js
+    const micro = join(api?.paths?.absOutputPath!, 'micro.js');
+    // unlinkSync(micro);
+    console.log(`${chalk.green('Remove:')} ${micro}`);
 
     // 修改 index.html
     const indexHtml = join(api?.paths?.absOutputPath!, 'index.html');
     let indexContent = readFileSync(indexHtml).toString();
     // console.log(indexContent);
-    // 不删除删除 vendors 引入
-    // indexContent = indexContent.replace('<script src="./vendors.js"></script>', ``);
+    // 不删除删除 micro 引入
+    // indexContent = indexContent.replace('<script src="./micro.js"></script>', ``);
     writeFileSync(indexHtml, indexContent, 'utf-8');
     console.log(`${chalk.green('Change:')} ${indexHtml}`);
 
