@@ -1,11 +1,12 @@
 {
   "name": "@alitajs/micro",
-  "version": "2.6.2-beta.6",
+  "version": "2.6.2-beta.7",
   "description": "@alitajs/micro",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib","templates"
+    "lib",
+    "templates"
   ],
   "repository": {
     "type": "git",
