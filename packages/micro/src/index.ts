@@ -168,11 +168,9 @@ export default (api: IApi) => {
       console.error(err)
       return;
     }
-    const framework = join(__dirname, './templates/web-framework.js');
-    console.log(framework)
-    const frameworkTarget = join(api?.paths?.absOutputPath!, 'web-framework.js');
-    console.log(frameworkTarget)
-    copyFileSync(framework, frameworkTarget);
+    // const framework = join(__dirname, '..','./templates/web-framework.js');
+    // const frameworkTarget = join(api?.paths?.absOutputPath!, 'web-framework.js');
+    // copyFileSync(framework, frameworkTarget);
     const pkg = require(join(process.env.ALITA_DIR || '', 'package.json'));
 
     // 创建 asset-manifest.json
