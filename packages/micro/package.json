@@ -26,7 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "alita-micro": "0.0.1-beta.7",
     "archiver": "^5.0.2",
     "auto-skeleton-plugin": "^0.0.0-beta.4"
   }

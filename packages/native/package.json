@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "alita-micro": "0.0.1-beta.7",
+    "alita-micro": "0.0.1",
     "qrcode-terminal": "^0.12.0"
   }
 }

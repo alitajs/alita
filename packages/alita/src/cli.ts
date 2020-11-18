@@ -12,11 +12,6 @@ if (p[0] === 'version' || p[0] === '-v' || p[0] === '-version') {
   p[0] = 'alitaVersion';
 }
 
-// 为了模版开发方便，取 dev 的第一参数，作为 APP_ROOT
-// TODO: 应该写一个 templates plugin
-// if (p[0] === 'dev') {
-//   process.env.APP_ROOT = p[1];
-// }
 
 process.env.ALITA_NOW_COMMAND = p[0];
 
