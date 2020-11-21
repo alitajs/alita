@@ -1,6 +1,6 @@
+import { Effect } from 'alita';
 import { Reducer } from 'redux';
 import { query } from '@/services/api';
-import { Effect } from '@/models/connect';
 
 export interface {{{ componentName }}}ModelState {
   name: string;

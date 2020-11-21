@@ -77,8 +77,8 @@ Example:
         context,
       });
       this.copyTpl({
-        templatePath: join(__dirname, 'model.ts.tpl'),
-        target: join(api.paths.absSrcPath!, 'models', `${fileName}.${jsExt}`),
+        templatePath: join(__dirname, 'service.ts.tpl'),
+        target: join(api.paths.absPagesPath!, `${fileName}/service.${jsExt}`),
         context,
       });
     }

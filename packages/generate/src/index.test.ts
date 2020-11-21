@@ -39,3 +39,11 @@ test('generate page', async () => {
   rimraf.sync(join(cwd, 'pages'));
   rimraf.sync(join(cwd, 'models'));
 });
+
+test('generate model', async () => {
+  await runGenerator({
+    _: ['generate', 'model', 'index'],
+  });
+  expect(existsSync(join(cwd, 'models', 'index.ts'))).toEqual(true);
+  rimraf.sync(join(cwd, 'models'));
+});

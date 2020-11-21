@@ -27,6 +27,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@ahooksjs/use-request": "^2.8.1",
     "@alitajs/list-view": "^0.1.2",
     "alita": "^2.1.5"
   },
