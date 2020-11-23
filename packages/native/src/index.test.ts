@@ -2,11 +2,8 @@ import { join } from 'path';
 import { rimraf } from '@umijs/utils';
 import { existsSync } from 'fs';
 import { Service } from 'umi';
-import { render, fireEvent, cleanup } from '@testing-library/react';
 
 const fixtures = join(__dirname, 'fixtures');
-
-afterEach(cleanup);
 
 test('normal', async () => {
   const cwd = join(fixtures, 'native');
@@ -26,6 +23,6 @@ test('normal', async () => {
       ios: true
     },
   });
-  expect(existsSync(join(target, 'ios', 'micro', 'Info.plist'))).toEqual(true);
+  expect(existsSync(join(target, 'ios', 'Podfile'))).toEqual(true);
   rimraf.sync(target);
 });

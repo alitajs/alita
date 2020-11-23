@@ -136,7 +136,6 @@ export default (api: IApi) => {
     // build目录默认为www
     outputPath: `platforms/${nativeIsIos ? 'ios' : 'android/app/src/main/assets'}/www`,
     history: { type: 'hash' },
-    base: './',
     publicPath: './',
     metas: [
       {

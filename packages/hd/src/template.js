@@ -6,7 +6,7 @@ if (typeof document !== 'undefined') {
   if (document.documentElement.clientWidth >= 750) {
     vw(100, 750);
   } else {
-    flex(100, window.alitaFontScale);
+    flex(100, window.alitaFontScale || 1);
   }
 
   // hd solution for antd-mobile@2
