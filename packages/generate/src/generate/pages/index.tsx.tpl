@@ -1,10 +1,10 @@
 
 import React, { FC } from 'react';
-import { useRequest } from 'alita';
+import { useRequest, ConnectProps } from 'alita';
 import { query } from './service';
 import styles from './index.less';
 
-interface {{{ componentName }}}PageProps {}
+interface {{{ componentName }}}PageProps extends ConnectProps {}
 
 const {{{ componentName }}}Page: FC<{{{ componentName }}}PageProps> = () => {
   const { data } = useRequest(query);
