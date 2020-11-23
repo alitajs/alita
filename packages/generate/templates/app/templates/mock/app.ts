@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
 
 export default {
-  'GET /api/hello': {
-    text: 'Alita',
+  'POST /api/hello': {
+    data: {
+      text: 'Alita',
+    },
+    message: 'success'
   },
   'POST /api/list': (req: Request, res: Response) => {
     const dataSource = [

@@ -1,6 +1,6 @@
 
 import React, { FC } from 'react';
-import useRequest from '@ahooksjs/use-request';
+import { useRequest } from 'alita';
 import { query } from './service';
 import styles from './index.less';
 
