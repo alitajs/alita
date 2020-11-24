@@ -1,8 +1,9 @@
+
 export function render(oldRender: () => void) {
   function onDeviceReady() {
     oldRender();
   }
-  if ((window as any).alita) {
+  if ((window as any).WebViewJavascriptBridge) {
     onDeviceReady();
   } else {
     // 如果没有注入则监听注入的事件
