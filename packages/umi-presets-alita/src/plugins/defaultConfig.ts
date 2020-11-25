@@ -9,6 +9,7 @@ export default (api: IApi) => {
     targets: {
       ie: 9,
     },
+    hash: true,
     esbuild: {},
     // dynamicImport: {},
     nodeModulesTransform: {
