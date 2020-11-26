@@ -9,7 +9,7 @@ export default function (api: IApi) {
     // bundle configs
     require.resolve('@umijs/plugin-request'),
     require.resolve('@umijs/plugin-dva'),
-    require.resolve('@alitajs/plugin-antd'),
+    require.resolve('@umijs/plugin-antd'),
     require.resolve('./plugins/features/appType'),
     require.resolve('@alitajs/routes'),
     require.resolve('@alitajs/router'),
