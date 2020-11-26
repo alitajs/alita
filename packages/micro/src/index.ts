@@ -44,6 +44,7 @@ export default (api: IApi) => {
             display: joi.string().valid('flex', 'none')
           }),
           backgroundColor: joi.string(),
+          statusTheme: joi.string(),
         });
       },
     },
