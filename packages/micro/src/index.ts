@@ -22,7 +22,32 @@ const getRotesPath = (routes: any[]) => {
   return [...new Set(routesPaths)]
 }
 export default (api: IApi) => {
-  const { appType, packageId, displayName, displayIcon } = api.userConfig;
+  const { appType, packageId, displayName, displayIcon, microTheme } = api.userConfig;
+  // microTheme: {
+  //   navBar: {
+  //     backgroundColor: '#FFF',
+  //       color: '#000',
+  //         fontsize: '24',
+  //           display: "flex",
+  //   },
+  //   backgroundColor: '#FFF',
+  // }
+  api.describe({
+    key: 'microTheme',
+    config: {
+      schema(joi) {
+        return joi.object({
+          navBar: joi.object({
+            backgroundColor: joi.string(),
+            color: joi.string(),
+            fontSize: joi.string(),
+            display: joi.string().valid('flex', 'none')
+          }),
+          backgroundColor: joi.string(),
+        });
+      },
+    },
+  });
   if (!appType || appType !== 'micro') {
     return;
   }
@@ -155,13 +180,13 @@ export default (api: IApi) => {
     };
   });
 
-    api.addHTMLHeadScripts(() => {
-      return [
-        {
-          src: './web-framework.js',
-        },
-      ];
-    });
+  api.addHTMLHeadScripts(() => {
+    return [
+      {
+        src: './web-framework.js',
+      },
+    ];
+  });
 
   api.onBuildComplete(({ err }) => {
     if (err) {
@@ -180,6 +205,7 @@ export default (api: IApi) => {
       version: version,
       appId: packageId,
       alitaVersion: pkg.version,
+      ...microTheme
     });
     const target = join(
       api?.paths?.absOutputPath!,
@@ -208,8 +234,8 @@ export default (api: IApi) => {
     console.log(`${chalk.green('Change:')} ${indexHtml}`);
 
     // zip
-    const archiveOutputPath = join(api?.paths?.absOutputPath!, '..', '..', `${packageId}-alitamicro-${version}.zip`);
-    console.log(`${chalk.green('Create:')} ${packageId}-alitamicro-${version}.zip`);
+    const archiveOutputPath = join(api?.paths?.absOutputPath!, '..', '..', `${packageId}-${version}.zip`);
+    console.log(`${chalk.green('Create:')} ${packageId}-${version}.zip`);
 
     const output = createWriteStream(archiveOutputPath);
     const archive = archiver('zip', {
