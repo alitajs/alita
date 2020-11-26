@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/keep-alive",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "@alitajs/keep-alive",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
