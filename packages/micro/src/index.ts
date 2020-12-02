@@ -175,7 +175,7 @@ export default (api: IApi) => {
         'lodash': '_',
         'crypto-js': 'window.crypto',
         'antd': 'antd',
-        '@alitajs/dform': 'DynamicForm',
+        // '@alitajs/dform': 'DynamicForm',
         "antd-mobile": "antd-mobile"
       },
     };
