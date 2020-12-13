@@ -48,6 +48,7 @@ Example:
     // }
     async writing() {
       const [path] = this.args._;
+      const { v1 } = this.args;
       // const jsExt = this.args.typescript ? '.tsx' : '.js';
       // const cssExt = this.args.less ? '.less' : '.css';
       // const path = this.args[0].toString();
@@ -66,21 +67,39 @@ Example:
         jsxExt,
       };
 
-      this.copyTpl({
-        templatePath: join(__dirname, 'index.tsx.tpl'),
-        target: join(api.paths.absPagesPath!, `${fileName}/index.${jsxExt}`),
-        context,
-      });
-      this.copyTpl({
-        templatePath: join(__dirname, 'index.less.tpl'),
-        target: join(api.paths.absPagesPath!, `${fileName}/index.${cssExt}`),
-        context,
-      });
-      this.copyTpl({
-        templatePath: join(__dirname, 'service.ts.tpl'),
-        target: join(api.paths.absPagesPath!, `${fileName}/service.${jsExt}`),
-        context,
-      });
+      if (v1) {
+        this.copyTpl({
+          templatePath: join(__dirname, 'v1/index.tsx.tpl'),
+          target: join(api.paths.absPagesPath!, `${fileName}/index.${jsxExt}`),
+          context,
+        });
+        this.copyTpl({
+          templatePath: join(__dirname, 'v1/index.less.tpl'),
+          target: join(api.paths.absPagesPath!, `${fileName}/index.${cssExt}`),
+          context,
+        });
+        this.copyTpl({
+          templatePath: join(__dirname, 'v1/model.ts.tpl'),
+          target: join(api.paths.absSrcPath!, 'models', `${fileName}.${jsExt}`),
+          context,
+        });
+      } else {
+        this.copyTpl({
+          templatePath: join(__dirname, 'v2/index.tsx.tpl'),
+          target: join(api.paths.absPagesPath!, `${fileName}/index.${jsxExt}`),
+          context,
+        });
+        this.copyTpl({
+          templatePath: join(__dirname, 'v2/index.less.tpl'),
+          target: join(api.paths.absPagesPath!, `${fileName}/index.${cssExt}`),
+          context,
+        });
+        this.copyTpl({
+          templatePath: join(__dirname, 'v2/service.ts.tpl'),
+          target: join(api.paths.absPagesPath!, `${fileName}/service.${jsExt}`),
+          context,
+        });
+      }
     }
   };
 }
