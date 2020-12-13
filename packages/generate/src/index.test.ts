@@ -36,9 +36,20 @@ test('generate page', async () => {
   });
   expect(existsSync(join(cwd, 'pages', 'index', 'index.tsx'))).toEqual(true);
   expect(existsSync(join(cwd, 'pages', 'index', 'index.less'))).toEqual(true);
+  expect(existsSync(join(cwd, 'pages', 'index', 'service.ts'))).toEqual(true);
   rimraf.sync(join(cwd, 'pages'));
-  rimraf.sync(join(cwd, 'models'));
 });
+
+// test('generate page v1', async () => {
+//   await runGenerator({
+//     _: ['generate', 'pages', 'index', '--v1'],
+//   });
+//   expect(existsSync(join(cwd, 'pages', 'index', 'index.tsx'))).toEqual(true);
+//   expect(existsSync(join(cwd, 'pages', 'index', 'index.less'))).toEqual(true);
+//   expect(existsSync(join(cwd, 'models', 'index.ts'))).toEqual(true);
+//   rimraf.sync(join(cwd, 'pages'));
+//   rimraf.sync(join(cwd, 'models'));
+// });
 
 test('generate model', async () => {
   await runGenerator({
