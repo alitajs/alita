@@ -1,23 +1,24 @@
+import { Effect } from 'alita';
+import { Reducer } from 'redux';
 import { query } from '@/services/api';
-import { Effect, Reducer } from 'alita';
 
-export interface SettingsModelState {
+export interface {{{ componentName }}}ModelState {
   name: string;
 }
 
-export interface SettingsModelType {
-  namespace: 'settings';
-  state: SettingsModelState;
+export interface {{{ componentName }}}ModelType {
+  namespace: '{{{ name }}}';
+  state: {{{ componentName }}}ModelState;
   effects: {
     query: Effect;
   };
   reducers: {
-    save: Reducer<SettingsModelState>;
+    save: Reducer<{{{ componentName }}}ModelState>;
   };
 }
 
-const SettingsModel: SettingsModelType = {
-  namespace: 'settings',
+const {{{ componentName }}}Model: {{{ componentName }}}ModelType = {
+  namespace: '{{{ name }}}',
 
   state: {
     name: '',
@@ -42,4 +43,4 @@ const SettingsModel: SettingsModelType = {
   },
 };
 
-export default SettingsModel;
+export default {{{ componentName }}}Model;
