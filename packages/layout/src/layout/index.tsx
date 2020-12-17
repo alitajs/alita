@@ -6,6 +6,8 @@ import {
   KeepAliveLayout,
   getTabBarList,
   layoutEmitter,
+  request,
+  RequestMethodInUmi
 } from 'umi';
 
 import AlitaLayout, {
@@ -15,8 +17,11 @@ import AlitaLayout, {
   TabBarProps,
 } from '@alitajs/alita-layout';
 
+interface ALitaLayoutProp extends AlitaLayoutProps {
+  onPageChange?: (request: RequestMethodInUmi, pathname: string, prevPathName: string) => void;
+}
 interface BasicLayoutProps {
-  layoutConfig: AlitaLayoutProps;
+  layoutConfig: ALitaLayoutProp;
   hasKeepAlive: boolean;
   hideNavBar: boolean;
   location: Location<LocationState>;
@@ -45,7 +50,7 @@ const changeNavBarConfig = (
     }
     return i;
   });
-  if(isChanged){
+  if (isChanged) {
     return { ...other, navList: newNavList };
   }
   Object.keys(changeData).forEach((i) => {
@@ -74,15 +79,19 @@ const changeTabBarListConfig = (
   });
   return { ...other, list: newNavList };
 };
-
+let prevPathName = '/';
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});
   const [tabBarList, setTabBarList] = useState({});
-  const { children, layoutConfig, hasKeepAlive, hideNavBar,...otherProps } = props;
-  const { titleList, documentTitle, navBar, tabBar } = layoutConfig;
+  const { children, layoutConfig, hasKeepAlive, hideNavBar, ...otherProps } = props;
+  const { titleList, documentTitle, navBar, tabBar, onPageChange } = layoutConfig;
   useEffect(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
+    setTimeout(() => {
+      onPageChange && onPageChange(request, props.location.pathname, prevPathName);
+      prevPathName = props.location.pathname;
+    }, 10);
   }, [props.location.pathname]);
   layoutEmitter.useSubscription(() => {
     setPageNavBar(getPageNavBar());
