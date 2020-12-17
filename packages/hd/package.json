@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/hd",
-  "version": "2.6.13",
+  "version": "2.6.14",
   "description": "@umijs/plugin-hd 先移到本地测试使用",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
