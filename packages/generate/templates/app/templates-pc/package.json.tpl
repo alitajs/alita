@@ -23,7 +23,7 @@
     "@ant-design/pro-layout": "^6.0.0-4",
     "@ant-design/pro-table": "^2.3.0",
     "@umijs/route-utils": "^1.0.12",
-    "alita": "^2.3.16",
+    "alita": "^2.6.16",
     "classnames": "^2.2.6"
   },
   "gitHooks": {
