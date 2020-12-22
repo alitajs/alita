@@ -30,6 +30,9 @@ export default function ({ api }: { api: IApi }) {
       if (this.args.pc) {
         dirPath = '../../templates/app/templates-pc';
       }
+      if (this.args.tabs) {
+        dirPath = '../../templates/app/templates-tabs';
+      }
       this.copyDirectory({
         context: {
           appType: 'h5',

@@ -22,6 +22,7 @@ export default function (api: IApi) {
     require.resolve('./plugins/features/displayName'),
     require.resolve('./plugins/features/packageId'),
     require.resolve('./plugins/features/displayIcon'),
+    require.resolve('@umijs/plugin-helmet')
   ];
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
@@ -45,9 +46,8 @@ export default function (api: IApi) {
   }
   // pc
   if (api.userConfig.appType === 'pc') {
-    plugins.push(require.resolve('@umijs/plugin-helmet'));
-    plugins.push(require.resolve('@umijs/plugin-model'));
     plugins.push(require.resolve('@umijs/plugin-initial-state'));
+    plugins.push(require.resolve('@umijs/plugin-model'));
     plugins.push(require.resolve('@umijs/plugin-access'));
     plugins.push(require.resolve('@alitajs/plugin-layout'));
   }

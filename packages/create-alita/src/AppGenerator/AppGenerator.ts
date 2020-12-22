@@ -30,6 +30,14 @@ export default class AppGenerator extends Generator {
       '..',
       'templates/app/templates',
     );
+    if (this.args.tabs) {
+      dirPath = join(
+        require.resolve('@alitajs/generate'),
+        '..',
+        '..',
+        'templates/app/templates-tabs',
+      );
+    }
     if (this.args.pc) {
       dirPath = join(
         require.resolve('@alitajs/generate'),
