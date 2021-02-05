@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "2.6.16",
+  "version": "2.7.0",
   "description": "alita",
   "main": "index.js",
   "module": "index.esm.js",
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.6.16",
+    "@alitajs/umi-presets-alita": "2.7.0",
     "umi": "3.2.25"
   }
 }
