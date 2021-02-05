@@ -1,2 +1,3 @@
-var ex = require('umi');
-module.exports = ex;
+const umi = require('umi');
+
+module.exports = umi;

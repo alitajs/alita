@@ -3,6 +3,7 @@
   "version": "2.6.16",
   "description": "alita",
   "main": "index.js",
+  "module": "index.esm.js",
   "types": "types.d.ts",
   "bin": {
     "alita": "./bin/alita.js"

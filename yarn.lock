@@ -9,9 +9,9 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
-"@alitajs/alita-layout@2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.4.1.tgz#c9eec40248240d500c608d3d6d5e91c8bcddbf1a"
+"@alitajs/alita-layout@2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.4.3.tgz#902a1aed8c539759a20d77807bbe76793b17f47a"
   dependencies:
     antd-mobile "^2.2.14"
     history "^4.9.0"
