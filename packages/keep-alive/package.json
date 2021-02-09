@@ -21,6 +21,9 @@
   "license": "MIT",
   "bugs": "http://github.com/alitajs/alita/issues",
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/keep-alive#readme",
+  "dependencies": {
+    "react-router-config": "^5.1.1"
+  },
   "publishConfig": {
     "access": "public"
   }

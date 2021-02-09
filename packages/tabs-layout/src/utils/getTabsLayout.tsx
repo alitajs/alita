@@ -2,59 +2,43 @@ export default (absTmpPath: string) => `
 import React, { FC, useState } from 'react';
 import { Tabs } from 'antd';
 import pathToRegexp from 'path-to-regexp';
+import { matchRoutes } from 'react-router-config';
 import { history } from '../core/history';
 import { getRoutes } from '${absTmpPath}/core/routes';
-
-const isKeepPath = (aliveList: any[], path: string) => {
+const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
-  aliveList.map(item => {
-    if (item === path) {
+  aliveList.map(item=>{
+    if(item === path){
       isKeep = true;
     }
-    if (item instanceof RegExp && item.test(path)) {
+    if(item instanceof RegExp && item.test(path)){
+      isKeep = true;
+    }
+    if(typeof item === 'string' && item.toLowerCase() === path){
       isKeep = true;
     }
   })
   return isKeep;
 }
-const getKeepAliveViewMap = (routeList: any[], aliveList: any[]) => {
+const getKeepAliveViewMap = (routeList:any[],aliveList:any[])=>{
   let keepAliveMap = {};
-  function find(routess: any[], list: any[]) {
-    if (!routess || !list) {
+  function find(routess: any[], list:any[]) {
+    if(!routess|| !list ){
       return routess;
     }
     return routess.map(element => {
-      if (isKeepPath(list, element.path?element.path :'')) {
+      if (!Array.isArray(element.routes)&&isKeepPath(list,element.path?element.path.toLowerCase():'')) {
         element.recreateTimes = 0;
-        keepAliveMap[element.path] = element;
-      }
-      if(Array.isArray(element.routes)){
-        element.routes = find(element.routes, aliveList);
+        keepAliveMap[element.path.toLowerCase()] = element;
+      }else{
+        element.routes = find(element.routes,aliveList);
       }
       return element;
     });
   }
-  find(routeList, aliveList)
+  find(routeList,aliveList)
   return keepAliveMap;
 }
-
-const getPageView = (keepAliveView, path='') => {
-  let TrueView = false;
-  const pathArr = path .split('/');
-  const pathKey = [];
-  for (let k = pathArr.length; k >= 0; k--) {
-    pathKey.push(pathArr.join('/'));
-    pathArr.length = k;
-  }
-  pathKey.forEach(key => {
-    if (key !== path && keepAliveView[key] && keepAliveView[key].component) {
-      TrueView = true;
-    }
-  });
-  return TrueView ? null : keepAliveView[path].component;
-}
-
-const { TabPane } = Tabs;
 const getView = (
   pathname: string,
   keepAliveViewMap: { [key: string]: any },
@@ -68,6 +52,8 @@ const getView = (
   }
   return View;
 };
+const { TabPane } = Tabs;
+
 interface PageProps {
   location: {
     pathname: string;
@@ -89,18 +75,18 @@ const BasicLayout: FC<PageProps> = (props) => {
   const showKeepAlive = !!getView(pathname, keepAliveViewMap);
   if (showKeepAlive) {
     const index = panels.findIndex(
-      tPathname => tPathname === pathname,
+      tPathname => tPathname === pathname.toLowerCase(),
     );
     if (index === -1) {
-      if (delectKey !== pathname) {
-        panels.push(pathname);
+      if (delectKey !== pathname.toLowerCase()) {
+        panels.push(pathname.toLowerCase());
         setPanels(panels);
       } else {
         setTimeout(() => setDelectKey(''), 1000);
       }
     }
-    if(pathname !== activeKey){
-      setActiveKey(pathname);
+    if(pathname.toLowerCase() !== activeKey){
+      setActiveKey(pathname.toLowerCase());
     }
   }
   const onEdit = (targetKey, action) => {
@@ -121,15 +107,25 @@ const BasicLayout: FC<PageProps> = (props) => {
     }
     setPanels(panes);
     setActiveKey(lastActiveKey);
-    if (targetKey === pathname) {
+    if (targetKey === pathname.toLowerCase()) {
       setDelectKey(targetKey);
       history.push(lastActiveKey);
     }
   };
 
   const getTabName = (curPathname) => {
-    const list = menu.filter(it => pathToRegexp(it[alias.path||'path']).test(curPathname));
-    if(list && list.length) return list[0][alias.title||'title'];
+    const trueMenu = [...menu];
+    menu.forEach(abc => {
+      if (abc.children) {
+        abc.children.forEach(dddd => {
+          trueMenu.push(dddd)
+        })
+      }
+    });
+    const list = trueMenu.filter(it => pathToRegexp(it[alias.path || 'path']).test(curPathname));
+    if (list && list.length) {
+      return list[0][alias.title || 'name'];
+    }
     return '';
   }
 
@@ -146,13 +142,16 @@ const BasicLayout: FC<PageProps> = (props) => {
           hideAdd
         >
         {panels.map(curPathname => {
-          const View = getPageView(keepAliveViewMap, curPathname);
+          const currentView = getView(curPathname, keepAliveViewMap);
+          const { component: View, recreateTimes } = currentView;
+          const matchRoute = matchRoutes([currentView], curPathname)[0];
+          const pageProps: any = { ...props,...matchRoute };
           const tabName = getTabName(curPathname);
           return View ? (
             <TabPane tab={tabName || View.title || curPathname} key={curPathname}>
-              <View {...props} />
+              <View {...pageProps} />
             </TabPane>
-          ) : <TabPane tab={curPathname} key={curPathname}>
+          ) : <TabPane tab={tabName || curPathname} key={curPathname}>
               {children}
             </TabPane>;
         })}
