@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/retain-log",
-  "version": "2.7.5",
+  "version": "2.7.6",
   "description": "@alitajs/retain-log",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
