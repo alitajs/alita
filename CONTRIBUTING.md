@@ -1,4 +1,4 @@
-# Contributing to umi
+# Contributing to alita
 
 ## Set up
 
@@ -9,20 +9,20 @@ Install dev deps after git clone the repo.
 $ yarn
 ```
 
-Link umi globally.
+Link alita globally.
 
 ```bash
-$ cd packages/umi
+$ cd packages/alita
 $ yarn link
 $ cd -
 ```
 
-Try the `umi` cli.
+Try the `alita` cli.
 
 ```bash
 $ yarn build
-$ umi -v
-umi@0.0.1-alpha.1@local
+$ alita -v
+alita@0.0.1-alpha.1@local
 ```
 
 ## Build
@@ -81,10 +81,16 @@ packages/foo
 └── package.json
 ```
 
+change the `authors` in package.json.
+
 ## Upgrade dependencies
 
 ```bash
 $ yarn update:deps
 ```
 
-https://npm.taobao.org/sync/alita
+## sync to cnpm
+
+```bash
+$ yarn sync
+```

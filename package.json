@@ -9,6 +9,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "link:alita": "cd packages/alita && yarn link && cd -",
     "release": "node ./scripts/release.js",
+    "sync": "node ./scripts/cnpm.js",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "test:update": "umi-test --updateSnapshot",

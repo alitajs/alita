@@ -136,11 +136,6 @@ async function release() {
           cwd: pkgPath,
         });
         console.log(stdout);
-        // 如果是测试版本，不立刻同步到cnpm，加快发包速度
-        if (!isNext) {
-          const syncRes = execa.sync('cnpm', ['sync', name]);
-          console.log(syncRes.stdout);
-        }
       }
     });
 
