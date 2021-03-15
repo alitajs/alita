@@ -36,7 +36,7 @@ export default function ({ api }: { api: IApi }) {
       }
       this.copyDirectory({
         context: {
-          appType: 'h5',
+          appType: this.args.pc ? 'pc' : 'h5',
           projectName: this.appName,
           isTypeScript: true,
         },
