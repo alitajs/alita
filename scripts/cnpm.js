@@ -12,6 +12,9 @@ async function release() {
   const pkgs = getPackages();
   logStep(`cnpm sync packages: ${chalk.blue(pkgs.join(', '))}`);
   pkgs
+    .sort((a) => {
+      return a === 'alita' ? 1 : -1;
+    })
     .forEach((pkg) => {
       const pkgPath = join(cwd, 'packages', pkg);
       const { name } = require(join(pkgPath, 'package.json'));
