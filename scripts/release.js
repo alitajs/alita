@@ -144,5 +144,6 @@ async function release() {
 
 release().catch((err) => {
   console.error(err);
-  process.exit(1);
+  // 经常网络错误，发包中断。发包不中断，发包完，缺了手动再发布。
+  // process.exit(1);
 });

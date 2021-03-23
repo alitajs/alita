@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "@alitajs/umi-presets-alita": "2.7.9",
-    "umi": "3.3.7"
+    "umi": "3.4.4"
   }
 }

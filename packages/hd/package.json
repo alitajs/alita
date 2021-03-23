@@ -22,7 +22,7 @@
   "bugs": "http://github.com/alitajs/alita/issues",
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/hd#readme",
   "peerDependencies": {
-    "umi": "3.0.0-beta.20"
+    "umi": "3.x"
   },
   "publishConfig": {
     "access": "public"
