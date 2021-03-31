@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "alita": "^2.6.16"
+    "alita": "^2.8.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
