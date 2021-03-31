@@ -29,7 +29,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/generate": "2.8.0",
+    "@alitajs/generate": "2.8.1",
     "@umijs/utils": "^3.4.0"
   }
 }
