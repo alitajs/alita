@@ -30,7 +30,6 @@ export default function (api: IApi) {
   }
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
-    plugins.push(require.resolve('@alitajs/cordova-native'));
   }
   if (api.userConfig.appType === 'micro') {
     plugins.push(require.resolve('@alitajs/micro'));
