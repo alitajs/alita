@@ -41,15 +41,10 @@ export default function (api: IApi) {
   if (api.userConfig.tabsLayout) {
     plugins.push(require.resolve('@alitajs/tabs-layout'));
   }
-  if (api.userConfig.locale) {
-    plugins.push(require.resolve('@umijs/plugin-locale'));
-  }
-  // pc 如果是 noBuiltInPlugins ，则为完全无内置插件的纯净版本
-  if (api.userConfig.appType === 'pc' && !api.userConfig.noBuiltInPlugins) {
-    plugins.push(require.resolve('@umijs/plugin-initial-state'));
-    plugins.push(require.resolve('@umijs/plugin-model'));
-    plugins.push(require.resolve('@umijs/plugin-access'));
-    plugins.push(require.resolve('@alitajs/plugin-layout'));
+
+  // 如果是 pc ，则为完全无内置插件的纯净版本,pc 项目需要的组件由项目自己安装
+  if (api.userConfig.appType === 'pc') {
+
   }
   return {
     plugins,

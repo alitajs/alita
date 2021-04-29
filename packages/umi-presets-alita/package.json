@@ -33,20 +33,14 @@
     "@alitajs/main-path": "2.8.2-beta.1",
     "@alitajs/micro": "2.8.2-beta.1",
     "@alitajs/native": "2.8.2-beta.1",
-    "@alitajs/plugin-layout": "2.8.2-beta.1",
     "@alitajs/retain-log": "2.8.2-beta.1",
     "@alitajs/router": "2.8.2-beta.1",
     "@alitajs/routes": "2.8.2-beta.1",
     "@alitajs/tabs-layout": "2.8.2-beta.1",
-    "@umijs/plugin-access": "2.3.2",
-    "@umijs/plugin-access-layout": "^1.1.0",
     "@umijs/plugin-antd": "0.8.0",
     "@umijs/plugin-dva": "0.8.2",
     "@umijs/plugin-esbuild": "1.0.1",
     "@umijs/plugin-helmet": "1.1.1",
-    "@umijs/plugin-initial-state": "2.2.1",
-    "@umijs/plugin-locale": "0.10.4",
-    "@umijs/plugin-model": "2.5.6",
     "@umijs/plugin-request": "2.5.0"
   }
 }
