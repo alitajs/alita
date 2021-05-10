@@ -1,6 +1,6 @@
 {
   "projectName": "alita",
-  "projectOwner": "xiaohuoni",
+  "projectOwner": "alitajs",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -56,7 +56,17 @@
       "contributions": [
         "plugin"
       ]
+    },
+    {
+      "login": "sorrycc",
+      "name": "chencheng (云谦)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35128?v=4",
+      "profile": "https://sorrycc.com/",
+      "contributions": [
+        "design"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
