@@ -1,0 +1,62 @@
+{
+  "projectName": "alita",
+  "projectOwner": "xiaohuoni",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "xiaohuoni",
+      "name": "小虎oni",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11746742?v=4",
+      "profile": "https://paypal.me/xiaohuoni?locale.x=zh_XC",
+      "contributions": [
+        "code",
+        "doc",
+        "design"
+      ]
+    },
+    {
+      "login": "falcon11",
+      "name": "Ashoka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5813440?v=4",
+      "profile": "https://falcon11.github.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hang1017",
+      "name": "陈书航",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48704410?v=4",
+      "profile": "https://github.com/hang1017",
+      "contributions": [
+        "plugin"
+      ]
+    },
+    {
+      "login": "chenguzhen87",
+      "name": "精武陈真",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28331609?v=4",
+      "profile": "https://github.com/chenguzhen87",
+      "contributions": [
+        "example"
+      ]
+    },
+    {
+      "login": "zengyuhang",
+      "name": "yuhang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4786840?v=4",
+      "profile": "https://github.com/zengyuhang",
+      "contributions": [
+        "plugin"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
