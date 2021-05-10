@@ -1,4 +1,7 @@
 # alita
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
 
@@ -29,3 +32,23 @@ Please refer to [the official website](https://alitajs.com) for details.
 ## Other
 
 React Native Util [areslabs/alita](https://github.com/areslabs/alita)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://paypal.me/xiaohuoni?locale.x=zh_XC"><img src="https://avatars.githubusercontent.com/u/11746742?v=4?s=100" width="100px;" alt=""/><br /><sub><b>小虎oni</b></sub></a><br /><a href="https://github.com/xiaohuoni/alita/commits?author=xiaohuoni" title="Code">💻</a> <a href="https://github.com/xiaohuoni/alita/commits?author=xiaohuoni" title="Documentation">📖</a> <a href="#design-xiaohuoni" title="Design">🎨</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

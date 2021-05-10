@@ -1,0 +1,26 @@
+{
+  "projectName": "alita",
+  "projectOwner": "xiaohuoni",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "xiaohuoni",
+      "name": "小虎oni",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11746742?v=4",
+      "profile": "https://paypal.me/xiaohuoni?locale.x=zh_XC",
+      "contributions": [
+        "code",
+        "doc",
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
