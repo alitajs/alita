@@ -29,6 +29,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hang1017",
+      "name": "陈书航",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48704410?v=4",
+      "profile": "https://github.com/hang1017",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7
