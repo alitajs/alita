@@ -38,6 +38,15 @@
       "contributions": [
         "plugin"
       ]
+    },
+    {
+      "login": "chenguzhen87",
+      "name": "精武陈真",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28331609?v=4",
+      "profile": "https://github.com/chenguzhen87",
+      "contributions": [
+        "example"
+      ]
     }
   ],
   "contributorsPerLine": 7
