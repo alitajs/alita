@@ -47,6 +47,15 @@
       "contributions": [
         "example"
       ]
+    },
+    {
+      "login": "zengyuhang",
+      "name": "yuhang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4786840?v=4",
+      "profile": "https://github.com/zengyuhang",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7
