@@ -1,6 +1,6 @@
 # alita
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
@@ -43,6 +43,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://paypal.me/xiaohuoni?locale.x=zh_XC"><img src="https://avatars.githubusercontent.com/u/11746742?v=4?s=100" width="100px;" alt=""/><br /><sub><b>小虎oni</b></sub></a><br /><a href="https://github.com/xiaohuoni/alita/commits?author=xiaohuoni" title="Code">💻</a> <a href="https://github.com/xiaohuoni/alita/commits?author=xiaohuoni" title="Documentation">📖</a> <a href="#design-xiaohuoni" title="Design">🎨</a></td>
+    <td align="center"><a href="https://falcon11.github.io/"><img src="https://avatars.githubusercontent.com/u/5813440?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashoka</b></sub></a><br /><a href="https://github.com/xiaohuoni/alita/commits?author=falcon11" title="Code">💻</a></td>
   </tr>
 </table>
 
