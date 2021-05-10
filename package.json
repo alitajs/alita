@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "add:contributing": "all-contributors add",
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
@@ -36,6 +37,7 @@
     "@umijs/test": "^3.3.7",
     "@umijs/types": "^3.3.7",
     "@umijs/utils": "^3.3.7",
+    "all-contributors-cli": "6.20.0",
     "cnpm": "6.1.1",
     "father-build": "^1.19.1",
     "lerna": "^3.22.1",
