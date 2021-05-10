@@ -51,6 +51,11 @@ export default function (api: IApi) {
     plugins.push(require.resolve('@umijs/plugin-access'));
     plugins.push(require.resolve('@alitajs/plugin-layout'));
   }
+
+  // debug and console
+  if(api.userConfig.aconsole){
+    plugins.push(require.resolve('@alitajs/aconsole'));
+  }
   return {
     plugins,
   };

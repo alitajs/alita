@@ -25,6 +25,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@alitajs/aconsole": "2.8.2-beta.1",
     "@alitajs/cordova": "2.8.2-beta.1",
     "@alitajs/generate": "2.8.2-beta.1",
     "@alitajs/hd": "2.8.2-beta.1",
