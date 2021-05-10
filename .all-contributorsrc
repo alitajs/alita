@@ -1,6 +1,6 @@
 {
   "projectName": "alita",
-  "projectOwner": "xiaohuoni",
+  "projectOwner": "alitajs",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -18,7 +18,8 @@
       "contributions": [
         "code",
         "doc",
-        "design"
+        "design",
+        "platform"
       ]
     },
     {
@@ -58,5 +59,6 @@
       ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
