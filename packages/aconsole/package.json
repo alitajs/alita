@@ -1,0 +1,34 @@
+{
+  "name": "@alitajs/aconsole",
+  "version": "2.8.2-beta.1",
+  "description": "@alitajs/aconsole",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita"
+  },
+  "keywords": [
+    "umi",
+    "alita"
+  ],
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "http://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/aConsole#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "dependencies": {
+    "@alitajs/inspx": "0.0.1-alpha.6",
+    "vconsole": "3.5.1"
+  }
+}
