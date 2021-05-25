@@ -11,7 +11,7 @@ test('normal', async () => {
   const cwd = join(fixtures, 'normal');
   const service = new Service({
     cwd,
-    plugins: [require.resolve('../lib/')],
+    plugins: [require.resolve('../lib/index.js')],
   });
   await service.run({
     name: 'g',
@@ -30,7 +30,7 @@ test('custom-hd', async () => {
   const cwd = join(fixtures, 'custom-hd');
   const service = new Service({
     cwd,
-    plugins: [require.resolve('./')],
+    plugins: [require.resolve('../lib/index.js')],
   });
   await service.run({
     name: 'g',
