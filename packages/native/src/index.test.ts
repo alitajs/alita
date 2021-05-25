@@ -14,7 +14,7 @@ test('normal', async () => {
       require.resolve('../../umi-presets-alita/lib/plugins/features/appType.js'),
       require.resolve('../../umi-presets-alita/lib/plugins/features/displayName.js'),
       require.resolve('../../umi-presets-alita/lib/plugins/features/packageId.js'),
-      require.resolve('../lib'),
+      require.resolve('../lib/index.js'),
     ],
   });
   await service.run({
