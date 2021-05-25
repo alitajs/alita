@@ -17,11 +17,6 @@ export default (api: IApi) => {
       return {
         ...memo,
         hd: {},
-        // lessLoader: {
-        //   modifyVars: {
-        //     'hack': `true; @import "~antd-mobile/es/style/themes/default.less";`
-        //   }
-        // }
       };
     });
 
@@ -44,6 +39,7 @@ export default (api: IApi) => {
           body,
           #root {
             width: 100%;
+            -webkit-overflow-scrolling: touch;
           }
           #root > div {
             /* Status bar height on iOS 11.0 */
@@ -52,6 +48,7 @@ export default (api: IApi) => {
             /* Status bar height on iOS 11+ */
             padding-top: calc(env(safe-area-inset-top) * 2);
             padding-bottom: calc(env(safe-area-inset-bottom) * 2);
+            -webkit-overflow-scrolling: touch;
           }
 
           .alita-layout-head {
@@ -81,16 +78,5 @@ export default (api: IApi) => {
       };
       return [addItem];
     });
-  } else {
-    // api.modifyDefaultConfig(memo => {
-    //   return {
-    //     ...memo,
-    //     lessLoader: {
-    //       modifyVars: {
-    //         'hack': `true; @import "~antd/es/style/themes/default.less";`
-    //       }
-    //     }
-    //   }
-    // });
   }
 };

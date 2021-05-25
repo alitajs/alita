@@ -11,7 +11,7 @@ test('normal', async () => {
   const cwd = join(fixtures, 'normal');
   const service = new Service({
     cwd,
-    plugins: [require.resolve('./')],
+    plugins: [require.resolve('../lib/')],
   });
   await service.run({
     name: 'g',

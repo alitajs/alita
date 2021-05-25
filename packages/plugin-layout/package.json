@@ -22,7 +22,7 @@
     "@umijs/route-utils": "^1.0.7",
     "antd": "^4.12.3",
     "lodash": "^4.17.15",
-    "path-to-regexp": "1.x"
+    "path-to-regexp": "6.2.0"
   },
   "peerDependencies": {
     "@ant-design/icons": "^4.0.0",
