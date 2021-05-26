@@ -1,6 +1,6 @@
 import { Service } from 'umi';
 import { join } from 'path';
-import cheerio from 'cheerio';
+import cheerio from '@umijs/deps/compiled/cheerio';
 import { render, cleanup } from '@testing-library/react';
 import { rimraf } from '@umijs/utils';
 import { readFileSync } from 'fs';
@@ -16,7 +16,7 @@ test('default config', async () => {
   await service.init();
   expect(service.config!.routesExtend).toEqual({
     exclude: [
-      /(?<!(index|\[index｜404\])(\.(js|jsx|ts|tsx))?)$/,
+      /(?<!(index|\[index\]|404)(\.(js|jsx|ts|tsx)))$/,
       /model\.(j|t)sx?$/,
       /\.test\.(j|t)sx?$/,
       /service\.(j|t)sx?$/,
