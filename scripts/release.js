@@ -1,12 +1,17 @@
 const { yParser, execa, chalk } = require('@umijs/utils');
 const { join } = require('path');
 const { writeFileSync } = require('fs');
+const getRepoInfo = require('git-repo-info');
+const inquirer = require('inquirer');
+const newGithubReleaseUrl = require('new-github-release-url');
+const open = require('open');
 const exec = require('./utils/exec');
 const getPackages = require('./utils/getPackages');
 const isNextVersion = require('./utils/isNextVersion');
+const { getChangelog } = require('./utils/changelog');
 
 const cwd = process.cwd();
-const args = yParser(process.argv);
+const args = yParser(process.argv.slice(2));
 const lernaCli = require.resolve('lerna/cli');
 
 function printErrorAndExit(message) {
@@ -20,7 +25,7 @@ function logStep(name) {
 
 async function release() {
   // Check git status
-  if (!args.skipGitStatusCheck) {
+  if (!args.skipGitStatusCheck && !args.publishOnly) {
     const gitStatus = execa.sync('git', ['status', '--porcelain']).stdout;
     if (gitStatus.length) {
       printErrorAndExit(`Your git status is not clean. Aborting.`);
@@ -29,6 +34,14 @@ async function release() {
     logStep(
       'git status check is skipped, since --skip-git-status-check is supplied',
     );
+  }
+
+  // get release notes
+  let releaseNotes;
+  if (!args.publishOnly) {
+    logStep('get release notes');
+    releaseNotes = await getChangelog();
+    console.log(releaseNotes(''));
   }
 
   // Check npm registry
@@ -68,6 +81,9 @@ async function release() {
     if (!args.skipBuild) {
       logStep('build');
       await exec('npm', ['run', 'build']);
+
+      // 为 defineConfig.d.ts 添加 ts-ignore
+      require('./tsIngoreDefineConfig');
     } else {
       logStep('build is skipped, since args.skipBuild is supplied');
     }
@@ -88,7 +104,7 @@ async function release() {
     logStep('sync version to root package.json');
     const rootPkg = require('../package');
     Object.keys(rootPkg.devDependencies).forEach((name) => {
-      if (name.startsWith('@alitajs/')) {
+      if (name.startsWith('@alitajs/') && !name.startsWith('@alitajs/p')) {
         rootPkg.devDependencies[name] = currVersion;
       }
     });
@@ -109,41 +125,63 @@ async function release() {
 
     // Push
     logStep(`git push`);
-    await exec('git', ['push', 'origin', 'master', '--tags']);
+    const { branch } = getRepoInfo();
+    await exec('git', ['push', 'origin', branch, '--tags']);
   }
 
   // Publish
-  // Umi must be the latest.
+  // alita must be the latest.
   const pkgs = args.publishOnly ? getPackages() : updated;
   logStep(`publish packages: ${chalk.blue(pkgs.join(', '))}`);
   const currVersion = require('../lerna').version;
   const isNext = isNextVersion(currVersion);
-  pkgs
-    .sort((a) => {
-      return a === 'alita' ? 1 : -1;
-    })
-    .forEach((pkg, index) => {
-      const pkgPath = join(cwd, 'packages', pkg);
-      const { name, version } = require(join(pkgPath, 'package.json'));
-      if (version === currVersion) {
-        console.log(
-          `[${index + 1}/${pkgs.length}] Publish package ${name} ${
-            isNext ? 'with next tag' : ''
-          }`,
-        );
-        const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish'];
-        const { stdout } = execa.sync('npm', cliArgs, {
-          cwd: pkgPath,
+  const releasePkgs = pkgs.sort((a) => {
+    return a === 'alita' ? 1 : -1;
+  });
+  for (const [index, pkg] of releasePkgs.entries()) {
+    const pkgPath = join(cwd, 'packages', pkg);
+    const { name, version } = require(join(pkgPath, 'package.json'));
+    if (version === currVersion) {
+      console.log(
+        `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''
+        }`,
+      );
+      let cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish'];
+      // one-time password from your authenticator
+      if (args.otp) {
+        const { otp } = await inquirer.prompt({
+          name: 'otp',
+          type: 'input',
+          message: 'This operation requires a one-time password:',
+          validate: (msg) => !!msg,
         });
-        console.log(stdout);
+        cliArgs = cliArgs.concat(['--otp', otp]);
       }
-    });
+      const { stdout } = execa.sync('npm', cliArgs, {
+        cwd: pkgPath,
+      });
+      console.log(stdout);
+    }
+  }
+  logStep('create github release');
+  const tag = `v${currVersion}`;
+  const changelog = releaseNotes(tag);
+  console.log(changelog);
+  const url = newGithubReleaseUrl({
+    repoUrl: 'https://github.com/alitajs/alita',
+    tag,
+    body: changelog,
+    isPrerelease: isNext,
+  });
+  await open(url);
+
+  logStep('sync packages to tnpm');
+  // syncTNPM(pkgs);
 
   logStep('done');
 }
 
 release().catch((err) => {
   console.error(err);
-  // 经常网络错误，发包中断。发包不中断，发包完，缺了手动再发布。
-  // process.exit(1);
+  process.exit(1);
 });
