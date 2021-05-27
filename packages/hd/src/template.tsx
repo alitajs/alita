@@ -21,7 +21,9 @@ if (typeof document !== 'undefined') {
     const metaStr = meta.getAttribute('content') || '';
     const viewport = getViewPort(metaStr);
     if (viewport['initial-scale']) {
-      window.alitaFontScale = 5 / parseInt(`${parseFloat(viewport['initial-scale']) * 10}`)
+      const dpr = window.devicePixelRatio || 1;
+      const baseScale = 10 / dpr;
+      window.alitaFontScale = baseScale / parseInt(`${parseFloat(viewport['initial-scale']) * 10}`, 10);
     }
   }
   // if (document.documentElement.clientWidth >= 750) {
