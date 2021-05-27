@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "@alitajs/inspx": "0.0.2",
-    "vconsole": "3.5.1"
+    "vconsole": "3.5.2"
   }
 }
