@@ -25,16 +25,16 @@ function logStep(name) {
 
 async function release() {
   // Check git status
-  if (!args.skipGitStatusCheck && !args.publishOnly) {
-    const gitStatus = execa.sync('git', ['status', '--porcelain']).stdout;
-    if (gitStatus.length) {
-      printErrorAndExit(`Your git status is not clean. Aborting.`);
-    }
-  } else {
-    logStep(
-      'git status check is skipped, since --skip-git-status-check is supplied',
-    );
-  }
+  // if (!args.skipGitStatusCheck && !args.publishOnly) {
+  //   const gitStatus = execa.sync('git', ['status', '--porcelain']).stdout;
+  //   if (gitStatus.length) {
+  //     printErrorAndExit(`Your git status is not clean. Aborting.`);
+  //   }
+  // } else {
+  //   logStep(
+  //     'git status check is skipped, since --skip-git-status-check is supplied',
+  //   );
+  // }
 
   // get release notes
   let releaseNotes;
@@ -82,8 +82,6 @@ async function release() {
       logStep('build');
       await exec('npm', ['run', 'build']);
 
-      // 为 defineConfig.d.ts 添加 ts-ignore
-      require('./tsIngoreDefineConfig');
     } else {
       logStep('build is skipped, since args.skipBuild is supplied');
     }
