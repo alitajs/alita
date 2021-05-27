@@ -24,17 +24,8 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           registry-url: 'https://registry.yarnpkg.com'
-      - name: restore lerna
-        id: cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn --ignore-engines
+        run: yarn
       - run: yarn build
       - run: yarn test --detectOpenHandles --maxWorkers=1 --forceExit
         env:
