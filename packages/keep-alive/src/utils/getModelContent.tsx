@@ -1,4 +1,6 @@
 export default () => `
+import pathToRegexp from 'path-to-regexp';
+
 interface LayoutInstanceProps {
   alivePathnames:string[],
   keepAliveViewMap:{}
@@ -11,7 +13,12 @@ function dropByCacheKey(pathname: string) {
     if (index !== -1) {
       alivePathnames.splice(index, 1);
       // 用来当作key，只有key发生变化才会remout组件
-      keepAliveViewMap[pathname].recreateTimes += 1;
+      for (const key in keepAliveViewMap) {
+        if (pathToRegexp(key).test(pathname)) {
+          keepAliveViewMap[key].recreateTimes += 1;
+          break;
+        }
+      }
     }
   }
 }
