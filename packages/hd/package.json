@@ -28,7 +28,6 @@
     "access": "public"
   },
   "dependencies": {
-    "postcss-plugin-px2rem": "0.8.1",
-    "umi-hd": "5.0.1"
+    "postcss-px-to-viewport": "1.1.1"
   }
 }
