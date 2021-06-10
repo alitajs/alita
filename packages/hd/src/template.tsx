@@ -19,7 +19,8 @@ if (typeof document !== 'undefined') {
     const viewport = getViewPort(metaStr);
     if (viewport['initial-scale']) {
       const dpr = window.devicePixelRatio || 1;
-      const baseScale = 10 / dpr;
+      // 现在 initial-scale 默认是1，所以当父级也是1的时候，缩放比要保证为1
+      const baseScale = 40 / dpr;
       (window as any).alitaFontScale =
         baseScale /
         parseInt(`${parseFloat(viewport['initial-scale']) * 10}`, 10);
