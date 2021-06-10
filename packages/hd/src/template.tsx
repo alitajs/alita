@@ -15,24 +15,25 @@ if (typeof document !== 'undefined') {
   }
 
   // 自动处理页面使用 iframe 嵌套缩放问题
-  if (window != top && !window.alitaFontScale) {
+  if (window != top && !(window as any).alitaFontScale) {
     // window.alitaFontScale = 0.5;
     const meta = document.querySelector('meta[name="viewport"]');
-    const metaStr = meta.getAttribute('content') || '';
+    const metaStr = meta?.getAttribute('content') || '';
     const viewport = getViewPort(metaStr);
     if (viewport['initial-scale']) {
       const dpr = window.devicePixelRatio || 1;
       const baseScale = 10 / dpr;
-      window.alitaFontScale = baseScale / parseInt(`${parseFloat(viewport['initial-scale']) * 10}`, 10);
+      (window as any).alitaFontScale = baseScale / parseInt(`${parseFloat(viewport['initial-scale']) * 10}`, 10);
     }
   }
-  // if (document.documentElement.clientWidth >= 750) {
-  //   vw(100, 750);
-  // } else {
-  //   flex(100, window.alitaFontScale || 1);
-  // }
+  if (document.documentElement.clientWidth >= 750) {
+    vw(100, 750);
+  } else {
+    flex(100, window.alitaFontScale || 1);
+  }
   // 感觉全部用 flex 就很棒，嵌套页面缩放问题，直接设置 alitaFontScale
-  flex(100, window.alitaFontScale || 1);
+  // 大屏手机适配疑似存在问题。
+  // flex(100, window.alitaFontScale || 1);
   // hd solution for antd-mobile@2
   // ref: https://mobile.ant.design/docs/react/upgrade-notes-cn#%E9%AB%98%E6%B8%85%E6%96%B9%E6%A1%88
   document.documentElement.setAttribute('data-scale', true);
