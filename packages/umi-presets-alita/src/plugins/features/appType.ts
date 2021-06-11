@@ -89,6 +89,14 @@ export default (api: IApi) => {
           overflow: hidden;
           z-index: 0;
         }
+        input {
+          border: none;
+          outline: none;
+        }
+        textarea:disabled,
+        input:disabled {
+          background-color: transparent;
+        }
         `,
       };
       return [addItem];
