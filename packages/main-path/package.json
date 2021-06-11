@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/main-path",
-  "version": "2.8.5-bate.1",
+  "version": "2.8.6",
   "description": "@alitajs/main-path",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -25,6 +25,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/utils": "2.8.5-bate.1"
+    "@alitajs/utils": "2.8.6"
   }
 }
