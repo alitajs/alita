@@ -3,6 +3,12 @@ import { IApi, IConfig } from '@umijs/types';
 export default (api: IApi) => {
   // 这几个配置需要合并配置
   const { externals = {}, scripts = [] } = api.userConfig;
+  const mfsu = process.env.NODE_ENV === 'development' ? {
+    dynamicImport: {},
+    mfsu: {},
+    webpack5: {}
+  } : {};
+  console.log(mfsu);
   const defaultOptions = {
     history: { type: 'hash' },
     title: false, // 默认内置了 Helmet
@@ -30,6 +36,7 @@ export default (api: IApi) => {
         /services\//,
       ],
     },
+    ...mfsu,
     ...api.userConfig
   } as IConfig;
   api.modifyDefaultConfig((memo) => {

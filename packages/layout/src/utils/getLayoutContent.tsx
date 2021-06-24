@@ -5,6 +5,7 @@ export default (
 ) => `import React from 'react';
 import { ApplyPluginsType } from 'umi';
 import { plugin } from '../core/umiExports';
+import Layout from '${path}';
 
 export default (props) => {
   const layoutConfig = plugin.applyPlugins({
@@ -12,7 +13,7 @@ export default (props) => {
     type: ApplyPluginsType.modify,
     initialValue: {},
   }) || {};
-  return React.createElement(require('${path}').default, {
+  return React.createElement(Layout, {
     layoutConfig,
     hasKeepAlive: ${hasKeepAlive},
     ...props,
