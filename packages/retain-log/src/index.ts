@@ -12,7 +12,7 @@ export default (api: IApi) => {
     },
   });
 
-  const vConsole = api.userConfig?.console && api.userConfig?.aconsole?.console;
+  const vConsole = api.userConfig?.aconsole && api.userConfig?.aconsole?.console;
   if (NODE_ENV === 'production' && !api.userConfig.retainLog && !vConsole) {
     api.addHTMLScripts(() => [
       {

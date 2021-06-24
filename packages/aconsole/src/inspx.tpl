@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { InspectProps } from 'inspx';
+import type { InspectProps } from '@alitajs/inspx';
 
-const Inspect = React.lazy(() => import('inspx'));
+const Inspect = React.lazy(() => import('@alitajs/inspx'));
 
 export function _InspxContainer(props: InspectProps) {
   return (
