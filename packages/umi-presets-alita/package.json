@@ -36,10 +36,10 @@
     "@alitajs/retain-log": "2.8.7-alpha.0",
     "@alitajs/router": "2.8.7-alpha.0",
     "@alitajs/routes": "2.8.7-alpha.0",
-    "@umijs/plugin-antd": "0.9.1",
-    "@umijs/plugin-dva": "0.12.1",
+    "@umijs/plugin-antd": "0.10.0",
+    "@umijs/plugin-dva": "0.13.0",
     "@umijs/plugin-esbuild": "1.3.1",
     "@umijs/plugin-helmet": "1.1.3",
-    "@umijs/plugin-request": "2.5.2"
+    "@umijs/plugin-request": "2.6.0"
   }
 }
