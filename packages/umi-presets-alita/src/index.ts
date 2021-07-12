@@ -29,11 +29,14 @@ export default function (api: IApi) {
     plugins.push(require.resolve('@alitajs/hd'));
     plugins.push(require.resolve('@alitajs/layout'));
   }
+  if (api.userConfig.mfsu) {
+    plugins.push(require.resolve('./plugins/features/mfsu'));
+  }
   if (api.userConfig.appType === 'cordova') {
     plugins.push(require.resolve('@alitajs/cordova'));
   }
   // debug and console
-  if(api.userConfig.aconsole){
+  if (api.userConfig.aconsole) {
     plugins.push(require.resolve('@alitajs/aconsole'));
   }
   return {
