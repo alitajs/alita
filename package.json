@@ -6,7 +6,7 @@
   "scripts": {
     "add:contributing": "all-contributors add",
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "PACKAGE=hd father-build",
+    "build": "father-build",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "link:alita": "cd packages/alita && yarn link && cd -",
     "release": "node ./scripts/release.js",
