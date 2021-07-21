@@ -58,14 +58,22 @@ if (typeof document !== 'undefined') {
 
   // width/750*100, 为了统一rem为0.01rem = 1px
   const setFontSize = () => {
-    docEl.style.fontSize = `${
-      (_baseFontSize / _psdWidth) * docEl.clientWidth * rate
-    }px`;
+    if (window.orientation === 90 || window.orientation === -90) {
+      // console.log("横屏");
+      docEl.style.fontSize = `${
+        (_baseFontSize / _psdWidth) * docEl.clientHeight * rate
+      }px`;
+    } else {
+      docEl.style.fontSize = `${
+        (_baseFontSize / _psdWidth) * docEl.clientWidth * rate
+      }px`;
+    }
   };
   setFontSize();
   win.addEventListener('resize', setFontSize);
 
   // hd solution for antd-mobile@2
   // ref: https://mobile.ant.design/docs/react/upgrade-notes-cn#%E9%AB%98%E6%B8%85%E6%96%B9%E6%A1%88
+  // @ts-ignore
   document.documentElement.setAttribute('data-scale', true);
 }
