@@ -8,6 +8,8 @@ if (typeof document !== 'undefined') {
 
   const doc = win.document;
   const docEl = doc.documentElement;
+  let clientHeight = docEl.clientHeight;
+
   // 为了消除安卓dpr乱标的比例
   let rate = 1;
   // 非淘宝高清方案，默认的 initial-scale 为 1
@@ -61,7 +63,7 @@ if (typeof document !== 'undefined') {
     if (window.orientation === 90 || window.orientation === -90) {
       // console.log("横屏");
       docEl.style.fontSize = `${
-        (_baseFontSize / _psdWidth) * docEl.clientHeight * rate
+        (_baseFontSize / _psdWidth) * clientHeight * rate
       }px`;
     } else {
       docEl.style.fontSize = `${
@@ -70,7 +72,9 @@ if (typeof document !== 'undefined') {
     }
   };
   setFontSize();
-  win.addEventListener('resize', setFontSize);
+  // 先去掉，好像只有转屏的时候会触发大小变化
+  // win.addEventListener('resize', setFontSize);
+  win.addEventListener('orientationchange', setFontSize);
 
   // hd solution for antd-mobile@2
   // ref: https://mobile.ant.design/docs/react/upgrade-notes-cn#%E9%AB%98%E6%B8%85%E6%96%B9%E6%A1%88

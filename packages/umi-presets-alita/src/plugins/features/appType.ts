@@ -86,7 +86,7 @@ export default (api: IApi) => {
           flex-direction: column;
           justify-content: space-between;
           contain: layout size style;
-          overflow: auto;
+          overflow: hidden;
           z-index: 0;
         }
         input {
