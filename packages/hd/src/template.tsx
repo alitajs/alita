@@ -8,7 +8,6 @@ if (typeof document !== 'undefined') {
 
   const doc = win.document;
   const docEl = doc.documentElement;
-  let clientHeight = docEl.clientHeight;
 
   // 为了消除安卓dpr乱标的比例
   let rate = 1;
@@ -63,7 +62,7 @@ if (typeof document !== 'undefined') {
     if (window.orientation === 90 || window.orientation === -90) {
       // console.log("横屏");
       docEl.style.fontSize = `${
-        (_baseFontSize / _psdWidth) * clientHeight * rate
+        (_baseFontSize / _psdWidth) * docEl.clientHeight * rate
       }px`;
     } else {
       docEl.style.fontSize = `${
