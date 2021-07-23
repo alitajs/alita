@@ -14,6 +14,8 @@ if (typeof document !== 'undefined') {
   // 非淘宝高清方案，默认的 initial-scale 为 1
   let scale = 1;
 
+  // 部分安卓机，需要延迟获取屏幕转向和宽高
+  let timeoutNum: any;
   // 有些兼容环境下, fontSize为100px的时候, 结果1rem=86px; 需要纠正viewport;
   docEl.style.fontSize = `${_baseFontSize}px`;
   const div = doc.createElement('div');
@@ -59,21 +61,28 @@ if (typeof document !== 'undefined') {
 
   // width/750*100, 为了统一rem为0.01rem = 1px
   const setFontSize = () => {
-    if (window.orientation === 90 || window.orientation === -90) {
-      // console.log("横屏");
-      docEl.style.fontSize = `${
-        (_baseFontSize / _psdWidth) * docEl.clientHeight * rate
+    // 多次触发 resize 的情况，比如转动屏幕，有些手机会改变两次，有些只有一次
+    if (timeoutNum) clearTimeout(timeoutNum);
+    // 部分安卓机，转屏幕时直接获取 clientHeight 值异常
+    timeoutNum = setTimeout(() => {
+      const trueClient =
+        docEl.clientHeight > docEl.clientWidth
+          ? docEl.clientWidth
+          : docEl.clientHeight;
+      // 软键盘弹出导致的页面大小变化情况，不做 fontsize 计算
+      if (trueClient < 300) return;
+      const newFontSize = `${
+        (_baseFontSize / _psdWidth) * trueClient * rate
       }px`;
-    } else {
-      docEl.style.fontSize = `${
-        (_baseFontSize / _psdWidth) * docEl.clientWidth * rate
-      }px`;
-    }
+      // 如果计算值和当前值相同，不需要重新设置
+      if (newFontSize === docEl.style.fontSize) return;
+      docEl.style.fontSize = newFontSize;
+    }, 300);
   };
   setFontSize();
-  // 先去掉，好像只有转屏的时候会触发大小变化
-  // win.addEventListener('resize', setFontSize);
-  win.addEventListener('orientationchange', setFontSize);
+  win.addEventListener('resize', () => {
+    setFontSize();
+  });
 
   // hd solution for antd-mobile@2
   // ref: https://mobile.ant.design/docs/react/upgrade-notes-cn#%E9%AB%98%E6%B8%85%E6%96%B9%E6%A1%88
