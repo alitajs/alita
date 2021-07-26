@@ -79,7 +79,15 @@ if (typeof document !== 'undefined') {
       docEl.style.fontSize = newFontSize;
     }, 300);
   };
-  setFontSize();
+  // 延迟执行会导致，首次页面闪屏，直接设置
+  // setFontSize();
+  const trueClient =
+    docEl.clientHeight > docEl.clientWidth
+      ? docEl.clientWidth
+      : docEl.clientHeight;
+  const newFontSize = `${(_baseFontSize / _psdWidth) * trueClient * rate}px`;
+  docEl.style.fontSize = newFontSize;
+
   win.addEventListener('resize', setFontSize);
 
   // hd solution for antd-mobile@2
