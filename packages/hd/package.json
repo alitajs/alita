@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/hd",
-  "version": "2.8.11",
+  "version": "2.8.12",
   "description": "umi 移动端的适配方案",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
