@@ -6,6 +6,7 @@ import pathToRegexp from 'path-to-regexp';
 import { matchRoutes } from 'react-router-config';
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
+
   aliveList.map(item=>{
     if(item === path){
       isKeep = true;
