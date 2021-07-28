@@ -96,6 +96,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
                 key={
                   curPathname + recreateTimes
                 }
+                style={{ position: 'absolute', inset: 0 }}
                 className="rumtime-keep-alive-layout"
                 hidden={curPathname !== pathname.toLowerCase()}
               >
@@ -103,7 +104,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
               </div>
             ) : null;
           })}
-          <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
+          <div hidden={showKeepAlive} style={{ position: 'absolute', inset: 0 }} className="rumtime-keep-alive-layout-no">
             {!showKeepAlive && this.props.children}
           </div>
       </>
