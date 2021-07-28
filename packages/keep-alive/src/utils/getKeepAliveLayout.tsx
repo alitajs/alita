@@ -84,10 +84,6 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     }
     return (
       <>
-        <div
-          hidden={!showKeepAlive}
-          className="alita-page rumtime-keep-alive-layout"
-        >
           {this.alivePathnames.map(curPathname => {
             const currentView = getView(curPathname, this.keepAliveViewMap);
             const { component: View, recreateTimes } = currentView;
@@ -95,27 +91,20 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             const pageProps: any = { ...this.props,...matchRoute };
             return View ? (
               <div
-                id={\`BasicLayout-\${curPathname}\`}
+                id={\`KeepAlive-\${curPathname}\`}
                 key={
                   curPathname + recreateTimes
                 }
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                }}
+                className="rumtime-keep-alive-layout"
                 hidden={curPathname !== pathname.toLowerCase()}
               >
                 <View {...pageProps} />
               </div>
             ) : null;
           })}
-        </div>
-        <div hidden={showKeepAlive} className="alita-page rumtime-keep-alive-layout-no">
-          {!showKeepAlive && this.props.children}
-        </div>
+          <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
+            {!showKeepAlive && this.props.children}
+          </div>
       </>
     )
   }
