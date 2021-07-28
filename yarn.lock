@@ -10,10 +10,10 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
-"@alitajs/alita-layout@2.4.6":
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.4.6.tgz#f7b776950bf1bf114cd59c41818b6d60eb55efbc"
-  integrity sha512-fwT0bHIFFS1aEneMyNpC6tkk+q/IlZacK+vETO0sHxEq5QVka8zXInYTDatynaHjcppo0/6X9iQILQoIZUd81g==
+"@alitajs/alita-layout@2.4.7":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.4.7.tgz#05fe161749c8cd5a2c2c856f01729902e8599fbf"
+  integrity sha512-TUfAwlmn3TDBg040oPwMNLp6aBEGdCTynVeU5/qmnZhFgEZ/d47RnFuZ4ffLxKa17k+KOJyYpRxgm2D+N7OQBw==
   dependencies:
     antd-mobile "^2.2.14"
     history "^4.9.0"
