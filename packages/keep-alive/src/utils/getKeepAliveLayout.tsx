@@ -86,6 +86,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
       <>
         <div
           hidden={!showKeepAlive}
+          style={{ position: 'absolute', inset: 0 }}
           className="rumtime-keep-alive-layout"
         >
           {this.alivePathnames.map(curPathname => {
@@ -113,7 +114,7 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
             ) : null;
           })}
         </div>
-        <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
+        <div hidden={showKeepAlive} style={{ position: 'absolute', inset: 0 }} className="rumtime-keep-alive-layout-no">
           {!showKeepAlive && this.props.children}
         </div>
       </>
