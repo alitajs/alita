@@ -84,36 +84,26 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     }
     return (
       <>
-        <div
-          hidden={!showKeepAlive}
-          className="rumtime-keep-alive-layout"
-        >
-          {this.alivePathnames.map(curPathname => {
-            const currentView = getView(curPathname, this.keepAliveViewMap);
-            const { component: View, recreateTimes } = currentView;
-            const matchRoute = matchRoutes([currentView], curPathname)[0];
-            const pageProps: any = { ...this.props,...matchRoute };
-            return View ? (
-              <div
-                id={\`BasicLayout-\${curPathname}\`}
-                key={
-                  curPathname + recreateTimes
-                }
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                }}
-                hidden={curPathname !== pathname.toLowerCase()}
-              >
-                <View {...pageProps} />
-              </div>
-            ) : null;
-          })}
-        </div>
-        <div hidden={showKeepAlive} className="rumtime-keep-alive-layout-no">
+        {this.alivePathnames.map(curPathname => {
+          const currentView = getView(curPathname, this.keepAliveViewMap);
+          const { component: View, recreateTimes } = currentView;
+          const matchRoute = matchRoutes([currentView], curPathname)[0];
+          const pageProps: any = { ...this.props,...matchRoute };
+          return View ? (
+            <div
+              id={\`BasicLayout-\${curPathname}\`}
+              key={
+                curPathname + recreateTimes
+              }
+              style={{ height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' }}
+              className="rumtime-keep-alive-layout"
+              hidden={curPathname !== pathname.toLowerCase()}
+            >
+              <View {...pageProps} />
+            </div>
+          ) : null;
+        })}
+        <div hidden={showKeepAlive} style={{ height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' }} className="rumtime-keep-alive-layout-no">
           {!showKeepAlive && this.props.children}
         </div>
       </>
