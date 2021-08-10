@@ -1,8 +1,8 @@
 // Fix document undefined when ssr. #2571
 if (typeof document !== 'undefined') {
-  const win = window;
-  const baseFontSize = 100;
-  const psdWidth = 750;
+  const win = window as any;
+  const baseFontSize = win.alitaBaseFontSize ||100;
+  const psdWidth = win.alitaPsdWidth || 750;
   const _baseFontSize = baseFontSize || 100;
   const _psdWidth = psdWidth || 750;
 
