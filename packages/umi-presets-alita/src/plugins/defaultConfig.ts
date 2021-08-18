@@ -12,6 +12,8 @@ export default (api: IApi) => {
     hash: true,
     esbuild: {},
     // dynamicImport: {},
+    // 如果你不需要路由按需加载，只需要支持 import() 语法的 code splitting
+    dynamicImportSyntax: {},
     nodeModulesTransform: {
       type: 'none',
       exclude: [],
