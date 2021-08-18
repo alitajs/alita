@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/aconsole",
-  "version": "2.8.15-alpha.1",
+  "version": "2.8.15-alpha.2",
   "description": "@alitajs/aconsole",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
