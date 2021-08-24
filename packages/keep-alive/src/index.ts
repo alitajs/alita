@@ -54,11 +54,11 @@ export default (api: IApi) => {
 
   api.addUmiExports(() => [
     {
-      exportAll: true,
+      specifiers: ['KeepAliveLayout'],
       source: `../${RELATIVE_MODEL}`,
     },
     {
-      exportAll: true,
+      specifiers: ['setLayoutInstance', 'getLayoutInstance', 'dropByCacheKey'],
       source: `../${join(DIR_NAME, 'KeepAliveModel')}`,
     },
   ]);
