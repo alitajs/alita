@@ -28,6 +28,6 @@
     "access": "public"
   },
   "dependencies": {
-    "postcss-plugin-px2rem": "0.8.1"
+    "@alitajs/postcss-plugin-px2rem": "0.0.1"
   }
 }

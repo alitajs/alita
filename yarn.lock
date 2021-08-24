@@ -28,6 +28,13 @@
   dependencies:
     "@radix-ui/popper" "^0.0.10"
 
+"@alitajs/postcss-plugin-px2rem@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@alitajs/postcss-plugin-px2rem/-/postcss-plugin-px2rem-0.0.1.tgz#c360752890ea088c8ab9e765af1d2784e2f3c5ae"
+  integrity sha512-kT28fFv++2yjcKgpoKG0Hj/SOIuqak0obP1ddcLOxMrZ/FmOYfTHzpwQg7rmGRtdC04p4f3gknKYB7SETBWGkg==
+  dependencies:
+    postcss "^5.0.21"
+
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
@@ -13091,13 +13098,6 @@ postcss-place@^4.0.1:
   dependencies:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
-
-postcss-plugin-px2rem@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/postcss-plugin-px2rem/-/postcss-plugin-px2rem-0.8.1.tgz#e8adf28fd2befbc079a119126b5c62a88905d5e1"
-  integrity sha512-gNxhrnR57pnGrPLLqVNWY9+BWgj46kYkphw+0gpRJf9tjgwI7/tLqQPK7KdlksB2SSAddOb11otDVwri8b8mXw==
-  dependencies:
-    postcss "^5.0.21"
 
 postcss-preset-env@6.7.0:
   version "6.7.0"

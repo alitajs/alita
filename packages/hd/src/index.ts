@@ -1,5 +1,5 @@
 import { join } from 'path';
-import px2rem, { IOpts } from 'postcss-plugin-px2rem';
+import px2rem, { IOpts } from '@alitajs/postcss-plugin-px2rem';
 import { IApi } from 'umi';
 
 export interface HdOptions {
@@ -38,6 +38,7 @@ export default (api: IApi) => {
         px2rem({
           rootValue: 100,
           minPixelValue: 2,
+          selectorDoubleRemList: [/.ant-/],
           ...(configPx2rem || {}),
         }),
       ];

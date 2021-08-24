@@ -1,4 +1,4 @@
-declare module 'postcss-plugin-px2rem' {
+declare module '@alitajs/postcss-plugin-px2rem' {
   export interface IOpts {
     rootValue: number;
     unitPrecision: number;
