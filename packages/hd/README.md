@@ -8,7 +8,11 @@ Hd plugin for umi.
 // .umirc.ts
 export default {
   plugins: ['@alitajs/hd'],
-  hd: true,
+  hd: {
+    px2rem: {
+      selectorDoubleRemList: [/.ant-/],
+    },
+  },
 };
 ```
 
