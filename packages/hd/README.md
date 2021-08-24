@@ -25,6 +25,7 @@ export default {
     "propBlackList": [],
     "exclude": false,
     "selectorBlackList": [],
+    "selectorDoubleRemList": [/.ant-/],
     "ignoreIdentifier": false,
     "replace": true,
     "mediaQuery": false,
