@@ -2,7 +2,7 @@ import { IApi, IConfig } from '@umijs/types';
 
 export default (api: IApi) => {
   // 这几个配置需要合并配置
-  const { externals = {}, scripts = [] } = api.userConfig;
+  const { externals = {}, scripts = [], ssr } = api.userConfig;
   const defaultOptions = {
     history: { type: 'hash' },
     title: false, // 默认内置了 Helmet
@@ -34,6 +34,10 @@ export default (api: IApi) => {
     },
     ...api.userConfig
   } as IConfig;
+  // ssr 路由必须是 browser
+  if (ssr) {
+    defaultOptions.history = { type: 'browser' }
+  }
   api.modifyDefaultConfig((memo) => {
     return {
       ...memo,
