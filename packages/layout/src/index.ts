@@ -53,7 +53,7 @@ export default (api: IApi) => {
 
   api.addUmiExports(() => [
     {
-      exportAll: true,
+      specifiers: ['getPageNavBar', 'setPageNavBar', 'setTabBarList', 'getTabBarList', 'layoutEmitter'],
       source: `../${RELATIVE_MODEL}`,
     },
     {
