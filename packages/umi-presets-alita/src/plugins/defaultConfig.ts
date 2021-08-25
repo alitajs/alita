@@ -36,7 +36,8 @@ export default (api: IApi) => {
   } as IConfig;
   // ssr 路由必须是 browser
   if (ssr) {
-    defaultOptions.history = { type: 'browser' }
+    defaultOptions.history = { type: 'browser' };
+    defaultOptions.hash = false;
   }
   api.modifyDefaultConfig((memo) => {
     return {
