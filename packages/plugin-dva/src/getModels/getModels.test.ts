@@ -74,6 +74,6 @@ test('parser error when has jsx', () => {
   }).toThrow(
     `Dva model ${utils.winPath(
       relative(__dirname, filePath),
-    )} parse failed, SyntaxError: Unterminated regular expression. (3:26)`,
+    )} parse failed, SyntaxError: Unterminated regular expression`,
   );
 });
