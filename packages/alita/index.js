@@ -1,8 +1,6 @@
-let umi = require('umi');
+let ex = require('./lib/cjs');
 try {
   const umiExports = require('@@/core/umiExports');
-  umi = Object.assign(umi, umiExports);
-  console.log('********************************')
-  console.log(umi)
+  ex = Object.assign(ex, umiExports);
 } catch (e) {}
-module.exports = umi;
+module.exports = ex;

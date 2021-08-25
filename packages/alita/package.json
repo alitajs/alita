@@ -3,7 +3,7 @@
   "version": "2.8.15",
   "description": "alita",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "dist/index.esm.js",
   "types": "types.d.ts",
   "bin": {
     "alita": "./bin/alita.js"
@@ -11,10 +11,8 @@
   "files": [
     "bin",
     "lib",
-    "src",
     "dist",
-    "types.d.ts",
-    "index.esm.js"
+    "types.d.ts"
   ],
   "repository": {
     "type": "git",

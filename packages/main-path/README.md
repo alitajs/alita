@@ -1,1 +1,0 @@
-# @alitajs/main-path
