@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+export default (
+) => `import React, { useEffect, useState } from 'react';
 import { Location, LocationState } from 'history';
-// @ts-ignore
+// eslint-disable-next-line
 import {
   getPageNavBar,
   KeepAliveLayout,
@@ -8,7 +9,7 @@ import {
   layoutEmitter,
   request,
   RequestMethodInUmi
-} from 'umi';
+} from '@@/core/umiExports';
 
 import AlitaLayout, {
   AlitaLayoutProps,
@@ -93,7 +94,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       prevPathName = props.location.pathname;
     }, 10);
   }, [props.location.pathname]);
-  layoutEmitter.useSubscription(() => {
+  layoutEmitter?.useSubscription?.(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
   });
@@ -117,3 +118,4 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 };
 
 export default BasicLayout;
+`;

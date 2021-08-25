@@ -12,10 +12,12 @@ export default function (api: IApi) {
     require.resolve('@umijs/plugin-antd'),
     require.resolve('./plugins/features/appType'),
     require.resolve('@alitajs/routes'),
-    require.resolve('@alitajs/router'),
+    // 换成 内置 plugin 了
+    // require.resolve('@alitajs/router'),
+    require.resolve('./plugins/router/router'),
     require.resolve('@alitajs/keep-alive'),
-    require.resolve('@alitajs/main-path'),
-    require.resolve('@alitajs/retain-log'),
+    require.resolve('./plugins/features/mainPath'),
+    require.resolve('./plugins/features/retainLog'),
     require.resolve('./plugins/defaultConfig'),
     require.resolve('./plugins/features/complexRoute'),
     require.resolve('@umijs/plugin-esbuild'),
@@ -33,7 +35,7 @@ export default function (api: IApi) {
     plugins.push(require.resolve('@alitajs/cordova'));
   }
   // debug and console
-  if(api.userConfig.aconsole){
+  if (api.userConfig.aconsole) {
     plugins.push(require.resolve('@alitajs/aconsole'));
   }
   return {
