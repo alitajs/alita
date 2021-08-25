@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+export default (
+) => `import React, { useEffect, useState } from 'react';
 import { Location, LocationState } from 'history';
 // eslint-disable-next-line
 import {
@@ -8,7 +9,7 @@ import {
   layoutEmitter,
   request,
   RequestMethodInUmi
-} from 'alita';
+} from '@@/core/umiExports';
 
 import AlitaLayout, {
   AlitaLayoutProps,
@@ -117,3 +118,4 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 };
 
 export default BasicLayout;
+`;

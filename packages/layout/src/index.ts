@@ -1,7 +1,10 @@
 import { IApi, utils } from 'umi';
 import { join } from 'path';
+import { readFileSync } from 'fs';
 import getLayoutContent from './utils/getLayoutContent';
+import getLayout from './utils/getLayout';
 import getModelContent from './utils/getModelContent';
+const { Mustache } = utils;
 
 const DIR_NAME = 'alita-layout';
 const MODEL_NAME = 'layoutState';
@@ -28,9 +31,15 @@ export default (api: IApi) => {
 
   api.onGenerateFiles(() => {
     api.writeTmpFile({
+      path: join(DIR_NAME, 'Layout.tsx'),
+      content: getLayout(),
+    });
+    api.writeTmpFile({
       path: join(DIR_NAME, 'AlitaLayout.tsx'),
       content: getLayoutContent(
-        utils.winPath(join(__dirname, './layout/index.js')),
+        utils.winPath(
+          join(api.paths.absTmpPath || '', DIR_NAME, 'Layout.tsx'),
+        ),
         !!api.userConfig.keepalive,
         isMicroApp
       ),
@@ -38,6 +47,12 @@ export default (api: IApi) => {
     api.writeTmpFile({
       path: RELATIVE_MODEL_PATH,
       content: getModelContent(),
+    });
+    const exportsTpl = readFileSync(join(__dirname, 'exports.tpl'), 'utf-8');
+
+    api.writeTmpFile({
+      path: 'alita-layout/exports.ts',
+      content: exportsTpl,
     });
   });
 
@@ -53,8 +68,8 @@ export default (api: IApi) => {
 
   api.addUmiExports(() => [
     {
-      specifiers: ['getPageNavBar', 'setPageNavBar', 'setTabBarList', 'getTabBarList', 'layoutEmitter'],
-      source: `../${RELATIVE_MODEL}`,
+      exportAll: true,
+      source: '../alita-layout/exports',
     },
     {
       exportAll: true,
