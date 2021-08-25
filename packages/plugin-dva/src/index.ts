@@ -185,11 +185,12 @@ app.model({ namespace: '${basename(path, extname(path))}', ...Model${lodash.uppe
           dvaHeadExport: api.config.dva?.disableModelsReExport
             ? ``
             : models
-                .map((path) => {
-                  // prettier-ignore
-                  return `export * from '${winPath(path)}';`;
-                })
-                .join('\r\n'),
+              .map((path) => {
+                // prettier-ignore
+                // export type { IndexModelState } from '/Users/xiaohuoni/next-alita-app/src/models';
+                return `export type { ${basename(path, extname(path)).toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}ModelState } from '${winPath(path)}';`;
+              })
+              .join('\r\n'),
           dvaLoadingModels: models
             .map((path) => {
               // prettier-ignore
@@ -236,15 +237,15 @@ app.model({ namespace: '${basename(path, extname(path))}', ...Model${lodash.uppe
   api.addUmiExports(() =>
     hasModels
       ? [
-          {
-            exportAll: true,
-            source: '../plugin-dva/exports',
-          },
-          {
-            exportAll: true,
-            source: '../plugin-dva/connect',
-          },
-        ]
+        {
+          exportAll: true,
+          source: '../plugin-dva/exports',
+        },
+        {
+          exportAll: true,
+          source: '../plugin-dva/connect',
+        },
+      ]
       : [],
   );
 
