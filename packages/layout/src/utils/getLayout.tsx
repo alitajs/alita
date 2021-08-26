@@ -1,5 +1,4 @@
-export default (
-) => `import React, { useEffect, useState } from 'react';
+export default () => `import React, { useEffect, useState } from 'react';
 import { Location, LocationState } from 'history';
 // eslint-disable-next-line
 import {

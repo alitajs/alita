@@ -4,7 +4,6 @@ import { readFileSync } from 'fs';
 import getLayoutContent from './utils/getLayoutContent';
 import getLayout from './utils/getLayout';
 import getModelContent from './utils/getModelContent';
-const { Mustache } = utils;
 
 const DIR_NAME = 'alita-layout';
 const MODEL_NAME = 'layoutState';
