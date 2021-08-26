@@ -4,6 +4,7 @@ import { getRoutes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
 import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
 import { matchRoutes } from 'react-router-config';
+
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
