@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/utils",
-  "version": "2.8.18",
+  "version": "2.8.19",
   "description": "@alitajs/utils",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
