@@ -1,6 +1,6 @@
 {
   "name": "umi-presets-mobile5",
-  "version": "0.0.1",
+  "version": "2.8.20",
   "description": "umi-presets-mobile5",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,11 +22,11 @@
   "bugs": "http://github.com/alitajs/alita/issues",
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/umi-presets-alita#readme",
   "dependencies": {
-    "@alitajs/hd": "2.8.19",
-    "@alitajs/keep-alive": "2.8.19",
-    "@alitajs/layout": "2.8.19",
-    "@alitajs/plugin-dva": "2.8.19",
-    "@alitajs/plugin-antd-mobile": "0.0.1",
+    "@alitajs/hd": "2.8.20",
+    "@alitajs/keep-alive": "2.8.20",
+    "@alitajs/layout": "2.8.20",
+    "@alitajs/plugin-antd-mobile": "2.8.20",
+    "@alitajs/plugin-dva": "2.8.20",
     "@umijs/plugin-esbuild": "1.3.1",
     "@umijs/plugin-helmet": "1.1.3",
     "@umijs/plugin-request": "2.5.2"
