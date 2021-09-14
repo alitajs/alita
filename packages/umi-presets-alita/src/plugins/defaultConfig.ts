@@ -11,8 +11,7 @@ export default (api: IApi) => {
     },
     hash: true,
     esbuild: {},
-    // dynamicImport: {},
-    // 如果你不需要路由按需加载，只需要支持 import() 语法的 code splitting
+    // 不需要路由按需加载，只需要支持 import() 语法的 code splitting
     dynamicImportSyntax: {},
     nodeModulesTransform: {
       type: 'none',
@@ -37,6 +36,7 @@ export default (api: IApi) => {
   // ssr 路由必须是 browser
   if (ssr) {
     defaultOptions.history = { type: 'browser' };
+    // fix: https://github.com/umijs/umi/pull/7256
     defaultOptions.hash = false;
   }
   api.modifyDefaultConfig((memo) => {
