@@ -59,7 +59,8 @@ export default function (api: IApi) {
   const namespace = 'plugin-request';
 
   api.onGenerateFiles(() => {
-    const { dataField = 'data' } = api.config.request as RequestOptions;
+    const { request = {} } = api.config;
+    const { dataField = 'data' } = request as RequestOptions;
     try {
       // Write .umi/plugin-request/request.ts
       let formatResultStr;
