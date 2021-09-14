@@ -1,4 +1,4 @@
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import { IApi } from '@umijs/types';
 
 export default (api: IApi) => {
@@ -15,7 +15,7 @@ export default (api: IApi) => {
     const imps = [
       {
         name: 'antd-mobile',
-        path: dirname(require.resolve('antd-mobile/package.json')),
+        path: join(dirname(require.resolve('antd-mobile/package.json')), '2x'),
       },
     ];
     return imps;
