@@ -10,6 +10,8 @@ import {
   RequestMethodInUmi
 } from '@@/core/umiExports';
 
+import { getTabBars } from './layoutState';
+
 import AlitaLayout, {
   AlitaLayoutProps,
   NavBarProps,
@@ -85,6 +87,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [tabBarList, setTabBarList] = useState({});
   const { children, layoutConfig, hasKeepAlive, hideNavBar, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar, onPageChange } = layoutConfig;
+  const [tabBars, setTabBars] = useState(tabBar);
   useEffect(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
@@ -96,9 +99,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   layoutEmitter?.useSubscription?.(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
+    setTabBars(getTabBars());
   });
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
-  const newTabBarList = changeTabBarListConfig(tabBar, tabBarList);
+  const newTabBarList = changeTabBarListConfig(tabBars, tabBarList);
   const layout = {
     documentTitle,
     navBar: newNavBar,

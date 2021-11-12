@@ -4,6 +4,7 @@ import { NavBarListItem } from '@alitajs/alita-layout';
 
 let pageNavBar = {};
 let tabBarList = {};
+let tabBars = [];
 
 type Subscription<T> = (val: T) => void;
 
@@ -55,9 +56,15 @@ const setTabBarList = (value: TabBarListItem) => {
   tabBarList = { ...tabBarList, [value.pagePath]: value }
   layoutEmitter.emit('');
 }
+const changeTabBarList = (values: TabBarListItem[]) => {
+  tabBars = values;
+  layoutEmitter.emit('');
+}
+
 const getTabBarList = () => tabBarList;
+const getTabBars = () => tabBars;
 
 export {
-  getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter
+  getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter, getTabBars, changeTabBarList
 }
 `;
