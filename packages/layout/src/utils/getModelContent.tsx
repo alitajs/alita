@@ -58,7 +58,7 @@ const setTabBarList = (value: TabBarListItem) => {
 }
 const changeTabBarList = (values: TabBarListItem[]) => {
   tabBars = values;
-  layoutEmitter.emit('');
+  layoutEmitter.emit('changeTabBarList');
 }
 
 const getTabBarList = () => tabBarList;

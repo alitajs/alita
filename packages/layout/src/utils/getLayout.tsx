@@ -96,10 +96,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       prevPathName = props.location.pathname;
     }, 10);
   }, [props.location.pathname]);
-  layoutEmitter?.useSubscription?.(() => {
+  layoutEmitter?.useSubscription?.((e:T) => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
-    setTabBars(getTabBars());
+    if(e === 'changeTabBarList') {
+      setTabBars({
+        ...tabBar,
+        list: getTabBars(),
+      });
+    }
   });
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
   const newTabBarList = changeTabBarListConfig(tabBars, tabBarList);
