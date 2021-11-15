@@ -51,6 +51,17 @@
     "open": "^8.0.2",
     "prettier": "2.2.1",
     "husky": "6.0.0",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/assert": "^1.5.4",
+    "@types/lodash": "^4.14.170",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.9",
+    "express": "^4.15.3",
+    "pify": "^5.0.0",
+    "query-string": "^6.11.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.9.0"
   }
 }
