@@ -1,1 +1,1 @@
-export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter,changeTabBarList } from './layoutState';
+export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';

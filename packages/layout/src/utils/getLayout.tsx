@@ -10,8 +10,6 @@ import {
   RequestMethodInUmi
 } from '@@/core/umiExports';
 
-import { getTabBars } from './layoutState';
-
 import AlitaLayout, {
   AlitaLayoutProps,
   NavBarProps,
@@ -73,11 +71,20 @@ const changeTabBarListConfig = (
   if (!list || list!.length === 0) {
     return preConfig;
   }
-  const newNavList = list!.map((i) => {
+  const pathList = list.map(item => item?.pagePath);
+  Object.keys(changeData).forEach((item: string) => {
+    if(pathList.indexOf(item) === -1) {
+      list.push(changeData[item]);
+    }
+  });
+
+  const newNavList = [] as any[];
+  list!.forEach((i) => {
+    if(changeData[i.pagePath]?.remove) return;
     if (changeData[i.pagePath]) {
       i = { ...i, ...changeData[i.pagePath] };
     }
-    return i;
+    newNavList.push(i);
   });
   return { ...other, list: newNavList };
 };
@@ -87,7 +94,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [tabBarList, setTabBarList] = useState({});
   const { children, layoutConfig, hasKeepAlive, hideNavBar, ...otherProps } = props;
   const { titleList, documentTitle, navBar, tabBar, onPageChange } = layoutConfig;
-  const [tabBars, setTabBars] = useState(tabBar);
   useEffect(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
@@ -99,15 +105,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   layoutEmitter?.useSubscription?.((e:T) => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
-    if(e === 'changeTabBarList') {
-      setTabBars({
-        ...tabBar,
-        list: getTabBars(),
-      });
-    }
   });
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
-  const newTabBarList = changeTabBarListConfig(tabBars, tabBarList);
+  const newTabBarList = changeTabBarListConfig(tabBar, tabBarList);
   const layout = {
     documentTitle,
     navBar: newNavBar,

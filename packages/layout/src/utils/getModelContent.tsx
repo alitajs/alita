@@ -4,7 +4,6 @@ import { NavBarListItem } from '@alitajs/alita-layout';
 
 let pageNavBar = {};
 let tabBarList = {};
-let tabBars = [];
 
 type Subscription<T> = (val: T) => void;
 
@@ -47,24 +46,33 @@ interface TabBarListItem {
   selectedIconPath?: string;
   onPress?: () => {};
   title?: string;
+  remove?: boolean;
 }
-const setTabBarList = (value: TabBarListItem) => {
-  if (!value.pagePath) {
-    console.error('setTabBarList: value.pagePath can not be undefined')
-    return;
+
+const checkPagePath = (pagePath: string | undefined) => {
+  if(!pagePath) {
+    console.error('setTabBarList: value.pagePath can not be undefined');
+    return false;
+  } else return true;
+
+}
+
+const setTabBarList = (value: TabBarListItem |  TabBarListItem[]): void => {
+  if(Array.isArray(value)){
+    value.map((item: TabBarListItem) => {
+      if (!checkPagePath(item.pagePath)) return;
+      tabBarList[item.pagePath] = item;
+    });
+  }  else {
+    if (!checkPagePath(value.pagePath)) return;
+    tabBarList = { ...tabBarList, [value.pagePath]: value };
   }
-  tabBarList = { ...tabBarList, [value.pagePath]: value }
   layoutEmitter.emit('');
-}
-const changeTabBarList = (values: TabBarListItem[]) => {
-  tabBars = values;
-  layoutEmitter.emit('changeTabBarList');
 }
 
 const getTabBarList = () => tabBarList;
-const getTabBars = () => tabBars;
 
 export {
-  getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter, getTabBars, changeTabBarList
+  getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter
 }
 `;
