@@ -12,7 +12,7 @@ test('normal', async () => {
   await generateTmp({ cwd });
   const { container } = render({ cwd });
   expect(container.innerHTML).toEqual(
-    '<div><h1>Page index foo 0</h1></div>',
+    '<div><h1 class=\"title\">Page index foo 0</h1></div>',
   );
 });
 
@@ -30,12 +30,12 @@ test('with-immer', async () => {
   await generateTmp({ cwd });
   const { container } = render({ cwd });
   expect(container.innerHTML).toEqual(
-    '<div><h1>Page index foo 0</h1><button>add</button></div>',
+    '<div><h1 class=\"title\">Page index foo 0</h1><button>add</button></div>',
   );
   fireEvent.click(getByText(container, 'add'));
   await utils.delay(100);
   expect(container.innerHTML).toEqual(
-    '<div><h1>Page index foo 1</h1><button>add</button></div>',
+    '<div><h1 class=\"title\">Page index foo 1</h1><button>add</button></div>',
   );
 });
 
@@ -45,6 +45,6 @@ test('lazyLoad', async () => {
   const { container } = render({ cwd });
   await utils.delay(100);
   expect(container.innerHTML).toEqual(
-    '<div><h1>Page index foo 0</h1></div>',
+    '<div><h1 class=\"title\">Page index foo 0</h1></div>',
   );
 });

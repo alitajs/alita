@@ -1,7 +1,12 @@
 module.exports = {
-  // disable css files mock for bundler-webpack's css import tests
-  moduleNameMapper: {},
-  collectCoverageFrom(memo) {
-    return memo;
+  transformIgnorePatterns: [
+    'node_modules/(?!.*(@(babel)|dva-loading))[^/]+?/(?!(es|node_modules)/)',
+  ],
+  testMatch: ['**/packages/**/?*.(test|spec).(j|t)s?(x)'],
+  moduleNameMapper(memo) {
+    return Object.assign(memo, {
+      '^react$': require.resolve('react'),
+      '^react-dom$': require.resolve('react-dom'),
+    });
   },
 };
