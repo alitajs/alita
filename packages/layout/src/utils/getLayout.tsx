@@ -67,27 +67,32 @@ const changeTabBarListConfig = (
   changeData: {},
 ) => {
   if (!changeData) return preConfig;
+  const newChangeData = {...changeData};
   const { list, ...other } = preConfig as TabBarProps;
   if (!list || list!.length === 0) {
     return preConfig;
   }
-  const pathList = list.map(item => item?.pagePath);
-  Object.keys(changeData).forEach((item: string) => {
-    if(pathList.indexOf(item) === -1) {
-      list.push(changeData[item]);
-    }
-  });
 
   const newNavList = [] as any[];
   list!.forEach((i) => {
-    if(changeData[i.pagePath]?.remove) return;
-    if (changeData[i.pagePath]) {
-      i = { ...i, ...changeData[i.pagePath] };
+    if (newChangeData[i.pagePath]) {
+      const newPagePath = i.pagePath;
+      i = { ...i, ...newChangeData[newPagePath] };
+      if (newChangeData[newPagePath]?.replace) {
+        i.pagePath = newChangeData[newPagePath]?.replace;
+      }
+      delete newChangeData[newPagePath];
+      if(changeData[i.pagePath]?.remove) return;
     }
     newNavList.push(i);
   });
+  Object.keys(newChangeData).forEach((item: string) => {
+    if(newChangeData[item]?.remove) return;
+    newNavList.push(newChangeData[item]);
+  });
   return { ...other, list: newNavList };
 };
+
 let prevPathName = '/';
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});

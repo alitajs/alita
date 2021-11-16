@@ -47,6 +47,7 @@ interface TabBarListItem {
   onPress?: () => {};
   title?: string;
   remove?: boolean;
+  replace?: string;
 }
 
 const checkPagePath = (pagePath: string | undefined) => {
@@ -59,8 +60,7 @@ const checkPagePath = (pagePath: string | undefined) => {
 
 const setTabBarList = (value: TabBarListItem |  TabBarListItem[]): void => {
   if(Array.isArray(value)){
-    value.map((item: TabBarListItem) => {
-      if (!checkPagePath(item.pagePath)) return;
+    value.forEach((item: TabBarListItem) => {
       tabBarList[item.pagePath] = item;
     });
   }  else {
