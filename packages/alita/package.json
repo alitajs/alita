@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "2.8.27",
+  "version": "2.8.25",
   "description": "umi 移动端方案插件集合",
   "main": "index.js",
   "module": "dist/index.esm.js",
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.8.27",
+    "@alitajs/umi-presets-alita": "2.8.25",
     "@umijs/types": "3.5.17",
     "umi": "3.5.17"
   }
