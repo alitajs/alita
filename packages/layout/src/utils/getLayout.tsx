@@ -67,32 +67,18 @@ const changeTabBarListConfig = (
   changeData: {},
 ) => {
   if (!changeData) return preConfig;
-  const newChangeData = {...changeData};
   const { list, ...other } = preConfig as TabBarProps;
   if (!list || list!.length === 0) {
     return preConfig;
   }
-
-  const newNavList = [] as any[];
-  list!.forEach((i) => {
-    if (newChangeData[i.pagePath]) {
-      const newPagePath = i.pagePath;
-      i = { ...i, ...newChangeData[newPagePath] };
-      if (newChangeData[newPagePath]?.replace) {
-        i.pagePath = newChangeData[newPagePath]?.replace;
-      }
-      delete newChangeData[newPagePath];
-      if(changeData[i.pagePath]?.remove) return;
+  const newNavList = list!.map((i) => {
+    if (changeData[i.pagePath]) {
+      i = { ...i, ...changeData[i.pagePath] };
     }
-    newNavList.push(i);
-  });
-  Object.keys(newChangeData).forEach((item: string) => {
-    if(newChangeData[item]?.remove) return;
-    newNavList.push(newChangeData[item]);
+    return i;
   });
   return { ...other, list: newNavList };
 };
-
 let prevPathName = '/';
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});
@@ -107,7 +93,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       prevPathName = props.location.pathname;
     }, 10);
   }, [props.location.pathname]);
-  layoutEmitter?.useSubscription?.((e:T) => {
+  layoutEmitter?.useSubscription?.(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
   });
