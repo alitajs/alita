@@ -67,12 +67,11 @@ const changeTabBarListConfig = (
   changeData: {},
 ) => {
   if (!changeData) return preConfig;
-  const newChangeData = {...changeData};
+  const newChangeData = { ...changeData };
   const { list, ...other } = preConfig as TabBarProps;
   if (!list || list!.length === 0) {
     return preConfig;
   }
-
   const newNavList = [] as any[];
   list!.forEach((i) => {
     if (newChangeData[i.pagePath]) {

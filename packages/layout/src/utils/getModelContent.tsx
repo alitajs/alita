@@ -58,7 +58,7 @@ const checkPagePath = (pagePath: string | undefined) => {
 
 }
 
-const setTabBarList = (value: TabBarListItem |  TabBarListItem[]): void => {
+const setTabBarList = (value: TabBarListItem | TabBarListItem[]): void => {
   if(Array.isArray(value)){
     value.forEach((item: TabBarListItem) => {
       tabBarList[item.pagePath] = item;
