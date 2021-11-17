@@ -82,7 +82,7 @@ const changeTabBarListConfig = (
         i.pagePath = newChangeData[newPagePath]?.replace;
       }
       delete newChangeData[newPagePath];
-      if(changeData[i.pagePath]?.remove) return;
+      if(changeData[newPagePath]?.remove) return;
     }
     newNavList.push(i);
   });
