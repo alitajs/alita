@@ -46,30 +46,15 @@ interface TabBarListItem {
   selectedIconPath?: string;
   onPress?: () => {};
   title?: string;
-  remove?: boolean;
-  replace?: string;
 }
-
-const checkPagePath = (pagePath: string | undefined) => {
-  if(!pagePath) {
-    console.error('setTabBarList: value.pagePath can not be undefined');
-    return false;
-  } else return true;
-
-}
-
-const setTabBarList = (value: TabBarListItem |  TabBarListItem[]): void => {
-  if(Array.isArray(value)){
-    value.forEach((item: TabBarListItem) => {
-      tabBarList[item.pagePath] = item;
-    });
-  }  else {
-    if (!checkPagePath(value.pagePath)) return;
-    tabBarList = { ...tabBarList, [value.pagePath]: value };
+const setTabBarList = (value: TabBarListItem) => {
+  if (!value.pagePath) {
+    console.error('setTabBarList: value.pagePath can not be undefined')
+    return;
   }
+  tabBarList = { ...tabBarList, [value.pagePath]: value }
   layoutEmitter.emit('');
 }
-
 const getTabBarList = () => tabBarList;
 
 export {
