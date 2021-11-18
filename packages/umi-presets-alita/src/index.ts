@@ -9,7 +9,6 @@ export default function (api: IApi) {
     // bundle configs
     require.resolve('@umijs/plugin-request'),
     require.resolve('@alitajs/plugin-dva'),
-    require.resolve('@umijs/plugin-antd'),
     require.resolve('./plugins/features/appType'),
     require.resolve('@alitajs/routes'),
     // 换成 内置 plugin 了
@@ -25,7 +24,8 @@ export default function (api: IApi) {
     require.resolve('./plugins/features/packageId'),
     require.resolve('./plugins/features/displayIcon'),
     require.resolve('./plugins/features/noBuiltInPlugins'),
-    require.resolve('@umijs/plugin-helmet')
+    require.resolve('./plugins/features/mobile5'),
+    require.resolve('@umijs/plugin-helmet'),
   ];
   if (api.userConfig.appType !== 'pc') {
     plugins.push(require.resolve('@alitajs/hd'));
