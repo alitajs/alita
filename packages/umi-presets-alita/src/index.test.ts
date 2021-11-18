@@ -40,7 +40,7 @@ test('appType-h5', async () => {
       _: ['g', 'html'],
     },
   });
-  expect(service.config!.theme).toEqual({ '@hd': '2px' });
+  expect(service.config!.theme?.['@hd']).toEqual('2px');
 
   const removeSpace = (str: string | null) =>
     str?.replace(/[\r\n]/g, '')?.replace(/\ +/g, '');
