@@ -24,7 +24,8 @@ export default function (api: IApi) {
     require.resolve('./plugins/features/packageId'),
     require.resolve('./plugins/features/displayIcon'),
     require.resolve('./plugins/features/noBuiltInPlugins'),
-    require.resolve('./plugins/features/mobile5'),
+    require.resolve('@alitajs/plugin-mobile5'),
+    require.resolve('@umijs/plugin-antd'),
     require.resolve('@umijs/plugin-helmet'),
   ];
   if (api.userConfig.appType !== 'pc') {
