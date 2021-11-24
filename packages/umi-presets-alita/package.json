@@ -31,6 +31,7 @@
     "@alitajs/hd": "2.8.27-beta.0",
     "@alitajs/keep-alive": "2.8.27-beta.0",
     "@alitajs/layout": "2.8.27-beta.0",
+    "@alitajs/plugin-mobile5": "2.8.27-beta.0",
     "@alitajs/plugin-antd-mobile": "2.8.27-beta.0",
     "@alitajs/plugin-dva": "2.8.27-beta.0",
     "@alitajs/plugin-layout": "2.8.27-beta.0",
