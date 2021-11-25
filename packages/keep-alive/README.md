@@ -81,7 +81,7 @@ const Page: React.FC = (props) => {
 
 ```ts
 // 假如 config 中配置 keepalive: []
-import { dropByCacheKey } from 'umi';
+import { patchKeepAlive } from 'umi';
 const Page: React.FC = (props) => {
   return (
     <div
