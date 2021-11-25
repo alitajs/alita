@@ -61,6 +61,11 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
   constructor(props: any) {
     super(props);
     this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(),props.keepalive);
+    const patchKeepAlive = async (func: (config: anyd[]) => any[]) => {
+      const keepalive = await func(props.keepalive);
+      this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(), keepalive);
+    }
+    this.patchKeepAlive = patchKeepAlive;
   }
   componentDidMount() {
     setLayoutInstance(this);

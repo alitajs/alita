@@ -58,7 +58,12 @@ export default (api: IApi) => {
       source: `../${RELATIVE_MODEL}`,
     },
     {
-      specifiers: ['setLayoutInstance', 'getLayoutInstance', 'dropByCacheKey'],
+      specifiers: [
+        'setLayoutInstance',
+        'getLayoutInstance',
+        'dropByCacheKey',
+        'patchKeepAlive',
+      ],
       source: `../${join(DIR_NAME, 'KeepAliveModel')}`,
     },
   ]);

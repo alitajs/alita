@@ -1,11 +1,13 @@
 export default () => `
+// @ts-nocheck
+
 import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
 
 interface LayoutInstanceProps {
-  alivePathnames:string[],
-  keepAliveViewMap:{}
+  alivePathnames: string[],
+  keepAliveViewMap: {}
 }
-let LayoutInstance:LayoutInstanceProps;
+let LayoutInstance: LayoutInstanceProps;
 function dropByCacheKey(pathname: string) {
   if (LayoutInstance) {
     const { alivePathnames, keepAliveViewMap } = LayoutInstance;
@@ -22,12 +24,17 @@ function dropByCacheKey(pathname: string) {
     }
   }
 }
-const setLayoutInstance = (value:any)=>{
-  LayoutInstance=value
+function patchKeepAlive(fn: (config: any[]) => any[]) {
+  if (LayoutInstance) {
+    LayoutInstance.patchKeepAlive(fn);
+  }
 }
-const getLayoutInstance = ()=>LayoutInstance;
+const setLayoutInstance = (value: any) => {
+  LayoutInstance = value
+}
+const getLayoutInstance = () => LayoutInstance;
 
 export {
-  setLayoutInstance,getLayoutInstance,dropByCacheKey
+  setLayoutInstance, getLayoutInstance, dropByCacheKey, patchKeepAlive
 }
 `;
