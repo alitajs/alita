@@ -18,6 +18,13 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
+"@alita/inspx@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@alita/inspx/-/inspx-0.0.2.tgz#af3c4e864facb923f340c7a8321eb40859957fbb"
+  integrity sha512-NylAZjHY1jIyO5a58WaPSzZbR39idg8tGyUl4YLBiSmU0lvkl/K9C77TexPQMUHhzauelmmhBht2FRoA77U0tQ==
+  dependencies:
+    "@radix-ui/popper" "^0.0.10"
+
 "@alitajs/alita-layout@2.4.9":
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/@alitajs/alita-layout/-/alita-layout-2.4.9.tgz#88e070f0079cb7072a4891182e332a58f1f50eb5"
@@ -27,13 +34,6 @@
     history "4.9.0"
     react "^16.8.6"
     react-router-dom "^5.1.2"
-
-"@alitajs/inspx@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@alitajs/inspx/-/inspx-0.0.2.tgz#10cd0765277020e1e2872b1fa7a294c37a1a79f6"
-  integrity sha512-aaF3vC66aa8WcuGg8DtkLkcn6qAy0zrTxoeg2fqCLPLWFfW1XOpQ8VGxx9gFqQCSEmgegHTTLf25M/wI25/ZQw==
-  dependencies:
-    "@radix-ui/popper" "^0.0.10"
 
 "@alitajs/postcss-plugin-px2rem@0.0.1":
   version "0.0.1"
@@ -3842,10 +3842,10 @@ antd-mobile-v5-count@^1.0.1:
   resolved "https://registry.yarnpkg.com/antd-mobile-v5-count/-/antd-mobile-v5-count-1.0.1.tgz#85f20c46d1635c24e856bcf5ad55e8c98e44a523"
   integrity sha512-YGsiEDCPUDz3SzfXi6gLZn/HpeSMW+jgPc4qiYUr1fSopg3hkUie2TnooJdExgfiETHefH3Ggs58He0OVfegLA==
 
-"antd-mobile5@npm:antd-mobile@next":
-  version "5.0.0-beta.30"
-  resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-5.0.0-beta.30.tgz#84a6ca143029eec87a0e9ee722ac5a15626749ec"
-  integrity sha512-5o9bBN2EhYpOD4hJNjAdxh60L44S93klXjaS21u9mk7Py8LNxtPvyQ787JcuYyOuAo8DcE/yNtT5Wvf832dVlQ==
+"antd-mobile5@npm:antd-mobile-hd@5.0.0-beta.31":
+  version "5.0.0-beta.31"
+  resolved "https://registry.yarnpkg.com/antd-mobile-hd/-/antd-mobile-hd-5.0.0-beta.31.tgz#00d6ebfeee6d2a6ab42f1dbda335ddc1b8c06942"
+  integrity sha512-ojpX3Ub28IjmOAVYoWsLMPOA6DwQwVo8vJ4PydxCSH0UQuxA5jdlttMnVRDg66sJtNdsgMgorrz9xVLU9XJ3gA==
   dependencies:
     "@react-spring/web" "^9.3.0"
     "@types/resize-observer-browser" "^0.1.6"
@@ -7733,15 +7733,6 @@ fs-constants@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad"
   integrity sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==
-
-fs-extra@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
-  integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
-  dependencies:
-    graceful-fs "^4.2.0"
-    jsonfile "^6.0.1"
-    universalify "^2.0.0"
 
 fs-extra@8.1.0, fs-extra@^8.0.0, fs-extra@^8.1.0:
   version "8.1.0"

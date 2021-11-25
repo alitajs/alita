@@ -1,7 +1,6 @@
 import { dirname, join } from 'path';
 import { IApi } from '@umijs/types';
-import BaseGenerator from './BaseGenerator/BaseGenerator';
-import { existsSync } from 'fs';
+import { winPath } from '@umijs/utils';
 export default (api: IApi) => {
   api.describe({
     key: 'mobile5',
@@ -12,37 +11,17 @@ export default (api: IApi) => {
     },
   });
   // 忽略用户安装，强制指定 mobile@5 版本
-  api.chainWebpack((memo) => {
-    if (!!api.config.mobile5) {
-      memo.resolve.alias.set(
-        'antd-mobile5',
-        join(dirname(require.resolve('antd-mobile5/package.json')), '2x'),
-      );
-    }
-    return memo;
-  });
-
-  api.onStart(async () => {
-    if (!!api.config.mobile5) {
-      if (
-        !existsSync(
-          `${api.paths.absNodeModulesPath}/@types/antd-mobile5/index.d.ts`,
-        )
-      ) {
-        // logger.event('Create @types/antd-mobile5 Package');
-        const generator = new BaseGenerator({
-          path: join(__dirname, '..', 'templates', 'alias'),
-          target: `${api.paths.absNodeModulesPath}/@types/antd-mobile5`,
-          data: {
-            antdMobilePath: join(
-              dirname(require.resolve('antd-mobile5/package.json')),
-            ),
-            antdMobile: 'antd-mobile5',
-          },
-          questions: [],
-        });
-        await generator.run();
-      }
-    }
-  });
+  // api.chainWebpack((memo) => {
+  //   if (!!api.config.mobile5) {
+  //     console.log(winPath(join(dirname(require.resolve('antd-mobile5/package')), '2x')))
+  //     memo.resolve.alias.set(
+  //       'antd-mobile5',
+  //       winPath(join(dirname(require.resolve('antd-mobile5/package')), '2x')),
+  //     );
+  //   }
+  //   return memo;
+  // });
+  //"dependencies": {
+  // "antd-mobile5": "npm:antd-mobile-hd@next"
+  // }
 };

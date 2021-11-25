@@ -29,7 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "antd-mobile5": "npm:antd-mobile@next",
-    "fs-extra": "10.0.0"
+    "antd-mobile5": "npm:antd-mobile-hd@5.0.0-beta.31"
   }
 }

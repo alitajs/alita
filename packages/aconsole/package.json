@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/inspx": "0.0.2",
+    "@alita/inspx": "0.0.2",
     "vconsole": "3.5.2"
   }
 }
