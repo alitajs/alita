@@ -38,11 +38,15 @@ export default (api: IApi) => {
 
         html {
           width: 100%;
-          height: 100%;
+          height: 100vh !important;
           text-size-adjust: 100%;
+          --alita-safe-area-top: constant(safe-area-inset-top);
           --alita-safe-area-top: env(safe-area-inset-top);
+          --alita-safe-area-bottom: constant(safe-area-inset-bottom);
           --alita-safe-area-bottom: env(safe-area-inset-bottom);
+          --alita-safe-area-left: constant(safe-area-inset-left);
           --alita-safe-area-left: env(safe-area-inset-left);
+          --alita-safe-area-right: constant(safe-area-inset-right);
           --alita-safe-area-right: env(safe-area-inset-right);
         }
 
@@ -64,8 +68,8 @@ export default (api: IApi) => {
           left: 0;
           width: 100%;
           max-width: 100%;
-          height: 100%;
-          max-height: 100%;
+          height: 100% !important;
+          max-height: 100% !important;
           text-rendering: optimizeLegibility;
           overflow: hidden;
           touch-action: manipulation;
