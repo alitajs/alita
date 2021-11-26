@@ -1,7 +1,7 @@
 import { IApi } from '@umijs/types';
 import { dirname, join } from 'path';
 import { readFileSync } from 'fs';
-import { Mustache } from '@umijs/utils';
+import { Mustache, winPath } from '@umijs/utils';
 
 export default (api: IApi) => {
   const { userConfig } = api;
@@ -69,7 +69,9 @@ export default (api: IApi) => {
         api.writeTmpFile({
           path: 'plugin-inspx/inspx.tsx',
           content: Mustache.render(inspxTpl, {
-            inspxpath: dirname(require.resolve('@alita/inspx/package')),
+            inspxpath: winPath(
+              dirname(require.resolve('@alita/inspx/package')),
+            ),
             inspx: {
               ...{
                 disabled: false,
