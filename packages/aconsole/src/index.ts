@@ -39,7 +39,7 @@ export default (api: IApi) => {
     api.addHTMLStyles(() => {
       return [
         {
-          content: `.vc-switch { right: 0px; bottom: 1.2rem !important; }`,
+          content: `.vc-switch { right: 0px; bottom: calc(env(safe-area-inset-bottom) + 1.2rem) !important; font-size: 0.3rem !important; }`,
         },
       ];
     });
@@ -76,7 +76,7 @@ export default (api: IApi) => {
                 margin: true,
                 size: true,
                 padding: true,
-                bottom: '2.5rem',
+                bottom: '2.1rem',
                 right: '0',
               },
               ...(api.userConfig.inspx || {}),

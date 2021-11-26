@@ -1,7 +1,7 @@
 // Fix document undefined when ssr. #2571
 if (typeof document !== 'undefined') {
   const win = window as any;
-  const baseFontSize = win.alitaBaseFontSize ||100;
+  const baseFontSize = win.alitaBaseFontSize || 100;
   const psdWidth = win.alitaPsdWidth || 750;
   const _baseFontSize = baseFontSize || 100;
   const _psdWidth = psdWidth || 750;
@@ -12,7 +12,7 @@ if (typeof document !== 'undefined') {
   // 为了消除安卓dpr乱标的比例
   let rate = 1;
   // 非淘宝高清方案，默认的 initial-scale 为 1
-  let scale = 1;
+  let scale = win.alitaFontScale || 1;
 
   // 部分安卓机，需要延迟获取屏幕转向和宽高
   let timeoutNum: any;
@@ -47,12 +47,13 @@ if (typeof document !== 'undefined') {
   }
   // 如果是在 iframe 中打开
   if (window != top) {
-    const metaStr = metaEl?.getAttribute('content') || '';
-    const viewport = getViewPort(metaStr);
-    const initScale = viewport['initial-scale'] || '1.0';
-    // 把 initial-scale 换成两位数的整数，便于计算。
-    const initScaleNum = parseInt(`${parseFloat(initScale) * 10}`, 10);
-    scale = initScaleNum / 10;
+    // 无效代码， iframe 跨域问题
+    // const metaStr = metaEl?.getAttribute('content') || '';
+    // const viewport = getViewPort(metaStr);
+    // const initScale = viewport['initial-scale'] || '1.0';
+    // // 把 initial-scale 换成两位数的整数，便于计算。
+    // const initScaleNum = parseInt(`${parseFloat(initScale) * 10}`, 10);
+    // scale = initScaleNum / 10;
   }
   metaEl.setAttribute(
     'content',
