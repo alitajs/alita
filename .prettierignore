@@ -1,8 +1,14 @@
-**/node_modules/**
-package.json
-
-# fixtures
-**/fixtures/**
-
-# templates
-**/templates/**
+node_modules
+.umi
+.umi-production
+dist
+.mfsu
+*.d.ts
+compiled
+*.js
+fixtures
+*.md
+*.yaml
+*.less
+packages/native/templates/alita-ios
+packages/native/templates/alita-android

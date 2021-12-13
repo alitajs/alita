@@ -1,0 +1,6 @@
+{
+  "name": "vconsole",
+  "author": "Tencent",
+  "license": "MIT",
+  "typings": "dist/vconsole.min.d.ts"
+}

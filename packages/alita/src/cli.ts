@@ -1,37 +1,55 @@
-import { dirname } from 'path';
-import { fork } from 'child_process';
+import { logger, yParser } from '@umijs/utils';
+import { dev } from 'umi/dist/cli/dev';
+import {
+  checkLocal,
+  checkVersion as checkNodeVersion,
+} from 'umi/dist/cli/node';
+import { DEV_COMMAND } from 'umi/dist/constants';
+import { Service } from 'umi/dist/service/service';
 
-// process.env.UMI_UI = 'none';
-process.env.IS_ALITA = 'true';
-process.env.UMI_PRESETS = require.resolve('@alitajs/umi-presets-alita');
-
-const p = process.argv.slice(2);
-
-// 这里做了拦截，因为version命令冲突了
-if (p[0] === 'version' || p[0] === '-v' || p[0] === '-version') {
-  p[0] = 'alitaVersion';
+interface IOpts {
+  presets?: string[];
 }
 
+export async function run(opts: IOpts = {}) {
+  checkNodeVersion();
+  checkLocal();
 
-process.env.ALITA_NOW_COMMAND = p[0];
-
-process.env.ALITA_DIR = dirname(require.resolve('../package'));
-
-const umiBinPath = require.resolve('umi/bin/umi');
-const child = fork(umiBinPath, p, {
-  stdio: 'inherit',
-});
-
-// ref:
-// http://nodejs.cn/api/process/signal_events.html
-// https://lisk.io/blog/development/why-we-stopped-using-npm-start-child-processes
-process.on('SIGINT', () => {
-  child.kill('SIGINT');
-  // ref:
-  // https://github.com/umijs/umi/issues/6009
-  process.exit(0);
-});
-process.on('SIGTERM', () => {
-  child.kill('SIGTERM');
-  process.exit(1);
-});
+  const args = yParser(process.argv.slice(2), {
+    alias: {
+      version: ['v'],
+      help: ['h'],
+    },
+    boolean: ['version'],
+  });
+  const command = args._[0];
+  if ([DEV_COMMAND, 'setup'].includes(command)) {
+    process.env.NODE_ENV = 'development';
+  } else if (command === 'build') {
+    process.env.NODE_ENV = 'production';
+  }
+  // TODO: @alita/plugin dev ,remove require.resolve('@alita/plugins')
+  opts.presets = opts?.presets ?? [
+    require.resolve('./preset'),
+    require.resolve('@alita/plugins'),
+  ];
+  if (opts?.presets) {
+    process.env.UMI_PRESETS = opts.presets.join(',');
+  }
+  if (command === DEV_COMMAND) {
+    dev();
+  } else if (command === 'version' || command === 'v') {
+    const version = require('../package.json').version;
+    console.log(`alita@${version}`);
+  } else {
+    try {
+      await new Service().run2({
+        name: args._[0],
+        args,
+      });
+    } catch (e: any) {
+      logger.error(e);
+      process.exit(1);
+    }
+  }
+}

@@ -1,34 +1,28 @@
 {
-  "name": "@alitajs/native",
-  "version": "2.8.29",
-  "description": "@alitajs/native",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "name": "@alita/native",
+  "version": "0.0.0-alpha.1",
+  "description": "@alita/native",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib",
-    "templates"
+    "dist"
   ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
+    "dev": "pnpm build -- --watch"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alitajs/alita"
+    "url": "https://github.com/alitajs/alita-next"
   },
-  "keywords": [
-    "umi",
-    "alita",
-    "micro",
-    "native"
-  ],
   "authors": [
-    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
-  "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/native#readme",
+  "bugs": "https://github.com/alitajs/alita-next/issues",
+  "homepage": "https://github.com/alitajs/alita-next/tree/master/packages/native#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "alita-micro": "^0.3.1",
-    "qrcode-terminal": "^0.12.0"
   }
 }

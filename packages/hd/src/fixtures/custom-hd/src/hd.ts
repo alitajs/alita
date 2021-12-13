@@ -1,1 +1,0 @@
-window.hd = (str) => str;

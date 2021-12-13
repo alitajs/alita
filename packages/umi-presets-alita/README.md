@@ -1,1 +1,0 @@
-# @alitajs/umi-presets-alita

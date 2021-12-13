@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "alita dev",
+    "plugin": "alita plugin list"
+  },
+  "dependencies": {
+    "@alita/plugins": "workspace:*",
+    "alita": "workspace:*"
+  }
+}

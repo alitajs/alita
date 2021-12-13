@@ -1,39 +1,40 @@
 {
   "name": "alita",
-  "version": "2.8.29",
-  "description": "umi 移动端方案插件集合",
-  "main": "index.js",
-  "module": "dist/index.esm.js",
-  "types": "types.d.ts",
+  "version": "0.0.0-alpha.1",
+  "description": "v3 develop version",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "index.esm.js",
   "bin": {
-    "alita": "./bin/alita.js"
+    "alita": "bin/alita.js"
   },
   "files": [
-    "bin",
-    "lib",
-    "dist",
-    "types.d.ts"
+    "dist"
   ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
+    "dev": "pnpm build -- --watch"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alitajs/alita"
+    "url": "https://github.com/alitajs/alita-next-step"
   },
-  "keywords": [
-    "umi",
-    "alita"
-  ],
   "authors": [
-    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+    "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
-  "bugs": "http://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita#readme",
+  "bugs": "https://github.com/alitajs/alita-next/issues",
+  "homepage": "https://github.com/alitajs/alita-next/tree/master/packages/alita#readme",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@alitajs/umi-presets-alita": "2.8.29",
-    "@umijs/types": "3.5.17",
-    "umi": "3.5.17"
+    "@alita/plugins": "workspace:*",
+    "@umijs/preset-umi": "link:/Users/congxiaochen/Documents/umi-next/packages/preset-umi",
+    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils",
+    "@umijs/core": "link:/Users/congxiaochen/Documents/umi-next/packages/core",
+    "umi": "link:/Users/congxiaochen/Documents/umi-next/packages/umi",
+    "v8-compile-cache": "^2.3.0"
   }
 }

@@ -1,67 +1,60 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "version": "0.0.0-alpha.1",
   "scripts": {
-    "add:contributing": "all-contributors add",
-    "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "father-build",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "link:alita": "cd packages/alita && yarn link && cd -",
-    "release": "node ./scripts/release.js",
-    "sync": "node ./scripts/cnpm.js",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage",
-    "test:update": "umi-test --updateSnapshot",
-    "update:deps": "yarn upgrade-interactive --latest"
+    "bootstrap": "esno scripts/bootstrap.ts",
+    "build": "pnpm -r --filter ./packages run build",
+    "build:release": "pnpm -r --filter ./packages run build -- --declarationMap false",
+    "dep:update": "esno scripts/checkNpmClient.ts && pnpm up --interactive --latest --recursive",
+    "dev": "pnpm -r --filter ./packages --parallel run dev",
+    "format": "prettier --write .",
+    "preinstall": "esno scripts/checkNpmClient.ts",
+    "prepare": "husky install",
+    "release": "esno scripts/release.ts",
+    "test": "jest",
+    "test:clean": "jest --clearCache",
+    "tsc:check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/rimraf": "3.0.2",
+    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils",
+    "alita": "workspace:*",
+    "esno": "^0.10.1",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "lerna": "^4.0.0",
+    "resolve": "^1.20.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.0-beta",
+    "uglify-js": "^3.14.2",
+    "yorkie": "^2.0.0",
+    "zx": "^4.2.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/resolve": "^1.20.1",
+    "@vercel/ncc": "^0.31.1",
+    "dts-packer": "^0.0.2",
+    "esbuild-jest": "^0.5.0",
+    "git-repo-info": "^2.1.1",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.5.0",
+    "prettier-plugin-organize-imports": "^2.3.4",
+    "prettier-plugin-packagejson": "^2.2.15",
+    "regenerator-runtime": "^0.13.9"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
+    "commit-msg": "esno scripts/verifyCommit.ts"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{jsx,less,md,json}": [
       "prettier --write"
     ],
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/react": "^11.2.6",
-    "@types/babel__core": "7.1.14",
-    "@types/babel__traverse": "7.11.1",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^15.0.3",
-    "@umijs/test": "^3.4.15",
-    "@umijs/test-utils": "^3.4.15",
-    "@umijs/types": "^3.4.15",
-    "@umijs/utils": "^3.4.15",
-    "all-contributors-cli": "6.20.0",
-    "cnpm": "6.2.0",
-    "escape-goat": "^3.0.0",
-    "father-build": "^1.19.5",
-    "git-repo-info": "^2.1.1",
-    "inquirer": "^7.3.3",
-    "lerna": "^4.0.0",
-    "lint-staged": "^11.0.0",
-    "new-github-release-url": "^1.0.0",
-    "npm-run-all": "^4.1.5",
-    "open": "^8.0.2",
-    "prettier": "2.2.1",
-    "husky": "6.0.0",
-    "yorkie": "^2.0.0",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/assert": "^1.5.4",
-    "@types/lodash": "^4.14.170",
-    "body-parser": "^1.18.2",
-    "cheerio": "^1.0.0-rc.9",
-    "express": "^4.15.3",
-    "pify": "^5.0.0",
-    "query-string": "^6.11.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.9.0"
   }
 }

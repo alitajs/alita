@@ -1,0 +1,160 @@
+import 'zx/globals';
+
+(async () => {
+  const root = path.join(__dirname, '..');
+  const pkgDir = path.join(root, 'packages');
+  const pkgs = await fs.readdir(pkgDir);
+
+  for (const pkg of pkgs) {
+    if (pkg.charAt(0) === '.') continue;
+    if (!(await fs.stat(path.join(pkgDir, pkg))).isDirectory()) continue;
+    await bootstrapPkg({
+      pkgDir,
+      pkg,
+      force: argv.force,
+    });
+  }
+
+  function getName(pkgName: string) {
+    if (['alita'].includes(pkgName)) {
+      return pkgName;
+    } else {
+      return `@alita/${pkgName}`;
+    }
+  }
+
+  function getVersion() {
+    return require('../package.json').version;
+  }
+
+  function setExcludeFolder(opts: any) {
+    if (!fs.existsSync(path.join(root, '.idea'))) return;
+    const configPath = path.join(root, '.idea', 'a li ta-next.iml');
+    let content = fs.readFileSync(configPath, 'utf-8');
+    const folders = ['dist', 'compiled'];
+    for (const folder of folders) {
+      console.log('test', folder);
+      const excludeContent = `<excludeFolder url='file://$MODULE_DIR$/packages/${opts.pkg}/${folder}' />`;
+      const replaceMatcher = `<content url="file://$MODULE_DIR$">`;
+      if (!content.includes(excludeContent)) {
+        content = content.replace(
+          replaceMatcher,
+          `${replaceMatcher}\n      ${excludeContent}`,
+        );
+      }
+    }
+    fs.writeFileSync(configPath, content, 'utf-8');
+  }
+
+  async function bootstrapPkg(opts: any) {
+    const pkgDir = path.join(opts.pkgDir, opts.pkg);
+    if (!opts.force && fs.existsSync(path.join(pkgDir, 'package.json'))) {
+      console.log(`${opts.pkg} exists`);
+    } else {
+      const name = getName(opts.pkg);
+
+      // package.json
+      const pkgPkgJSONPath = path.join(pkgDir, 'package.json');
+      const hasPkgJSON = fs.existsSync(pkgPkgJSONPath);
+      const pkgPkgJSON = hasPkgJSON ? require(pkgPkgJSONPath) : {};
+      fs.writeJSONSync(
+        pkgPkgJSONPath,
+        Object.assign(
+          {
+            name,
+            version: getVersion(),
+            description: name,
+            main: 'dist/index.js',
+            types: 'dist/index.d.ts',
+            files: ['dist'],
+            scripts: {
+              build: 'pnpm tsc',
+              'build:deps': 'pnpm esno ../../scripts/bundleDeps.ts',
+              dev: 'pnpm build -- --watch',
+            },
+            repository: {
+              type: 'git',
+              url: 'https://github.com/alitajs/alita-next',
+            },
+            authors: [
+              'xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)',
+            ],
+            license: 'MIT',
+            bugs: 'https://github.com/alitajs/alita-next/issues',
+            homepage: `https://github.com/alitajs/alita-next/tree/master/packages/${opts.pkg}#readme`,
+            publishConfig: {
+              access: 'public',
+            },
+          },
+          {
+            ...(hasPkgJSON
+              ? {
+                  authors: pkgPkgJSON.authors,
+                  bin: pkgPkgJSON.bin,
+                  files: pkgPkgJSON.files,
+                  scripts: pkgPkgJSON.scripts,
+                  description: pkgPkgJSON.description,
+                  dependencies: pkgPkgJSON.dependencies,
+                  devDependencies: pkgPkgJSON.devDependencies,
+                  compiledConfig: pkgPkgJSON.compiledConfig,
+                }
+              : {}),
+          },
+        ),
+        { spaces: '  ' },
+      );
+
+      // README.md
+      await fs.writeFile(
+        path.join(pkgDir, 'README.md'),
+        `# ${name}\n\nSee our website [alitajs](https://alitajs.com) for more information.`,
+        'utf-8',
+      );
+
+      // tsconfig.json
+      await fs.writeFile(
+        path.join(pkgDir, 'tsconfig.json'),
+        `{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"]
+}\n`,
+        'utf-8',
+      );
+
+      // src/index.ts
+      const srcDir = path.join(pkgDir, 'src');
+      if (!fs.existsSync(srcDir)) {
+        await $`mkdir ${srcDir}`;
+      }
+      if (!fs.existsSync(path.join(pkgDir, 'src', 'index.ts'))) {
+        await fs.writeFile(
+          path.join(pkgDir, 'src', 'index.ts'),
+          `
+export default () => {
+  return '${name}';
+};\n`.trimLeft(),
+          'utf-8',
+        );
+        await fs.writeFile(
+          path.join(pkgDir, 'src', 'index.test.ts'),
+          `
+import index from './index';
+
+test('normal', () => {
+  expect(index()).toEqual('${name}');
+});\n`.trimLeft(),
+          'utf-8',
+        );
+      }
+
+      // set excludeFolder for webstorm
+      setExcludeFolder({ pkg: opts.pkg });
+
+      console.log(chalk.green(`${opts.pkg} bootstrapped`));
+    }
+  }
+})();
