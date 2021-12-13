@@ -31,14 +31,17 @@
     "vconsole": "3.9.4"
   },
   "dependencies": {
+    "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
     "@alita/request": "0.0.0-alpha.1",
+    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils",
+    "alita": "workspace:*",
     "antd-mobile": "5.0.0-rc.2",
     "antd-mobile-v2": "2.3.4",
     "babel-plugin-import": "^1.13.3",
-    "semver": "7.3.5",
-    "alita": "workspace:*",
-    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils"
+    "history": "^5.1.0",
+    "react-router-dom": "^6.1.1",
+    "semver": "7.3.5"
   },
   "compiledConfig": {
     "deps": [

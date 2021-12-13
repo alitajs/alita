@@ -13,6 +13,7 @@ export default (api: AlitaApi) => {
       require.resolve('./keepalive'),
       require.resolve('./mainpath'),
       require.resolve('./request'),
+      require.resolve('./mobile-layout'),
     ],
   };
 };

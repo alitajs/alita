@@ -91,6 +91,7 @@ importers:
 
   packages/plugins:
     specifiers:
+      '@alita/alita-layout': ^3.0.5
       '@alita/inspx': 0.0.2
       '@alita/request': 0.0.0-alpha.1
       '@alitajs/postcss-plugin-px2rem': ^0.0.1
@@ -100,9 +101,12 @@ importers:
       antd-mobile: 5.0.0-rc.2
       antd-mobile-v2: 2.3.4
       babel-plugin-import: ^1.13.3
+      history: ^5.1.0
+      react-router-dom: ^6.1.1
       semver: 7.3.5
       vconsole: 3.9.4
     dependencies:
+      '@alita/alita-layout': 3.0.5
       '@alita/inspx': 0.0.2
       '@alita/request': link:../request
       '@umijs/utils': link:../../../umi-next/packages/utils
@@ -110,6 +114,8 @@ importers:
       antd-mobile: 5.0.0-rc.2
       antd-mobile-v2: 2.3.4
       babel-plugin-import: 1.13.3
+      history: 5.1.0
+      react-router-dom: 6.1.1
       semver: 7.3.5
     devDependencies:
       '@alitajs/postcss-plugin-px2rem': 0.0.1
@@ -139,6 +145,17 @@ packages:
     dependencies:
       lodash.debounce: 4.0.8
       lodash.throttle: 4.1.1
+    dev: false
+
+  /@alita/alita-layout/3.0.5:
+    resolution: {integrity: sha512-j4qSnDlpdMVA0UAKnLHKwvmkMnhWWMGtaJ1UUJGKLw8sUYqpreAvc/A18itqU202BSFgwwhJVuKDfGMfU22GOg==}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      antd-mobile-v2: 2.3.4
+      react: 16.14.0
+      react-router-dom: 6.1.1_react@16.14.0
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@alita/inspx/0.0.2:
@@ -4387,6 +4404,12 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /history/5.1.0:
+    resolution: {integrity: sha512-zPuQgPacm2vH2xdORvGGz1wQMuHSIB56yNAy5FnLuwOwgSYyPKptJtcMm6Ev+hRGeS+GzhbmRacHzvlESbFwDg==}
+    dependencies:
+      '@babel/runtime': 7.16.0
+    dev: false
+
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
@@ -7215,11 +7238,58 @@ packages:
       react-tween-state: 0.1.5
     dev: false
 
+  /react-router-dom/6.1.1:
+    resolution: {integrity: sha512-O3UH89DI4o+swd2q6lF4dSmpuNCxwkUXcj0zAFcVc1H+YoPE6T7uwoFMX0ws1pUvCY8lYDucFpOqCCdal6VFzg==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      history: 5.1.0
+      react-router: 6.1.1
+    dev: false
+
+  /react-router-dom/6.1.1_react@16.14.0:
+    resolution: {integrity: sha512-O3UH89DI4o+swd2q6lF4dSmpuNCxwkUXcj0zAFcVc1H+YoPE6T7uwoFMX0ws1pUvCY8lYDucFpOqCCdal6VFzg==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      history: 5.1.0
+      react: 16.14.0
+      react-router: 6.1.1_react@16.14.0
+    dev: false
+
+  /react-router/6.1.1:
+    resolution: {integrity: sha512-55o96RiDZmC0uD17DPqVmzzfdNd2Dc+EjkYvMAmHl43du/GItaTdFr5WwjTryNWPXZ+OOVQxQhwAX25UwxpHtw==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      history: 5.1.0
+    dev: false
+
+  /react-router/6.1.1_react@16.14.0:
+    resolution: {integrity: sha512-55o96RiDZmC0uD17DPqVmzzfdNd2Dc+EjkYvMAmHl43du/GItaTdFr5WwjTryNWPXZ+OOVQxQhwAX25UwxpHtw==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      history: 5.1.0
+      react: 16.14.0
+    dev: false
+
   /react-tween-state/0.1.5:
     resolution: {integrity: sha1-6YsGZVHvuTy5LdG+FJlcLj3q4zk=}
     dependencies:
       raf: 3.4.1
       tween-functions: 1.2.0
+    dev: false
+
+  /react/16.14.0:
+    resolution: {integrity: sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.7.2
     dev: false
 
   /read-cmd-shim/2.0.0:

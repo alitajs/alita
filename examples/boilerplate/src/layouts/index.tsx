@@ -1,11 +1,10 @@
+import { Link } from 'alita';
 import React from 'react';
-import { Link } from 'umi';
-import { useKeepOutlets } from '../.umi/plugin-keepalive/context';
+import AlitaLayout from '../.umi/mobile-layout/AlitaLayout';
 
-export default function Layout() {
-  const keepOutlets = useKeepOutlets();
+export default function Layout(props) {
   return (
-    <div>
+    <AlitaLayout {...props}>
       <h2>global layout</h2>
       <ul>
         <li>
@@ -18,7 +17,6 @@ export default function Layout() {
           <Link to="/users/foo">/users/foo</Link>
         </li>
       </ul>
-      {keepOutlets}
-    </div>
+    </AlitaLayout>
   );
 }

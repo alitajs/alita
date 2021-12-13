@@ -2,6 +2,7 @@ export default {
   keepalive: [/users/],
   hd: {},
   mfsu: false,
+  mobileLayout: true,
   request: {
     prefix: '/api',
     method: 'get',
