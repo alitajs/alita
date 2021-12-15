@@ -1,6 +1,16 @@
 import React from 'react';
-import { Link, useLocation, useNavigate, Outlet, useAppContext, useRouteContext } from 'umi';
+// export function rootContainer(container: any, opts: any) {
+//   return React.createElement(Foo, opts, container);
+// }
 
+function Foo(props: any) {
+  return (
+    <div>
+      <h1>Foo</h1>
+      {props.children}
+    </div>
+  );
+}
 
 const titleList = [
   {
@@ -56,20 +66,9 @@ const tabBar = {
   list: tabList,
 };
 
-const mobileLayout = {
+export const mobileLayout = {
   documentTitle: '默认标题',
   navBar,
   tabBar,
   titleList,
 };
-
-export default (props) => {
-  const { pluginManager } = useAppContext()
- 
-  return React.createElement(require('{{{ path }}}').default, {
-    layoutConfig:mobileLayout,
-    hasKeepAlive: {{{ hasKeepAlive }}},
-    ...props,
-    hideNavBar: {{{ isMicroApp }}},
-  })
-}

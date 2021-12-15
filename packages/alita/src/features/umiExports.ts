@@ -1,6 +1,6 @@
 import { lodash, winPath } from '@umijs/utils';
 import assert from 'assert';
-import { IApi } from 'umi';
+import { AlitaApi } from '../types';
 
 const reserveLibrarys = ['umi']; // reserve library
 const reserveExportsNames = [
@@ -71,7 +71,7 @@ export function generateExports({
   )}';`;
 }
 
-export default function (api: IApi) {
+export default function (api: AlitaApi) {
   api.registerMethod({ name: 'addUmiExports' });
   api.onGenerateFiles(async () => {
     const umiExports = await api.applyPlugins({

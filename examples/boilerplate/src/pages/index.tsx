@@ -1,4 +1,4 @@
-import { useRequest } from 'alita';
+import { setPageNavBar, useRequest } from 'alita';
 import { Button, Slider } from 'antd-mobile';
 import { Button as AntdButton } from 'antd-mobile-v2';
 import React from 'react';
@@ -13,8 +13,22 @@ export default function HomePage() {
   return (
     <div className={styles.title}>
       {loading ? 'Loading....' : JSON.stringify(data)}
-      <Button type="button" color="primary" fill="solid" block size="large">
-        123
+      <Button
+        type="button"
+        color="primary"
+        fill="solid"
+        block
+        size="large"
+        onClick={() => {
+          setPageNavBar({
+            pagePath: location.pathname,
+            navBar: {
+              pageTitle: '首页(new)',
+            },
+          });
+        }}
+      >
+        点我修改首页标题
       </Button>
       <Slider />
       <AntdButton>123</AntdButton>

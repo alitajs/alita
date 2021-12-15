@@ -2,6 +2,7 @@ import { Mustache, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
+import { withTmpPath } from './utils/withTmpPath';
 
 const DIR_NAME = 'mobile-layout';
 
@@ -76,16 +77,19 @@ export default (api: AlitaApi) => {
       content: `export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';`,
     });
   });
-  // TODO: modifyRoutes
-  // api.modifyRoutes((routes) => [
-  //   {
-  //     path: '/',
-  //     component: winPath(
-  //       join(api.paths.absTmpPath || '', DIR_NAME, 'AlitaLayout.tsx'),
-  //     ),
-  //     routes,
-  //   },
-  // ]);
+
+  api.addLayouts(() => {
+    return [
+      {
+        id: 'alita-layout',
+        file: withTmpPath({
+          api,
+          noPluginDir: true,
+          path: join(DIR_NAME, 'AlitaLayout.tsx'),
+        }),
+      },
+    ];
+  });
 
   api.addUmiExports(() => [
     {
