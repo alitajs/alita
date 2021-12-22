@@ -25,7 +25,7 @@
     "@alitajs/hd": "2.8.29",
     "@alitajs/keep-alive": "2.8.29",
     "@alitajs/layout": "2.8.29",
-    "@alitajs/plugin-antd-mobile": "2.8.29",
+    "@umijs/plugin-antd-mobile": "^1.1.0",
     "@alitajs/plugin-dva": "2.8.29",
     "@alitajs/plugin-request": "2.8.29",
     "@umijs/plugin-esbuild": "1.3.1",

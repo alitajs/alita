@@ -18,6 +18,14 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
+"@ahooksjs/use-request@^2.8.14":
+  version "2.8.15"
+  resolved "https://registry.yarnpkg.com/@ahooksjs/use-request/-/use-request-2.8.15.tgz#daa32a8395ba75e8deb9f4fde4e221a4a8f525db"
+  integrity sha512-xhVaM4fyIiAMdVFuuU5i3CFUdFa/IblF+fvITVMFaUEO3w/V5tVCAF6WIA3T03n1/RPuzRkA7Ao1PFtSGtGelw==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+
 "@alita/inspx@0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@alita/inspx/-/inspx-0.0.2.tgz#af3c4e864facb923f340c7a8321eb40859957fbb"
@@ -2586,6 +2594,16 @@
     "@react-spring/shared" "~9.3.0"
     "@react-spring/types" "~9.3.0"
 
+"@react-spring/web@^9.3.1":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.3.1.tgz#5b377ba7ad52e746c2b59e2738c021de3f219d0b"
+  integrity sha512-sisZIgFGva/Z+xKWPSfXpukF0AP3kR9ALTxlHL87fVotMUCJX5vtH/YlVcywToEFwTHKt3MpI5Wy2M+vgVEeaw==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
 "@rollup/plugin-babel@5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.2.1.tgz#20fc8f8864dc0eaa1c5578408459606808f72924"
@@ -3284,6 +3302,15 @@
     jest-worker "24.9.0"
     prettier "2.2.1"
 
+"@umijs/plugin-antd-mobile@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-antd-mobile/-/plugin-antd-mobile-1.1.0.tgz#c9838abb4a3ed6f8b1d55c78a94d8f41d48b2def"
+  integrity sha512-gfUFLxI+QVyTsBurc7UxZHG3MACXszgUSQDB2cJpyW8M4ryKsU4H66qFjBheaEUxUwjxMRB8CrblravuX7TYYg==
+  dependencies:
+    antd-mobile "^5.0.0-rc.0"
+    antd-mobile-v2 "^2.3.4"
+    semver "^7.3.5"
+
 "@umijs/plugin-antd@0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@umijs/plugin-antd/-/plugin-antd-0.13.0.tgz#9a7e2f21d37fa4200f25024047035b420557693a"
@@ -3450,6 +3477,11 @@
   resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.1.5.tgz#4b956bc8aa6354c20c668930c5cacb16fe4415e4"
   integrity sha512-Kr3POvOFEfyHyC3MStavQdXdXg8Ys3elJBpxty9tFhNQwOC0+hK/ZHp9vABkre9PCBB/4rtk5Y2t0RG4YUhCpw==
 
+"@use-gesture/core@10.2.4":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.2.4.tgz#139370223174b0589bd4b4f8ac7c0beb6ba64ba2"
+  integrity sha512-fk1LjCBj43BKb8NE05qkdtPOR0ngA7PwgvEqfFap/h+s7QHi+JTv4/mtDQ4wI9zzem+Ry5EKrHS/cVdBehI4wA==
+
 "@use-gesture/react@10.1.3":
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.1.3.tgz#a884f8a345a2a602a1aac42b11746f9e48fdc10f"
@@ -3463,6 +3495,13 @@
   integrity sha512-Lg3LcQa93MmBt+r2HzmtM+OCWsZ2oOE7jpwfHjXZGlhUWHnv5ZhLrtvNr8rAV2GlKRIjbF8q4BQmP7ahpIlZSQ==
   dependencies:
     "@use-gesture/core" "10.1.5"
+
+"@use-gesture/react@^10.2.4":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.2.4.tgz#b333e91b00670785ee32e8f4f1530ac6b8894bbc"
+  integrity sha512-CbqyRj+qNbRBOGmS8OWtaOa29fxEr7bKTYHvPuMQ1wsgQDh2/DqQxbp7cFxAg6WZ8oZjppDj/EkWnw22WpIIWQ==
+  dependencies:
+    "@use-gesture/core" "10.2.4"
 
 "@zeit/schemas@2.6.0":
   version "2.6.0"
@@ -3624,6 +3663,22 @@ ahooks@^2.10.12:
   integrity sha512-X3nZwr6+CSi1XjGyd/tQU1vF11mNaP4Bo0pdEdUL2ksBURQl0QZvDeUMrKBYHAStq7852P20ycVgu405XxDlFg==
   dependencies:
     "@ahooksjs/use-request" "^2.8.13"
+    "@types/js-cookie" "^2.2.6"
+    dayjs "^1.9.1"
+    intersection-observer "^0.7.0"
+    js-cookie "^2.2.1"
+    lodash.debounce "^4.0.8"
+    lodash.isequal "^4.5.0"
+    lodash.throttle "^4.1.1"
+    resize-observer-polyfill "^1.5.1"
+    screenfull "^5.0.0"
+
+ahooks@^2.10.14:
+  version "2.10.14"
+  resolved "https://registry.yarnpkg.com/ahooks/-/ahooks-2.10.14.tgz#e134a5846b610079775ba881192c9aacca9102a8"
+  integrity sha512-axWa7VoAgu7bxA56dDl0CXW4rvaQmDBiov/d3tAy0x1YNYywYMKokL8TdLgJ5zO/oXGiWmG7BxlGOQGkqE/zkQ==
+  dependencies:
+    "@ahooksjs/use-request" "^2.8.14"
     "@types/js-cookie" "^2.2.6"
     dayjs "^1.9.1"
     intersection-observer "^0.7.0"
@@ -3837,6 +3892,35 @@ antd-mobile-icons@^0.2.2:
   resolved "https://registry.yarnpkg.com/antd-mobile-icons/-/antd-mobile-icons-0.2.2.tgz#0e084d3ea5c642f60ab46e7ed3db74ad3dbacd52"
   integrity sha512-iquIc7EsQTndk5nMv9pQQv+/OY5YnjVIPhtCFo7W7JL+Gjqzq/YJ/HO2WxUxyCgYha2NsTTNAb2vPa/M4zAi2g==
 
+antd-mobile-v2@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/antd-mobile-v2/-/antd-mobile-v2-2.3.4.tgz#0a8713c9520d9aa4be7b686fcee867519bd0039f"
+  integrity sha512-GbRYdqh/5poQDplKcpK4aibqcS/Uy3/bqRRlDWGRt7FUuZbUBemOQ4ITeSiiH6DKPgPBa+S+iUHkTH3V5B/EiQ==
+  dependencies:
+    array-tree-filter "~2.1.0"
+    babel-runtime "6.x"
+    classnames "^2.2.1"
+    normalize.css "^7.0.0"
+    rc-checkbox "~2.0.0"
+    rc-collapse "~1.9.1"
+    rc-slider "~8.2.0"
+    rc-swipeout "~2.0.0"
+    rmc-calendar "^1.0.0"
+    rmc-cascader "~5.0.0"
+    rmc-date-picker "^6.0.8"
+    rmc-dialog "^1.0.1"
+    rmc-drawer "^0.4.11"
+    rmc-feedback "^2.0.0"
+    rmc-input-number "^1.0.0"
+    rmc-list-view "^0.11.0"
+    rmc-notification "~1.0.0"
+    rmc-nuka-carousel "~3.0.0"
+    rmc-picker "~5.0.0"
+    rmc-pull-to-refresh "~1.0.1"
+    rmc-steps "~1.0.0"
+    rmc-tabs "~1.2.0"
+    rmc-tooltip "~1.0.0"
+
 antd-mobile-v5-count@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/antd-mobile-v5-count/-/antd-mobile-v5-count-1.0.1.tgz#85f20c46d1635c24e856bcf5ad55e8c98e44a523"
@@ -3937,6 +4021,25 @@ antd-mobile@^2.3.1:
     rmc-steps "~1.0.0"
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
+
+antd-mobile@^5.0.0-rc.0:
+  version "5.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-5.0.0-rc.7.tgz#37e69dce94668eaba334485bf72f3a7e4abf2642"
+  integrity sha512-CMFWfypmT08HTxGhtA39sMLzSN90Mrg/Z5mAVAF7UPhOdUuM6qfM4GkBnK3KrVFP+z7KcrRG6xNWHj8VYhbB3g==
+  dependencies:
+    "@react-spring/web" "^9.3.1"
+    "@types/resize-observer-browser" "^0.1.6"
+    "@use-gesture/react" "^10.2.4"
+    ahooks "^2.10.14"
+    antd-mobile-icons "^0.2.2"
+    antd-mobile-v5-count "^1.0.1"
+    classnames "^2.3.1"
+    dayjs "^1.10.7"
+    lodash "^4.17.21"
+    rc-field-form "^1.22.0"
+    rc-tooltip "^5.1.1"
+    staged-components "^1.1.2"
+    use-async-memo "^1.2.3"
 
 antd@^4.1.3, antd@^4.12.3:
   version "4.16.13"
