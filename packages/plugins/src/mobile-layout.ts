@@ -1,4 +1,4 @@
-import { Mustache, winPath } from '@umijs/utils';
+import { logger, Mustache, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
@@ -7,6 +7,7 @@ import { withTmpPath } from './utils/withTmpPath';
 const DIR_NAME = 'mobile-layout';
 
 export default (api: AlitaApi) => {
+  logger.info('Using Mobile Layout Plugin');
   api.describe({
     key: 'mobileLayout',
     config: {
@@ -17,7 +18,8 @@ export default (api: AlitaApi) => {
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
   });
-  if (!api.userConfig.mobileLayout) return;
+  // 注册runtime配置
+  api.addRuntimePluginKey(() => ['mobileLayout']);
   const isMicroApp = api.userConfig.appType === 'micro';
 
   // 注册runtime配置
@@ -29,7 +31,7 @@ export default (api: AlitaApi) => {
       'utf-8',
     );
     api.writeTmpFile({
-      path: join(DIR_NAME, 'Layout.tsx'),
+      path: join(DIR_NAME, 'AlitaLayout.tsx'),
       noPluginDir: true,
       content: Mustache.render(layoutTpl, {
         alitalayout: winPath(
@@ -38,19 +40,6 @@ export default (api: AlitaApi) => {
         alitarequest: winPath(
           dirname(require.resolve('@alita/request/package')),
         ),
-      }),
-    });
-
-    const contentTpl = readFileSync(
-      join(__dirname, '..', 'templates', 'mobile-layout', 'content.tpl'),
-      'utf-8',
-    );
-
-    api.writeTmpFile({
-      path: join(DIR_NAME, 'AlitaLayout.tsx'),
-      noPluginDir: true,
-      content: Mustache.render(contentTpl, {
-        path: winPath(join(api.paths.absTmpPath || '', DIR_NAME, 'Layout.tsx')),
         hasKeepAlive: !!api.userConfig.keepalive,
         isMicroApp,
       }),
@@ -71,10 +60,22 @@ export default (api: AlitaApi) => {
       }),
     });
 
+    // api.writeTmpFile({
+    //   path: join(DIR_NAME, 'exports.ts'),
+    //   noPluginDir: true,
+    //   content: `export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';`,
+    // });
+
+    // index.ts for layout
     api.writeTmpFile({
-      path: join(DIR_NAME, 'exports.ts'),
+      path: join(DIR_NAME, 'index.ts'),
       noPluginDir: true,
-      content: `export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';`,
+      content: `
+      export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';
+      export * from '${winPath(
+        dirname(require.resolve('@alita/alita-layout/package')),
+      )}'
+      `,
     });
   });
 
@@ -90,15 +91,4 @@ export default (api: AlitaApi) => {
       },
     ];
   });
-
-  api.addUmiExports(() => [
-    {
-      exportAll: true,
-      source: join('..', DIR_NAME, 'exports.ts'),
-    },
-    {
-      exportAll: true,
-      source: winPath(dirname(require.resolve('@alita/alita-layout/package'))),
-    },
-  ]);
 };

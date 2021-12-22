@@ -1,16 +1,19 @@
-import React from 'react';
-// export function rootContainer(container: any, opts: any) {
-//   return React.createElement(Foo, opts, container);
-// }
+import HomeGary from '@/assets/demoIcon/home.png';
+import HomeBlue from '@/assets/demoIcon/home1.png';
+import ListGary from '@/assets/demoIcon/list.png';
+import ListBlue from '@/assets/demoIcon/list1.png';
+import SetGary from '@/assets/demoIcon/setting.png';
+import SetBlue from '@/assets/demoIcon/setting1.png';
 
-function Foo(props: any) {
-  return (
-    <div>
-      <h1>Foo</h1>
-      {props.children}
-    </div>
-  );
-}
+export const request = {
+  prefix: '/api',
+  method: 'get',
+  errorHandler: (error) => {
+    // 集中处理错误
+    console.log(11111111);
+    console.log(error);
+  },
+};
 
 const titleList = [
   {
@@ -38,6 +41,8 @@ const tabList = [
   {
     pagePath: '/',
     text: '首页',
+    iconPath: HomeGary,
+    selectedIconPath: HomeBlue,
     title: '首页',
     iconSize: '',
     badge: '',
@@ -45,6 +50,8 @@ const tabList = [
   {
     pagePath: '/users',
     text: '列表',
+    iconPath: ListGary,
+    selectedIconPath: ListBlue,
     title: '列表',
     iconSize: '',
     badge: '',
@@ -52,6 +59,8 @@ const tabList = [
   {
     pagePath: '/users/foo',
     text: '设置',
+    iconPath: SetGary,
+    selectedIconPath: SetBlue,
     title: '设置',
     iconSize: '',
     badge: '',

@@ -26,7 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "ahooks": "^3.0.0",
     "umi-request": "^1.4.0"
   }
 }

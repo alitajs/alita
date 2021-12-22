@@ -52,6 +52,15 @@ export default (api: AlitaApi) => {
         ),
       }),
     });
+
+    // index.ts for export
+    api.writeTmpFile({
+      noPluginDir: true,
+      path: `${DIR_NAME}/index.tsx`,
+      content: `
+export { KeepAliveContext,useKeepOutlets } from './context';
+`,
+    });
   });
   api.addRuntimePlugin(() => [
     join(api.paths.absTmpPath!, `${DIR_NAME}/runtime.tsx`),

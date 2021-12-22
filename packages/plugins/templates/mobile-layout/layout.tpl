@@ -4,14 +4,8 @@ import {
   useNavigate,
   useOutlet
 } from "react-router-dom";
-// import {
-//   getPageNavBar,
-//   KeepAliveLayout,
-//   getTabBarList,
-//   layoutEmitter,
-//   request,
-//   RequestMethodInUmi
-// } from '../core/umiExports';
+import { getPluginManager } from '../core/plugin';
+
 import {
   getPageNavBar,
   getTabBarList,
@@ -30,11 +24,7 @@ import AlitaLayout, {
 } from '{{{ alitalayout }}}';
 import { useKeepOutlets } from '../plugin-keepalive/context';
 
-interface ALitaLayoutProp extends AlitaLayoutProps {
-  onPageChange?: (request, pathname: string, prevPathName: string) => void;
-}
 interface BasicLayoutProps {
-  layoutConfig: ALitaLayoutProp;
   hasKeepAlive: boolean;
   hideNavBar: boolean;
   location: any;
@@ -107,12 +97,16 @@ const changeTabBarListConfig = (
 };
 
 let prevPathName = '/';
+const hasKeepAlive = {{{ hasKeepAlive }}};
+const hideNavBar = {{{ isMicroApp }}};
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});
   const [tabBarList, setTabBarList] = useState({});
-  const { children, layoutConfig, hasKeepAlive, hideNavBar, ...otherProps } = props;
+  const { children, ...otherProps } = props;
   const location = useLocation();
-  const { titleList, documentTitle, navBar, tabBar, onPageChange } = layoutConfig;
+  // mobile layout runtime config
+  const runtime = getPluginManager().applyPlugins({ key: 'mobileLayout',type: 'modify', initialValue: {} });
+  const { titleList, documentTitle, navBar, tabBar, onPageChange } = runtime;
   useEffect(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());

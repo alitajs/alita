@@ -96,22 +96,26 @@ importers:
       '@alita/request': 0.0.0-alpha.1
       '@alitajs/postcss-plugin-px2rem': ^0.0.1
       '@types/semver': ^7.3.9
+      '@umijs/plugins': link:/Users/congxiaochen/Documents/umi-next/packages/plugins
       '@umijs/utils': link:/Users/congxiaochen/Documents/umi-next/packages/utils
+      ahooks: ^3.0.8
       alita: workspace:*
-      antd-mobile: 5.0.0-rc.2
+      antd-mobile: 5.0.0-rc.7
       antd-mobile-v2: 2.3.4
       babel-plugin-import: ^1.13.3
       history: ^5.1.0
       react-router-dom: ^6.1.1
       semver: 7.3.5
-      vconsole: 3.9.4
+      vconsole: 3.10.0
     dependencies:
       '@alita/alita-layout': 3.0.5
       '@alita/inspx': 0.0.2
       '@alita/request': link:../request
+      '@umijs/plugins': link:../../../umi-next/packages/plugins
       '@umijs/utils': link:../../../umi-next/packages/utils
+      ahooks: 3.0.8
       alita: link:../alita
-      antd-mobile: 5.0.0-rc.2
+      antd-mobile: 5.0.0-rc.7
       antd-mobile-v2: 2.3.4
       babel-plugin-import: 1.13.3
       history: 5.1.0
@@ -120,7 +124,7 @@ importers:
     devDependencies:
       '@alitajs/postcss-plugin-px2rem': 0.0.1
       '@types/semver': 7.3.9
-      vconsole: 3.9.4
+      vconsole: 3.10.0
 
   packages/plugins/compiled/@alitajs/postcss-plugin-px2rem:
     specifiers: {}
@@ -130,10 +134,8 @@ importers:
 
   packages/request:
     specifiers:
-      ahooks: ^3.0.0
       umi-request: ^1.4.0
     dependencies:
-      ahooks: 3.0.0
       umi-request: 1.4.0
 
 packages:
@@ -552,20 +554,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@cspotcode/source-map-consumer': 0.8.0
-    dev: true
-
-  /@fortawesome/fontawesome-common-types/0.2.36:
-    resolution: {integrity: sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dev: true
-
-  /@fortawesome/free-solid-svg-icons/5.15.4:
-    resolution: {integrity: sha512-JLmQfz6tdtwxoihXLg6lT78BorrFyCf59SAwBM6qV/0zXyVeDygJVb3fk+j5Qat+Yvcxp1buLTY5iDh1ZSAQ8w==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.36
     dev: true
 
   /@gar/promisify/1.1.2:
@@ -1976,16 +1964,16 @@ packages:
       '@types/yargs-parser': 20.2.1
     dev: true
 
-  /@use-gesture/core/10.2.2:
-    resolution: {integrity: sha512-jIaKSHsruYcFEhUHVoFYLuucIVTx1QjUc8CEHD+SPZtwpY8kBPG0lHeNd6ZpX01llBaEygm3cPWFm+SstjTRoQ==}
+  /@use-gesture/core/10.2.4:
+    resolution: {integrity: sha512-fk1LjCBj43BKb8NE05qkdtPOR0ngA7PwgvEqfFap/h+s7QHi+JTv4/mtDQ4wI9zzem+Ry5EKrHS/cVdBehI4wA==}
     dev: false
 
-  /@use-gesture/react/10.2.2:
-    resolution: {integrity: sha512-ZRi/xAm/LWfWuAY3IKwCjdXylXAVIubcj3j100KcTdGPqfxxyYUhoT7bNOMMWu8H3oWiXbdwvZ90Wd5f/KfHMA==}
+  /@use-gesture/react/10.2.4:
+    resolution: {integrity: sha512-CbqyRj+qNbRBOGmS8OWtaOa29fxEr7bKTYHvPuMQ1wsgQDh2/DqQxbp7cFxAg6WZ8oZjppDj/EkWnw22WpIIWQ==}
     peerDependencies:
       react: '>= 16.8.0'
     dependencies:
-      '@use-gesture/core': 10.2.2
+      '@use-gesture/core': 10.2.4
     dev: false
 
   /@vercel/ncc/0.31.1:
@@ -2076,8 +2064,8 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ahooks/2.10.12:
-    resolution: {integrity: sha512-X3nZwr6+CSi1XjGyd/tQU1vF11mNaP4Bo0pdEdUL2ksBURQl0QZvDeUMrKBYHAStq7852P20ycVgu405XxDlFg==}
+  /ahooks/2.10.14:
+    resolution: {integrity: sha512-axWa7VoAgu7bxA56dDl0CXW4rvaQmDBiov/d3tAy0x1YNYywYMKokL8TdLgJ5zO/oXGiWmG7BxlGOQGkqE/zkQ==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       react: ^16.8.6 || ^17.0
@@ -2094,14 +2082,14 @@ packages:
       screenfull: 5.2.0
     dev: false
 
-  /ahooks/3.0.0:
-    resolution: {integrity: sha512-G2IdwqdeB8seJ8Oj4UF768cf5PpjwEOd8g0aRhqh8FwxT1gf37PQEkUigOS6ysqpfNmv5dU6UcjgVT/k5H4QKQ==}
+  /ahooks/3.0.8:
+    resolution: {integrity: sha512-5baHmCZHeuR5QKYdUyZwPhCT4MZJcyWsjSp7CdaE4XvnOsI8NSfLYld4KAIEHKUrNVUZxF3xi0/QGudAC4id8Q==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       react: ^16.8.6 || ^17.0
     dependencies:
       dayjs: 1.10.7
-      intersection-observer: 0.7.0
+      intersection-observer: 0.12.0
       js-cookie: 3.0.1
       lodash: 4.17.21
       resize-observer-polyfill: 1.5.1
@@ -2199,15 +2187,15 @@ packages:
     resolution: {integrity: sha512-YGsiEDCPUDz3SzfXi6gLZn/HpeSMW+jgPc4qiYUr1fSopg3hkUie2TnooJdExgfiETHefH3Ggs58He0OVfegLA==}
     dev: false
 
-  /antd-mobile/5.0.0-rc.2:
-    resolution: {integrity: sha512-jPrRv/pbSsqKAU59DrBOH0isvWoVwx93e+fZ5fnAw35uGoTbMfOQbxa9DTcj5676/+Hp0f9z4DHqb10vdNWOOQ==}
+  /antd-mobile/5.0.0-rc.7:
+    resolution: {integrity: sha512-CMFWfypmT08HTxGhtA39sMLzSN90Mrg/Z5mAVAF7UPhOdUuM6qfM4GkBnK3KrVFP+z7KcrRG6xNWHj8VYhbB3g==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
     dependencies:
       '@react-spring/web': 9.3.1
       '@types/resize-observer-browser': 0.1.6
-      '@use-gesture/react': 10.2.2
-      ahooks: 2.10.12
+      '@use-gesture/react': 10.2.4
+      ahooks: 2.10.14
       antd-mobile-icons: 0.2.2
       antd-mobile-v5-count: 1.0.1
       classnames: 2.3.1
@@ -3070,8 +3058,8 @@ packages:
     requiresBuild: true
     dev: false
 
-  /core-js/3.19.1:
-    resolution: {integrity: sha512-Tnc7E9iKd/b/ff7GFbhwPVzJzPztGrChB8X8GLqoYGdEOG8IpLnK1xPyo3ZoO3HsK6TodJS58VGPOxA+hLHQMg==}
+  /core-js/3.20.0:
+    resolution: {integrity: sha512-KjbKU7UEfg4YPpskMtMXPhUKn7m/1OdTHTVjy09ScR2LVaoUXe8Jh0UdvN2EKUR6iKTJph52SJP95mAB0MnVLQ==}
     requiresBuild: true
     dev: true
 
@@ -4601,6 +4589,10 @@ packages:
       has: 1.0.3
       side-channel: 1.0.4
     dev: true
+
+  /intersection-observer/0.12.0:
+    resolution: {integrity: sha512-2Vkz8z46Dv401zTWudDGwO7KiGHNDkMv417T5ItcNYfmvHR/1qCTVBO9vwH8zZmQ0WkA/1ARwpysR9bsnop4NQ==}
+    dev: false
 
   /intersection-observer/0.7.0:
     resolution: {integrity: sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==}
@@ -8305,10 +8297,6 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /svelte-fa/2.3.3:
-    resolution: {integrity: sha512-Izq+L4H9FEsoClSsYe35KuMP+2CUltJq8eP6qrQp9q52zYxRNMQTO3dYylr6K1fFmhKiWcw9q1hUzIiyrJx8dQ==}
-    dev: true
-
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
@@ -8729,15 +8717,13 @@ packages:
       builtins: 1.0.3
     dev: true
 
-  /vconsole/3.9.4:
-    resolution: {integrity: sha512-5rZn36eKqhANrT5ThR7QAmdal46kW5bVlonf6BFv/EWlphdG2E783MdZ6/AcBOkDNBW9V1G76Tykfkdk04JOYg==}
+  /vconsole/3.10.0:
+    resolution: {integrity: sha512-xXRr+m9jJpUu3GhV6uZc/xm/lNAH9ULzal1VX/NxNlzYT9bNGQFgAuRT0yCZVCHEiZL/lXg7SyqiRUy6IvWv7g==}
     dependencies:
-      '@fortawesome/free-solid-svg-icons': 5.15.4
       cookie-storage: 6.1.0
       copy-text-to-clipboard: 3.0.1
-      core-js: 3.19.1
+      core-js: 3.20.0
       mutation-observer: 1.0.3
-      svelte-fa: 2.3.3
     dev: true
 
   /verror/1.10.0:

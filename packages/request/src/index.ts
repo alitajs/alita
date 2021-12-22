@@ -1,4 +1,3 @@
-import { useRequest } from 'ahooks';
 import {
   extend,
   OnionMiddleware,
@@ -76,4 +75,4 @@ const getRequestConfig = () => {
   return requestConfig;
 };
 
-export { request, useRequest, setRequestConfig, getRequestConfig };
+export { request, setRequestConfig, getRequestConfig };

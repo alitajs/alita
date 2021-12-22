@@ -16,8 +16,10 @@ export default (api: IApi) => {
       type: 'none',
       exclude: [],
     },
+    hd: {},
     dva: {},
-    antd: {},
+    mobileLayout: true,
+    request: {},
     displayName: 'displayName',
     routesExtend: {
       // 规定只有index文件会被识别成路由
@@ -46,7 +48,7 @@ export default (api: IApi) => {
       ],
     };
   }
-  api.modifyDefaultConfig((memo) => {
+  api.modifyConfig((memo) => {
     return {
       ...memo,
       ...configDefaults,

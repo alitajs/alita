@@ -8,7 +8,8 @@ export default (api: IApi) => {
     plugins: [
       require.resolve('./features/config/config'),
       require.resolve('./features/apptype'),
-      require.resolve('./features/umiExports'),
+      // mfsu no support
+      // require.resolve('./features/umiExports'),
     ],
   };
 };
