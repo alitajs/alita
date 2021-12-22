@@ -1,8 +1,10 @@
 export default {
+  appType: 'h5',
   keepalive: [/users/],
-  hd: {},
-  // mfsu: false,
+  aconsole: {
+    console: {},
+    inspx: {},
+  },
+  // TODO: dva 配置内收
   dva: {},
-  mobileLayout: true,
-  request: {},
 };

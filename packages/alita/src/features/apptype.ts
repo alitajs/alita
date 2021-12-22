@@ -12,13 +12,6 @@ export default (api: IApi) => {
   });
 
   if (api.userConfig.appType !== 'pc') {
-    api.modifyDefaultConfig((memo) => {
-      return {
-        ...memo,
-        hd: {},
-      };
-    });
-
     api.addHTMLMetas(() => {
       const addItem = {
         content: 'telephone=no',

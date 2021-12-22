@@ -10,8 +10,9 @@ const DIR_NAME = 'plugin-keepalive';
 // dropByCacheKey('/list');
 type KeepAliveType = (string | RegExp)[];
 export default (api: AlitaApi) => {
-  logger.info('Using KeepAlive Plugin');
-
+  api.onStart(() => {
+    logger.info('Using KeepAlive Plugin');
+  });
   api.describe({
     key: 'keepalive',
     config: {
@@ -19,6 +20,7 @@ export default (api: AlitaApi) => {
         return Joi.array().items(Joi.alternatives(Joi.string(), Joi.any()));
       },
     },
+    enableBy: api.EnableBy.config,
   });
 
   const configStringify = (config: (string | RegExp)[]) => {

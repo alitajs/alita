@@ -9,8 +9,12 @@ import getFile from './utils/getFile/getFile';
 const DIR_NAME = 'plugin-hd';
 
 export default (api: AlitaApi) => {
-  logger.info('Using HD Plugin');
-
+  api.onStart(() => {
+    logger.info('Using HD Plugin');
+  });
+  const enableBy = (opts: any) => {
+    return opts.config.appType !== 'pc' || opts.config.hd;
+  };
   api.describe({
     key: 'hd',
     config: {
@@ -21,6 +25,7 @@ export default (api: AlitaApi) => {
         });
       },
     },
+    enableBy,
   });
 
   api.modifyDefaultConfig((config) => {

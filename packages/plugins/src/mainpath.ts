@@ -3,8 +3,9 @@ import { AlitaApi } from 'alita';
 // import resetMainPath from './utils/resetMainPath/resetMainPath';
 
 export default (api: AlitaApi) => {
-  logger.info('Using Main Path Plugin');
-
+  api.onStart(() => {
+    logger.info('Using Main Path Plugin');
+  });
   api.describe({
     key: 'mainPath',
     config: {
@@ -12,6 +13,7 @@ export default (api: AlitaApi) => {
         return joi.string();
       },
     },
+    enableBy: api.EnableBy.config,
   });
 
   if (api.userConfig.mainPath) {

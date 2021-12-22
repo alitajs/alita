@@ -33,16 +33,18 @@ const checkAntdMobile = (api: AlitaApi) => {
  * (为了满足 antd-mobile 2 到 5 的过渡，更改此插件之前请先仔细阅读上述需求)
  */
 export default (api: AlitaApi) => {
-  logger.info('Using Antd Mobile Plugin');
-
-  api.describe({
-    key: 'hd',
-    config: {
-      schema(Joi) {
-        return Joi.object({});
-      },
-    },
+  api.onStart(() => {
+    logger.info('Using Antd Mobile Plugin');
   });
+
+  // api.describe({
+  //   key: 'hd',
+  //   config: {
+  //     schema(Joi) {
+  //       return Joi.object({});
+  //     },
+  //   },
+  // });
   // babel-plugin-import
   api.addExtraBabelPlugins(() => {
     const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
@@ -131,6 +133,8 @@ export default (api: AlitaApi) => {
       getUserLibDir({ library: 'antd-mobile-v2' }) ||
         dirname(require.resolve('antd-mobile-v2/package.json')),
     );
+    console.log('mobile plugin chainWebpack');
+    console.log(api.config.hd);
     //如果项目中安装的是 antd-mobile@5 优先使用用户项目中安装的 antd-mobile，否则忽略用户安装，强制指定 mobile@5 版本
     memo.resolve.alias.set(
       'antd-mobile',
@@ -145,7 +149,7 @@ export default (api: AlitaApi) => {
                 })
               : require.resolve('antd-mobile/package.json'),
           ),
-          isAntdMobile5 && api.userConfig.hd ? '2x' : '',
+          isAntdMobile5 && api.config.hd ? '2x' : '',
         ),
       ),
     );

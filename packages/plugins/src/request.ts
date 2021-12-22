@@ -3,8 +3,9 @@ import { AlitaApi } from 'alita';
 import { dirname } from 'path';
 
 export default (api: AlitaApi) => {
-  logger.info('Using Request Plugin');
-
+  api.onStart(() => {
+    logger.info('Using Request Plugin');
+  });
   api.describe({
     key: 'request',
     config: {
@@ -12,6 +13,7 @@ export default (api: AlitaApi) => {
         return Joi.object();
       },
     },
+    enableBy: api.EnableBy.config,
   });
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['request']);

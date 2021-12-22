@@ -7,16 +7,18 @@ import { withTmpPath } from './utils/withTmpPath';
 const DIR_NAME = 'mobile-layout';
 
 export default (api: AlitaApi) => {
-  logger.info('Using Mobile Layout Plugin');
+  api.onStart(() => {
+    logger.info('Using Mobile Layout Plugin');
+  });
   api.describe({
     key: 'mobileLayout',
     config: {
-      default: {},
       schema(Joi) {
         return Joi.boolean();
       },
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
+    enableBy: api.EnableBy.config,
   });
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['mobileLayout']);

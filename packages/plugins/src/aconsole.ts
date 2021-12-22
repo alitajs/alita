@@ -2,12 +2,12 @@ import { logger, Mustache, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
-
-const DIR_NAME = 'plugin-inspx';
+import { withTmpPath } from './utils/withTmpPath';
 
 export default (api: AlitaApi) => {
-  logger.info('Using AConsole Plugin');
-
+  api.onStart(() => {
+    logger.info('Using AConsole Plugin');
+  });
   const { userConfig } = api;
   const { aconsole = {} } = userConfig;
 
@@ -37,6 +37,7 @@ export default (api: AlitaApi) => {
         });
       },
     },
+    enableBy: api.EnableBy.config,
   });
 
   if (aconsole?.console) {
@@ -74,8 +75,7 @@ export default (api: AlitaApi) => {
           'utf-8',
         );
         api.writeTmpFile({
-          path: `${DIR_NAME}/inspx.tsx`,
-          noPluginDir: true,
+          path: 'inspx.tsx',
           content: Mustache.render(inspxTpl, {
             // inspxpath: join(__dirname,'..','compiled','@alita','inspx'),
             inspxpath: winPath(
@@ -101,14 +101,16 @@ export default (api: AlitaApi) => {
           'utf-8',
         );
         api.writeTmpFile({
-          path: `${DIR_NAME}/runtime.tsx`,
-          noPluginDir: true,
+          path: 'runtime.tsx',
           content: runtimeTpl,
         });
       },
     });
     api.addRuntimePlugin(() => [
-      join(api.paths.absTmpPath!, `${DIR_NAME}/runtime.tsx`),
+      withTmpPath({
+        api,
+        path: 'runtime.tsx',
+      }),
     ]);
   }
 };
