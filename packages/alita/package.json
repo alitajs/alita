@@ -31,10 +31,10 @@
   },
   "dependencies": {
     "@alita/plugins": "workspace:*",
-    "@umijs/preset-umi": "link:/Users/congxiaochen/Documents/umi-next/packages/preset-umi",
-    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils",
-    "@umijs/core": "link:/Users/congxiaochen/Documents/umi-next/packages/core",
-    "umi": "link:/Users/congxiaochen/Documents/umi-next/packages/umi",
+    "@umijs/preset-umi": "4.0.0-beta.13",
+    "@umijs/utils": "4.0.0-beta.13",
+    "@umijs/core": "4.0.0-beta.13",
+    "umi": "4.0.0-beta.13",
     "v8-compile-cache": "^2.3.0"
   }
 }

@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/rimraf": "3.0.2",
-    "@umijs/utils": "link:/Users/congxiaochen/Documents/umi-next/packages/utils",
+    "@umijs/utils": "4.0.0-beta.13",
     "alita": "workspace:*",
     "esno": "^0.10.1",
     "husky": "^7.0.4",
