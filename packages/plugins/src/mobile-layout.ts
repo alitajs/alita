@@ -24,9 +24,6 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => ['mobileLayout']);
   const isMicroApp = api.userConfig.appType === 'micro';
 
-  // 注册runtime配置
-  api.addRuntimePluginKey(() => ['mobileLayout']);
-
   api.onGenerateFiles(() => {
     const layoutTpl = readFileSync(
       join(__dirname, '..', 'templates', 'mobile-layout', 'layout.tpl'),
