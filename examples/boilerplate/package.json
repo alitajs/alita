@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "rm -rf .mfsu && alita dev",
+    "build": "alita build",
     "plugin": "alita plugin list"
   },
   "dependencies": {
