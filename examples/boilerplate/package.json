@@ -1,4 +1,6 @@
 {
+  "name": "boilerplate",
+  "private": true,
   "scripts": {
     "dev": "rm -rf .mfsu && alita dev",
     "build": "alita build",
