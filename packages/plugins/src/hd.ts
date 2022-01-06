@@ -70,6 +70,7 @@ export default (api: AlitaApi) => {
       type: 'javascript',
       fileNameWithoutExt: 'hd',
     });
+
     return [
       {
         source: hdFile

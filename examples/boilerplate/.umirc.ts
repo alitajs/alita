@@ -5,6 +5,9 @@ export default {
     console: {},
     inspx: {},
   },
+  mobileLayout: true,
+  request: {},
   // TODO: dva 配置内收
   dva: {},
+  mfsu: {},
 };

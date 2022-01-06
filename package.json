@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.0-alpha.1",
+  "version": "3.0.0-alpha.1",
   "scripts": {
     "bootstrap": "esno scripts/bootstrap.ts",
     "build": "pnpm -r --filter ./packages run build",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/rimraf": "3.0.2",
-    "@umijs/utils": "4.0.0-beta.13",
+    "@umijs/utils": "4.0.0-beta.15",
     "alita": "workspace:*",
     "esno": "^0.10.1",
     "husky": "^7.0.4",

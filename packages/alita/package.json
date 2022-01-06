@@ -1,13 +1,9 @@
 {
   "name": "alita",
-  "version": "0.0.0-alpha.1",
+  "version": "3.0.0-alpha.1",
   "description": "v3 develop version",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "module": "index.esm.js",
-  "bin": {
-    "alita": "bin/alita.js"
-  },
   "files": [
     "dist"
   ],
@@ -18,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alitajs/alita-next-step"
+    "url": "https://github.com/alitajs/alita-next"
   },
   "authors": [
     "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
@@ -29,12 +25,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "bin": {
+    "alita": "bin/alita.js"
+  },
   "dependencies": {
     "@alita/plugins": "workspace:*",
-    "@umijs/preset-umi": "4.0.0-beta.13",
-    "@umijs/utils": "4.0.0-beta.13",
-    "@umijs/core": "4.0.0-beta.13",
-    "umi": "4.0.0-beta.13",
+    "@umijs/preset-umi": "4.0.0-beta.15",
+    "@umijs/utils": "4.0.0-beta.15",
+    "@umijs/core": "4.0.0-beta.15",
+    "umi": "4.0.0-beta.15",
     "v8-compile-cache": "^2.3.0"
   }
 }

@@ -1,4 +1,4 @@
-import * as logger from '@umijs/utils/src/logger';
+import { logger } from '@umijs/utils';
 import getGitRepoInfo from 'git-repo-info';
 import { join } from 'path';
 import rimraf from 'rimraf';
@@ -70,9 +70,35 @@ import { assert, eachPkg, getPkgs } from './utils';
   await $`lerna version --exact --no-commit-hooks --no-git-tag-version --no-push --loglevel error`;
   const version = require('../lerna.json').version;
 
+  // update example versions
+  logger.event('update example versions');
+  const examples = fs
+    .readdirSync(join(__dirname, '../examples'))
+    .filter((dir) => {
+      return !dir.startsWith('.');
+    });
+  examples.forEach((example) => {
+    const pkg = require(join(
+      __dirname,
+      '../examples',
+      example,
+      'package.json',
+    ));
+    pkg.scripts['start'] = 'npm run dev';
+    pkg.dependencies ||= {};
+    if (pkg.dependencies['alita']) pkg.dependencies['alita'] = version;
+    delete pkg.version;
+    fs.writeFileSync(
+      join(__dirname, '../examples', example, 'package.json'),
+      JSON.stringify(pkg, null, 2),
+    );
+  });
+
   // update pnpm lockfile
   logger.event('update pnpm lockfile');
+  $.verbose = false;
   await $`pnpm i`;
+  $.verbose = true;
 
   // commit
   logger.event('commit');
@@ -88,7 +114,11 @@ import { assert, eachPkg, getPkgs } from './utils';
 
   // npm publish
   logger.event('pnpm publish');
-  const innerPkgs = pkgs.filter((pkg) => !['alita'].includes(pkg));
+  $.verbose = false;
+  const innerPkgs = pkgs.filter(
+    // do not publish father
+    (pkg) => !['alita'].includes(pkg),
+  );
   const tag =
     version.includes('-alpha.') ||
     version.includes('-beta.') ||
@@ -98,9 +128,13 @@ import { assert, eachPkg, getPkgs } from './utils';
   await Promise.all(
     innerPkgs.map(async (pkg) => {
       await $`cd packages/${pkg} && npm publish --tag ${tag}`;
+      logger.info(`+ ${pkg}`);
     }),
   );
   await $`cd packages/alita && npm publish --tag ${tag}`;
+  logger.info(`+ alita`);
+
+  $.verbose = true;
 
   // sync tnpm
   logger.event('sync tnpm');
