@@ -10,14 +10,20 @@
     "format": "prettier --write .",
     "preinstall": "esno scripts/checkNpmClient.ts",
     "prepare": "husky install",
-    "release": "esno scripts/release.ts",
     "test": "jest",
     "test:clean": "jest --clearCache",
-    "tsc:check": "tsc --noEmit"
+    "tsc:check": "tsc --noEmit",
+    "prereleases": "changeset pre enter beta",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish --registry=https://registry.npmjs.com/"
   },
   "devDependencies": {
     "@types/rimraf": "3.0.2",
     "@umijs/utils": "4.0.0-beta.15",
+    "@changesets/cli": "2.19.0",
+    "@changesets/changelog-github": "0.4.2",
     "alita": "workspace:*",
     "esno": "^0.10.1",
     "husky": "^7.0.4",
