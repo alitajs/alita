@@ -2,11 +2,12 @@
   "mode": "pre",
   "tag": "beta",
   "initialVersions": {
+    "boilerplate": "1.0.0",
     "alita": "3.0.0-alpha.1",
     "@alita/create-alita": "3.0.0-alpha.1",
     "@alita/native": "3.0.0-alpha.1",
     "@alita/plugins": "3.0.0-alpha.1",
     "@alita/request": "3.0.0-alpha.1"
   },
-  "changesets": []
+  "changesets": ["light-scissors-wink", "red-masks-return"]
 }
