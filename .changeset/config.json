@@ -9,7 +9,5 @@
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "updateInternalDependents": "always"
   },
-  "ignore": [
-    "boilerplate"
-  ]
+  "ignore": ["boilerplate"]
 }

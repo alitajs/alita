@@ -7,6 +7,7 @@ export default {
   },
   mobileLayout: true,
   request: {},
+  polyfill: false,
   // TODO: dva 配置内收
   dva: {},
   mfsu: {},

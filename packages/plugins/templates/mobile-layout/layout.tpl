@@ -22,10 +22,11 @@ import AlitaLayout, {
   NavBarListItem,
   TabBarProps,
 } from '{{{ alitalayout }}}';
+{{#hasKeepAlive}}
 import { useKeepOutlets } from '../plugin-keepalive/context';
+{{/hasKeepAlive}}
 
 interface BasicLayoutProps {
-  hasKeepAlive: boolean;
   hideNavBar: boolean;
   location: any;
 }
@@ -97,7 +98,6 @@ const changeTabBarListConfig = (
 };
 
 let prevPathName = '/';
-const hasKeepAlive = {{{ hasKeepAlive }}};
 const hideNavBar = {{{ isMicroApp }}};
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [pageNavBar, setPageNavBar] = useState({});
@@ -120,9 +120,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     setTabBarList(getTabBarList());
   });
   let element = useOutlet();
-  if (hasKeepAlive) {
-    element = useKeepOutlets();
-  }
+{{#hasKeepAlive}}
+  element = useKeepOutlets();
+{{/hasKeepAlive}}
   const newNavBar = changeNavBarConfig(navBar, pageNavBar);
   const newTabBarList = changeTabBarListConfig(tabBar, tabBarList);
   const layout = {
