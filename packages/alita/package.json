@@ -30,10 +30,10 @@
   },
   "dependencies": {
     "@alita/plugins": "workspace:*",
-    "@umijs/preset-umi": "4.0.0-beta.15",
-    "@umijs/utils": "4.0.0-beta.15",
-    "@umijs/core": "4.0.0-beta.15",
-    "umi": "4.0.0-beta.15",
+    "@umijs/preset-umi": "4.0.0-beta.16",
+    "@umijs/utils": "4.0.0-beta.16",
+    "@umijs/core": "4.0.0-beta.16",
+    "umi": "4.0.0-beta.16",
     "v8-compile-cache": "^2.3.0"
   }
 }
