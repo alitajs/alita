@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { withTmpPath } from './utils/withTmpPath';
 
-const DIR_NAME = 'mobile-layout';
+const DIR_NAME = 'plugin-mobile-layout';
 
 export default (api: AlitaApi) => {
   api.onStart(() => {

@@ -66,7 +66,7 @@ import 'zx/globals';
             description: name,
             main: 'dist/index.js',
             types: 'dist/index.d.ts',
-            files: ['dist'],
+            files: ['dist', 'compiled'],
             scripts: {
               build: 'pnpm tsc',
               'build:deps': 'pnpm esno ../../scripts/bundleDeps.ts',
