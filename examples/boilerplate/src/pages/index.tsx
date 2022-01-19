@@ -1,3 +1,4 @@
+import { query } from '@/services/api';
 import {
   connect,
   ConnectProps,
@@ -8,7 +9,6 @@ import {
 import { Button, Input, List, Slider } from 'antd-mobile';
 import { Button as AntdButton } from 'antd-mobile-v2';
 import React, { useState } from 'react';
-import { query } from '../services/api';
 import './global.less';
 // @ts-ignore
 import styles from './index.less';
@@ -23,7 +23,16 @@ const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
   const { name } = index;
 
   return (
-    <div className={styles.title}>
+    <div
+      className={styles.title}
+      x-class={[
+        'foo',
+        {
+          bar: true,
+          active: true,
+        },
+      ]}
+    >
       <h2>请求到的数据是：</h2>
       {loading ? 'Loading....' : JSON.stringify(data)}
       <Button
