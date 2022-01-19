@@ -17,9 +17,28 @@ export default (api: AlitaApi) => {
   });
 
   if (api.userConfig.mainPath) {
-    // TODO: api.modifyRoutes
-    // api.modifyRoutes((routes: any[]) => {
-    //   return resetMainPath(routes, api.config.mainPath);
-    // });
+    const mainPath = api.userConfig.mainPath.startsWith('/')
+      ? api.userConfig.mainPath
+      : `/${api.userConfig.mainPath}`;
+    api.modifyRoutes((memo) => {
+      Object.keys(memo).forEach((id) => {
+        const route = memo[id];
+        if (`/${route.path}` === mainPath && !route.isMainPath) {
+          Object.keys(memo).forEach((key) => {
+            const main = memo[key];
+            if (
+              main.path === '/' &&
+              (main.id === 'index' || main.id === 'index/index')
+            ) {
+              let file = memo[key].file;
+              memo[key].file = memo[id].file;
+              memo[id].file = file;
+              memo[id].isMainPath = true;
+            }
+          });
+        }
+      });
+      return memo;
+    });
   }
 };
