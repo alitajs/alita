@@ -1,24 +1,11 @@
 import { query } from '@/services/api';
-// import { Effect, Reducer } from 'dva';
+import type { DvaModel } from 'alita';
 
-export interface Effect {}
-export interface Reducer<T> {}
 export interface IndexModelState {
   name: string;
 }
 
-export interface IndexModelType {
-  namespace: 'index';
-  state: IndexModelState;
-  effects: {
-    query: Effect;
-  };
-  reducers: {
-    save: Reducer<IndexModelState>;
-  };
-}
-
-const IndexModel: IndexModelType = {
+const IndexModel: DvaModel<IndexModelState> = {
   namespace: 'index',
 
   state: {

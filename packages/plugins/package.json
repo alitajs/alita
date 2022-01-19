@@ -31,6 +31,7 @@
     "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
     "@alita/request": "3.0.0-beta.3",
+    "@umijs/bundler-utils": "4.0.0-beta.16",
     "@umijs/plugins": "4.0.0-beta.16",
     "@umijs/utils": "4.0.0-beta.16",
     "ahooks": "^3.0.8",
@@ -38,8 +39,11 @@
     "antd-mobile": "5.0.0-rc.7",
     "antd-mobile-v2": "2.3.4",
     "babel-plugin-import": "^1.13.3",
+    "dva-core": "^2.0.4",
     "history": "^5.1.0",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.1.1",
+    "redux": "^4.1.2",
     "semver": "7.3.5"
   },
   "devDependencies": {

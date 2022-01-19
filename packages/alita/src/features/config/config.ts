@@ -6,9 +6,9 @@ export default (api: IApi) => {
   const configDefaults: Record<string, any> = {
     // history: { type: 'hash' },
     // title: false, // 默认内置了 Helmet
-    // targets: {
-    //   ie: 9,
-    // },
+    targets: {
+      ie: 9,
+    },
     // hash: true,
     // esbuild: {},
     // 不需要路由按需加载，只需要支持 import() 语法的 code splitting
@@ -19,10 +19,13 @@ export default (api: IApi) => {
     // },
     // 这里不能控制 hd ，因为 hd 插件中，也包含了 modifyDefaultConfig 方法，umi 规则 modifyDefaultConfig 和 modifyConfig 只能通过 userConfig 控制
     hd: api.userConfig.appType !== 'pc' ? {} : false,
-    dva: {},
+    dva: {
+      enableModelsReExport: true,
+    },
     mobileLayout: true,
     request: {},
     displayName: 'alita-demo',
+    // conventionRoutes
     // routesExtend: {
     //   // 规定只有index文件会被识别成路由
     //   exclude: [
@@ -50,11 +53,12 @@ export default (api: IApi) => {
   //     ],
   //   };
   // }
-  api.modifyConfig((memo) => {
-    return {
-      ...memo,
-      ...configDefaults,
-    };
+  api.modifyConfig((memo: any) => {
+    memo.alias.alita = 'umi';
+    Object.keys(configDefaults).forEach((key) => {
+      memo[key] = configDefaults[key];
+    });
+    return memo;
   });
 
   const extraSchemas = getSchemas();

@@ -31,7 +31,7 @@ export async function run(opts: IOpts = {}) {
   // TODO: @alita/plugin dev ,remove require.resolve('@alita/plugins')
   opts.presets = opts?.presets ?? [
     require.resolve('./preset'),
-    require.resolve('@alita/plugins'),
+    // require.resolve('@alita/plugins'),
   ];
   if (opts?.presets) {
     process.env.UMI_PRESETS = opts.presets.join(',');

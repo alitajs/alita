@@ -6,6 +6,9 @@ export default (api: AlitaApi) => {
   api.onStart(() => {
     logger.info('Using Request Plugin');
   });
+  const enableBy = (opts: any) => {
+    return !!opts.config.request;
+  };
   api.describe({
     key: 'request',
     config: {
@@ -13,7 +16,7 @@ export default (api: AlitaApi) => {
         return Joi.object();
       },
     },
-    enableBy: api.EnableBy.config,
+    enableBy,
   });
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['request']);

@@ -1,6 +1,10 @@
-import { setPageNavBar } from '@@/mobile-layout';
-import { connect } from '@@/plugin-dva';
-import { useRequest } from '@@/plugin-request';
+import {
+  connect,
+  ConnectProps,
+  IndexModelState,
+  setPageNavBar,
+  useRequest,
+} from 'alita';
 import { Button, Input, List, Slider } from 'antd-mobile';
 import { Button as AntdButton } from 'antd-mobile-v2';
 import React, { useState } from 'react';
@@ -9,7 +13,11 @@ import './global.less';
 // @ts-ignore
 import styles from './index.less';
 
-const HomePage: React.FC = ({ index, dispatch }) => {
+interface HomePageProps extends ConnectProps {
+  index: IndexModelState;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
   const { data, loading } = useRequest(query);
   const [input, setInput] = useState();
   const { name } = index;
@@ -67,4 +75,6 @@ const HomePage: React.FC = ({ index, dispatch }) => {
   );
 };
 
-export default connect(({ index }) => ({ index }))(HomePage);
+export default connect(({ index }: { index: IndexModelState }) => ({ index }))(
+  HomePage,
+);

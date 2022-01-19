@@ -14,7 +14,8 @@ export default (api: AlitaApi) => {
       require.resolve('./mainpath'),
       require.resolve('./request'),
       require.resolve('./mobile-layout'),
-      require.resolve('@umijs/plugins/dist/dva'),
+      require.resolve('./dva'),
+      // require.resolve('@umijs/plugins/dist/dva'),
       require.resolve('@umijs/plugins/dist/model'),
     ],
   };
