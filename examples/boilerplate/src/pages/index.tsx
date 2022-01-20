@@ -37,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
     >
       <h2>请求到的数据是：</h2>
       <ErrorBoundary
-        fallback={({ error, componentStack, resetError, eventId }) => (
+        fallback={({ error, componentStack, resetError }) => (
           <div>
             Error: {error.toString()}
             <button

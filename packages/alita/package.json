@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alitajs/alita-next"
+    "url": "https://github.com/alitajs/alita"
   },
   "authors": [
     "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
   ],
   "license": "MIT",
-  "bugs": "https://github.com/alitajs/alita-next/issues",
-  "homepage": "https://github.com/alitajs/alita-next/tree/master/packages/alita#readme",
+  "bugs": "https://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/alita#readme",
   "publishConfig": {
     "access": "public"
   },

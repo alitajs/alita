@@ -74,14 +74,14 @@ import 'zx/globals';
             },
             repository: {
               type: 'git',
-              url: 'https://github.com/alitajs/alita-next',
+              url: 'https://github.com/alitajs/alita',
             },
             authors: [
               'xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)',
             ],
             license: 'MIT',
-            bugs: 'https://github.com/alitajs/alita-next/issues',
-            homepage: `https://github.com/alitajs/alita-next/tree/master/packages/${opts.pkg}#readme`,
+            bugs: 'https://github.com/alitajs/alita/issues',
+            homepage: `https://github.com/alitajs/alita/tree/master/packages/${opts.pkg}#readme`,
             publishConfig: {
               access: 'public',
             },
@@ -103,14 +103,15 @@ import 'zx/globals';
         ),
         { spaces: '  ' },
       );
-
-      // README.md
-      await fs.writeFile(
-        path.join(pkgDir, 'README.md'),
-        `# ${name}\n\nSee our website [alitajs](https://alitajs.com) for more information.`,
-        'utf-8',
-      );
-
+      // readme 存在就不覆盖
+      if (!fs.existsSync(path.join(pkgDir, 'README.md'))) {
+        // README.md
+        await fs.writeFile(
+          path.join(pkgDir, 'README.md'),
+          `# ${name}\n\nSee our website [alitajs](https://alitajs.com) for more information.`,
+          'utf-8',
+        );
+      }
       // tsconfig.json
       await fs.writeFile(
         path.join(pkgDir, 'tsconfig.json'),
