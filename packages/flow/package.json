@@ -1,0 +1,32 @@
+{
+  "name": "@alita/flow",
+  "version": "3.0.0-alpha.1",
+  "description": "@alita/flow",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
+    "dev": "pnpm build -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita-next"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/alitajs/alita-next/issues",
+  "homepage": "https://github.com/alitajs/alita-next/tree/master/packages/flow#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@sentry/browser": "^6.16.1",
+    "hoist-non-react-statics": "^3.3.2"
+  }
+}

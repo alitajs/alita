@@ -1,4 +1,5 @@
 import { query } from '@/services/api';
+import { ErrorBoundary, For, Match, Show, Switch } from '@alita/flow';
 import {
   connect,
   ConnectProps,
@@ -20,8 +21,9 @@ interface HomePageProps extends ConnectProps {
 const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
   const { data, loading } = useRequest(query);
   const [input, setInput] = useState();
+  const [abc, setabc] = useState([1, 2, 3]);
   const { name } = index;
-
+  console.log('HomePage render');
   return (
     <div
       className={styles.title}
@@ -34,6 +36,39 @@ const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
       ]}
     >
       <h2>请求到的数据是：</h2>
+      <ErrorBoundary
+        fallback={({ error, componentStack, resetError, eventId }) => (
+          <div>
+            Error: {error.toString()}
+            <button
+              onClick={() => {
+                console.log(componentStack);
+                // setabc([1, 2, 3]);
+                resetError();
+              }}
+            >
+              重置错误
+            </button>
+            <details>Stack:{componentStack?.toString()}</details>
+          </div>
+        )}
+      >
+        <For each={abc}>{(item, index) => <div>2222{item}</div>}</For>
+      </ErrorBoundary>
+      <Switch fallback={<div>none!!!</div>}>
+        <Match when={true}>
+          <div>123</div>
+        </Match>
+        <Match when={true}>
+          <div>456</div>
+        </Match>
+        <Match when={false}>
+          <div>789</div>
+        </Match>
+      </Switch>
+      <Show when={!!input} fallback={<div>你快输入点啥！</div>}>
+        <div>hahahah,来啦</div>
+      </Show>
       {loading ? 'Loading....' : JSON.stringify(data)}
       <Button
         type="button"
