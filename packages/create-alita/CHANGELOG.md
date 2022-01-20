@@ -1,5 +1,16 @@
 # @alita/create-alita
 
+## 3.0.0-beta.4
+
+### Major Changes
+
+- 6108eba: beta3
+
+### Minor Changes
+
+- a9c6104: test change log
+- a9c6104: init changesets
+
 ## 3.0.0-beta.3
 
 ### Major Changes
