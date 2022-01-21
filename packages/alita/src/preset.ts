@@ -8,6 +8,7 @@ export default (api: IApi) => {
     plugins: [
       require.resolve('./features/config/config'),
       require.resolve('./features/apptype'),
+      require.resolve('./features/umiExports'),
       require.resolve('@alita/plugins/dist/aconsole'),
       require.resolve('@alita/plugins/dist/antdmobile'),
       require.resolve('@alita/plugins/dist/hd'),
