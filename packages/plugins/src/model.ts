@@ -18,6 +18,7 @@ export default (api: AlitaApi) => {
     // 默认开启
     // enableBy: api.EnableBy.config,
   });
+
   // umi model 里面不注册
   api.describe = () => {};
   // @ts-ignore
