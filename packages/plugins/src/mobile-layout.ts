@@ -14,8 +14,9 @@ export default (api: AlitaApi) => {
     key: 'mobileLayout',
     config: {
       schema(Joi) {
-        return Joi.boolean();
+        return Joi.alternatives(Joi.boolean(), Joi.string());
       },
+      default: 'mobile5',
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
     enableBy: api.EnableBy.config,
@@ -26,7 +27,13 @@ export default (api: AlitaApi) => {
 
   api.onGenerateFiles(() => {
     const layoutTpl = readFileSync(
-      join(__dirname, '..', 'templates', 'mobile-layout', 'layout.tpl'),
+      join(
+        __dirname,
+        '..',
+        'templates',
+        'mobile-layout',
+        api.config.mobileLayout === 'mobile5' ? 'layout5.tpl' : 'layout.tpl',
+      ),
       'utf-8',
     );
     api.writeTmpFile({

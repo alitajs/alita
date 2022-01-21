@@ -10,6 +10,7 @@
   "dependencies": {
     "@alita/flow": "workspace:*",
     "@alita/plugins": "workspace:*",
-    "alita": "workspace:*"
+    "alita": "workspace:*",
+    "antd-mobile-icons": "^0.2.2"
   }
 }
