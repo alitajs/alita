@@ -5,6 +5,7 @@ import {
   ConnectProps,
   IndexModelState,
   setPageNavBar,
+  useModel,
   useRequest,
 } from 'alita';
 import { Button, Input, List, Slider } from 'antd-mobile';
@@ -20,6 +21,7 @@ interface HomePageProps extends ConnectProps {
 
 const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
   const { data, loading } = useRequest(query);
+  const { todos } = useModel('todo');
   const [input, setInput] = useState();
   const [abc, setabc] = useState([1, 2, 3]);
   const { name } = index;
@@ -35,6 +37,8 @@ const HomePage: React.FC<HomePageProps> = ({ index, dispatch }) => {
         },
       ]}
     >
+      <h2>useModel 的数据是：</h2>
+      {JSON.stringify(todos)}
       <h2>请求到的数据是：</h2>
       <ErrorBoundary
         fallback={({ error, componentStack, resetError }) => (
