@@ -1,7 +1,8 @@
-import { logger, resolve, winPath } from '@umijs/utils';
+import { logger, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { dirname, join } from 'path';
 import semver from 'semver';
+import { resolveProjectDep } from './utils/resolveProjectDep';
 
 const checkAntdMobile = (api: AlitaApi) => {
   if (
@@ -15,8 +16,10 @@ const checkAntdMobile = (api: AlitaApi) => {
   ) {
     let version = '5.0.0-rc.2';
     try {
-      version =
-        require(`${api.paths.absNodeModulesPath}/antd-mobile/package.json`).version;
+      // modifyConfig 的时候 api.paths 为 {}
+      const nodeModulesPath =
+        api.paths.absNodeModulesPath || `${api.cwd}/node_modules`;
+      version = require(`${nodeModulesPath}/antd-mobile/package.json`).version;
     } catch (error) {}
     return [semver.lt('5.0.0-alpha.0', version), true];
   }
@@ -37,14 +40,6 @@ export default (api: AlitaApi) => {
     logger.info('Using Antd Mobile Plugin');
   });
 
-  // api.describe({
-  //   key: 'hd',
-  //   config: {
-  //     schema(Joi) {
-  //       return Joi.object({});
-  //     },
-  //   },
-  // });
   // babel-plugin-import
   api.addExtraBabelPlugins(() => {
     const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
@@ -74,127 +69,33 @@ export default (api: AlitaApi) => {
     return imps;
   });
 
-  // api.modifyConfig((memo) => {
-  //   function getUserLibDir({ library }: { library: string }) {
-  //     if (
-  //       // @ts-ignore
-  //       (api.pkg.dependencies && api.pkg.dependencies[library]) ||
-  //       // @ts-ignore
-  //       (api.pkg.devDependencies && api.pkg.devDependencies[library]) ||
-  //       // egg project using `clientDependencies` in ali tnpm
-  //       // @ts-ignore
-  //       (api.pkg.clientDependencies && api.pkg.clientDependencies[library])
-  //     ) {
-  //       return winPath(
-  //         dirname(
-  //           // 通过 resolve 往上找，可支持 lerna 仓库
-  //           // lerna 仓库如果用 yarn workspace 的依赖不一定在 node_modules，可能被提到根目录，并且没有 link
-  //           resolve.sync(`${library}/package.json`, {
-  //             basedir: api.paths.cwd,
-  //           }),
-  //         ),
-  //       );
-  //     }
-  //     return null;
-  //   }
-  //   // ahooks import
-  //   memo.alias.ahooks = getUserLibDir({ library: 'ahooks' }) ||
-  //     winPath(dirname(require.resolve('ahooks/package.json')));
-
-  //   return memo;
-  // });
-
   api.modifyConfig((memo) => {
     const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
-    function getUserLibDir({ library }: { library: string }) {
-      if (
-        // @ts-ignore
-        (api.pkg.dependencies && api.pkg.dependencies[library]) ||
-        // @ts-ignore
-        (api.pkg.devDependencies && api.pkg.devDependencies[library]) ||
-        // egg project using `clientDependencies` in ali tnpm
-        // @ts-ignore
-        (api.pkg.clientDependencies && api.pkg.clientDependencies[library])
-      ) {
-        return winPath(
-          dirname(
-            // 通过 resolve 往上找，可支持 lerna 仓库
-            // lerna 仓库如果用 yarn workspace 的依赖不一定在 node_modules，可能被提到根目录，并且没有 link
-            resolve.sync(`${library}/package.json`, {
-              basedir: api.paths.cwd,
-            }),
-          ),
-        );
-      }
-      return null;
+    const pkgPath =
+      resolveProjectDep({
+        pkg: api.pkg,
+        cwd: api.cwd,
+        dep: 'antd-mobile-v2',
+      }) || dirname(require.resolve('antd-mobile-v2/package.json'));
+    memo.alias['antd-mobile-v2'] = pkgPath;
+
+    let pkgMobilePath;
+    if (hasDeps) {
+      pkgMobilePath =
+        resolveProjectDep({
+          pkg: api.pkg,
+          cwd: api.cwd,
+          dep: 'antd-mobile',
+        }) || `${api.cwd}/node_modules/antd-mobile`;
+    } else {
+      pkgMobilePath = dirname(require.resolve('antd-mobile/package.json'));
     }
-    memo.alias['antd-mobile-v2'] =
-      getUserLibDir({ library: 'antd-mobile-v2' }) ||
-      dirname(require.resolve('antd-mobile-v2/package.json'));
     memo.alias['antd-mobile'] = winPath(
       join(
-        // 通过 resolve 往上找，可支持 lerna 仓库
-        // lerna 仓库如果用 yarn workspace 的依赖不一定在 node_modules，可能被提到根目录，并且没有 link
-        dirname(
-          hasDeps
-            ? resolve.sync(`antd-mobile/package.json`, {
-                basedir: api.paths.cwd,
-              })
-            : require.resolve('antd-mobile/package.json'),
-        ),
+        pkgMobilePath,
         isAntdMobile5 && api.userConfig.appType !== 'pc' ? '2x' : '',
       ),
     );
     return memo;
   });
-  // api.chainWebpack((memo) => {
-  //   const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
-  //   function getUserLibDir({ library }: { library: string }) {
-  //     if (
-  //       // @ts-ignore
-  //       (api.pkg.dependencies && api.pkg.dependencies[library]) ||
-  //       // @ts-ignore
-  //       (api.pkg.devDependencies && api.pkg.devDependencies[library]) ||
-  //       // egg project using `clientDependencies` in ali tnpm
-  //       // @ts-ignore
-  //       (api.pkg.clientDependencies && api.pkg.clientDependencies[library])
-  //     ) {
-  //       return winPath(
-  //         dirname(
-  //           // 通过 resolve 往上找，可支持 lerna 仓库
-  //           // lerna 仓库如果用 yarn workspace 的依赖不一定在 node_modules，可能被提到根目录，并且没有 link
-  //           resolve.sync(`${library}/package.json`, {
-  //             basedir: api.paths.cwd,
-  //           }),
-  //         ),
-  //       );
-  //     }
-  //     return null;
-  //   }
-  //   // 用户也可以通过显示安装 antd-mobile-v2，升级版本
-  //   memo.resolve.alias.set(
-  //     'antd-mobile-v2',
-  //     getUserLibDir({ library: 'antd-mobile-v2' }) ||
-  //       dirname(require.resolve('antd-mobile-v2/package.json')),
-  //   );
-  //   //如果项目中安装的是 antd-mobile@5 优先使用用户项目中安装的 antd-mobile，否则忽略用户安装，强制指定 mobile@5 版本
-  //   memo.resolve.alias.set(
-  //     'antd-mobile',
-  //     winPath(
-  //       join(
-  //         // 通过 resolve 往上找，可支持 lerna 仓库
-  //         // lerna 仓库如果用 yarn workspace 的依赖不一定在 node_modules，可能被提到根目录，并且没有 link
-  //         dirname(
-  //           hasDeps
-  //             ? resolve.sync(`antd-mobile/package.json`, {
-  //                 basedir: api.paths.cwd,
-  //               })
-  //             : require.resolve('antd-mobile/package.json'),
-  //         ),
-  //         isAntdMobile5 && api.config.hd ? '2x' : '',
-  //       ),
-  //     ),
-  //   );
-  //   return memo;
-  // });
 };
