@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@1.6.3/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "alitajs/alita" }],
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "alitajs/alita"
+    }
+  ],
   "commit": false,
   "linked": [],
   "access": "public",
