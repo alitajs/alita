@@ -18,9 +18,7 @@ export default (api: IApi) => {
       require.resolve('@alita/plugins/dist/mobile-layout'),
       require.resolve('@alita/plugins/dist/dva'),
       require.resolve('@alita/plugins/dist/classnames'),
-      // require.resolve('@umijs/plugins/dist/model'),
-      // mfsu no support
-      // require.resolve('./features/umiExports'),
+      require.resolve('@alita/plugins/dist/model'),
     ],
   };
 };

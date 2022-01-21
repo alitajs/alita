@@ -22,7 +22,7 @@ export default (api: IApi) => {
     dva: {
       enableModelsReExport: true,
     },
-    mobileLayout: true,
+    model: {},
     request: {},
     displayName: 'alita-demo',
     // conventionRoutes
