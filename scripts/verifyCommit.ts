@@ -7,7 +7,9 @@ const msg = fs.readFileSync(msgPath, 'utf-8').trim();
 const commitRE =
   /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|dep|Merge)(\(.+\))?: .{1,50}/;
 
-if (!commitRE.test(msg)) {
+const isChangeSetPR = `Version Packages` === msg;
+
+if (!commitRE.test(msg) && !isChangeSetPR) {
   console.log();
   console.error(
     `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(
