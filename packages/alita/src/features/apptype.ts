@@ -81,6 +81,37 @@ export default (api: IApi) => {
           overflow: hidden;
           z-index: 0;
         }
+        .alita-head{
+          height: auto;
+    flex-shrink: 0;
+    padding-top: var(--alita-safe-area-top);
+        }
+        .alita-content {
+          position: relative;
+  z-index: 0;
+  display: block;
+
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  /* stylelint-disable */
+  margin: 0 !important;
+
+  padding: 0 !important;
+  overflow-y: auto;
+  touch-action: pan-y;
+
+  will-change: scroll-position;
+  /* stylelint-enable */
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+        }
+        .alita-footer{
+          flex-shrink: 0;
+        }
         input {
           border: none;
           outline: none;
