@@ -1,5 +1,4 @@
 ---
-'boilerplate': minor
 'alita': minor
 '@alita/plugins': minor
 ---
