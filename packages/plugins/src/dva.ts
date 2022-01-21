@@ -121,7 +121,7 @@ ${
           const { file, namespace } = model;
           // prettier-ignore
           // export type { IndexModelState } from '/Users/xiaohuoni/next-alita-app/src/models/index';
-          return `export type { ${namespace.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}ModelState } from '${winPath(file.replace(extname(file), ''))}';`;
+          return `export type { ${namespace.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}ModelState } from '${winPath(file.replace(extname(file), ''))}';`;
         })
         .join('\r\n')
     : ''
