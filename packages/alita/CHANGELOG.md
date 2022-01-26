@@ -1,5 +1,14 @@
 # alita
 
+## 3.0.0-beta.7
+
+### Patch Changes
+
+- [`de69923`](https://github.com/alitajs/alita/commit/de69923c486f01c03575823f44435e2da30e76eb) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi@4.0.0-beta.18
+
+- Updated dependencies [[`de69923`](https://github.com/alitajs/alita/commit/de69923c486f01c03575823f44435e2da30e76eb), [`617908a`](https://github.com/alitajs/alita/commit/617908ad580aacd29b4fc74dc5304f4073e7d33b), [`04cb694`](https://github.com/alitajs/alita/commit/04cb694889fda6271325919ba78de64e6c57beee)]:
+  - @alita/plugins@3.0.0-beta.7
+
 ## 3.0.0-beta.6
 
 ### Minor Changes
