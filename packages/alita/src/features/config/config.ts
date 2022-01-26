@@ -4,16 +4,16 @@ import { getSchemas } from './schema';
 export default (api: IApi) => {
   // TODO: 以下的注释要根据后面的支持情况选择性开启
   const configDefaults: Record<string, any> = {
-    // history: { type: 'hash' },
+    history: { type: 'hash' },
     // title: false, // 默认内置了 Helmet
     targets: {
       ie: 9,
     },
-    // hash: true,
+    hash: true,
     // esbuild: {},
     // 不需要路由按需加载，只需要支持 import() 语法的 code splitting
-    // dynamicImportSyntax: {},
-    // nodeModulesTransform: {
+    // dynamicImportSyntax: {}, umi@4 删除
+    // nodeModulesTransform: { umi@4 删除
     //   type: 'none',
     //   exclude: [],
     // },
@@ -25,34 +25,33 @@ export default (api: IApi) => {
     model: {},
     request: {},
     displayName: 'alita-demo',
-    // conventionRoutes
-    // routesExtend: {
-    //   // 规定只有index文件会被识别成路由
-    //   exclude: [
-    //     /(?<!(index|\[index\]|404)(\.(js|jsx|ts|tsx)))$/,
-    //     /model\.(j|t)sx?$/,
-    //     /\.test\.(j|t)sx?$/,
-    //     /service\.(j|t)sx?$/,
-    //     /models\//,
-    //     /components\//,
-    //     /services\//,
-    //   ],
-    // },
+    conventionRoutes: {
+      // 规定只有index文件会被识别成路由
+      exclude: [
+        /(?<!(index|\[index\]|404)(\.(js|jsx|ts|tsx)))$/,
+        /model\.(j|t)sx?$/,
+        /\.test\.(j|t)sx?$/,
+        /service\.(j|t)sx?$/,
+        /models\//,
+        /components\//,
+        /services\//,
+      ],
+    },
     ...api.userConfig,
   };
-  // if (api.userConfig.complexRoute) {
-  //   configDefaults.routesExtend = {
-  //     // 保留umi的路由，过滤了非page的文件
-  //     exclude: [
-  //       /model\.(j|t)sx?$/,
-  //       /\.test\.(j|t)sx?$/,
-  //       /service\.(j|t)sx?$/,
-  //       /models\//,
-  //       /components\//,
-  //       /services\//,
-  //     ],
-  //   };
-  // }
+  if (api.userConfig.complexRoute) {
+    configDefaults.conventionRoutes = {
+      // 保留umi的路由，过滤了非page的文件
+      exclude: [
+        /model\.(j|t)sx?$/,
+        /\.test\.(j|t)sx?$/,
+        /service\.(j|t)sx?$/,
+        /models\//,
+        /components\//,
+        /services\//,
+      ],
+    };
+  }
   api.modifyConfig((memo: any) => {
     memo.alias.alita = 'umi';
     Object.keys(configDefaults).forEach((key) => {
