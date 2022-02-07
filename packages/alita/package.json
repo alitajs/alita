@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@alita/plugins": "workspace:*",
-    "@umijs/utils": "4.0.0-beta.18",
-    "@umijs/core": "4.0.0-beta.18",
-    "umi": "4.0.0-beta.18",
+    "@umijs/utils": "4.0.0-rc.1",
+    "@umijs/core": "4.0.0-rc.1",
+    "umi": "4.0.0-rc.1",
     "v8-compile-cache": "^2.3.0"
   }
 }

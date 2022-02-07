@@ -57,7 +57,7 @@ const tabList = [
     badge: '',
   },
   {
-    pagePath: '/users/foo',
+    pagePath: '/foo',
     text: '设置',
     iconPath: SetGary,
     selectedIconPath: SetBlue,

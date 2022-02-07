@@ -9,4 +9,5 @@ export default {
   polyfill: false,
   // mainPath:'users',
   mfsu: {},
+  hash: false,
 };
