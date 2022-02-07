@@ -233,6 +233,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
     titleList = [],
     navBar = [],
     hideNavBar = false,
+    children
 }) => {
     const { pathname } = useLocation();
     const navigate = useNavigate();
@@ -287,7 +288,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
             <div
                 className="alita-content alita-layout-content"
             >
-                <Outlet />
+                {children}
             </div>
             {isTabsApp && hasTabsBar && (
                 <div className="alita-layout-footer alita-footer">
@@ -298,6 +299,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
                         barTintColor={backgroungColor}
                         style={ { backgroungColor:backgroungColor }}
                         safeArea={true}
+                        activeKey={pathname}
                         onChange={value => {
                             const item = realList.filter(i => i.pagePath === value)[0];
                             if (!item) return;
@@ -327,16 +329,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
                                             />
                                         ))
                                     }
-                                    selected={pathname === item.pagePath}
                                     badge={item.badge}
-                                    onPress={() => {
-                                        if (pathname === item.pagePath) return;
-                                        if (item.onPress) {
-                                            item.onPress();
-                                        } else {
-                                            navigate(item.pagePath);
-                                        }
-                                    }}
                                     key={item.pagePath}
                                 ></TabBar.Item>
                             );

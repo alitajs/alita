@@ -44,7 +44,7 @@ export default (api: AlitaApi) => {
     api.addHTMLStyles(() => {
       return [
         {
-          content: `.vc-switch { right: 0px; bottom: 1.2rem !important; }`,
+          content: `.vc-switch { right: 0px; bottom: calc(env(safe-area-inset-bottom) + 1.2rem) !important; }`,
         },
       ];
     });
@@ -87,7 +87,7 @@ export default (api: AlitaApi) => {
                 margin: true,
                 size: true,
                 padding: true,
-                bottom: '3.5rem',
+                bottom: 'calc(env(safe-area-inset-bottom) + 2.2rem)',
                 right: '0',
               },
               ...(api.userConfig.inspx || {}),
