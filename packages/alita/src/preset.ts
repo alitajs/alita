@@ -19,6 +19,7 @@ export default (api: IApi) => {
       require.resolve('@alita/plugins/dist/dva'),
       require.resolve('@alita/plugins/dist/classnames'),
       require.resolve('@alita/plugins/dist/model'),
+      require.resolve('@alita/native'),
     ],
   };
 };

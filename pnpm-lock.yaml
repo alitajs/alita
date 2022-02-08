@@ -73,23 +73,27 @@ importers:
   examples/boilerplate:
     specifiers:
       '@alita/flow': workspace:*
+      '@alita/native': workspace:*
       '@alita/plugins': workspace:*
       alita: workspace:*
       antd-mobile-icons: ^0.2.2
     dependencies:
       '@alita/flow': link:../../packages/flow
+      '@alita/native': link:../../packages/native
       '@alita/plugins': link:../../packages/plugins
       alita: link:../../packages/alita
       antd-mobile-icons: 0.2.2
 
   packages/alita:
     specifiers:
+      '@alita/native': workspace:*
       '@alita/plugins': workspace:*
       '@umijs/core': 4.0.0-rc.1
       '@umijs/utils': 4.0.0-rc.1
       umi: 4.0.0-rc.1
       v8-compile-cache: ^2.3.0
     dependencies:
+      '@alita/native': link:../native
       '@alita/plugins': link:../plugins
       '@umijs/core': 4.0.0-rc.1
       '@umijs/utils': 4.0.0-rc.1
@@ -111,7 +115,12 @@ importers:
       hoist-non-react-statics: 3.3.2
 
   packages/native:
-    specifiers: {}
+    specifiers:
+      '@umijs/utils': 4.0.0-rc.1
+      alita: workspace:*
+    dependencies:
+      '@umijs/utils': 4.0.0-rc.1
+      alita: link:../alita
 
   packages/plugins:
     specifiers:
