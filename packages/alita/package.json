@@ -29,6 +29,7 @@
     "alita": "bin/alita.js"
   },
   "dependencies": {
+    "@alita/native": "workspace:*",
     "@alita/plugins": "workspace:*",
     "@umijs/utils": "4.0.0-rc.1",
     "@umijs/core": "4.0.0-rc.1",

@@ -1,0 +1,8 @@
+node_modules
+.changelog
+.umi
+.umi-test
+.umi-production
+.DS_Store
+/lib
+dist
