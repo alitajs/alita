@@ -84,6 +84,14 @@ importers:
       alita: link:../../packages/alita
       antd-mobile-icons: 0.2.2
 
+  examples/flow:
+    specifiers:
+      '@alita/flow': workspace:*
+      alita: workspace:*
+    dependencies:
+      '@alita/flow': link:../../packages/flow
+      alita: link:../../packages/alita
+
   packages/alita:
     specifiers:
       '@alita/native': workspace:*
