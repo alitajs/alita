@@ -1,5 +1,18 @@
 # alita
 
+## 3.0.0-beta.8
+
+### Minor Changes
+
+- [#244](https://github.com/alitajs/alita/pull/244) [`99a8736`](https://github.com/alitajs/alita/commit/99a873611ce8b53e828d5d70637a10e57035a2be) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: 按需加载插件 feat: 添加 antd 插件用于 pc 端
+
+### Patch Changes
+
+- [#243](https://github.com/alitajs/alita/pull/243) [`416ddfd`](https://github.com/alitajs/alita/commit/416ddfd86c2c54ffb6ee41a2f19f48295138afb0) Thanks [@falcon11](https://github.com/falcon11)! - feat: add new native plugin feat: preset native plugin for alita
+- Updated dependencies [[`b32f088`](https://github.com/alitajs/alita/commit/b32f08887b8219276b67126fecfb1d86d8d479a7), [`416ddfd`](https://github.com/alitajs/alita/commit/416ddfd86c2c54ffb6ee41a2f19f48295138afb0), [`99a8736`](https://github.com/alitajs/alita/commit/99a873611ce8b53e828d5d70637a10e57035a2be)]:
+  - @alita/plugins@3.0.0-beta.8
+  - @alita/native@3.0.0-beta.5
+
 ## 3.0.0-beta.7
 
 ### Patch Changes

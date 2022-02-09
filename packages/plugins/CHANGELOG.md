@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.0.0-beta.8
+
+### Patch Changes
+
+- [#239](https://github.com/alitajs/alita/pull/239) [`b32f088`](https://github.com/alitajs/alita/commit/b32f08887b8219276b67126fecfb1d86d8d479a7) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: mobile5-layout tabbar active fix: mobile-layout keepalive chore: aconsole bottom env(safe-area-inset-bottom)
+- Updated dependencies [[`416ddfd`](https://github.com/alitajs/alita/commit/416ddfd86c2c54ffb6ee41a2f19f48295138afb0), [`99a8736`](https://github.com/alitajs/alita/commit/99a873611ce8b53e828d5d70637a10e57035a2be)]:
+  - alita@3.0.0-beta.8
+
 ## 3.0.0-beta.7
 
 ### Patch Changes
