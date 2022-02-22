@@ -1,5 +1,17 @@
 # alita
 
+## 3.0.0-beta.9
+
+### Minor Changes
+
+- [#246](https://github.com/alitajs/alita/pull/246) [`0dfee39`](https://github.com/alitajs/alita/commit/0dfee39f752225a58d2113d615614e0b8a2b8d21) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi 升级 umi 到 rc2 主要修复 umi 侧 win 兼容问题
+
+### Patch Changes
+
+- Updated dependencies [[`0dfee39`](https://github.com/alitajs/alita/commit/0dfee39f752225a58d2113d615614e0b8a2b8d21)]:
+  - @alita/native@3.0.0-beta.6
+  - @alita/plugins@3.0.0-beta.9
+
 ## 3.0.0-beta.8
 
 ### Minor Changes
