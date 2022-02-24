@@ -8,7 +8,6 @@ export default (api: IApi) => {
     require.resolve('./features/config/config'),
     require.resolve('./features/apptype'),
     require.resolve('./features/umiExports'),
-    require.resolve('./commands/generate/page'),
     require.resolve('@alita/plugins/dist/aconsole'),
     require.resolve('@alita/plugins/dist/keepalive'),
     require.resolve('@alita/plugins/dist/mainpath'),
