@@ -1,0 +1,3 @@
+.center {
+  background-color: {{{ color }}};
+}
