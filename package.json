@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/rimraf": "3.0.2",
-    "@umijs/utils": "4.0.0-rc.2",
+    "@umijs/utils": "4.0.0-rc.3",
     "@changesets/cli": "2.19.0",
     "@changesets/changelog-github": "0.4.2",
     "alita": "workspace:*",
