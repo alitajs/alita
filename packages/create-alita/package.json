@@ -30,6 +30,6 @@
     "create-alita": "bin/create-alita.js"
   },
   "dependencies": {
-    "@umijs/utils": "4.0.0-rc.2"
+    "@umijs/utils": "4.0.0-rc.3"
   }
 }
