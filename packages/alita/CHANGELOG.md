@@ -1,5 +1,17 @@
 # alita
 
+## 3.0.0-beta.10
+
+### Major Changes
+
+- [#249](https://github.com/alitajs/alita/pull/249) [`854e6f2`](https://github.com/alitajs/alita/commit/854e6f209813a59cdca8241017f9d53c030fb934) Thanks [@hang1017](https://github.com/hang1017)! - alita g pages pageName
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @alita/native@3.0.0-beta.7
+  - @alita/plugins@3.0.0-beta.10
+
 ## 3.0.0-beta.9
 
 ### Minor Changes
