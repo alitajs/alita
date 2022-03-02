@@ -1,5 +1,11 @@
 # @alita/create-alita
 
+## 3.0.0-beta.7
+
+### Patch Changes
+
+- [#252](https://github.com/alitajs/alita/pull/252) [`80c87e4`](https://github.com/alitajs/alita/commit/80c87e43d77a4ef580b8b96d41e1932ebcd411d1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-rc3
+
 ## 3.0.0-beta.6
 
 ### Minor Changes

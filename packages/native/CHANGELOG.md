@@ -1,5 +1,14 @@
 # @alita/native
 
+## 3.0.0-beta.8
+
+### Patch Changes
+
+- [#252](https://github.com/alitajs/alita/pull/252) [`80c87e4`](https://github.com/alitajs/alita/commit/80c87e43d77a4ef580b8b96d41e1932ebcd411d1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-rc3
+
+- Updated dependencies [[`80c87e4`](https://github.com/alitajs/alita/commit/80c87e43d77a4ef580b8b96d41e1932ebcd411d1), [`51e1e83`](https://github.com/alitajs/alita/commit/51e1e83737b7c9017e753156dc1d25b0e599166b)]:
+  - alita@3.0.0-beta.11
+
 ## 3.0.0-beta.7
 
 ### Patch Changes
