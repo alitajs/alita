@@ -1,3 +1,4 @@
+import { winPath } from '@umijs/utils';
 import { existsSync, readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { AlitaApi } from '../types';
@@ -35,7 +36,7 @@ export default function (api: AlitaApi) {
         if (!existsSync(join(api.paths.absTmpPath, plugin, 'types.d.ts'))) {
           continue;
         }
-        file = join(api.paths.absTmpPath, plugin, 'types.d');
+        file = winPath(join(api.paths.absTmpPath, plugin, 'types.d'));
         exports.push(`export * from '${file}';`);
       }
 
