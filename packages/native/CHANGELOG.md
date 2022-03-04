@@ -1,5 +1,14 @@
 # @alita/native
 
+## 3.0.0-beta.9
+
+### Patch Changes
+
+- [#256](https://github.com/alitajs/alita/pull/256) [`1b3c050`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: umi rc5
+
+- Updated dependencies [[`1b3c050`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70)]:
+  - alita@3.0.0-beta.12
+
 ## 3.0.0-beta.8
 
 ### Patch Changes

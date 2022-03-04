@@ -1,5 +1,16 @@
 # @alita/plugins
 
+## 3.0.0-beta.12
+
+### Patch Changes
+
+- [`edd4cba`](https://github.com/alitajs/alita/commit/edd4cba956b66da00c5e348bab83fdbb5c7722fc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: add antd plugin
+
+* [#256](https://github.com/alitajs/alita/pull/256) [`1b3c050`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: umi rc5
+
+* Updated dependencies [[`1b3c050`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70)]:
+  - alita@3.0.0-beta.12
+
 ## 3.0.0-beta.11
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@alita/native",
-  "version": "3.0.0-beta.8",
+  "version": "3.0.0-beta.9",
   "description": "alita native cli",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
