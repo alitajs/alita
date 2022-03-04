@@ -11,9 +11,11 @@
     "@alita/request": "3.0.0-beta.3"
   },
   "changesets": [
+    "blue-falcons-happen",
     "eight-seals-buy",
     "flat-islands-roll",
     "lazy-sloths-beam",
+    "purple-hairs-breathe",
     "red-stingrays-deliver",
     "six-poems-cry",
     "thick-bears-promis",
