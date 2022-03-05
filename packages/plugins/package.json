@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.0-beta.13",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
-    "@alita/request": "3.0.0-beta.4",
+    "@alita/request": "3.0.0-beta.5",
     "@umijs/bundler-utils": "4.0.0-rc.5",
     "@umijs/plugins": "4.0.0-rc.5",
     "@umijs/utils": "4.0.0-rc.5",

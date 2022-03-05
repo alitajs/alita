@@ -1,5 +1,11 @@
 # @alita/request
 
+## 3.0.0-beta.5
+
+### Patch Changes
+
+- [#259](https://github.com/alitajs/alita/pull/259) [`257c455`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add types
+
 ## 3.0.0-beta.4
 
 ### Major Changes

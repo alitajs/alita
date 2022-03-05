@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.0-beta.13
+
+### Patch Changes
+
+- [#258](https://github.com/alitajs/alita/pull/258) [`86b81f4`](https://github.com/alitajs/alita/commit/86b81f4a958dfbb2ba4042ca104eaa5ac0886dea) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: g pages
+
+- Updated dependencies [[`257c455`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c)]:
+  - @alita/plugins@3.0.0-beta.13
+  - @alita/native@3.0.0-beta.10
+
 ## 3.0.0-beta.12
 
 ### Patch Changes
