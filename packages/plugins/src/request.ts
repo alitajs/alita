@@ -41,6 +41,15 @@ export { useRequest } from '${winPath(
       )}';
 `,
     });
+
+    // types.ts
+    api.writeTmpFile({
+      path: 'types.d.ts',
+      tpl: `export { ResponseError,Context } from '${winPath(
+        dirname(require.resolve('@alita/request/package')),
+      )}';`,
+      context: {},
+    });
   });
   api.chainWebpack((memo) => {
     function getUserLibDir({ library }: { library: string }) {
