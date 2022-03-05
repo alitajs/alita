@@ -1,5 +1,15 @@
 # @alita/plugins
 
+## 3.0.0-beta.13
+
+### Patch Changes
+
+- [#259](https://github.com/alitajs/alita/pull/259) [`257c455`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add types
+
+- Updated dependencies [[`257c455`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c), [`86b81f4`](https://github.com/alitajs/alita/commit/86b81f4a958dfbb2ba4042ca104eaa5ac0886dea)]:
+  - @alita/request@3.0.0-beta.5
+  - alita@3.0.0-beta.13
+
 ## 3.0.0-beta.12
 
 ### Patch Changes

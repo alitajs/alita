@@ -1,5 +1,11 @@
 # @alita/create-alita
 
+## 3.0.0-beta.9
+
+### Minor Changes
+
+- [#257](https://github.com/alitajs/alita/pull/257) [`0476ef5`](https://github.com/alitajs/alita/commit/0476ef5a7a4adccaf87d18d48c2da1fe2981d271) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: create-app
+
 ## 3.0.0-beta.8
 
 ### Patch Changes
