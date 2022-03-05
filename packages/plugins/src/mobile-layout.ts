@@ -60,9 +60,10 @@ export default (api: AlitaApi) => {
       path: join(DIR_NAME, 'layoutState.ts'),
       noPluginDir: true,
       content: Mustache.render(modelTpl, {
-        alitalayout: winPath(
-          dirname(require.resolve('@alita/alita-layout/package')),
-        ),
+        alitalayout:
+          api.config.mobileLayout === 'mobile5'
+            ? './AlitaLayout'
+            : winPath(dirname(require.resolve('@alita/alita-layout/package'))),
       }),
     });
 
@@ -78,10 +79,15 @@ export default (api: AlitaApi) => {
       noPluginDir: true,
       content: `
       export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';
-      export * from '${winPath(
-        dirname(require.resolve('@alita/alita-layout/package')),
-      )}'
       `,
+    });
+
+    // types.ts
+    api.writeTmpFile({
+      path: join(DIR_NAME, 'types.d.ts'),
+      noPluginDir: true,
+      tpl: `export type { NavBarProps, TitleListItem, NavBarListItem, TabBarProps, TabBarListItem, } from './AlitaLayout';`,
+      context: {},
     });
   });
 
