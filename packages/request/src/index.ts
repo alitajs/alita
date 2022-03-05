@@ -75,4 +75,5 @@ const getRequestConfig = () => {
   return requestConfig;
 };
 
+export * from 'umi-request';
 export { request, setRequestConfig, getRequestConfig };
