@@ -24,7 +24,7 @@ export default (api: IApi) => {
       }
 
       generateFile({
-        path: join(__dirname, '../../templates/generate/page'),
+        path: join(__dirname, '../../../templates/generate/page'),
         target: join(api.paths.absPagesPath, name),
         data: {
           color: randomColor(),
