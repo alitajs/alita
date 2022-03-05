@@ -1,1 +1,1 @@
-registry={{{ registry }}}
+registry=https://registry.npmjs.org/
