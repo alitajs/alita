@@ -1,0 +1,13 @@
+node_modules
+.umi
+.umi-production
+dist
+.mfsu
+*.d.ts
+compiled
+*.js
+fixtures
+*.md
+*.yaml
+*.less
+/packages/plugin-docs/client/theme-doc/tailwind.out.css
