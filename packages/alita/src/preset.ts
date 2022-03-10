@@ -5,10 +5,9 @@ export default (api: IApi) => {
     console.log('Hello alita@3');
   });
   const plugins = [
-    require.resolve('./features/config/config'),
+    require.resolve('./features/config/alitaconfig'),
     require.resolve('./features/apptype'),
-    require.resolve('./features/umiExports'),
-    require.resolve('./commands/generate/page'),
+    require.resolve('./commands/generate/pages'),
     require.resolve('@alita/plugins/dist/aconsole'),
     require.resolve('@alita/plugins/dist/keepalive'),
     require.resolve('@alita/plugins/dist/mainpath'),
