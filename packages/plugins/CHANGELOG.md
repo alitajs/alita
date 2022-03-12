@@ -1,5 +1,14 @@
 # @alita/plugins
 
+## 3.0.0-beta.17
+
+### Patch Changes
+
+- [#266](https://github.com/alitajs/alita/pull/266) [`301f8c0`](https://github.com/alitajs/alita/commit/301f8c067121dfb3b00ee74c4ef8d4292fea47cf) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: types winpath
+
+- Updated dependencies [[`301f8c0`](https://github.com/alitajs/alita/commit/301f8c067121dfb3b00ee74c4ef8d4292fea47cf)]:
+  - alita@3.0.0-beta.15
+
 ## 3.0.0-beta.14
 
 ### Patch Changes
