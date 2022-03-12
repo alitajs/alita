@@ -18,8 +18,12 @@ const checkAntdMobile = (api: AlitaApi) => {
     try {
       // modifyConfig 的时候 api.paths 为 {}
       const nodeModulesPath =
-        api.paths.absNodeModulesPath || `${api.cwd}/node_modules`;
-      version = require(`${nodeModulesPath}/antd-mobile/package.json`).version;
+        resolveProjectDep({
+          pkg: api.pkg,
+          cwd: api.cwd,
+          dep: 'antd-mobile',
+        }) || `${api.cwd}/node_modules/antd-mobile`;
+      version = require(`${nodeModulesPath}/package.json`).version;
     } catch (error) {}
     return [semver.lt('5.0.0-alpha.0', version), true];
   }
