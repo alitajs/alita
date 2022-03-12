@@ -96,14 +96,18 @@ importers:
     specifiers:
       '@alita/native': workspace:*
       '@alita/plugins': workspace:*
+      '@umijs/bundler-utils': 4.0.0-rc.6
       '@umijs/core': 4.0.0-rc.6
+      '@umijs/renderer-react': 4.0.0-rc.6
       '@umijs/utils': 4.0.0-rc.6
       umi: 4.0.0-rc.6
       v8-compile-cache: ^2.3.0
     dependencies:
       '@alita/native': link:../native
       '@alita/plugins': link:../plugins
+      '@umijs/bundler-utils': 4.0.0-rc.6
       '@umijs/core': 4.0.0-rc.6
+      '@umijs/renderer-react': 4.0.0-rc.6
       '@umijs/utils': 4.0.0-rc.6
       umi: 4.0.0-rc.6
       v8-compile-cache: 2.3.0

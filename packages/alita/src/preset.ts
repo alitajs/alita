@@ -7,6 +7,7 @@ export default (api: IApi) => {
   const plugins = [
     require.resolve('./features/config/alitaconfig'),
     require.resolve('./features/apptype'),
+    require.resolve('./features/tmpFiles/tmpFiles'),
     require.resolve('./commands/generate/pages'),
     require.resolve('@alita/plugins/dist/aconsole'),
     require.resolve('@alita/plugins/dist/keepalive'),
