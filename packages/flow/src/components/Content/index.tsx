@@ -9,7 +9,9 @@ import React from 'react';
  * </Page>
  * ```
  */
-const Content: React.FC = ({ children }) => {
+const Content: React.FC<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({ children, ...reset }) => {
   return (
     <div
       style={{
@@ -27,6 +29,7 @@ const Content: React.FC = ({ children }) => {
         WebkitOverflowScrolling: 'touch',
         overscrollBehaviorY: 'contain',
       }}
+      {...reset}
     >
       {children}
     </div>
