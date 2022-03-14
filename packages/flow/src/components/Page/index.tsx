@@ -11,7 +11,9 @@ import React from 'react';
  * </Page>
  * ```
  */
-const Page: React.FC = ({ children }) => {
+const Page: React.FC<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({ children, ...reset }) => {
   return (
     <div
       style={{
@@ -26,6 +28,7 @@ const Page: React.FC = ({ children }) => {
         overflow: 'hidden',
         contain: 'layout size style',
       }}
+      {...reset}
     >
       {children}
     </div>

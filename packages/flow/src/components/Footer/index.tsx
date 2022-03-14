@@ -9,7 +9,9 @@ import React from 'react';
  * </Page>
  * ```
  */
-const Footer: React.FC = ({ children }) => {
+const Footer: React.FC<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({ children, ...reset }) => {
   return (
     <div
       style={{
@@ -19,6 +21,7 @@ const Footer: React.FC = ({ children }) => {
         order: '1',
         width: '100%',
       }}
+      {...reset}
     >
       {children}
     </div>
