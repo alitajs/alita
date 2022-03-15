@@ -1,7 +1,7 @@
 import { useRequest } from 'alita';
 import type { FC } from 'react';
 import React from 'react';
-import styles from './index.css';
+import styles from './index.less';
 import { query } from './service';
 
 interface MyPageProps {}
