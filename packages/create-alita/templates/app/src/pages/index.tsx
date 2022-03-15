@@ -1,7 +1,7 @@
 import { query } from '@/services/api';
 import { useRequest } from 'alita';
 import React, { FC } from 'react';
-import styles from './index.css';
+import styles from './index.less';
 
 interface LifePageProps {}
 

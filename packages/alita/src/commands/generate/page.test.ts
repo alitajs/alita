@@ -10,7 +10,7 @@ async function runGenerator(args: any) {
   const service = new Service({
     cwd,
     env: Env.test,
-    plugins: [require.resolve('./page')],
+    plugins: [require.resolve('./pages')],
   });
 
   await service.run({
