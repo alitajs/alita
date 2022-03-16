@@ -30,10 +30,13 @@ export default (api: AlitaApi) => {
               main.path === '/' &&
               (main.id === 'index' || main.id === 'index/index')
             ) {
+              // 将首页的文件和目标文件交换
               let file = memo[key].file;
               memo[key].file = memo[id].file;
               memo[id].file = file;
               memo[id].isMainPath = true;
+              // 将原有的目标路由改成 /index
+              memo[id].path = '/index';
             }
           });
         }

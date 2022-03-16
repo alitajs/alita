@@ -10,3 +10,5 @@
 /packages/**/src/**/fixtures/*/dist
 /packages/**/src/**/fixtures/*/.umi
 /packages/**/src/**/fixtures/*/.umi-production
+.umi
+.umi-production
