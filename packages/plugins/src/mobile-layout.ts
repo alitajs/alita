@@ -2,6 +2,7 @@ import { logger, Mustache, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
+import { resolveProjectDep } from './utils/resolveProjectDep';
 import { withTmpPath } from './utils/withTmpPath';
 
 const DIR_NAME = 'plugin-mobile-layout';
@@ -102,5 +103,16 @@ export default (api: AlitaApi) => {
         }),
       },
     ];
+  });
+
+  api.modifyConfig((memo) => {
+    const pkgPath =
+      resolveProjectDep({
+        pkg: api.pkg,
+        cwd: api.cwd,
+        dep: 'antd-mobile-icons',
+      }) || dirname(require.resolve('antd-mobile-icons/package.json'));
+    memo.alias['antd-mobile-icons'] = pkgPath;
+    return memo;
   });
 };
