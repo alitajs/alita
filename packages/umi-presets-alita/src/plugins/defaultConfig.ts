@@ -30,6 +30,7 @@ export default (api: IApi) => {
         /services\//,
       ],
     },
+    mobile5: false,
     ...api.userConfig,
   } as IConfig;
 

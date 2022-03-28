@@ -11,12 +11,12 @@ let LayoutInstance: LayoutInstanceProps;
 function dropByCacheKey(pathname: string) {
   if (LayoutInstance) {
     const { alivePathnames, keepAliveViewMap } = LayoutInstance;
-    const index = alivePathnames.findIndex(item => item === pathname);
+    const index = alivePathnames.findIndex(item => item === pathname?.toLowerCase());
     if (index !== -1) {
       alivePathnames.splice(index, 1);
       // 用来当作key，只有key发生变化才会remout组件
       for (const key in keepAliveViewMap) {
-        if (pathToRegexp(key).test(pathname)) {
+        if (pathToRegexp(key).test(pathname?.toLowerCase())) {
           keepAliveViewMap[key].recreateTimes += 1;
           break;
         }
