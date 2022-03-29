@@ -47,6 +47,9 @@ export default (api: AlitaApi) => {
         alitarequest: winPath(
           dirname(require.resolve('@alita/request/package')),
         ),
+        mobileicons: winPath(
+          dirname(require.resolve('antd-mobile-icons/package')),
+        ),
         hasKeepAlive: !!api.userConfig.keepalive,
         isMicroApp,
       }),
