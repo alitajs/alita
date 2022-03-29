@@ -1,5 +1,11 @@
 # @alita/flow
 
+## 3.0.0-rc.7
+
+### Patch Changes
+
+- [#278](https://github.com/alitajs/alita/pull/278) [`c26bdfb`](https://github.com/alitajs/alita/commit/c26bdfbf3c258734f18315c6c9554b5f106d585a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: change tag
+
 ## 3.0.0-beta.6
 
 ### Patch Changes
