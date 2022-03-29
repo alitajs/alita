@@ -1,6 +1,6 @@
 # @alita/create-alita
 
-## 3.0.0-rc.12
+## 3.0.0-rc.1
 
 ### Patch Changes
 

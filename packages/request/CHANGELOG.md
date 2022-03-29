@@ -1,6 +1,6 @@
 # @alita/request
 
-## 3.0.0-rc.6
+## 3.0.0-rc.1
 
 ### Patch Changes
 

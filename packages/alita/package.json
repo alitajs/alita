@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.0.0-rc.17",
+  "version": "3.0.0-rc.1",
   "description": "v3 develop version",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
