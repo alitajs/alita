@@ -10,7 +10,7 @@ export default (api: IApi) => {
     description: 'Create a alita page by page name',
     type: GeneratorType.generate,
     fn: async (options) => {
-      const { args, api, generateFile } = options;
+      const { args, generateFile } = options;
       const [_, _name] = args._;
       let name = _name;
 

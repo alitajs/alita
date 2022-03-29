@@ -17,7 +17,8 @@ export default (api: AlitaApi) => {
       schema(Joi) {
         return Joi.alternatives(Joi.boolean(), Joi.string());
       },
-      default: 'mobile5',
+      // The config.default is not allowed when enableBy is EnableBy.config.
+      // default: 'mobile5',
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
     enableBy: api.EnableBy.config,
