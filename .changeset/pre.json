@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "beta",
+  "tag": "rc",
   "initialVersions": {
     "boilerplate": "1.0.0",
     "alita": "3.0.0-beta.4",

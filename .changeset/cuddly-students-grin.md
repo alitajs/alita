@@ -1,8 +1,10 @@
 ---
 'alita': patch
 '@alita/create-alita': patch
+'@alita/flow': patch
 '@alita/native': patch
 '@alita/plugins': patch
+'@alita/request': patch
 ---
 
-feat: update umi rc.9 并修改相对的 api 变更
+feat: change tag
