@@ -1,5 +1,4 @@
 ---
-'boilerplate': patch
 'alita': patch
 '@alita/create-alita': patch
 '@alita/native': patch
