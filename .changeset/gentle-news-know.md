@@ -6,4 +6,4 @@
 '@alita/plugins': patch
 ---
 
-feat: update umi rc.9 并修改相对的 api 变更
+chore: nothing
