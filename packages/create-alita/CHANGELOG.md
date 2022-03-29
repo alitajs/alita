@@ -1,5 +1,15 @@
 # @alita/create-alita
 
+## 3.0.0-rc.12
+
+### Patch Changes
+
+- [#278](https://github.com/alitajs/alita/pull/278) [`c26bdfb`](https://github.com/alitajs/alita/commit/c26bdfbf3c258734f18315c6c9554b5f106d585a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: change tag
+
+* [#277](https://github.com/alitajs/alita/pull/277) [`88a2cfd`](https://github.com/alitajs/alita/commit/88a2cfd2c04ee92421f9460decdf48b56d5eeef2) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: nothing
+
+- [#276](https://github.com/alitajs/alita/pull/276) [`f0e6b3a`](https://github.com/alitajs/alita/commit/f0e6b3a5cc7d5df6d7e1a826582ebb6ac2ad2697) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc.9 并修改相对的 api 变更
+
 ## 3.0.0-beta.11
 
 ### Patch Changes
