@@ -9,6 +9,9 @@ if (typeof document !== 'undefined') {
   const doc = win.document;
   const docEl = doc.documentElement;
 
+  let lastWidth = docEl.clientWidth;
+  let lastHeight = docEl.clientHeight;
+
   // 为了消除安卓dpr乱标的比例
   let rate = 1;
   // 非淘宝高清方案，默认的 initial-scale 为 1
@@ -65,12 +68,22 @@ if (typeof document !== 'undefined') {
     if (timeoutNum) clearTimeout(timeoutNum);
     // 部分安卓机，转屏幕时直接获取 clientHeight 值异常
     timeoutNum = setTimeout(() => {
+      const currentWidth = docEl.clientWidth;
+      const currentHeight = docEl.clientHeight;
+
+      // 如果只有高度变化了，认为是键盘弹起事件，不做fontsize计算
+      if (currentWidth === lastWidth && currentHeight !== lastHeight) {
+        lastWidth = currentWidth;
+        lastHeight = currentHeight;
+        return;
+      }
+
+      lastWidth = currentWidth;
+      lastHeight = currentHeight;
+
       const trueClient =
-        docEl.clientHeight > docEl.clientWidth
-          ? docEl.clientWidth
-          : docEl.clientHeight;
-      // 软键盘弹出导致的页面大小变化情况，不做 fontsize 计算
-      if (trueClient < 300) return;
+        currentHeight > currentWidth ? currentWidth : currentHeight;
+
       const newFontSize = `${
         (_baseFontSize / _psdWidth) * trueClient * rate
       }px`;
