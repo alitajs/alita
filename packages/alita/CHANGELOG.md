@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.0-beta.16
+
+### Patch Changes
+
+- [#269](https://github.com/alitajs/alita/pull/269) [`00a64ba`](https://github.com/alitajs/alita/commit/00a64bada0190897f1f9c8fa83407fa5ac7bcc4f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: generate jest error
+
+- Updated dependencies [[`5fd83e4`](https://github.com/alitajs/alita/commit/5fd83e48e0a2f746eb7508150954fd1812078210), [`cf875ea`](https://github.com/alitajs/alita/commit/cf875ea268406dd58c4f72d12a9306748180bc5b), [`0d0503a`](https://github.com/alitajs/alita/commit/0d0503a8bd808e70c1734c47efffa86bcf0b0533), [`91ba7e5`](https://github.com/alitajs/alita/commit/91ba7e587e71f8c133c7e36132e277d2fd815c25)]:
+  - @alita/plugins@3.0.0-beta.18
+  - @alita/native@3.0.0-beta.13
+
 ## 3.0.0-beta.15
 
 ### Patch Changes
