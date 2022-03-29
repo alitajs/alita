@@ -1,5 +1,11 @@
 # @alita/create-alita
 
+## 3.0.0-beta.11
+
+### Patch Changes
+
+- [#269](https://github.com/alitajs/alita/pull/269) [`00a64ba`](https://github.com/alitajs/alita/commit/00a64bada0190897f1f9c8fa83407fa5ac7bcc4f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: generate jest error
+
 ## 3.0.0-beta.10
 
 ### Patch Changes

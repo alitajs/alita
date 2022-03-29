@@ -1,5 +1,12 @@
 # @alita/native
 
+## 3.0.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies [[`00a64ba`](https://github.com/alitajs/alita/commit/00a64bada0190897f1f9c8fa83407fa5ac7bcc4f)]:
+  - alita@3.0.0-beta.16
+
 ## 3.0.0-beta.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @alita/flow
 
+## 3.0.0-beta.6
+
+### Patch Changes
+
+- [#267](https://github.com/alitajs/alita/pull/267) [`b3420fb`](https://github.com/alitajs/alita/commit/b3420fb0022148de14203238ed6f3084a823d49b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: div types and reset props
+
 ## 3.0.0-beta.4
 
 ### Minor Changes
