@@ -3,11 +3,8 @@ import qrCodeTerminal from 'qrcode-terminal';
 import { IApi } from 'umi';
 
 export default (api: IApi) => {
-  api.onStart(() => {
-    logger.info('qrcodeterminal');
-  });
-
   api.onDevCompileDone(async ({ isFirstCompile }) => {
+    if (api.userConfig.appType === 'pc') return;
     if (!isFirstCompile) return;
     const port = process.env.PORT || 8000;
     const isHTTPS = process.env.HTTPS || api.args?.https;
