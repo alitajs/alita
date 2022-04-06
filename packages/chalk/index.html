@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 随便写写，没经过什么思考，欢迎指正和重写
+        // 保存下全局的 console 对象，防止被别人重写，比如在 alita 的某一些场景中，会通过暴力覆盖它来达到去除项目中的console的目的
+        // 通过全局的 alitadebug 来控制是否打印日志
+        let chalk = {};
+        if (!window.chalk) {
+            const _console = console;
+            const color = {
+                black: '#00000',
+                red: '#FF0000',
+                green: '#008000',
+                yellow: '#FFFF00',
+                blue: '#0000FF',
+                magenta: '#FF00FF',
+                cyan: '#00FFFF',
+                white: '#FFFFFF',
+            };
+            // @ts-ignore
+            const add = (...arr) => {
+                let fi = [
+                    []
+                ];
+                for (let key = 0; key < arr.length; key++) {
+                    const [first, ...other] = arr[key];
+                    fi[0] += `${first.startsWith(' ') ? '' : ' '}${first}`;
+                    fi = fi.concat(other);
+                }
+                return fi;
+            };
+            const createlog = (util) => (
+                // @ts-ignore
+                ...args) => {
+                const fun = _console[util] ? _console[util] : _console.log;
+                window.alitadebug && fun.apply(void 0, args);
+            };
+            const colorUtils = {
+                bold: (str) => {
+                    if (typeof str === 'string' || typeof str === 'number') {
+                        return `${str};font-weight: bold;`;
+                    }
+                    for (let key = 1; key < str.length; key++) {
+                        str[key] += `;font-weight: bold;`;
+                    }
+                    return str;
+                }
+            };
+            const colorHash = {
+                log: 'black',
+                wait: 'cyan',
+                error: 'red',
+                warn: 'yellow',
+                ready: 'green',
+                info: 'blue',
+                event: 'magenta',
+                debug: 'gray',
+            };
+            const createChalk = (name) => (str) => {
+                let strArr = str;
+                if (typeof str === 'string' || typeof str === 'number') {
+                    strArr = colorUtils[colorHash[name]](str);
+                }
+                createlog(name)(...add(colorUtils.bold(colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `)), strArr));
+
+            };
+            const chalk = {};
+            Object.keys(colorHash).forEach(key => {
+                chalk[key] = createChalk(key);
+            });
+            const firstToUpperCase = (str) => str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
+            Object.keys(color).forEach(key => {
+                colorUtils[key] = (str) => [`%c${str}`, `color:${color[key]}`];
+                colorUtils[`bg${firstToUpperCase(key)}`] = (str) => {
+                    return [`%c${str}`, `padding: 2px 4px; border-radius: 3px; color: ${key === 'white' ? '#000' : '#fff'}; font-weight: bold; background:${color[key]};`];
+                };
+            });
+            window.chalk = {
+                add,
+                ...chalk,
+                ...colorUtils,
+                hello: (title, version) => createlog('log')(`%c ${title} %c V${version} `, 'padding: 2px 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060; font-weight: bold;', 'padding: 2px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e; font-weight: bold;')
+            };
+        }
+        chalk = window.chalk;
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
