@@ -13,4 +13,7 @@ export default {
     '<rootDir>/packages/.+/compiled',
     '<rootDir>/packages/.+/fixtures',
   ],
+  globals: {
+    window: {},
+  },
 } as Config.InitialOptions;
