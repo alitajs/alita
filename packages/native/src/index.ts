@@ -1,7 +1,6 @@
 // ref:
 // - https://umijs.org/plugins/api
 import { chalk, crossSpawn, logger, yParser } from '@umijs/utils';
-import { IApi } from 'alita';
 import * as child_process from 'child_process';
 import { embeddedPlugins } from './plugins';
 
@@ -73,7 +72,7 @@ async function installDependencies(
   }
 }
 
-export default (api: IApi) => {
+export default (api: any) => {
   api.onStart(() => {
     logger.info('Using Native Plugin');
   });
