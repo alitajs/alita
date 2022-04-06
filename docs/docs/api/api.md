@@ -1,0 +1,208 @@
+# API
+
+为方便查找，以下内容通过字母排序。
+
+### history
+
+和 history 相关的操作，用于获取当前路由信息、执行路由跳转、监听路由变更。
+
+获取当前路由信息。
+
+```js
+import { history } from 'umi';
+
+// // history 栈里的实体个数
+history.length;
+
+// 当前 history 跳转的 action，有 PUSH、REPLACE 和 POP 三种类型
+history.action;
+
+// location 对象，包含 pathname、search 和 hash
+history.location.pathname;
+history.location.search;
+history.location.hash;
+```
+
+命令式路由跳转。
+
+```js
+import { history } from 'umi';
+
+// 跳转到指定路由
+history.push('/list');
+
+// 带参数跳转到指定路由
+history.push('/list?a=b');
+history.push({
+  pathname: '/list',
+  query: {
+    a: 'b',
+  },
+});
+
+// 跳转到上一个路由
+history.goBack();
+```
+
+路由监听。
+
+```js
+import { history } from 'umi';
+
+const unlisten = history.listen((location, action) => {
+  console.log(location.pathname);
+});
+unlisten();
+```
+
+### Link
+
+`<Link>` 是 React 组件，是带路由跳转功能的 `<a>` 元素。
+
+类型定义如下。
+
+```ts
+declare function Link(props: {
+  to: string | Partial<{ pathname: string; search: string; hash: string; }>,
+  replace?: boolean;
+  state?: boolean;
+  reloadDocument?: boolean;
+}): React.ReactElement;
+```
+
+比如：
+
+```js
+import { Link } from 'umi';
+
+function IndexPage({ user }) {
+  return <Link to={user.id}>{user.name}</Link>;
+}
+```
+
+`<Link to>` 支持相对路径跳转；`<Link reloadDocument>` 不做路由跳转，等同于 `<a href>` 的跳转行为。
+
+### Outlet
+
+`<Outlet>` 用于渲染父路由中渲染子路由。如果父路由被严格匹配，会渲染子路由中的 index 路由（如有）。
+
+示例，
+
+```js
+import { Outlet } from 'umi';
+
+function Dashboard() {
+  return <div><h1>Dashboard</h1><Outlet /></div>;
+}
+```
+
+### useLocation
+
+`useLocation` 返回当前 location 对象。
+
+类型定义如下。
+
+```ts
+declare function useLocation(): {
+  pathname: string;
+  search: string;
+  state: unknown;
+  key: Key;
+};
+```
+
+一个场景是在 location change 时做一些 side effect 操作，比如 page view 统计。
+
+```js
+import { useLocation } from 'umi';
+
+function App() {
+  const location = useLocation();
+  React.useEffect(() => {
+    ga('send', 'pageview');
+  }, [location]);
+  // ...
+}
+```
+
+### useMatch
+
+`useMatch` 返回传入 path 的匹配信息。
+
+类型定义如下。
+
+```ts
+declare function useMatch(pattern: {
+  path: string;
+  caseSensitive?: boolean;
+  end?: boolean;
+} | string): {
+  params: Record<string, string>;
+  pathname: string;
+  pattern: {
+    path: string;
+    caseSensitive?: boolean;
+    end?: boolean;
+  };
+};
+```
+
+### useNavigate
+### useOutlet
+
+`useOutlet` 返回当前匹配的子路由元素，`<Outlet>` 内部使用的就是此 hook 。
+
+### useParams
+### useResolvedPath
+### useRouteData
+
+`useRouteData` 返回当前路由的数据。
+
+类型定义如下。
+
+```ts
+declare function useRouteData(): {
+  route: Route;
+};
+```
+
+注意：此处 API 可能还会调整。
+
+### useRoutes
+### useSearchParams
+
+`useSearchParams` 用于读取和修改当前 URL 的 query string。类似 React 的 `useState`，其返回包含两个值的数组，当前 URL 的 search 参数和用于更新 search 参数的函数。
+
+类型定义如下。
+
+```ts
+declare function useSearchParams(defaultInit?: URLSearchParamsInit): [
+  URLSearchParams,
+  (
+    nextInit?: URLSearchParamsInit,
+    navigateOpts?: : { replace?: boolean; state?: any }
+  ) => void
+];
+
+type URLSearchParamsInit = 
+  | string
+  | ParamKeyValuePair[]
+  | Record<string, string | string[]>
+  | URLSearchParams;
+```
+
+示例。
+
+```js
+import React from 'react';
+import { useSearchParams } from 'umi';
+
+function App() {
+  let [searchParams, setSearchParams] = useSearchParams();
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSearchParams(serializeFormQuery(event.target));
+  }
+  return <form onSubmit={handleSubmit}>{/* ... */}</form>;
+}
+```
