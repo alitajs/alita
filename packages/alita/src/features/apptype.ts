@@ -5,13 +5,20 @@ export default (api: IApi) => {
     key: 'appType',
     config: {
       schema(Joi) {
-        return Joi.string().valid('h5', 'pc', 'cordova', 'micro', 'native');
+        return Joi.string().valid(
+          'h5',
+          'pc',
+          'docs',
+          'cordova',
+          'micro',
+          'native',
+        );
       },
       default: 'h5',
     },
   });
 
-  if (api.userConfig.appType !== 'pc') {
+  if (api.userConfig.appType !== 'pc' || api.userConfig.appType !== 'docs') {
     api.addHTMLMetas(() => {
       const addItem = {
         content: 'telephone=no',

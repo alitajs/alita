@@ -28,6 +28,12 @@ export default (api: IApi) => {
     plugins.push(require.resolve('@alita/plugins/dist/antdmobile'));
     plugins.push(require.resolve('@alita/plugins/dist/mobile-layout'));
   }
+  // docs 暂时不做任何操作，后续可加插件和组件
+  if (api.userConfig.appType === 'docs') {
+    return {
+      plugins: [require.resolve('./features/apptype')],
+    };
+  }
   return {
     plugins,
   };

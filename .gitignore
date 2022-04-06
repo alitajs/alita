@@ -12,3 +12,4 @@
 /packages/**/src/**/fixtures/*/.umi-production
 .umi
 .umi-production
+dist
