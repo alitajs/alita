@@ -7,6 +7,8 @@
     "build:release": "pnpm -r --filter ./packages run build -- --declarationMap false",
     "dep:update": "esno scripts/checkNpmClient.ts && pnpm up --interactive --latest --recursive",
     "dev": "pnpm -r --filter ./packages --parallel run dev",
+    "doc:build": "umi build",
+    "doc:dev": "umi dev",
     "format": "prettier --write .",
     "preinstall": "esno scripts/checkNpmClient.ts",
     "prepare": "husky install",
@@ -21,7 +23,8 @@
   },
   "devDependencies": {
     "@types/rimraf": "3.0.2",
-    "@umijs/utils": "4.0.0-rc.9",
+    "@umijs/utils": "4.0.0-canary.20220325.1",
+    "@umijs/plugin-docs": "4.0.0-canary.20220325.1",
     "@changesets/cli": "2.19.0",
     "@changesets/changelog-github": "0.4.2",
     "alita": "workspace:*",
