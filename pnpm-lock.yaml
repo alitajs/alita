@@ -9,6 +9,7 @@ importers:
       '@manypkg/get-packages': ^1.1.3
       '@types/jest': ^27.0.2
       '@types/node': ^16.11.6
+      '@types/qrcode-terminal': '*'
       '@types/react': ^17.0.33
       '@types/react-dom': ^17.0.10
       '@types/resolve': ^1.20.1
@@ -44,6 +45,7 @@ importers:
       '@manypkg/get-packages': 1.1.3
       '@types/jest': 27.4.0
       '@types/node': 16.11.19
+      '@types/qrcode-terminal': 0.12.0
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       '@types/resolve': 1.20.1
@@ -96,6 +98,7 @@ importers:
       '@umijs/core': 4.0.0-canary.20220325.1
       '@umijs/renderer-react': 4.0.0-canary.20220325.1
       '@umijs/utils': 4.0.0-canary.20220325.1
+      qrcode-terminal: ^0.12.0
       umi: 4.0.0-canary.20220325.1
       v8-compile-cache: ^2.3.0
     dependencies:
@@ -105,6 +108,7 @@ importers:
       '@umijs/core': 4.0.0-canary.20220325.1
       '@umijs/renderer-react': 4.0.0-canary.20220325.1
       '@umijs/utils': 4.0.0-canary.20220325.1
+      qrcode-terminal: 0.12.0
       umi: 4.0.0-canary.20220325.1
       v8-compile-cache: 2.3.0
 
@@ -3030,6 +3034,10 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
+
+  /@types/qrcode-terminal/0.12.0:
+    resolution: {integrity: sha512-g0fQKl3IVnUePV8tLkiBTduxAVSZsXts444T2aMfjOEGxd7XoeSIs16/AmRe2NlcJLqbvsOBSXov7dKSo4wigA==}
+    dev: true
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
@@ -10197,6 +10205,11 @@ packages:
       lodash: 4.17.21
       single-spa: 5.9.3
       tslib: 1.14.1
+    dev: false
+
+  /qrcode-terminal/0.12.0:
+    resolution: {integrity: sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==}
+    hasBin: true
     dev: false
 
   /qs/6.10.3:
