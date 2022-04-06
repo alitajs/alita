@@ -3,7 +3,7 @@ import AlitaLogo from './logo.png';
 
 export default {
   title: 'Alita',
-  description: '插件化的企业级前端应用框架',
+  description: '基于 Umi 的 React 前端框架',
   logo: AlitaLogo,
   github: 'https://github.com/alitajs/alita',
   i18n: [
