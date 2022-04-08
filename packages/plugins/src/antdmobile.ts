@@ -1,36 +1,6 @@
-import { logger, winPath } from '@umijs/utils';
+import { logger } from '@umijs/utils';
 import { AlitaApi } from 'alita';
-import { dirname, join } from 'path';
-import semver from 'semver';
-import { resolveProjectDep } from './utils/resolveProjectDep';
-
-const checkAntdMobile = (api: AlitaApi) => {
-  if (
-    // @ts-ignore
-    (api.pkg.dependencies && api.pkg.dependencies['antd-mobile']) ||
-    // @ts-ignore
-    (api.pkg.devDependencies && api.pkg.devDependencies['antd-mobile']) ||
-    // egg project using `clientDependencies` in ali tnpm
-    // @ts-ignore
-    (api.pkg.clientDependencies && api.pkg.clientDependencies['antd-mobile'])
-  ) {
-    let version = '5.0.0-rc.2';
-    try {
-      // modifyConfig 的时候 api.paths 为 {}
-      const nodeModulesPath =
-        resolveProjectDep({
-          pkg: api.pkg,
-          cwd: api.cwd,
-          dep: 'antd-mobile',
-        }) || `${api.cwd}/node_modules/antd-mobile`;
-      version = require(`${nodeModulesPath}/package.json`).version;
-    } catch (error) {}
-    return [semver.lt('5.0.0-alpha.0', version), true];
-  }
-
-  // 用户没有安装
-  return [true, false];
-};
+import { checkAntdMobile } from './utils/checkAntdMobile';
 
 /**
  * https://github.com/umijs/plugins/issues/757
@@ -73,33 +43,34 @@ export default (api: AlitaApi) => {
     return imps;
   });
 
-  api.modifyConfig((memo) => {
-    const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
-    const pkgPath =
-      resolveProjectDep({
-        pkg: api.pkg,
-        cwd: api.cwd,
-        dep: 'antd-mobile-v2',
-      }) || dirname(require.resolve('antd-mobile-v2/package.json'));
-    memo.alias['antd-mobile-v2'] = pkgPath;
+  // api.modifyConfig((memo) => {
+  // const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
+  // 项目中显示安装
+  // const pkgPath =
+  //   resolveProjectDep({
+  //     pkg: api.pkg,
+  //     cwd: api.cwd,
+  //     dep: 'antd-mobile-v2',
+  //   }) || dirname(require.resolve('antd-mobile-v2/package.json'));
+  // memo.alias['antd-mobile-v2'] = pkgPath;
 
-    let pkgMobilePath;
-    if (hasDeps) {
-      pkgMobilePath =
-        resolveProjectDep({
-          pkg: api.pkg,
-          cwd: api.cwd,
-          dep: 'antd-mobile',
-        }) || `${api.cwd}/node_modules/antd-mobile`;
-    } else {
-      pkgMobilePath = dirname(require.resolve('antd-mobile/package.json'));
-    }
-    memo.alias['antd-mobile'] = winPath(
-      join(
-        pkgMobilePath,
-        isAntdMobile5 && api.userConfig.appType !== 'pc' ? '2x' : '',
-      ),
-    );
-    return memo;
-  });
+  // let pkgMobilePath;
+  // if (hasDeps) {
+  //   pkgMobilePath =
+  //     resolveProjectDep({
+  //       pkg: api.pkg,
+  //       cwd: api.cwd,
+  //       dep: 'antd-mobile',
+  //     }) || `${api.cwd}/node_modules/antd-mobile`;
+  // } else {
+  //   pkgMobilePath = dirname(require.resolve('antd-mobile/package.json'));
+  // }
+  // memo.alias['antd-mobile'] = winPath(
+  //   join(
+  //     pkgMobilePath,
+  //     isAntdMobile5 && api.userConfig.appType !== 'pc' ? '2x' : '',
+  //   ),
+  // );
+  // return memo;
+  // });
 };

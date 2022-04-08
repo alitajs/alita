@@ -5,7 +5,7 @@ export default {
     console: {},
     inspx: {},
   },
-  mobileLayout: 'mobile5',
+  mobileLayout: true,
   polyfill: false,
   // mainPath:'users',
   mfsu: {},
