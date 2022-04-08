@@ -1,5 +1,11 @@
 # @alita/create-alita
 
+## 3.0.0-rc.2
+
+### Patch Changes
+
+- [#282](https://github.com/alitajs/alita/pull/282) [`a82f4e9`](https://github.com/alitajs/alita/commit/a82f4e985f0e33a4da3c955d94d442487123190b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - docs: init alita-docs
+
 ## 3.0.0-rc.1
 
 ### Patch Changes
