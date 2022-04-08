@@ -10,12 +10,25 @@
  </For>
  ```
 
+ ```ts
+ {
+   items.map((item, index) => <div data-index={index()}>{item}</div>)
+ }
+ ```
+
 ## Show
 
 ```typescript
 <Show when={bool} fallback={<div>hidden!</div>}>
    <div>show!!</div>
 </Show>
+```
+
+```ts
+{
+  bool && <div>show!!</div>
+  !bool && <div>hidden!</div>
+}
 ```
 
 ## Switch
@@ -31,6 +44,13 @@
 </Switch>
 ```
 
+```ts
+{
+  state.route === 'home' && <Home />
+  state.route === 'settings' && <Settings />
+  (state.route !== 'home' && state.route !== 'settings') && <FourOhFour />
+}
+```
 ## ErrorBoundary
 
 ```typescript
@@ -54,6 +74,12 @@
     <Error />
 </ErrorBoundary>
 ```
+
+## Page
+## Header
+
+## Content
+## Footer
 
 
 参考api https://www.solidjs.com/docs/latest/api
