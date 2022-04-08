@@ -43,9 +43,12 @@ export default (api: IApi) => {
           --alita-safe-area-bottom: env(safe-area-inset-bottom);
           --alita-safe-area-left: env(safe-area-inset-left);
           --alita-safe-area-right: env(safe-area-inset-right);
+          --adm-font-size-main: 0.26rem !important;
         }
 
         body {
+          background-color: #f5f5f9;
+          font-size: 0.28rem;
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
           margin-left: 0;
