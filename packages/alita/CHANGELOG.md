@@ -1,5 +1,21 @@
 # alita
 
+## 3.0.0-rc.2
+
+### Patch Changes
+
+- [#282](https://github.com/alitajs/alita/pull/282) [`a82f4e9`](https://github.com/alitajs/alita/commit/a82f4e985f0e33a4da3c955d94d442487123190b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - docs: init alita-docs
+
+* [#284](https://github.com/alitajs/alita/pull/284) [`12933ca`](https://github.com/alitajs/alita/commit/12933cafc929f9ee8eb70e0ccd670d30c52c57c6) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: docs build error
+
+- [#287](https://github.com/alitajs/alita/pull/287) [`a13d42d`](https://github.com/alitajs/alita/commit/a13d42da31b91a9c9becb839d5046e9b0282551f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: qrcode get port error
+
+* [#286](https://github.com/alitajs/alita/pull/286) [`15a784b`](https://github.com/alitajs/alita/commit/15a784be585d91e59a6e5696eccb7fd606e89ff5) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: qrcode terminal
+
+* Updated dependencies [[`a82f4e9`](https://github.com/alitajs/alita/commit/a82f4e985f0e33a4da3c955d94d442487123190b), [`437e2ca`](https://github.com/alitajs/alita/commit/437e2ca67bbb41fad9e4a0c285212a2fb79c0b42)]:
+  - @alita/native@3.0.0-rc.2
+  - @alita/plugins@3.0.0-rc.2
+
 ## 3.0.0-rc.1
 
 ### Patch Changes
