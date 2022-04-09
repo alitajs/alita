@@ -21,9 +21,9 @@
     ]
   },
   "dependencies": {
-    "@alita/flow": "3.0.0-beta.3",
+    "@alita/flow": "*",
     "alita": "^{{{ version }}}",
-    "antd-mobile-icons": "^0.2.2"
+    "antd-mobile": "^5.10.1"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
@@ -48,11 +48,8 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "authors": [
-    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
-  ],
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "fabric verify-commit"
+    "commit-msg": "alita verify-commit"
   }
 }

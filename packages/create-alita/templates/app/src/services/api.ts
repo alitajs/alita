@@ -1,5 +1,5 @@
-import { request } from '@@/plugin-request';
+import { request } from 'alita';
 
 export async function query(): Promise<any> {
-  return request('/hello');
+  return request('/api/hello', { method: 'post' });
 }

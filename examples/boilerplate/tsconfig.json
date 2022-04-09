@@ -24,7 +24,8 @@
     "strict": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@@/*": ["./src/.umi/*"]
+      "@@/*": ["./src/.umi/*"],
+      "alita": ["./src/.umi/*"]
     }
   }
 }
