@@ -34,6 +34,8 @@ export default (api: IApi) => {
       return `'${item}'`;
     });
   };
+  api.addRuntimePluginKey(() => 'getKeepAlive');
+
   api.onGenerateFiles(() => {
     api.writeTmpFile({
       path: join(DIR_NAME, 'KeepAliveLayout.tsx'),

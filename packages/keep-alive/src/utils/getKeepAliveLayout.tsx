@@ -4,7 +4,9 @@ import { getRoutes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
 import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
 import { matchRoutes } from 'react-router-config';
+import * as app from '@/app';
 
+const runTimeConfig = app;
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -60,17 +62,33 @@ interface PageProps {
 export default class BasicLayout extends React.PureComponent<PageProps> {
   constructor(props: any) {
     super(props);
-    this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(),props.keepalive);
+    this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(), props.keepalive);
     const patchKeepAlive = async (func: (config: anyd[]) => any[]) => {
       const keepalive = await func(props.keepalive);
       this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(), keepalive);
     }
     this.patchKeepAlive = patchKeepAlive;
+    this.state = { keepaliveConfig: props.keepalive, keepAliveViewMap: this.keepAliveViewMap };
+    // TODO: 临时支持动态的 keepalive，将 map 放到 state 中，非常不友好
+    this.init();
+  }
+  async init() {
+    if (runTimeConfig?.getKeepAlive) {
+      try {
+        const keepaliverumtime = await runTimeConfig?.getKeepAlive(this.state.keepaliveConfig);
+        this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(), keepaliverumtime);
+        this.setState({
+          keepaliveConfig: keepaliverumtime,
+          keepAliveViewMap: this.keepAliveViewMap
+        })
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
   componentDidMount() {
     setLayoutInstance(this);
   }
-
   keepAliveViewMap = {};
 
   alivePathnames: string[] = [];
@@ -79,7 +97,8 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     const {
       location: { pathname },
     } = this.props;
-    const showKeepAlive = !!getView(pathname, this.keepAliveViewMap);
+    const { keepAliveViewMap } = this.state;
+    const showKeepAlive = !!getView(pathname, keepAliveViewMap);
     if (showKeepAlive) {
       const index = this.alivePathnames.findIndex(
         tPathname => tPathname === pathname.toLowerCase(),
