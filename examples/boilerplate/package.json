@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "@alita/flow": "workspace:*",
-    "@alita/plugins": "workspace:*",
     "@alita/native": "workspace:*",
+    "@alita/plugins": "workspace:*",
+    "ahooks": "^3.0.8",
     "alita": "workspace:*",
-    "antd-mobile-icons": "^0.2.2"
+    "antd-mobile": "^5.10.0"
   }
 }

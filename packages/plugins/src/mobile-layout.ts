@@ -2,6 +2,7 @@ import { logger, Mustache, winPath } from '@umijs/utils';
 import { AlitaApi } from 'alita';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
+import { checkAntdMobile } from './utils/checkAntdMobile';
 import { resolveProjectDep } from './utils/resolveProjectDep';
 import { withTmpPath } from './utils/withTmpPath';
 
@@ -28,13 +29,14 @@ export default (api: AlitaApi) => {
   const isMicroApp = api.userConfig.appType === 'micro';
 
   api.onGenerateFiles(() => {
+    const [isAntdMobile5] = checkAntdMobile(api);
     const layoutTpl = readFileSync(
       join(
         __dirname,
         '..',
         'templates',
         'mobile-layout',
-        api.config.mobileLayout === 'mobile5' ? 'layout5.tpl' : 'layout.tpl',
+        isAntdMobile5 ? 'layout5.tpl' : 'layout.tpl',
       ),
       'utf-8',
     );
@@ -65,18 +67,11 @@ export default (api: AlitaApi) => {
       path: join(DIR_NAME, 'layoutState.ts'),
       noPluginDir: true,
       content: Mustache.render(modelTpl, {
-        alitalayout:
-          api.config.mobileLayout === 'mobile5'
-            ? './AlitaLayout'
-            : winPath(dirname(require.resolve('@alita/alita-layout/package'))),
+        alitalayout: isAntdMobile5
+          ? './AlitaLayout'
+          : winPath(dirname(require.resolve('@alita/alita-layout/package'))),
       }),
     });
-
-    // api.writeTmpFile({
-    //   path: join(DIR_NAME, 'exports.ts'),
-    //   noPluginDir: true,
-    //   content: `export { getPageNavBar, setPageNavBar, setTabBarList, getTabBarList, layoutEmitter } from './layoutState';`,
-    // });
 
     // index.ts for layout
     api.writeTmpFile({
