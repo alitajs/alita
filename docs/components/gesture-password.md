@@ -1,8 +1,4 @@
----
-title: '手势密码'
----
-
-# Gesture Password (手势密码)
+# 手势密码
 
 <img height="300" src="https://user-images.githubusercontent.com/11746742/68995608-735b4a00-08ca-11ea-8402-2d5229beaceb.png"></img>
 
