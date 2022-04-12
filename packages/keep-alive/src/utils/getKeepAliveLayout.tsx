@@ -4,8 +4,9 @@ import { getRoutes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
 import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
 import { matchRoutes } from 'react-router-config';
-import { getKeepAlive } from '@/app';
+import * as app from '@/app';
 
+const runTimeConfig = app;
 const isKeepPath = (aliveList:any[],path:string)=>{
   let isKeep = false;
   aliveList.map(item=>{
@@ -72,9 +73,9 @@ export default class BasicLayout extends React.PureComponent<PageProps> {
     this.init();
   }
   async init() {
-    if (getKeepAlive) {
+    if (runTimeConfig?.getKeepAlive) {
       try {
-        const keepaliverumtime = await getKeepAlive(this.state.keepaliveConfig);
+        const keepaliverumtime = await runTimeConfig?.getKeepAlive(this.state.keepaliveConfig);
         this.keepAliveViewMap = getKeepAliveViewMap(getRoutes(), keepaliverumtime);
         this.setState({
           keepaliveConfig: keepaliverumtime,
