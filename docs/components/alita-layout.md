@@ -1,11 +1,4 @@
----
-nav:
-  title: 组件
-  order: 4
-title: '移动端全局布局'
----
-
-# alita-layout
+# 移动端全局布局
 
 The generic h5 layout in umi uses antd-mobile.
 

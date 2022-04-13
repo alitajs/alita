@@ -1,8 +1,4 @@
----
-title: '列表页面（加载更多）'
----
-
-# @alitajs/list-view
+# 列表页面（加载更多）
 
 移动端的加载更多页面封装，简化业务流程。使用了 `@umijs/hooks` 的 `useLoadMore`。
 

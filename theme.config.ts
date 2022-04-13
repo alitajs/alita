@@ -63,5 +63,22 @@ export default {
         },
       ],
     },
+    {
+      path: '/components',
+      title: 'components',
+      type: 'nav',
+      children: [
+        {
+          title: 'Components',
+          children: [
+            'd-form',
+            'list-view',
+            'alita-layout',
+            'd-a-d',
+            'gesture-password',
+          ],
+        },
+      ],
+    },
   ],
 };
