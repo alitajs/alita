@@ -1,9 +1,4 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[646],{7646:function(h,i,a){a.r(i);var l=a(5938),s=a.n(l),c=a(9496),n=a(4637);function d(){var e=arguments.length>0&&arguments[0]!==void 0?arguments[0]:{};(0,c.useEffect)(function(){if(window.location.hash.length!==0){var t=window.location.hash;window.location.hash="",window.location.hash=t}},[]);var u=e.components||{},r=u.wrapper;return r?(0,n.jsx)(r,s()(s()({},e),{},{children:(0,n.jsx)(o,{})})):o();function o(){var t=Object.assign({hr:"hr",h2:"h2",h1:"h1",p:"p",blockquote:"blockquote",strong:"strong",code:"code",a:"a",pre:"pre",h3:"h3"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.hr,{}),`
-`,(0,n.jsx)(t.h2,{id:"navtitle-\u7EC4\u4EF6order-4title-\u79FB\u52A8\u7AEF\u5168\u5C40\u5E03\u5C40",children:`nav:
-title: \u7EC4\u4EF6
-order: 4
-title: '\u79FB\u52A8\u7AEF\u5168\u5C40\u5E03\u5C40'`}),`
-`,(0,n.jsx)(t.h1,{id:"alita-layout",children:"alita-layout"}),`
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[646],{7646:function(h,i,e){e.r(i);var l=e(5938),s=e.n(l),c=e(9496),n=e(4637);function d(){var a=arguments.length>0&&arguments[0]!==void 0?arguments[0]:{};(0,c.useEffect)(function(){if(window.location.hash.length!==0){var t=window.location.hash;window.location.hash="",window.location.hash=t}},[]);var u=a.components||{},r=u.wrapper;return r?(0,n.jsx)(r,s()(s()({},a),{},{children:(0,n.jsx)(o,{})})):o();function o(){var t=Object.assign({h1:"h1",p:"p",blockquote:"blockquote",strong:"strong",code:"code",a:"a",h2:"h2",pre:"pre",h3:"h3"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h1,{id:"\u79FB\u52A8\u7AEF\u5168\u5C40\u5E03\u5C40",children:"\u79FB\u52A8\u7AEF\u5168\u5C40\u5E03\u5C40"}),`
 `,(0,n.jsx)(t.p,{children:"The generic h5 layout in umi uses antd-mobile."}),`
 `,(0,n.jsxs)(t.blockquote,{children:[`
 `,(0,n.jsx)(t.p,{children:`umi@2 \u548C alita@1 \u8BF7\u4F7F\u7528 1.x \u7248\u672C
