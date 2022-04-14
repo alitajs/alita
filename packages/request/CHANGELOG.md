@@ -1,5 +1,11 @@
 # @alita/request
 
+## 3.0.0-rc.2
+
+### Patch Changes
+
+- [#295](https://github.com/alitajs/alita/pull/295) [`6a6fd67`](https://github.com/alitajs/alita/commit/6a6fd67ce98997555b3a0ccf305cdb15991b7e5d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: target to es5
+
 ## 3.0.0-rc.1
 
 ### Patch Changes

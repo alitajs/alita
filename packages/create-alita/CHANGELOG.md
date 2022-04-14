@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.0-rc.3
+
+### Patch Changes
+
+- [#289](https://github.com/alitajs/alita/pull/289) [`1fe23b7`](https://github.com/alitajs/alita/commit/1fe23b73de6793acfec5e20112acec6031e0ec5a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: app tml
+
 ## 3.0.0-rc.2
 
 ### Patch Changes

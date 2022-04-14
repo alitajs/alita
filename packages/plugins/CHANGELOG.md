@@ -1,5 +1,15 @@
 # @alita/plugins
 
+## 3.0.0-rc.3
+
+### Patch Changes
+
+- [#288](https://github.com/alitajs/alita/pull/288) [`e8df86c`](https://github.com/alitajs/alita/commit/e8df86c69c5c940710f2b1a9a29672782f58e787) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: auto mobilelayout
+
+- Updated dependencies [[`6a6fd67`](https://github.com/alitajs/alita/commit/6a6fd67ce98997555b3a0ccf305cdb15991b7e5d), [`e8df86c`](https://github.com/alitajs/alita/commit/e8df86c69c5c940710f2b1a9a29672782f58e787)]:
+  - @alita/request@3.0.0-rc.2
+  - alita@3.0.0-rc.3
+
 ## 3.0.0-rc.2
 
 ### Patch Changes

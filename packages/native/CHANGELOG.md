@@ -1,5 +1,12 @@
 # @alita/native
 
+## 3.0.0-rc.3
+
+### Patch Changes
+
+- Updated dependencies [[`e8df86c`](https://github.com/alitajs/alita/commit/e8df86c69c5c940710f2b1a9a29672782f58e787)]:
+  - alita@3.0.0-rc.3
+
 ## 3.0.0-rc.2
 
 ### Patch Changes
