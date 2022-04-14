@@ -1,5 +1,5 @@
 ---
-'@alita/create-alita': minor
+'create-alita': minor
 ---
 
 feat: create-app

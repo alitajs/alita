@@ -1,5 +1,5 @@
 ---
-'@alita/create-alita': patch
+'create-alita': patch
 ---
 
 feat: app tml

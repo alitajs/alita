@@ -1,5 +1,4 @@
 ---
-'boilerplate': patch
 'alita': patch
 '@alita/plugins': patch
 ---

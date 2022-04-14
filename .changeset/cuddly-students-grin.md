@@ -1,6 +1,6 @@
 ---
 'alita': patch
-'@alita/create-alita': patch
+'create-alita': patch
 '@alita/flow': patch
 '@alita/native': patch
 '@alita/plugins': patch
