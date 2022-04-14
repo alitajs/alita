@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.0-rc.4
+
+### Patch Changes
+
+- [`2b27f6d`](https://github.com/alitajs/alita/commit/2b27f6d4676d7fca1bf6f4a60a6d2ded01e15808) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
 ## 3.0.0-rc.3
 
 ### Patch Changes
