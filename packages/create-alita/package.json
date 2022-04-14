@@ -1,5 +1,5 @@
 {
-  "name": "@alita/create-alita",
+  "name": "create-alita",
   "version": "3.0.0-rc.2",
   "description": "create-alita",
   "main": "dist/index.js",
@@ -30,6 +30,6 @@
     "create-alita": "bin/create-alita.js"
   },
   "dependencies": {
-    "@umijs/utils": "4.0.0-canary.20220325.1"
+    "@umijs/utils": "4.0.0-canary.20220412.3"
   }
 }
