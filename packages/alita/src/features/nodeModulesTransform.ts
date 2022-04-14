@@ -1,4 +1,4 @@
-import { AlitaApi } from 'alita';
+import { AlitaApi } from '../types';
 
 export default (api: AlitaApi) => {
   // nodeModulesTransform
