@@ -30,8 +30,8 @@
     "alita": "bin/alita.js"
   },
   "dependencies": {
-    "@alita/native": "workspace:*",
-    "@alita/plugins": "workspace:*",
+    "@alita/native": "3.0.0-rc.4",
+    "@alita/plugins": "3.0.0-rc.4",
     "@umijs/bundler-utils": "4.0.0-canary.20220414.1",
     "@umijs/core": "4.0.0-canary.20220414.1",
     "@umijs/renderer-react": "4.0.0-canary.20220414.1",
