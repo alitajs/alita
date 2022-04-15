@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.0-rc.5
+
+### Patch Changes
+
+- [#300](https://github.com/alitajs/alita/pull/300) [`5b89702`](https://github.com/alitajs/alita/commit/5b89702d4202c8ced34d6e0d70b14c34484cd531) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: publish error
+
+- Updated dependencies [[`5b89702`](https://github.com/alitajs/alita/commit/5b89702d4202c8ced34d6e0d70b14c34484cd531)]:
+  - @alita/native@3.0.0-rc.5
+  - @alita/plugins@3.0.0-rc.5
+
 ## 3.0.0-rc.4
 
 ### Patch Changes
