@@ -17,7 +17,7 @@ importers:
       '@umijs/plugin-docs': 4.0.0-canary.20220414.1
       '@umijs/utils': 4.0.0-canary.20220414.1
       '@vercel/ncc': ^0.31.1
-      alita: workspace:*
+      alita: 3.0.0-rc.4
       core-js: 3.19.2
       dts-packer: ^0.0.2
       esbuild-jest: ^0.5.0
@@ -94,8 +94,8 @@ importers:
 
   packages/alita:
     specifiers:
-      '@alita/native': workspace:*
-      '@alita/plugins': workspace:*
+      '@alita/native': 3.0.0-rc.4
+      '@alita/plugins': 3.0.0-rc.4
       '@umijs/bundler-utils': 4.0.0-canary.20220414.1
       '@umijs/core': 4.0.0-canary.20220414.1
       '@umijs/renderer-react': 4.0.0-canary.20220414.1
@@ -134,7 +134,7 @@ importers:
   packages/native:
     specifiers:
       '@umijs/utils': 4.0.0-canary.20220414.1
-      alita: workspace:*
+      alita: 3.0.0-rc.4
     dependencies:
       '@umijs/utils': 4.0.0-canary.20220414.1
       alita: link:../alita
@@ -143,14 +143,14 @@ importers:
     specifiers:
       '@alita/alita-layout': ^3.0.5
       '@alita/inspx': 0.0.2
-      '@alita/request': workspace:*
+      '@alita/request': 3.0.0-rc.2
       '@alitajs/postcss-plugin-px2rem': ^0.0.1
       '@types/semver': ^7.3.9
       '@umijs/bundler-utils': 4.0.0-canary.20220414.1
       '@umijs/plugins': 4.0.0-canary.20220414.1
       '@umijs/utils': 4.0.0-canary.20220414.1
       ahooks: ^3.0.8
-      alita: workspace:*
+      alita: 3.0.0-rc.4
       antd-mobile-icons: ^0.2.2
       babel-plugin-import: ^1.13.3
       babel-plugin-transform-jsx-class: ^0.1.3
