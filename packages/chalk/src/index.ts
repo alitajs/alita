@@ -61,7 +61,7 @@ interface AlitaChalk {
 if (!(window as any).chalk) {
   const _console: any = console;
   const color: ColorProps = {
-    black: '#00000',
+    black: '#000000',
     red: '#FF0000',
     green: '#008000',
     yellow: '#FFFF00',
@@ -111,20 +111,36 @@ if (!(window as any).chalk) {
     event: 'magenta',
     debug: 'gray',
   };
-  const createChalk = (name: string) => (str: string) => {
-    let strArr = str;
-    if (typeof str === 'string' || typeof str === 'number') {
-      strArr = colorUtils[colorHash[name]](str);
-    }
-    createlog(name)(
-      ...add(
-        colorUtils.bold(
-          colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `),
+  const createChalk =
+    (name: string) =>
+    (
+      // @ts-ignore
+      ...str
+    ) => {
+      if (typeof str[0] === 'object') {
+        createlog(name)(
+          ...add(
+            colorUtils.bold(
+              colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `),
+            ),
+            ...str,
+          ),
+        );
+        return;
+      }
+      let strArr = str;
+      if (typeof str === 'string' || typeof str === 'number') {
+        strArr = colorUtils[colorHash[name]](str);
+      }
+      createlog(name)(
+        ...add(
+          colorUtils.bold(
+            colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `),
+          ),
+          strArr,
         ),
-        strArr,
-      ),
-    );
-  };
+      );
+    };
   const chalk = {} as any;
   Object.keys(colorHash).forEach((key) => {
     chalk[key] = createChalk(key);
@@ -132,14 +148,30 @@ if (!(window as any).chalk) {
   const firstToUpperCase = (str: string) =>
     str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
   Object.keys(color).forEach((key) => {
-    colorUtils[key] = (str: string) => [`%c${str}`, `color:${color[key]}`];
-    colorUtils[`bg${firstToUpperCase(key)}`] = (str: string) => {
-      return [
-        `%c${str}`,
-        `padding: 2px 4px; border-radius: 3px; color: ${
-          key === 'white' ? '#000' : '#fff'
-        }; font-weight: bold; background:${color[key]};`,
-      ];
+    colorUtils[key] = (str: string | string[]) => {
+      if (typeof str === 'string' || typeof str === 'number') {
+        return [`%c${str}`, `color:${color[key]}`];
+      }
+      for (let i = 1; i < str.length; i++) {
+        str[i] += `;color:${color[key]}`;
+      }
+      return str;
+    };
+    colorUtils[`bg${firstToUpperCase(key)}`] = (str: string | string[]) => {
+      if (typeof str === 'string' || typeof str === 'number') {
+        return [
+          `%c${str}`,
+          `padding: 2px 4px; border-radius: 3px; color: ${
+            key === 'white' ? '#000' : '#fff'
+          }; font-weight: bold; background:${color[key]};`,
+        ];
+      }
+      for (let i = 1; i < str.length; i++) {
+        str[
+          i
+        ] += `;padding: 2px 4px; border-radius: 3px; font-weight: bold; background:${color[key]};`;
+      }
+      return str;
     };
   });
   (window as any).chalk = {
@@ -152,6 +184,18 @@ if (!(window as any).chalk) {
         'padding: 2px 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060; font-weight: bold;',
         'padding: 2px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e; font-weight: bold;',
       ),
+    image: (img: string) => {
+      if (!img) return;
+      createlog('log')(
+        `%c `,
+        `font-size: 1px;
+padding: 100px 100px;
+background-image: url(${img});
+background-size: contain;
+background-repeat: no-repeat;
+color: transparent;`,
+      );
+    },
   };
 }
 chalk = (window as any).chalk;
