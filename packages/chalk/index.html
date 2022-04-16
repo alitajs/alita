@@ -14,7 +14,7 @@
         if (!window.chalk) {
             const _console = console;
             const color = {
-                black: '#00000',
+                black: '#000000',
                 red: '#FF0000',
                 green: '#008000',
                 yellow: '#FFFF00',
@@ -30,7 +30,7 @@
                 ];
                 for (let key = 0; key < arr.length; key++) {
                     const [first, ...other] = arr[key];
-                    fi[0] += `${first.startsWith(' ') ? '' : ' '}${first}`;
+                    fi[0] += first;
                     fi = fi.concat(other);
                 }
                 return fi;
@@ -62,13 +62,16 @@
                 event: 'magenta',
                 debug: 'gray',
             };
-            const createChalk = (name) => (str) => {
+            const createChalk = (name) => (...str) => {
+                if (typeof str[0] === 'object') {
+                    createlog(name)(...add(colorUtils.bold(colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `)), ...str));
+                    return;
+                }
                 let strArr = str;
                 if (typeof str === 'string' || typeof str === 'number') {
                     strArr = colorUtils[colorHash[name]](str);
                 }
                 createlog(name)(...add(colorUtils.bold(colorUtils[colorHash[name]](`[${firstToUpperCase(name)}] `)), strArr));
-
             };
             const chalk = {};
             Object.keys(colorHash).forEach(key => {
@@ -76,19 +79,52 @@
             });
             const firstToUpperCase = (str) => str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
             Object.keys(color).forEach(key => {
-                colorUtils[key] = (str) => [`%c${str}`, `color:${color[key]}`];
+                colorUtils[key] = (str) => {
+                    if (typeof str === 'string' || typeof str === 'number') {
+                        return [`%c${str}`, `color:${color[key]}`];
+                    }
+                    for (let i = 1; i < str.length; i++) {
+                        str[i] += `;color:${color[key]}`;
+                    }
+                    return str;
+                };
                 colorUtils[`bg${firstToUpperCase(key)}`] = (str) => {
-                    return [`%c${str}`, `padding: 2px 4px; border-radius: 3px; color: ${key === 'white' ? '#000' : '#fff'}; font-weight: bold; background:${color[key]};`];
+                    if (typeof str === 'string' || typeof str === 'number') {
+                        return [`%c${str}`, `padding: 2px 4px; border-radius: 3px; color: ${key === 'white' ? '#000' : '#fff'}; font-weight: bold; background:${color[key]};`];
+                    }
+                    for (let i = 1; i < str.length; i++) {
+                        str[i] += `;padding: 2px 4px; border-radius: 3px; font-weight: bold; background:${color[key]};`;
+                    }
+                    return str;
                 };
             });
             window.chalk = {
                 add,
                 ...chalk,
                 ...colorUtils,
-                hello: (title, version) => createlog('log')(`%c ${title} %c V${version} `, 'padding: 2px 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060; font-weight: bold;', 'padding: 2px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e; font-weight: bold;')
+                hello: (title, version) => createlog('log')(`%c ${title} %c V${version} `, 'padding: 2px 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060; font-weight: bold;', 'padding: 2px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e; font-weight: bold;'),
+                image: (img) => {
+                    if (!img) return;
+                    createlog('log')(`%c `, `font-size: 1px;
+  padding: 100px 100px;
+  background-image: url(${img});
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: transparent;`)
+
+                }
             };
         }
         chalk = window.chalk;
+        window.alitadebug = true;
+        chalk.hello('Malita', '0.0.6');
+        chalk.image('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecfbefb4fc8f4a9ca4b3095a8d22752f~tplv-k3u1fbpfcp-watermark.image');
+        chalk.log('大家好，我是《挑战21天手写前端框架的产物》')
+        chalk.info('作者是陈小聪哦')
+        chalk.wait('github: xiaohuoni')
+        chalk.warn('感兴趣的朋友可以掘金搜索标题')
+        chalk.error('内容主要是挑战日更，所以对于我就是一个附加产物，伤心！')
+        chalk.ready('不过没有关系，我还是会努力成长的！gogogo！')
     </script>
 </head>
 
