@@ -16,8 +16,17 @@ const isKeepPath = (aliveList:any[],path:string)=>{
     if(item instanceof RegExp && item.test(path)){
       isKeep = true;
     }
-    if(typeof item === 'string' && item.toLowerCase() === path){
-      isKeep = true;
+    if(typeof item === 'string' ){
+      const lowerItem = item.toLowerCase();
+      if(lowerItem === path) {
+        isKeep = true;
+      }
+      if(lowerItem.includes('/*')) {
+        const pathList = lowerItem.split('/*');
+        if(path.includes(pathList[0])) {
+          isKeep = true;
+        }
+      }
     }
   })
   return isKeep;
