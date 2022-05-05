@@ -35,48 +35,50 @@ async function spawnSync(
   });
 }
 
-function getNpmClient() {
-  if (process.env.npm_config_user_agent === 'npm') return 'npm';
-  return 'pnpm';
-}
-
-async function installDependencies(
-  dependencies: string | string[],
-  { isDev = false } = {},
-) {
-  const npmClient = getNpmClient();
-  if (['yarn', 'pnpm'].indexOf(npmClient) !== -1) {
-    const args = ['add'];
-    if (isDev) {
-      args.push('-D');
-    }
-    if (typeof dependencies === 'string') {
-      args.push(dependencies);
-    } else if (Array.isArray(dependencies)) {
-      args.push(...dependencies);
-    }
-    await spawnSync(npmClient, args);
-  } else if ('npm' === npmClient) {
-    const args = ['install'];
-    if (isDev) {
-      args.push('--save-dev');
-    }
-    if (typeof dependencies === 'string') {
-      args.push(dependencies);
-    } else if (Array.isArray(dependencies)) {
-      args.push(...dependencies);
-    }
-    await spawnSync(npmClient, args);
-  } else {
-    console.error(chalk.red(`Unknown npm client: ${npmClient}`));
-    process.exit(1);
-  }
-}
-
 export default (api: AlitaApi) => {
   api.onStart(() => {
     logger.info('Using Native Plugin');
   });
+
+  function getNpmClient() {
+    // 支持 ['npm', 'pnpm', 'yarn'] 这几种 npm client，如果配置了非这三种的，统一使用 npm
+    return ['npm', 'pnpm', 'yarn'].includes(api.config.npmClient)
+      ? api.config.npmClient
+      : 'npm';
+  }
+
+  async function installDependencies(
+    dependencies: string | string[],
+    { isDev = false } = {},
+  ) {
+    const npmClient = getNpmClient();
+    if (['yarn', 'pnpm'].indexOf(npmClient) !== -1) {
+      const args = ['add'];
+      if (isDev) {
+        args.push('-D');
+      }
+      if (typeof dependencies === 'string') {
+        args.push(dependencies);
+      } else if (Array.isArray(dependencies)) {
+        args.push(...dependencies);
+      }
+      await spawnSync(npmClient, args);
+    } else if ('npm' === npmClient) {
+      const args = ['install'];
+      if (isDev) {
+        args.push('--save-dev');
+      }
+      if (typeof dependencies === 'string') {
+        args.push(dependencies);
+      } else if (Array.isArray(dependencies)) {
+        args.push(...dependencies);
+      }
+      await spawnSync(npmClient, args);
+    } else {
+      console.error(chalk.red(`Unknown npm client: ${npmClient}`));
+      process.exit(1);
+    }
+  }
   /**
    * Initialize Capacitor configuration by providing an app name, app ID, and an optional web directory for the existing web app
    */
