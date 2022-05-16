@@ -29,7 +29,7 @@
     "@umijs/plugin-docs": "4.0.0-rc.17",
     "@changesets/cli": "2.19.0",
     "@changesets/changelog-github": "0.4.2",
-    "alita": "3.0.0-rc.4",
+    "alita": "3.0.0-rc.5",
     "esno": "^0.10.1",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
