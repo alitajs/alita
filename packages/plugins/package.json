@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.0.0-rc.5",
+  "version": "3.0.0-rc.6",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,7 @@
     "@umijs/plugins": "4.0.0-rc.17",
     "@umijs/utils": "4.0.0-rc.17",
     "ahooks": "^3.0.8",
-    "alita": "3.0.0-rc.5",
+    "alita": "3.0.0-rc.6",
     "antd-mobile-icons": "^0.2.2",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-jsx-class": "^0.1.3",

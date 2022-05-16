@@ -1,5 +1,14 @@
 # @alita/plugins
 
+## 3.0.0-rc.6
+
+### Patch Changes
+
+- [#311](https://github.com/alitajs/alita/pull/311) [`2edcb25`](https://github.com/alitajs/alita/commit/2edcb25205073a4f9eb7b3ce8533841e288be101) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support extraBabelIncludes
+
+- Updated dependencies [[`2edcb25`](https://github.com/alitajs/alita/commit/2edcb25205073a4f9eb7b3ce8533841e288be101)]:
+  - alita@3.0.0-rc.6
+
 ## 3.0.0-rc.5
 
 ### Patch Changes
