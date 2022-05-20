@@ -41,6 +41,13 @@ export default (api: AlitaApi) => {
   });
 
   if (aconsole?.console) {
+    api.addHTMLHeadScripts(() => {
+      return [
+        {
+          src: 'https://unpkg.com/vconsole@latest/dist/vconsole.min.js',
+        },
+      ];
+    });
     api.addHTMLStyles(() => {
       return [
         {
@@ -48,16 +55,10 @@ export default (api: AlitaApi) => {
         },
       ];
     });
-    api.addEntryImports(() => {
-      return [
-        {
-          source: join(__dirname, '..', 'compiled', 'vconsole'),
-          specifier: 'VConsole',
-        },
-      ];
-    });
     api.addEntryCode(() => {
-      return [`const c = new VConsole(${JSON.stringify(aconsole.console)});`];
+      return [
+        `const c = new window.VConsole(${JSON.stringify(aconsole.console)});`,
+      ];
     });
   }
 
