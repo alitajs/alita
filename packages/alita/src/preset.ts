@@ -1,8 +1,9 @@
+import { logger } from '@umijs/utils';
 import type { IApi } from 'umi';
 
 export default (api: IApi) => {
   api.onStart(() => {
-    console.log('Hello alita@3');
+    logger.info('Hello Alita@3');
   });
   const plugins = [
     require.resolve('./features/config/alitaconfig'),
