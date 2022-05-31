@@ -5,9 +5,9 @@ The generic h5 layout in umi uses antd-mobile.
 > umi@2 和 alita@1 请使用 1.x 版本
 > 2.x 版本只支持 umi@3 和 alita@2
 
-**在 `alita` 里使用可以参考[mobileLayout](/config/config#mobilelayout)**
+> **在 `alita` 里使用可以参考[mobileLayout](/config/config#mobilelayout)**
 
-## 使用
+## 一、单独使用
 
 ```bash
 npm i @alitajs/alita-layout --save
@@ -21,7 +21,95 @@ import BasicLayout from '@alitajs/alita-layout';
 render(<BasicLayout />, document.getElementById('root'));
 ```
 
-## API
+## 二、在 alita 中使用
+
+### 1、通用配置
+
+在使用 `@alitajs/layout(框架已自动内置引入)` 时
+
+正常我们会在 `app.ts` 文件下通过 `mobileLayout` 的配置来实现。
+
+```js
+// 这里用来设置 navbar
+// 通过这里的配置就可以看到 首页隐藏了导航栏
+// 而list 会显示导航栏
+const navList: NavBarListItem[] = [
+  {
+    pagePath: '/',
+    navBar: {
+      hideNavBar: true,
+    },
+  },
+  {
+    pagePath: '/list',
+    navBar: {},
+  },
+];
+
+// 设置标题
+const titleList: TitleListItem[] = [
+  {
+    pagePath: '/',
+    title: '',
+  },
+  {
+    pagePath: '/list',
+    title: '列表',
+  },
+];
+// 这里是配置 tabBar 的如果没用到可以设置 list 为空
+const tabBar: TabBarProps = {
+  color: '#696D6C',
+  selectedColor: '#3562AD',
+  borderStyle: 'white',
+  position: 'bottom',
+  list: [],
+};
+
+export const mobileLayout = {
+  documentTitle: '默认标题',
+  navBar,
+  tabBar: {},
+  titleList,
+};
+```
+
+通过上面的代码可得知 `navList` 用来配置 `navbar`。
+
+**当用户每新创建一个页面就需要来 `navList` 进行配置。**
+
+若用户未配置，则默认展示 `navbar` 并且标题为 `默认标题`。
+
+[alita 官网](https://alitajs.com/components/alita-layout#navbar-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E) 这里就显示了 `navBar` 下的所有可配置属性。如 `rightContent`。
+
+### 2、自定义配置
+
+当用户需要根据某些场景动态的修改导航栏上的标题，或者是左侧右侧的图标以及点击事件时。可以在该页面做如下操作：
+
+```js
+import React, { useEffect } from 'react';
+import { setPageNavBar } from 'alita';
+
+const Page = ({ location }) => {
+  const a = 0;
+  useEffect(() => {
+    setPageNavBar({
+      pagePath: location.pathname,
+      navBar: {
+        pageTitle: '自定义名称',
+        title: '自定义名称',
+        onLeftClick: () => <div>自定义内内容</div>,
+      },
+    });
+  }, [a]);
+};
+
+export default Page;
+```
+
+当 `a` 发生变动时，会触发 `setPageNavBar` 实现导航栏的动态修改。
+
+## 三、API
 
 ### 所有参数说明
 
