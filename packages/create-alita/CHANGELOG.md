@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.0-rc.6
+
+### Patch Changes
+
+- [#322](https://github.com/alitajs/alita/pull/322) [`3588c21`](https://github.com/alitajs/alita/commit/3588c217a6abec397679f97fba3fc4e67f92884a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc21
+
 ## 3.0.0-rc.5
 
 ### Patch Changes

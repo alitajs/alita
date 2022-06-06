@@ -1,5 +1,14 @@
 # @alita/native
 
+## 3.0.0-rc.7
+
+### Patch Changes
+
+- [#322](https://github.com/alitajs/alita/pull/322) [`3588c21`](https://github.com/alitajs/alita/commit/3588c217a6abec397679f97fba3fc4e67f92884a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc21
+
+- Updated dependencies [[`7376bbf`](https://github.com/alitajs/alita/commit/7376bbf11b8a09b52f771791280de8fc82cb8017), [`3588c21`](https://github.com/alitajs/alita/commit/3588c217a6abec397679f97fba3fc4e67f92884a)]:
+  - alita@3.0.0-rc.7
+
 ## 3.0.0-rc.6
 
 ### Patch Changes
