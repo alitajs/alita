@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.0-rc.8
+
+### Patch Changes
+
+- [#324](https://github.com/alitajs/alita/pull/324) [`96564b5`](https://github.com/alitajs/alita/commit/96564b5a22ab07ea073a3c198df00161b74fbe66) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add alita dev loading
+
+- Updated dependencies []:
+  - @alita/native@3.0.0-rc.8
+  - @alita/plugins@3.0.0-rc.8
+
 ## 3.0.0-rc.7
 
 ### Patch Changes

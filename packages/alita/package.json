@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.0.0-rc.7",
+  "version": "3.0.0-rc.8",
   "description": "v3 develop version",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,8 +30,8 @@
     "alita": "bin/alita.js"
   },
   "dependencies": {
-    "@alita/native": "3.0.0-rc.7",
-    "@alita/plugins": "3.0.0-rc.7",
+    "@alita/native": "3.0.0-rc.8",
+    "@alita/plugins": "3.0.0-rc.8",
     "@umijs/bundler-utils": "4.0.0-rc.21",
     "@umijs/core": "4.0.0-rc.21",
     "@umijs/renderer-react": "4.0.0-rc.21",

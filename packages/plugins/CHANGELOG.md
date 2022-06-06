@@ -1,5 +1,12 @@
 # @alita/plugins
 
+## 3.0.0-rc.8
+
+### Patch Changes
+
+- Updated dependencies [[`96564b5`](https://github.com/alitajs/alita/commit/96564b5a22ab07ea073a3c198df00161b74fbe66)]:
+  - alita@3.0.0-rc.8
+
 ## 3.0.0-rc.7
 
 ### Patch Changes
