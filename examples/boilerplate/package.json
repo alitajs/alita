@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "rm -rf .mfsu && alita dev",
+    "dev": "alita dev",
     "build": "ANALYZE=1 alita build",
     "plugin": "alita plugin list"
   },
