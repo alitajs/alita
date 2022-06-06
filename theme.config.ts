@@ -65,11 +65,11 @@ export default {
     },
     {
       path: '/components',
-      title: 'components',
+      title: 'Components',
       type: 'nav',
       children: [
         {
-          title: 'Components',
+          title: '组件',
           children: [
             'd-form',
             'list-view',
