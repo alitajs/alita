@@ -7,6 +7,7 @@ export default (api: IApi) => {
   });
   const plugins = [
     require.resolve('./features/config/alitaconfig'),
+    require.resolve('./features/alitaloading'),
     require.resolve('./features/apptype'),
     require.resolve('./features/qrcodeterminal'),
     require.resolve('./commands/generate/pages'),
