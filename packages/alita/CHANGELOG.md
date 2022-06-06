@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.0-rc.9
+
+### Patch Changes
+
+- [#327](https://github.com/alitajs/alita/pull/327) [`ed28bd8`](https://github.com/alitajs/alita/commit/ed28bd8b8ab8e32b0a2797f8422e6408c5f69e06) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: assets lose
+
+- Updated dependencies []:
+  - @alita/native@3.0.0-rc.9
+  - @alita/plugins@3.0.0-rc.9
+
 ## 3.0.0-rc.8
 
 ### Patch Changes
