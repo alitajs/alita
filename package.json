@@ -8,7 +8,7 @@
     "dep:update": "esno scripts/checkNpmClient.ts && pnpm up --interactive --latest --recursive",
     "dev": "pnpm -r --filter ./packages --parallel run dev",
     "doc:build": "umi build",
-    "doc:dev": "alita dev",
+    "doc:dev": "umi dev",
     "format": "prettier --write .",
     "preinstall": "esno scripts/checkNpmClient.ts",
     "prepare": "husky install",
