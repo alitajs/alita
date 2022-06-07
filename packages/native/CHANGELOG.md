@@ -1,5 +1,12 @@
 # @alita/native
 
+## 3.0.0-rc.10
+
+### Patch Changes
+
+- Updated dependencies [[`ad835db`](https://github.com/alitajs/alita/commit/ad835db3b2756612237a8f72b57f41152955c34b)]:
+  - alita@3.0.0-rc.10
+
 ## 3.0.0-rc.9
 
 ### Patch Changes
