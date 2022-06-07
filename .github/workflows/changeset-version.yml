@@ -29,12 +29,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.2
         with:
-          version: 6.27.1
-
-      - name: Install Dependencies
-        run: pnpm i
+          version: 6.32.20
+          run_install: true
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
