@@ -44,7 +44,10 @@ export default function (api: IApi) {
   api.registerCommand({
     name: 'cordova',
     fn: ({ args }) => {
-      if (api.userConfig.appType !== 'cordova') {
+      if (
+        process.env.ALITA_NOW_COMMAND &&
+        api.userConfig.appType !== 'cordova'
+      ) {
         console.error(
           'cordova 命令，appType 必须为 cordova，请修改配置 appType',
         );

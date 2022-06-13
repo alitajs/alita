@@ -42,7 +42,11 @@ yarn add @alitajs/cordova
 
 ```js
 export default {
-  plugins: [['@alitajs/cordova', options]],
+  plugins: ['@alitajs/cordova'],
+  cordova: {
+    packageId: '',
+    displayName: '',
+  },
 };
 ```
 
