@@ -65,6 +65,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "fz6m",
+      "name": "Yingci",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59400654?v=4",
+      "profile": "http://fz6m.com",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
