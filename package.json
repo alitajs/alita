@@ -24,9 +24,9 @@
   "devDependencies": {
     "@types/qrcode-terminal": "*",
     "@types/rimraf": "3.0.2",
-    "umi": "4.0.0-rc.21",
-    "@umijs/utils": "4.0.0-rc.21",
-    "@umijs/plugin-docs": "4.0.0-rc.21",
+    "umi": "4.0.0-rc.22",
+    "@umijs/utils": "4.0.0-rc.22",
+    "@umijs/plugin-docs": "4.0.0-rc.22",
     "@changesets/cli": "2.19.0",
     "@changesets/changelog-github": "0.4.2",
     "alita": "3.0.0-rc.6",
