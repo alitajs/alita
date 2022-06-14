@@ -32,7 +32,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.2
         with:
-          run_install: false
+          run_install: true
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
