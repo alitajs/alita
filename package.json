@@ -69,5 +69,12 @@
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
     ]
+  },
+  "packageManager": "pnpm@6.32.0",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=6.20",
+    "npm": "not use",
+    "yarn": "not use"
   }
 }
