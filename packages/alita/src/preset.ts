@@ -13,6 +13,7 @@ export default (api: IApi) => {
     require.resolve('./commands/generate/pages'),
     require.resolve('@alita/plugins/dist/aconsole'),
     require.resolve('@alita/plugins/dist/keepalive'),
+    require.resolve('@alita/plugins/dist/tabs-layout'),
     require.resolve('@alita/plugins/dist/mainpath'),
     require.resolve('@alita/plugins/dist/request'),
     require.resolve('@alita/plugins/dist/dva'),

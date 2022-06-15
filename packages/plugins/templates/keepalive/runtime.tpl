@@ -3,9 +3,11 @@ import { KeepAliveContext } from './context';
 
 const KeepAliveLayout = (props)=>{
   const keepElements = React.useRef<any>({})
-  // keepElements.current[location.pathname] = element;
+
   function dropByCacheKey(path: string) {
-    keepElements.current[path] = null;
+    if(keepElements.current[path]){
+      delete keepElements.current[path];
+    }
   }
   return (
     <KeepAliveContext.Provider value={ { keepalive: [{{{ keepalive }}}], keepElements, dropByCacheKey } } {...props}/>
