@@ -1,5 +1,16 @@
 # @alita/plugins
 
+## 3.0.0-rc.11
+
+### Patch Changes
+
+- [#332](https://github.com/alitajs/alita/pull/332) [`29460fe3`](https://github.com/alitajs/alita/commit/29460fe31cda8d5a3cfab1658bcba702e68940f9) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc 22
+
+* [#337](https://github.com/alitajs/alita/pull/337) [`ddb8df71`](https://github.com/alitajs/alita/commit/ddb8df7152b55381bd7cecd9df7282aa473caff9) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add tabs layout
+
+* Updated dependencies [[`29460fe3`](https://github.com/alitajs/alita/commit/29460fe31cda8d5a3cfab1658bcba702e68940f9), [`ddb8df71`](https://github.com/alitajs/alita/commit/ddb8df7152b55381bd7cecd9df7282aa473caff9)]:
+  - alita@3.0.0-rc.11
+
 ## 3.0.0-rc.10
 
 ### Patch Changes

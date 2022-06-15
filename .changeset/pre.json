@@ -9,11 +9,13 @@
     "@alita/native": "3.0.0-rc.1",
     "@alita/plugins": "3.0.0-rc.1",
     "@alita/request": "3.0.0-rc.1",
-    "@alita/chalk": "1.0.0"
+    "@alita/chalk": "1.0.0",
+    "@examples/tabs": "1.0.0"
   },
   "changesets": [
     "blue-falcons-happen",
     "brown-brooms-matter",
+    "chilled-dragons-bathe",
     "chilled-eyes-kick",
     "cuddly-students-grin",
     "eight-seals-buy",
@@ -21,6 +23,7 @@
     "famous-scissors-invite",
     "flat-islands-roll",
     "four-guests-smile",
+    "friendly-cups-reflect",
     "funny-forks-drive",
     "gentle-news-know",
     "giant-mayflies-work",
