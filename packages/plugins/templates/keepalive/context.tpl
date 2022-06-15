@@ -42,7 +42,7 @@ const {local} = runtime;
     }
     return <>
 {{#hasTabsLayout}}
-    <div className="rumtime-keep-alive-tabs-layout">
+    <div className="rumtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs hideAdd onChange={(key: string) => {
                 navigate(key);
             }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {

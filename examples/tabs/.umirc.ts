@@ -1,6 +1,6 @@
 export default {
   appType: 'pc',
-  keepalive: [/./],
+  keepalive: [/users/, /foo/],
   aconsole: {
     console: {},
     inspx: {},
