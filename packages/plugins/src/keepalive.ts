@@ -10,6 +10,9 @@ const DIR_NAME = 'plugin-keepalive';
 // dropByCacheKey('/list');
 type KeepAliveType = (string | RegExp)[];
 export default (api: AlitaApi) => {
+  // 和 tabsLayout 插件组合使用
+  const { tabsLayout } = api.userConfig;
+
   api.onStart(() => {
     logger.info('Using KeepAlive Plugin');
   });
@@ -39,7 +42,9 @@ export default (api: AlitaApi) => {
     api.writeTmpFile({
       path: `${DIR_NAME}/context.tsx`,
       noPluginDir: true,
-      content: Mustache.render(contextTpl, {}),
+      content: Mustache.render(contextTpl, {
+        hasTabsLayout: !!tabsLayout,
+      }),
     });
     const runtimeTpl = readFileSync(
       join(__dirname, '..', 'templates', 'keepalive', 'runtime.tpl'),
