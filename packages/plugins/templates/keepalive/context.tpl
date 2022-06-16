@@ -31,11 +31,10 @@ export function useKeepOutlets() {
     const element = useOutlet();
 {{#hasTabsLayout}}
     const navigate = useNavigate();
-    const [panel, setPanel] = useState();
-  const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
-const {local} = runtime;
+    const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
+    const { local } = runtime;
 {{/hasTabsLayout}}
-    const { keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+    const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
@@ -53,7 +52,6 @@ const {local} = runtime;
                     if (newPanel[i] === targetKey) {
                         lastIndex = i - 1;
                     }
-
                 }
                 const newPanes = newPanel.filter(pane => pane !== targetKey);
                 if (newPanes.length && newActiveKey === targetKey) {
@@ -63,10 +61,8 @@ const {local} = runtime;
                         newActiveKey = newPanes[0];
                     }
                 }
-                dropByCacheKey(targetKey);
-                // 这里只是为了刷新 tabs layout，不然需要到下一次渲染才能移除 dom
-                setPanel(Object.keys(keepElements.current));
                 if (newActiveKey !== location.pathname) {
+                    dropByCacheKey(targetKey);
                     navigate(newActiveKey);
                 } else if (lastIndex === -1 && targetKey === location.pathname) {
                     message.info('至少要保留一个窗口');
@@ -80,7 +76,7 @@ const {local} = runtime;
 {{/hasTabsLayout}}
         {
             Object.entries(keepElements.current).map(([pathname, children]: any) => (
-                <div key={pathname} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
+                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
             ))
