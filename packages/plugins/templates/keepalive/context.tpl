@@ -62,8 +62,6 @@ const {local} = runtime;
                         newActiveKey = newPanes[0];
                     }
                 }
-                // 这里只是为了刷新 tabs layout，不然需要到下一次渲染才能移除 dom
-                // setPanel(Object.keys(keepElements.current));
                 if (newActiveKey !== location.pathname) {
                     dropByCacheKey(targetKey);
                     navigate(newActiveKey);
