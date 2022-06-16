@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
-{{#hasTabsLayout}}    
+{{#hasTabsLayout}}
 import { Tabs, message } from 'antd';
 import { getPluginManager } from '../core/plugin';
 {{/hasTabsLayout}}
 export const KeepAliveContext = React.createContext({});
 
-{{#hasTabsLayout}}    
+{{#hasTabsLayout}}
 const { TabPane } = Tabs;
 {{/hasTabsLayout}}
 
@@ -29,7 +29,7 @@ const isKeepPath = (aliveList: any[], path: string) => {
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
-{{#hasTabsLayout}}    
+{{#hasTabsLayout}}
     const navigate = useNavigate();
     const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
     const { local } = runtime;
@@ -41,7 +41,7 @@ export function useKeepOutlets() {
     }
     return <>
 {{#hasTabsLayout}}
-    <div className="rumtime-keep-alive-tabs-layout" hidden={!isKeep} >
+    <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs hideAdd onChange={(key: string) => {
                 navigate(key);
             }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {
@@ -76,12 +76,12 @@ export function useKeepOutlets() {
 {{/hasTabsLayout}}
         {
             Object.entries(keepElements.current).map(([pathname, children]: any) => (
-                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="rumtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
+                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
             ))
         }
-        <div hidden={isKeep} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="rumtime-keep-alive-layout-no">
+        <div hidden={isKeep} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout-no">
             {!isKeep && element}
         </div>
     </>
