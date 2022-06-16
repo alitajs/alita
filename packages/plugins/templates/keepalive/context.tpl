@@ -35,7 +35,7 @@ export function useKeepOutlets() {
   const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
 const {local} = runtime;
 {{/hasTabsLayout}}
-    const { keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+    const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
@@ -80,7 +80,7 @@ const {local} = runtime;
 {{/hasTabsLayout}}
         {
             Object.entries(keepElements.current).map(([pathname, children]: any) => (
-                <div key={pathname} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="rumtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
+                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="rumtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
             ))
