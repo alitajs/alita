@@ -6,7 +6,7 @@ import {
 import { useKeepOutlets, useLocation, useNavigate } from 'alita';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -33,10 +33,21 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const element = useKeepOutlets();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [collapsed, setCollapsed] = useState(false);
+  const [activeItem ,setActiveItem] = useState(location.pathname);
+
+  // 监听路由变化，激活路由对应的菜单
+  useEffect(() => {
+    const item = items.find((item) => item && item.key === location.pathname);
+    if (item) {
+      setActiveItem(item.key as string);
+    }
+  }, [location.pathname]);
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
@@ -60,7 +71,7 @@ const App: React.FC = () => {
             navigate(e?.key);
           }}
           theme="dark"
-          defaultSelectedKeys={[location.pathname]}
+          defaultSelectedKeys={[activeItem]}
           mode="inline"
           items={items}
         />
