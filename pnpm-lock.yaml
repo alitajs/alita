@@ -104,8 +104,8 @@ importers:
 
   packages/alita:
     specifiers:
-      '@alita/native': 3.0.0-rc.10
-      '@alita/plugins': 3.0.0-rc.10
+      '@alita/native': 3.0.0-rc.11
+      '@alita/plugins': 3.0.0-rc.11
       '@umijs/bundler-utils': 4.0.0-rc.22
       '@umijs/core': 4.0.0-rc.22
       '@umijs/renderer-react': 4.0.0-rc.22
@@ -144,7 +144,7 @@ importers:
   packages/native:
     specifiers:
       '@umijs/utils': 4.0.0-rc.22
-      alita: 3.0.0-rc.10
+      alita: 3.0.0-rc.11
     dependencies:
       '@umijs/utils': 4.0.0-rc.22
       alita: link:../alita
@@ -160,7 +160,7 @@ importers:
       '@umijs/plugins': 4.0.0-rc.22
       '@umijs/utils': 4.0.0-rc.22
       ahooks: ^3.0.8
-      alita: 3.0.0-rc.10
+      alita: 3.0.0-rc.11
       antd-mobile-icons: ^0.2.2
       babel-plugin-import: ^1.13.3
       babel-plugin-transform-jsx-class: ^0.1.3
