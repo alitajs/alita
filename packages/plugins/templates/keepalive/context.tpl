@@ -31,8 +31,8 @@ export function useKeepOutlets() {
     const element = useOutlet();
 {{#hasTabsLayout}}    
     const navigate = useNavigate();
-  const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
-const {local} = runtime;
+    const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
+    const { local } = runtime;
 {{/hasTabsLayout}}
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname);
@@ -52,7 +52,6 @@ const {local} = runtime;
                     if (newPanel[i] === targetKey) {
                         lastIndex = i - 1;
                     }
-
                 }
                 const newPanes = newPanel.filter(pane => pane !== targetKey);
                 if (newPanes.length && newActiveKey === targetKey) {
