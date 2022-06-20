@@ -1,5 +1,12 @@
 # @alita/native
 
+## 3.0.0-rc.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - alita@3.0.0-rc.12
+
 ## 3.0.0-rc.11
 
 ### Patch Changes
