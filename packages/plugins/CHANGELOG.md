@@ -1,5 +1,18 @@
 # @alita/plugins
 
+## 3.0.0-rc.12
+
+### Patch Changes
+
+- [#341](https://github.com/alitajs/alita/pull/341) [`d7944da4`](https://github.com/alitajs/alita/commit/d7944da48f49cd285974d7f833f9a5aa3d39f21d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: dropByCacheKey current page no closes
+
+* [#343](https://github.com/alitajs/alita/pull/343) [`83ad8a99`](https://github.com/alitajs/alita/commit/83ad8a994ec127b8091c66146fbc754f1a0e2a75) Thanks [@chj-damon](https://github.com/chj-damon)! - 修改 typo 问题
+
+- [#346](https://github.com/alitajs/alita/pull/346) [`3f2c7a60`](https://github.com/alitajs/alita/commit/3f2c7a60f9e2ecd4a906cc33b0993ec6a6a118d3) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: keepalive support custom tabs
+
+- Updated dependencies []:
+  - alita@3.0.0-rc.12
+
 ## 3.0.0-rc.11
 
 ### Patch Changes
