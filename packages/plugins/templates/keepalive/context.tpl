@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
+{{^hasCustomTabs}}
 {{#hasTabsLayout}}
 import { Tabs, message } from 'antd';
+{{/hasTabsLayout}}
+{{/hasCustomTabs}}
+{{#hasTabsLayout}}
 import { getPluginManager } from '../core/plugin';
 {{/hasTabsLayout}}
+{{#hasCustomTabs}}
+import { getCustomTabs } from '@/app';
+{{/hasCustomTabs}}
+
 export const KeepAliveContext = React.createContext({});
 
-{{#hasTabsLayout}}
+{{^hasCustomTabs}}
+{{#hasTabsLayout}}    
 const { TabPane } = Tabs;
 {{/hasTabsLayout}}
+{{/hasCustomTabs}}
 
 const isKeepPath = (aliveList: any[], path: string) => {
     let isKeep = false;
@@ -34,14 +44,25 @@ export function useKeepOutlets() {
     const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
     const { local } = runtime;
 {{/hasTabsLayout}}
+
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
     }
+{{#hasCustomTabs}}
+    const CustomTabs = getCustomTabs();
+    const tabsProps = {
+        isKeep, keepElements, navigate, dropByCacheKey, local, activeKey: location.pathname
+    }
+{{/hasCustomTabs}}
     return <>
+{{#hasCustomTabs}}
+        <CustomTabs {...tabsProps}/>
+{{/hasCustomTabs}}
+{{^hasCustomTabs}}
 {{#hasTabsLayout}}
-    <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
+        <div className="rumtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs hideAdd onChange={(key: string) => {
                 navigate(key);
             }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {
@@ -61,11 +82,13 @@ export function useKeepOutlets() {
                         newActiveKey = newPanes[0];
                     }
                 }
-                if (newActiveKey !== location.pathname) {
-                    dropByCacheKey(targetKey);
-                    navigate(newActiveKey);
-                } else if (lastIndex === -1 && targetKey === location.pathname) {
+                if (lastIndex === -1 && targetKey === location.pathname) {
                     message.info('至少要保留一个窗口');
+                } else {
+                    dropByCacheKey(targetKey);
+                    if (newActiveKey !== location.pathname) {
+                        navigate(newActiveKey);
+                    }
                 }
             }}>
                 {Object.entries(keepElements.current).map(([pathname, element]: any) => (
@@ -74,6 +97,7 @@ export function useKeepOutlets() {
             </Tabs>
         </div>
 {{/hasTabsLayout}}
+{{/hasCustomTabs}}
         {
             Object.entries(keepElements.current).map(([pathname, children]: any) => (
                 <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>

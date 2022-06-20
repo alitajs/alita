@@ -44,6 +44,7 @@ export default (api: AlitaApi) => {
       noPluginDir: true,
       content: Mustache.render(contextTpl, {
         hasTabsLayout: !!tabsLayout,
+        hasCustomTabs: !!tabsLayout?.hasCustomTabs,
       }),
     });
     const runtimeTpl = readFileSync(

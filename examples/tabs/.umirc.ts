@@ -8,5 +8,7 @@ export default {
   mfsu: {},
   antd: {},
   hash: false,
-  tabsLayout: {},
+  tabsLayout: {
+    hasCustomTabs: true,
+  },
 };
