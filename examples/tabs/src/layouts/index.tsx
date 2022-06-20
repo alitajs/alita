@@ -6,7 +6,7 @@ import {
 import { useKeepOutlets, useLocation, useNavigate } from 'alita';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -38,7 +38,7 @@ const App: React.FC = () => {
   const location = useLocation();
 
   const [collapsed, setCollapsed] = useState(false);
-  const [activeItem ,setActiveItem] = useState(location.pathname);
+  const [activeItem, setActiveItem] = useState(location.pathname);
 
   // 监听路由变化，激活路由对应的菜单
   useEffect(() => {
@@ -72,6 +72,7 @@ const App: React.FC = () => {
           }}
           theme="dark"
           defaultSelectedKeys={[activeItem]}
+          selectedKeys={[activeItem]}
           mode="inline"
           items={items}
         />

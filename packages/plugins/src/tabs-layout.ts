@@ -11,12 +11,17 @@ export default (api: AlitaApi) => {
     key: 'tabsLayout',
     config: {
       schema(Joi) {
-        return Joi.alternatives(Joi.boolean(), Joi.object());
+        return Joi.alternatives(
+          Joi.boolean(),
+          Joi.object({
+            hasCustomTabs: Joi.boolean(),
+          }),
+        );
       },
       onChange: api.ConfigChangeType.regenerateTmpFiles,
     },
     enableBy: api.EnableBy.config,
   });
   // 注册runtime配置
-  api.addRuntimePluginKey(() => ['tabsLayout']);
+  api.addRuntimePluginKey(() => ['tabsLayout', 'getCustomTabs']);
 };
