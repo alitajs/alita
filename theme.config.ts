@@ -45,7 +45,6 @@ export default {
             'guides/mock',
             'guides/proxy',
             'guides/env-variables',
-            'guides/mfsu',
             'guides/boilerplate',
             'guides/generator',
           ],

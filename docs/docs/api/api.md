@@ -41,7 +41,8 @@ history.push({
 });
 
 // 跳转到上一个路由
-history.goBack();
+history.back();
+history.go(-1);
 ```
 
 路由监听。
