@@ -1,6 +1,6 @@
 {
   "name": "@alita/chalk",
-  "version": "1.0.3-rc.0",
+  "version": "1.0.3",
   "description": "@alita/browser-chalk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

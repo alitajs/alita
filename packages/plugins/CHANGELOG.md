@@ -1,5 +1,73 @@
 # @alita/plugins
 
+## 3.0.0
+
+### Minor Changes
+
+- [#246](https://github.com/alitajs/alita/pull/246) [`0dfee39f`](https://github.com/alitajs/alita/commit/0dfee39f752225a58d2113d615614e0b8a2b8d21) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi 升级 umi 到 rc2 主要修复 umi 侧 win 兼容问题
+
+### Patch Changes
+
+- [`edd4cba9`](https://github.com/alitajs/alita/commit/edd4cba956b66da00c5e348bab83fdbb5c7722fc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: add antd plugin
+
+* [#282](https://github.com/alitajs/alita/pull/282) [`a82f4e98`](https://github.com/alitajs/alita/commit/a82f4e985f0e33a4da3c955d94d442487123190b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - docs: init alita-docs
+
+- [#332](https://github.com/alitajs/alita/pull/332) [`29460fe3`](https://github.com/alitajs/alita/commit/29460fe31cda8d5a3cfab1658bcba702e68940f9) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc 22
+
+* [#341](https://github.com/alitajs/alita/pull/341) [`d7944da4`](https://github.com/alitajs/alita/commit/d7944da48f49cd285974d7f833f9a5aa3d39f21d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: dropByCacheKey current page no closes
+
+- [#278](https://github.com/alitajs/alita/pull/278) [`c26bdfbf`](https://github.com/alitajs/alita/commit/c26bdfbf3c258734f18315c6c9554b5f106d585a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: change tag
+
+* [#239](https://github.com/alitajs/alita/pull/239) [`b32f0888`](https://github.com/alitajs/alita/commit/b32f08887b8219276b67126fecfb1d86d8d479a7) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: mobile5-layout tabbar active fix: mobile-layout keepalive chore: aconsole bottom env(safe-area-inset-bottom)
+
+- [#274](https://github.com/alitajs/alita/pull/274) [`5fd83e48`](https://github.com/alitajs/alita/commit/5fd83e48e0a2f746eb7508150954fd1812078210) Thanks [@zZfd](https://github.com/zZfd)! - fix: hd while keyboardChange
+
+* [#252](https://github.com/alitajs/alita/pull/252) [`80c87e43`](https://github.com/alitajs/alita/commit/80c87e43d77a4ef580b8b96d41e1932ebcd411d1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-rc3
+
+- [#337](https://github.com/alitajs/alita/pull/337) [`ddb8df71`](https://github.com/alitajs/alita/commit/ddb8df7152b55381bd7cecd9df7282aa473caff9) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add tabs layout
+
+* [#277](https://github.com/alitajs/alita/pull/277) [`88a2cfd2`](https://github.com/alitajs/alita/commit/88a2cfd2c04ee92421f9460decdf48b56d5eeef2) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: nothing
+
+- [`2b27f6d4`](https://github.com/alitajs/alita/commit/2b27f6d4676d7fca1bf6f4a60a6d2ded01e15808) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* [#273](https://github.com/alitajs/alita/pull/273) [`cf875ea2`](https://github.com/alitajs/alita/commit/cf875ea268406dd58c4f72d12a9306748180bc5b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: antd icons no find
+
+- [#315](https://github.com/alitajs/alita/pull/315) [`5f8a53c1`](https://github.com/alitajs/alita/commit/5f8a53c191e8967d03cd5783eb0dd049bce2b992) Thanks [@532pyh](https://github.com/532pyh)! - feat change vconsole introduction mode
+
+* [#311](https://github.com/alitajs/alita/pull/311) [`2edcb252`](https://github.com/alitajs/alita/commit/2edcb25205073a4f9eb7b3ce8533841e288be101) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support extraBabelIncludes
+
+- [#300](https://github.com/alitajs/alita/pull/300) [`5b89702d`](https://github.com/alitajs/alita/commit/5b89702d4202c8ced34d6e0d70b14c34484cd531) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: publish error
+
+* [#272](https://github.com/alitajs/alita/pull/272) [`0d0503a8`](https://github.com/alitajs/alita/commit/0d0503a8bd808e70c1734c47efffa86bcf0b0533) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: mainpath path error
+
+- [#259](https://github.com/alitajs/alita/pull/259) [`257c4558`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add types
+
+* [#256](https://github.com/alitajs/alita/pull/256) [`1b3c0501`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: umi rc5
+
+- [#343](https://github.com/alitajs/alita/pull/343) [`83ad8a99`](https://github.com/alitajs/alita/commit/83ad8a994ec127b8091c66146fbc754f1a0e2a75) Thanks [@chj-damon](https://github.com/chj-damon)! - 修改 typo 问题
+
+* [#266](https://github.com/alitajs/alita/pull/266) [`301f8c06`](https://github.com/alitajs/alita/commit/301f8c067121dfb3b00ee74c4ef8d4292fea47cf) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: types winpath
+
+- [#276](https://github.com/alitajs/alita/pull/276) [`f0e6b3a5`](https://github.com/alitajs/alita/commit/f0e6b3a5cc7d5df6d7e1a826582ebb6ac2ad2697) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc.9 并修改相对的 api 变更
+
+* [#322](https://github.com/alitajs/alita/pull/322) [`3588c217`](https://github.com/alitajs/alita/commit/3588c217a6abec397679f97fba3fc4e67f92884a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi rc21
+
+- [#350](https://github.com/alitajs/alita/pull/350) [`5ae1738e`](https://github.com/alitajs/alita/commit/5ae1738e4ed6b1511e119d7836aadfc9bda329be) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: use umi@4
+
+* [#329](https://github.com/alitajs/alita/pull/329) [`ad835db3`](https://github.com/alitajs/alita/commit/ad835db3b2756612237a8f72b57f41152955c34b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: move styles
+
+- [#346](https://github.com/alitajs/alita/pull/346) [`3f2c7a60`](https://github.com/alitajs/alita/commit/3f2c7a60f9e2ecd4a906cc33b0993ec6a6a118d3) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: keepalive support custom tabs
+
+* [#262](https://github.com/alitajs/alita/pull/262) [`6046653b`](https://github.com/alitajs/alita/commit/6046653bfc3e0a018beb5ed2740479613032b55f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: use umi rc6
+
+- [#275](https://github.com/alitajs/alita/pull/275) [`91ba7e58`](https://github.com/alitajs/alita/commit/91ba7e587e71f8c133c7e36132e277d2fd815c25) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: mobile icons no find
+
+* [#288](https://github.com/alitajs/alita/pull/288) [`e8df86c6`](https://github.com/alitajs/alita/commit/e8df86c69c5c940710f2b1a9a29672782f58e787) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: auto mobilelayout
+
+* Updated dependencies [[`a82f4e98`](https://github.com/alitajs/alita/commit/a82f4e985f0e33a4da3c955d94d442487123190b), [`29460fe3`](https://github.com/alitajs/alita/commit/29460fe31cda8d5a3cfab1658bcba702e68940f9), [`ed28bd8b`](https://github.com/alitajs/alita/commit/ed28bd8b8ab8e32b0a2797f8422e6408c5f69e06), [`c26bdfbf`](https://github.com/alitajs/alita/commit/c26bdfbf3c258734f18315c6c9554b5f106d585a), [`00a64bad`](https://github.com/alitajs/alita/commit/00a64bada0190897f1f9c8fa83407fa5ac7bcc4f), [`80c87e43`](https://github.com/alitajs/alita/commit/80c87e43d77a4ef580b8b96d41e1932ebcd411d1), [`12933caf`](https://github.com/alitajs/alita/commit/12933cafc929f9ee8eb70e0ccd670d30c52c57c6), [`ddb8df71`](https://github.com/alitajs/alita/commit/ddb8df7152b55381bd7cecd9df7282aa473caff9), [`96564b5a`](https://github.com/alitajs/alita/commit/96564b5a22ab07ea073a3c198df00161b74fbe66), [`88a2cfd2`](https://github.com/alitajs/alita/commit/88a2cfd2c04ee92421f9460decdf48b56d5eeef2), [`2b27f6d4`](https://github.com/alitajs/alita/commit/2b27f6d4676d7fca1bf6f4a60a6d2ded01e15808), [`a13d42da`](https://github.com/alitajs/alita/commit/a13d42da31b91a9c9becb839d5046e9b0282551f), [`7376bbf1`](https://github.com/alitajs/alita/commit/7376bbf11b8a09b52f771791280de8fc82cb8017), [`51e1e837`](https://github.com/alitajs/alita/commit/51e1e83737b7c9017e753156dc1d25b0e599166b), [`15a784be`](https://github.com/alitajs/alita/commit/15a784be585d91e59a6e5696eccb7fd606e89ff5), [`2edcb252`](https://github.com/alitajs/alita/commit/2edcb25205073a4f9eb7b3ce8533841e288be101), [`5b89702d`](https://github.com/alitajs/alita/commit/5b89702d4202c8ced34d6e0d70b14c34484cd531), [`257c4558`](https://github.com/alitajs/alita/commit/257c455837f9135cfa9b0a6d25c0f0914fc0a65c), [`1b3c0501`](https://github.com/alitajs/alita/commit/1b3c0501b70b3754d4b44f8601d08e1eb73ebc70), [`416ddfd8`](https://github.com/alitajs/alita/commit/416ddfd86c2c54ffb6ee41a2f19f48295138afb0), [`6a6fd67c`](https://github.com/alitajs/alita/commit/6a6fd67ce98997555b3a0ccf305cdb15991b7e5d), [`0dfee39f`](https://github.com/alitajs/alita/commit/0dfee39f752225a58d2113d615614e0b8a2b8d21), [`301f8c06`](https://github.com/alitajs/alita/commit/301f8c067121dfb3b00ee74c4ef8d4292fea47cf), [`f0e6b3a5`](https://github.com/alitajs/alita/commit/f0e6b3a5cc7d5df6d7e1a826582ebb6ac2ad2697), [`3588c217`](https://github.com/alitajs/alita/commit/3588c217a6abec397679f97fba3fc4e67f92884a), [`5ae1738e`](https://github.com/alitajs/alita/commit/5ae1738e4ed6b1511e119d7836aadfc9bda329be), [`99a87361`](https://github.com/alitajs/alita/commit/99a873611ce8b53e828d5d70637a10e57035a2be), [`ad835db3`](https://github.com/alitajs/alita/commit/ad835db3b2756612237a8f72b57f41152955c34b), [`854e6f20`](https://github.com/alitajs/alita/commit/854e6f209813a59cdca8241017f9d53c030fb934), [`86b81f4a`](https://github.com/alitajs/alita/commit/86b81f4a958dfbb2ba4042ca104eaa5ac0886dea), [`6046653b`](https://github.com/alitajs/alita/commit/6046653bfc3e0a018beb5ed2740479613032b55f), [`e8df86c6`](https://github.com/alitajs/alita/commit/e8df86c69c5c940710f2b1a9a29672782f58e787)]:
+  - alita@3.0.0
+  - @alita/request@3.0.0
+
 ## 3.0.0-rc.12
 
 ### Patch Changes
