@@ -15,7 +15,7 @@ import { getCustomTabs } from '@/app';
 export const KeepAliveContext = React.createContext({});
 
 {{^hasCustomTabs}}
-{{#hasTabsLayout}}    
+{{#hasTabsLayout}}
 const { TabPane } = Tabs;
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
@@ -34,6 +34,19 @@ const isKeepPath = (aliveList: any[], path: string) => {
         }
     })
     return isKeep;
+}
+
+const getMatchPathName = (pathname: string, local: Record<string, string>) => {
+    const tabs = Object.entries(local);
+    let tabName = pathname;
+
+    for (const [key, value] of tabs) {
+        if (matchPath(key, pathname)) {
+            tabName = value;
+            break;
+        }
+    }
+    return tabName;
 }
 
 export function useKeepOutlets() {
@@ -91,9 +104,13 @@ export function useKeepOutlets() {
                     }
                 }
             }}>
-                {Object.entries(keepElements.current).map(([pathname, element]: any) => (
-                    <TabPane tab={`${local[pathname] || pathname}`} key={pathname}/>
-                ))}
+                {Object.entries(keepElements.current).map(([pathname, element]: any) => {
+                    // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
+                    const tabName = getMatchPathName(pathname, local);
+                    return (
+                        <TabPane tab={`${tabName}`} key={pathname}/>
+                    );
+                })}
             </Tabs>
         </div>
 {{/hasTabsLayout}}
