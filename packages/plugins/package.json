@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.0.0-rc.12",
+  "version": "3.0.0",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,12 +30,12 @@
   "dependencies": {
     "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
-    "@alita/request": "3.0.0-rc.2",
+    "@alita/request": "3.0.0",
     "@umijs/bundler-utils": "4.0.0",
     "@umijs/plugins": "4.0.0",
     "@umijs/utils": "4.0.0",
     "ahooks": "^3.0.8",
-    "alita": "3.0.0-rc.12",
+    "alita": "3.0.0",
     "antd-mobile-icons": "^0.2.2",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-jsx-class": "^0.1.3",
