@@ -21,19 +21,32 @@ const { TabPane } = Tabs;
 {{/hasCustomTabs}}
 
 const isKeepPath = (aliveList: any[], path: string) => {
-    let isKeep = false;
-    aliveList.map(item => {
-        if (item === path) {
-            isKeep = true;
-        }
-        if (item instanceof RegExp && item.test(path)) {
-            isKeep = true;
-        }
-        if (typeof item === 'string' && item.toLowerCase() === path) {
-            isKeep = true;
-        }
-    })
-    return isKeep;
+  let isKeep = false;
+  aliveList.map(item => {
+    if (item === path) {
+        isKeep = true;
+    }
+    if (item instanceof RegExp && item.test(path)) {
+        isKeep = true;
+    }
+    if (typeof item === 'string' && item.toLowerCase() === path) {
+        isKeep = true;
+    }
+  })
+  return isKeep;
+}
+
+const getMatchPathName = (pathname: string, local: Record<string, string>) => {
+  const tabs = Object.entries(local);
+  let tabName = pathname;
+
+  for (const [key, value] of tabs) {
+    if (matchPath(key, pathname)) {
+      tabName = value;
+      break;
+    }
+  }
+  return tabName;
 }
 
 const getMatchPathName = (pathname: string, local: Record<string, string>) => {
@@ -50,28 +63,28 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
 }
 
 export function useKeepOutlets() {
-    const location = useLocation();
-    const element = useOutlet();
+  const location = useLocation();
+  const element = useOutlet();
 {{#hasTabsLayout}}
-    const navigate = useNavigate();
-    const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
-    const { local } = runtime;
+  const navigate = useNavigate();
+  const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
+  const { local } = runtime;
 {{/hasTabsLayout}}
 
-    const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname);
-    if (isKeep) {
-        keepElements.current[location.pathname] = element;
-    }
+  const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+  const isKeep = isKeepPath(keepalive, location.pathname);
+  if (isKeep) {
+      keepElements.current[location.pathname] = element;
+  }
 {{#hasCustomTabs}}
-    const CustomTabs = getCustomTabs();
-    const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local, activeKey: location.pathname
-    }
+  const CustomTabs = getCustomTabs();
+  const tabsProps = {
+      isKeep, keepElements, navigate, dropByCacheKey, local, activeKey: location.pathname
+  }
 {{/hasCustomTabs}}
-    return <>
+  return <>
 {{#hasCustomTabs}}
-        <CustomTabs {...tabsProps}/>
+    <CustomTabs {...tabsProps}/>
 {{/hasCustomTabs}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -115,15 +128,15 @@ export function useKeepOutlets() {
         </div>
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
-        {
-            Object.entries(keepElements.current).map(([pathname, children]: any) => (
-                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
-                    {children}
-                </div>
-            ))
-        }
-        <div hidden={isKeep} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout-no">
-            {!isKeep && element}
-        </div>
-    </>
+  {
+    Object.entries(keepElements.current).map(([pathname, children]: any) => (
+      <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
+        {children}
+      </div>
+    ))
+  }
+  <div hidden={isKeep} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout-no">
+    {!isKeep && element}
+  </div>
+</>
 }
