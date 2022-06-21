@@ -30,17 +30,10 @@ export default (api: IApi) => {
         /services\//,
       ],
     },
-    mobile5: false,
+    antd: {},
     ...api.userConfig,
   } as IConfig;
 
-  if (mobile5) {
-    defaultOptions.antdMobile = true;
-  } else {
-    defaultOptions.antd = {
-      ...(api.userConfig?.antd || {}),
-    };
-  }
   // ssr 路由必须是 browser
   if (ssr) {
     defaultOptions.history = { type: 'browser' };
