@@ -108,7 +108,7 @@ export function useKeepOutlets() {
                     // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
                     const tabName = getMatchPathName(pathname, local);
                     return (
-                        <TabPane tab={`${local[pathname] || pathname}`} key={pathname}/>
+                        <TabPane tab={`${tabName}`} key={pathname}/>
                     );
                 })}
             </Tabs>
