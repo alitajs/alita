@@ -75,7 +75,7 @@ export function useKeepOutlets() {
 {{/hasCustomTabs}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-        <div className="rumtime-keep-alive-tabs-layout" hidden={!isKeep} >
+        <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs hideAdd onChange={(key: string) => {
                 navigate(key);
             }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {
