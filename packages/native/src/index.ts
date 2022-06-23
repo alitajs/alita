@@ -117,7 +117,16 @@ export default (api: AlitaApi) => {
   async function addPlatform(platform: Platform) {
     console.log(chalk.cyan(`add platform ${platform} ...`));
     await installDependencies(`@capacitor/${platform}`);
-    await spawnSync('npx', ['cap', 'add', platform]);
+    try {
+      await spawnSync('npx', ['cap', 'add', platform]);
+    } catch (error) {
+      // cocoapods 需要先安装，如果错误的话，给一点提示
+      console.log('如果是在 Max M1 请不要使用 gem 安装 cocoapods');
+      console.warn(
+        'sudo gem install cocoapods，这是错误安装方式，会导致后续命令错误',
+      );
+      console.info('brew install cocoapods ，这是正确安装方式');
+    }
   }
   /**
    * Copy the web app build and Capacitor configuration file into the native platform project. Run this each time you make changes to your web app or change a configuration value
@@ -228,7 +237,13 @@ export default (api: AlitaApi) => {
     if (params.platform) {
       args.push(params.platform);
     }
-    await spawnSync('npx', args);
+    try {
+      await spawnSync('npx', args);
+    } catch (error) {
+      console.log(
+        '如果遇到错误，可以尝试排查是否是使用了 gem 安装 cocoapods，可以使用 sudo gem uninstall cocoapods 卸载后，再使用 brew install cocoapods 安装。',
+      );
+    }
   }
   /**
    * Install embedded plugins
@@ -236,6 +251,15 @@ export default (api: AlitaApi) => {
   async function installPlugins() {
     const plugins = embeddedPlugins;
     await installDependencies(plugins);
+  }
+  const { displayName, packageId } = api.userConfig;
+  if (!displayName) {
+    console.error('Please configure displayName in config/config.[t|j]s file.');
+    return;
+  }
+  if (!packageId) {
+    console.error('Please configure displayName in config/config.[t|j]s file.');
+    return;
   }
   api.registerCommand({
     name: 'native',
@@ -248,8 +272,8 @@ export default (api: AlitaApi) => {
             boolean: ['all'],
           });
           await initNative({
-            appName: args._[1] as string,
-            appID: args._[2] as string,
+            appName: (args._[1] as string) || displayName,
+            appID: (args._[2] as string) || packageId,
             webDir: args.webDir as string,
             all: _args.all,
           });

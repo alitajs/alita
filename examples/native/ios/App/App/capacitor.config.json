@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.appname",
+  "appName": "AlitaDemo",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

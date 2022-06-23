@@ -33,12 +33,12 @@
   "dependencies": {
     "@alita/native": "3.0.0",
     "@alita/plugins": "3.0.0",
-    "@umijs/bundler-utils": "4.0.0",
-    "@umijs/core": "4.0.0",
-    "@umijs/renderer-react": "4.0.0",
-    "@umijs/utils": "4.0.0",
+    "@umijs/bundler-utils": "4.0.1",
+    "@umijs/core": "4.0.1",
+    "@umijs/renderer-react": "4.0.1",
+    "@umijs/utils": "4.0.1",
     "qrcode-terminal": "^0.12.0",
-    "umi": "4.0.0",
+    "umi": "4.0.1",
     "v8-compile-cache": "^2.3.0"
   }
 }
