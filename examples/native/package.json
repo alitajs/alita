@@ -1,16 +1,25 @@
 {
-  "name": "@examples/boilerplate",
+  "name": "@examples/native",
   "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "alita dev",
+    "dev:ios": "alita native run ios",
+    "init": "alita native init",
+    "ios": "alita native add ios",
     "build": "ANALYZE=1 alita build",
     "plugin": "alita plugin list"
   },
   "dependencies": {
     "@alita/flow": "workspace:*",
+    "@alita/native": "workspace:*",
+    "@capacitor/core": "^3.6.0",
+    "@capacitor/ios": "^3.6.0",
     "ahooks": "^3.0.8",
     "alita": "workspace:*",
     "antd-mobile": "^5.10.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^3.6.0"
   }
 }

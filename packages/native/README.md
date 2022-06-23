@@ -2,19 +2,13 @@
 
 [![NPM version](https://img.shields.io/npm/v/@alita/native.svg?style=flat)](https://npmjs.org/package/@alita/native) [![NPM downloads](http://img.shields.io/npm/dm/@alita/native.svg?style=flat)](https://npmjs.org/package/@alita/native)
 
-## Install
-
-```bash
-yarn add @alita/native
-```
-
 ## Usage
 
 Configure in `.umirc.js` 或 `config/config.ts`;
 
 ```js
 export default {
-  plugins: [['@alita/native']],
+  appType: 'native',
 };
 ```
 
@@ -22,14 +16,22 @@ export default {
 
 Initialize Capacitor configuration by providing an app name, app ID, and an optional web directory for the existing web app.
 
-```bash
-npx alita native init <appName> <appID>
-```
+Please configure displayName and packageId in config/config.[t|j]s file.
 
-<strong>Inputs:</strong>
+```ts
+export default {
+  appType: 'native',
+  displayName: 'AlitaDemo', // The application's name
+  packageId: 'com.example.appname', // The application's App ID;
+};
+```
 
 - `appName` (required): The application's name
 - `appID` (required): The application's App ID; something like `com.example.appname`
+
+```bash
+npx alita native init
+```
 
 <strong>Options:</strong>
 
@@ -136,17 +138,6 @@ npx alita native run [options] <platform>
 
 - `--list`: Print a list of target devices available to the given platform
 - `--target <id>`: Run on a specific target device
-
-## Contributing
-
-```bash
-yarn
-```
-
-```bash
-yarn build --watch
-yarn start
-```
 
 ## LICENSE
 
