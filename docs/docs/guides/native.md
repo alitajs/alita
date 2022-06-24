@@ -140,16 +140,16 @@ npx alita native run [options] <platform>
 
 ## FAQ
 
-### 1、没有 Max 设备能不能运行 ios 项目？
+### 1、没有 Mac 设备能不能运行 ios 项目？
 
 可以，请自行搜索，Window 系统上如何安装双系统。
 
 ### 2、根据文档一直报错，日志中满满的 ruby 日志，这是怎么回事？
 
 上文是建立在你有原生开发环境的基础上的，如果你当前设备没有安装任何的原生开发环境，请先配置你的电脑。
-比如 Max 需要下载 Xcode （并且需要手动打开一次，需要签署一个协议），安装 `cocoapods`。
+比如 Mac 需要下载 Xcode （并且需要手动打开一次，需要签署一个协议），安装 `cocoapods`。
 
-> 值得注意的是，Max M1 的话，请不要使用 `gem` 安装 `cocoapods`，如果你已经使用 `sudo gem install cocoapods` 安装过 `cocoapods` ，请使用 `sudo gem uninstall cocoapods` 卸载后，再使用 `brew install cocoapods` 安装。
+> 值得注意的是，Mac M1 的话，请不要使用 `gem` 安装 `cocoapods`，如果你已经使用 `sudo gem install cocoapods` 安装过 `cocoapods` ，请使用 `sudo gem uninstall cocoapods` 卸载后，再使用 `brew install cocoapods` 安装。
 
 ### 3、我没有原生开发基础，能不能使用？
 
