@@ -41,7 +41,7 @@ export default (api: AlitaApi) => {
       px2rem({
         rootValue: 100,
         minPixelValue: 2,
-        selectorDoubleRemList: [/.adm-/, /.ant-/],
+        selectorDoubleRemList: [/.adm-/, /.ant-/, /\:root/],
         ...(configPx2rem || {}),
       }),
     ];
