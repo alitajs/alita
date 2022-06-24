@@ -24,7 +24,7 @@ export default (api: AlitaApi) => {
       schema(Joi) {
         return Joi.object({
           extraModels: Joi.array().items(Joi.string()),
-          enableModelsReExport: Joi.boolean(),
+          immer: Joi.object(),
         });
       },
     },
@@ -137,16 +137,35 @@ ${
 // It's faked dva
 // aliased to @umijs/plugins/templates/dva
 import { create, Provider } from 'dva';
+import createLoading from '${winPath(require.resolve('dva-loading'))}';
+${
+  api.config.dva?.immer
+    ? `
+import dvaImmer, { enableES5, enableAllPlugins } from '${winPath(
+        require.resolve('dva-immer'),
+      )}';
+`
+    : ''
+}
 import React, { useRef } from 'react';
-import { history } from 'umi';
+import { history, ApplyPluginsType, useAppData } from 'umi';
 import { models } from './models';
 
+let dvaApp: any;
+
 export function RootContainer(props: any) {
+  const { pluginManager } = useAppData();
   const app = useRef<any>();
+  const runtimeDva = pluginManager.applyPlugins({
+    key: 'dva',
+    type: ApplyPluginsType.modify,
+    initialValue: {},
+  });
   if (!app.current) {
     app.current = create(
       {
         history,
+        ...(runtimeDva.config || {}),
       },
       {
         initialReducer: {},
@@ -158,12 +177,27 @@ export function RootContainer(props: any) {
         },
       },
     );
+    dvaApp = app.current;
+    app.current.use(createLoading());
+    ${api.config.dva?.immer ? `app.current.use(dvaImmer());` : ''}
+    ${api.config.dva?.immer?.enableES5 ? `enableES5();` : ''}
+    ${api.config.dva?.immer?.enableAllPlugins ? `enableAllPlugins();` : ''}
+    (runtimeDva.plugins || []).forEach((p) => {
+      app.current.use(p);
+    });
     for (const id of Object.keys(models)) {
-      app.current.model(models[id].model);
+      app.current.model({
+        namespace: models[id].namespace,
+        ...models[id].model,
+      });
     }
     app.current.start();
   }
   return <Provider store={app.current!._store}>{props.children}</Provider>;
+}
+
+export function getDvaApp() {
+  return dvaApp;
 }
       `,
       context: {},
@@ -186,7 +220,9 @@ export function dataflowProvider(container, opts) {
     api.writeTmpFile({
       path: 'index.ts',
       content: `
-export { connect, useDispatch, useStore, useSelector } from 'dva';`,
+export { connect, useDispatch, useStore, useSelector } from 'dva';
+export { getDvaApp } from './dva';
+`,
     });
   });
 
@@ -197,6 +233,8 @@ export { connect, useDispatch, useStore, useSelector } from 'dva';`,
   api.addRuntimePlugin(() => {
     return [withTmpPath({ api, path: 'runtime.tsx' })];
   });
+
+  api.addRuntimePluginKey(() => ['dva']);
 
   // dva list model
   api.registerCommand({
