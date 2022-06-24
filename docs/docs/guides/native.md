@@ -1,10 +1,8 @@
-# @alitajs/native
+# 原生应用
 
-[![NPM version](https://img.shields.io/npm/v/@alita/native.svg?style=flat)](https://npmjs.org/package/@alita/native) [![NPM downloads](http://img.shields.io/npm/dm/@alita/native.svg?style=flat)](https://npmjs.org/package/@alita/native)
+## 用例
 
-## Usage
-
-Configure in `.umirc.js` 或 `config/config.ts`;
+在 `.umirc.js` 或 `config/config.ts` 中配置;
 
 ```js
 export default {
@@ -12,11 +10,11 @@ export default {
 };
 ```
 
-### Init native
+### 初始化 native
 
-Initialize Capacitor configuration by providing an app name, app ID, and an optional web directory for the existing web app.
+通过为 app 提供应用程序名称、应用程序ID和可选构建输出目录，初始化 Capacitor 配置。
 
-Please configure displayName and packageId in config/config.[t|j]s file.
+请在 `config/config.[t|j]s` 文件中配置 `displayName` 和 `packageId` 。
 
 ```ts
 export default {
@@ -26,44 +24,44 @@ export default {
 };
 ```
 
-- `appName` (required): The application's name
-- `appID` (required): The application's App ID; something like `com.example.appname`
+- `appName` (required): 这个应用的名称，安装后显示在桌面图标下方的文字
+- `appID` (required): 这个应用的 App ID，ios中这与证书相关; 看起来像 `com.example.appname`
 
 ```bash
 npx alita native init
 ```
 
-<strong>Options:</strong>
+<strong>选项:</strong>
 
-- `--web-dir <value>`: The existing web application to use with initialization, default `dist`
-- `--all`: Add ios and android platform. Add frequently used plugins.
+- `--web-dir <value>`: 用来声明 web 应用的构建目录，默认 `dist`
+- `--all`: 添加 ios 和 android 平台代码. 添加常用插件。
 
-### Add platform
+### 添加平台 platform
 
-Add a native platform project to your app.
+将原生平台项目添加到你的 app 中。
 
 ```bash
 npx alita native add <platform>
 ```
 
-<strong>Inputs:</strong>
+<strong>参数:</strong>
 
 - `platform` (required): `android`, `ios`
 
-### Plugins
+### 插件
 
-- [Official plugins](https://github.com/ionic-team/capacitor-plugins)
-- [Community plugins](https://github.com/capacitor-community)
+- [官方插件](https://github.com/ionic-team/capacitor-plugins)
+- [社区插件](https://github.com/capacitor-community)
 
 ```sh
 npx alita native plugins
 ```
 
-This command will install frequently used plugins.
+此命令将安装常用插件。
 
-### Live reload
+### 实时热重载
 
-Within `capacitor.config.json`, create a `server` entry then configure the `url` field using the local web server's IP address and port:
+Within `capacitor.config.json` 内添加 `server` 入口且配置 `url` 到本地服务的地址和端口上，这以你本地服务开启时日志为准:
 
 ```js
 "server": {
@@ -72,72 +70,73 @@ Within `capacitor.config.json`, create a `server` entry then configure the `url`
 },
 ```
 
-### Build web
+### 构建 web
 
-You may need to build the web when you public app
+你需要在编译原生应用之前编译 web app，执行 `alita build`，模版项目中可执行：
 
 ```bash
 yarn build
 ```
 
-### Copy assets
+### 拷贝 assets
 
-Copy the web app build and Capacitor configuration file into the native platform project. Run this each time you make changes to your web app or change a configuration value.
+将 web app 构建产物和 Capacitor 配置文件复制到原生平台项目中。每次更改 web app 或更改 Capacitor 配置值时，请运行此选项。
 
 ```bash
 npx alita native copy [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>参数:</strong>
 
 - `platform` (optional): `android`, `ios`
 
-### Update native
+### 更新 native
 
-Updates the native plugins and dependencies referenced in `package.json`.
+在 `package.json` 中更新本地使用的插件和依赖。
 
 ```bash
 npx alita native update [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>参数:</strong>
 
 - `platform` (optional): `android`, `ios`
 
-<strong>Options:</strong>
+<strong>选项:</strong>
 
-- `--deployment`: Podfile.lock won't be deleted and pod install will use `--deployment` option.
+- `--deployment`: 不会删除 Podfile.lock 文件，并且 pod install 的时候会使用 `--deployment` 选项。
 
-### Sync project
+### 同步项目
 
-This command runs `copy` and then `update`.
+这个命令会先执行 `copy` 再执行 `update`，用于同步 web 项目到原生项目中。
 
 ```bash
 npx alita native sync [options] [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>参数:</strong>
 
 - `platform` (optional): `android`, `ios`
 
-<strong>Options:</strong>
+<strong>选项:</strong>
 
-- `--deployment`: Podfile.lock won't be deleted and pod install will use `--deployment` option.
+- `--deployment`: 不会删除 Podfile.lock 文件，并且 pod install 的时候会使用 `--deployment` 选项。
 
-### Run project
+
+### 运行项目
 
 ```bash
 npx alita native run [options] <platform>
 ```
 
-<strong>Inputs:</strong>
+<strong>参数:</strong>
 
 - `platform` (required): `android`, `ios`
 
-<strong>Options:</strong>
+<strong>选项:</strong>
 
-- `--list`: Print a list of target devices available to the given platform
-- `--target <id>`: Run on a specific target device
+- `--list`: 展示出对应平台可用的虚拟机列表
+- `--target <id>`: 在指定的虚拟机上运行
 
 ## FAQ
 

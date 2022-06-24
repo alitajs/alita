@@ -47,6 +47,7 @@ export default {
             'guides/env-variables',
             'guides/boilerplate',
             'guides/generator',
+            'guides/native',
           ],
         },
       ],
