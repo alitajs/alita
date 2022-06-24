@@ -1,5 +1,14 @@
 # @alita/plugins
 
+## 3.0.3
+
+### Patch Changes
+
+- [#364](https://github.com/alitajs/alita/pull/364) [`d8a55acd`](https://github.com/alitajs/alita/commit/d8a55acdb89ee7927a652c3bdbfcd12484621464) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: dva types
+
+- Updated dependencies []:
+  - alita@3.0.3
+
 ## 3.0.2
 
 ### Patch Changes
