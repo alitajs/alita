@@ -1,5 +1,14 @@
 # @alita/native
 
+## 3.0.1
+
+### Patch Changes
+
+- [#357](https://github.com/alitajs/alita/pull/357) [`98382443`](https://github.com/alitajs/alita/commit/983824433204a991b483d519c3963b47bd27e545) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: alita native
+
+- Updated dependencies [[`98382443`](https://github.com/alitajs/alita/commit/983824433204a991b483d519c3963b47bd27e545)]:
+  - alita@3.0.1
+
 ## 3.0.0
 
 ### Minor Changes

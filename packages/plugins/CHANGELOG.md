@@ -1,5 +1,18 @@
 # @alita/plugins
 
+## 3.0.1
+
+### Patch Changes
+
+- [#354](https://github.com/alitajs/alita/pull/354) [`a9f88a29`](https://github.com/alitajs/alita/commit/a9f88a2943bb40a5d5e6d423faf35bce25530852) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复 tabsLayout 在动态路由时无法匹配的问题
+
+* [#357](https://github.com/alitajs/alita/pull/357) [`98382443`](https://github.com/alitajs/alita/commit/983824433204a991b483d519c3963b47bd27e545) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: alita native
+
+- [#356](https://github.com/alitajs/alita/pull/356) [`da0629fe`](https://github.com/alitajs/alita/commit/da0629fefe270657cb55f4cedbeb2b64d369fac7) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复 className 拼写错误
+
+- Updated dependencies [[`98382443`](https://github.com/alitajs/alita/commit/983824433204a991b483d519c3963b47bd27e545)]:
+  - alita@3.0.1
+
 ## 3.0.0
 
 ### Minor Changes
