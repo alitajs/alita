@@ -7,7 +7,10 @@
   "files": [
     "assets",
     "dist",
-    "templates"
+    "templates",
+    "index.d.ts",
+    "index.esm.js",
+    "index.js"
   ],
   "scripts": {
     "build": "pnpm tsc",
