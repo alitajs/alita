@@ -24,6 +24,7 @@ export default (api: AlitaApi) => {
       schema(Joi) {
         return Joi.object({
           extraModels: Joi.array().items(Joi.string()),
+          enableModelsReExport: Joi.object(),
           immer: Joi.object(),
         });
       },
