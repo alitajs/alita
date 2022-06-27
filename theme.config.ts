@@ -44,6 +44,7 @@ export default {
             'guides/directory-structure',
             'guides/mock',
             'guides/proxy',
+            'guides/helmet',
             'guides/env-variables',
             'guides/boilerplate',
             'guides/generator',
