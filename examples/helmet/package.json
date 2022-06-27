@@ -1,0 +1,13 @@
+{
+  "name": "@examples/helmet",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "alita dev",
+    "build": "ANALYZE=1 alita build",
+    "plugin": "alita plugin list"
+  },
+  "dependencies": {
+    "alita": "workspace:*"
+  }
+}
