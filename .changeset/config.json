@@ -14,5 +14,10 @@
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "updateInternalDependents": "always"
   },
-  "ignore": ["@examples/boilerplate", "@examples/native", "@examples/tabs"]
+  "ignore": [
+    "@examples/boilerplate",
+    "@examples/helmet",
+    "@examples/native",
+    "@examples/tabs"
+  ]
 }
