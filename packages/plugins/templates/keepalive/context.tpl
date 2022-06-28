@@ -7,6 +7,7 @@ import { Tabs, message } from 'antd';
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
 import { getPluginManager } from '../core/plugin';
+import { useAppData } from '../exports';
 {{/hasTabsLayout}}
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
@@ -54,8 +55,28 @@ export function useKeepOutlets() {
     const element = useOutlet();
 {{#hasTabsLayout}}
     const navigate = useNavigate();
-    const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
-    const { local } = runtime;
+    const { clientRoutes } = useAppData();
+
+    const getLocalFromClientRoutes = (data) => {
+        const local = {};
+        const getLocalFromRoutes = (routes) => {
+            routes.forEach(item => {
+                if(item.routes){
+                    getLocalFromRoutes(item.routes);
+                }else{
+                    local[item.path] = item.name;
+                }
+            })
+        }
+        getLocalFromRoutes(data);
+        return local;
+    }
+    
+    const getLocal = () => {
+        const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
+        if(runtime?.local) return runtime.local; 
+        return getLocalFromClientRoutes(clientRoutes);
+    }
 {{/hasTabsLayout}}
 
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
@@ -66,7 +87,7 @@ export function useKeepOutlets() {
 {{#hasCustomTabs}}
     const CustomTabs = getCustomTabs();
     const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local, activeKey: location.pathname
+        isKeep, keepElements, navigate, dropByCacheKey, local: getLocal(), activeKey: location.pathname
     }
 {{/hasCustomTabs}}
     return <>
@@ -84,15 +105,19 @@ export function useKeepOutlets() {
                 const newPanel = Object.keys(keepElements.current);
                 for (let i = 0; i < newPanel.length; i++) {
                     if (newPanel[i] === targetKey) {
-                        lastIndex = i - 1;
+                        if(i===0 && newPanel.length>1){
+                            lastIndex = newPanel.length-1
+                        }else{
+                            lastIndex = i - 1;
+                        }
                     }
                 }
                 const newPanes = newPanel.filter(pane => pane !== targetKey);
                 if (newPanes.length && newActiveKey === targetKey) {
                     if (lastIndex >= 0) {
-                        newActiveKey = newPanes[lastIndex];
+                        newActiveKey = newPanel[lastIndex];
                     } else {
-                        newActiveKey = newPanes[0];
+                        newActiveKey = newPanel[0];
                     }
                 }
                 if (lastIndex === -1 && targetKey === location.pathname) {
@@ -106,7 +131,7 @@ export function useKeepOutlets() {
             }}>
                 {Object.entries(keepElements.current).map(([pathname, element]: any) => {
                     // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, local);
+                    const tabName = getMatchPathName(pathname, getLocal());
                     return (
                         <TabPane tab={`${tabName}`} key={pathname}/>
                     );
