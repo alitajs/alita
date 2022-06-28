@@ -32,11 +32,6 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
     'npm registry is not https://registry.npmjs.org/',
   );
 
-  // check package changed
-  logger.event('check package changed');
-  const changed = (await $`lerna changed --loglevel error`).stdout.trim();
-  assert(changed, `no package is changed`);
-
   // check npm ownership
   logger.event('check npm ownership');
   const whoami = (await $`npm whoami`).stdout.trim();
@@ -75,14 +70,7 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
   ).stdout.trim().length;
   assert(!isGitCleanAfterClientBuild, 'client code is updated');
 
-  // generate changelog
-  // TODO
-  logger.event('generate changelog');
-
-  // bump version
-  logger.event('bump version');
-  await $`lerna version --exact --no-commit-hooks --no-git-tag-version --no-push --loglevel error`;
-  const version = require(PATHS.LERNA_CONFIG).version;
+  const version = require('../packages/alita').version;
   let tag = 'latest';
   if (
     version.includes('-alpha.') ||
