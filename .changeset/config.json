@@ -18,6 +18,7 @@
     "@examples/boilerplate",
     "@examples/helmet",
     "@examples/native",
-    "@examples/tabs"
+    "@examples/tabs",
+    "umi-scripts"
   ]
 }
