@@ -1,7 +1,9 @@
 import 'zx/globals';
+import { PATHS, SCRIPTS } from './.internal/constants';
+import { setExcludeFolder } from './.internal/utils';
 
 (async () => {
-  const root = path.join(__dirname, '..');
+  const root = PATHS.ROOT;
   const pkgDir = path.join(root, 'packages');
   const pkgs = await fs.readdir(pkgDir);
 
@@ -24,26 +26,7 @@ import 'zx/globals';
   }
 
   function getVersion() {
-    return require('../package.json').version;
-  }
-
-  function setExcludeFolder(opts: any) {
-    if (!fs.existsSync(path.join(root, '.idea'))) return;
-    const configPath = path.join(root, '.idea', 'a li ta-next.iml');
-    let content = fs.readFileSync(configPath, 'utf-8');
-    const folders = ['dist', 'compiled'];
-    for (const folder of folders) {
-      console.log('test', folder);
-      const excludeContent = `<excludeFolder url='file://$MODULE_DIR$/packages/${opts.pkg}/${folder}' />`;
-      const replaceMatcher = `<content url="file://$MODULE_DIR$">`;
-      if (!content.includes(excludeContent)) {
-        content = content.replace(
-          replaceMatcher,
-          `${replaceMatcher}\n      ${excludeContent}`,
-        );
-      }
-    }
-    fs.writeFileSync(configPath, content, 'utf-8');
+    return '3.0.0';
   }
 
   async function bootstrapPkg(opts: any) {
@@ -66,11 +49,11 @@ import 'zx/globals';
             description: name,
             main: 'dist/index.js',
             types: 'dist/index.d.ts',
-            files: ['dist', 'compiled'],
+            files: ['dist'],
             scripts: {
-              build: 'pnpm tsc',
-              'build:deps': 'pnpm esno ../../scripts/bundleDeps.ts',
-              dev: 'pnpm build -- --watch',
+              build: SCRIPTS.BUILD,
+              'build:deps': SCRIPTS.BUNDLE_DEPS,
+              dev: SCRIPTS.DEV,
             },
             repository: {
               type: 'git',
@@ -153,7 +136,7 @@ test('normal', () => {
       }
 
       // set excludeFolder for webstorm
-      setExcludeFolder({ pkg: opts.pkg });
+      setExcludeFolder({ pkg: opts.pkg, cwd: root });
 
       console.log(chalk.green(`${opts.pkg} bootstrapped`));
     }

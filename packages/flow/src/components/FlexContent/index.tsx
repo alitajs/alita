@@ -29,6 +29,7 @@ const FlexContent: React.FC<FlexContentProps> = (props) => {
     backgroundColor = '',
     flexDirection = 'column',
     overflow = 'scroll',
+    // @ts-ignore
     children,
     classname = '',
   } = props;

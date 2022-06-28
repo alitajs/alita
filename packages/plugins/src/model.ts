@@ -1,6 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import modelPlugin from '@umijs/plugins/dist/model';
 import { logger } from '@umijs/utils';
-import { AlitaApi } from 'alita';
 
 export default (api: AlitaApi) => {
   api.onStart(() => {

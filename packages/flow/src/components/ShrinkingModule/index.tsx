@@ -28,6 +28,7 @@ const ShrinkingModule: React.FC<ShrinkingModuleProps> = (props) => {
     backgroundColor = '',
     flexDirection = 'column',
     overflow = 'hidden',
+    // @ts-ignore
     children,
     classname = '',
   } = props;

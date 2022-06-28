@@ -1,5 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import { logger, Mustache } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { readFileSync } from 'fs';
 import { join } from 'path';
 // @ts-ignore

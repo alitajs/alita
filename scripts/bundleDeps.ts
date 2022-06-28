@@ -1,8 +1,10 @@
+import { readWantedLockfile } from '@pnpm/lockfile-file';
 // @ts-ignore
 import ncc from '@vercel/ncc';
 import { Package } from 'dts-packer';
 import resolve from 'resolve';
 import 'zx/globals';
+import { PATHS } from './.internal/constants';
 // @ts-ignore
 // import { Package } from '/Users/chencheng/code/github.com/sorrycc/dts-packer/dist/Package.js';
 
@@ -55,7 +57,7 @@ Object.keys(exported).forEach(function (key) {
       if (opts.file === './bundles/webpack/bundle') {
         delete opts.webpackExternals['webpack'];
       }
-      const { code, assets } = await ncc(entry, {
+      let { code, assets } = await ncc(entry, {
         externals: opts.webpackExternals,
         minify: !!opts.minify,
         target: 'es5',
@@ -113,6 +115,27 @@ Object.keys(exported).forEach(function (key) {
 
       // entry code
       fs.ensureDirSync(target);
+      // node 14 support for chalk
+      if (
+        [
+          'chalk',
+          'pkg-up',
+          'execa',
+          'globby',
+          'os-locale',
+          'copy-webpack-plugin',
+        ].includes(opts.pkgName)
+      ) {
+        code = code.replace(/require\("node:/g, 'require("');
+      }
+      if (
+        code.includes('"node:') &&
+        opts.pkgName && // skip local file bundle like babel/bundle.js
+        opts.pkgName !== 'stylelint-declaration-block-no-ignored-properties' &&
+        opts.pkgName !== 'vite'
+      ) {
+        throw new Error(`${opts.pkgName} has "node:"`);
+      }
       fs.writeFileSync(path.join(target, 'index.js'), code, 'utf-8');
 
       // patch
@@ -134,6 +157,77 @@ Object.keys(exported).forEach(function (key) {
           ),
           path.join(target, 'loader-options.json'),
         );
+      }
+      if (opts.pkgName === 'fork-ts-checker-webpack-plugin') {
+        fs.removeSync(path.join(target, 'typescript.js'));
+      }
+
+      // for bundler-vite
+      if (opts.pkgName === 'vite') {
+        const COMPILED_DIR = path.join(opts.base, 'compiled');
+        const { compiledConfig } = require(`${opts.base}/package.json`);
+
+        // generate externalized type from sibling packages (such as @umijs/bundler-utils)
+        Object.entries<string>(compiledConfig.externals)
+          .filter(
+            ([name, target]) =>
+              target.startsWith('@umijs/') &&
+              compiledConfig.extraDtsExternals.includes(name),
+          )
+          .forEach(([name, target]) => {
+            fs.writeFileSync(
+              path.join(COMPILED_DIR, `${name}.d.ts`),
+              `export * from '${target}';`,
+              'utf-8',
+            );
+          });
+
+        // copy sourcemap for vite client scripts
+        fs.copyFileSync(
+          require.resolve('vite/dist/client/client.mjs.map', {
+            paths: [opts.base],
+          }),
+          path.join(COMPILED_DIR, 'vite', 'client.mjs.map'),
+        );
+        fs.copyFileSync(
+          require.resolve('vite/dist/client/env.mjs.map', {
+            paths: [opts.base],
+          }),
+          path.join(COMPILED_DIR, 'vite', 'env.mjs.map'),
+        );
+      }
+
+      // for bundler-webpack
+      if (opts.pkgName === 'webpack') {
+        fs.writeFileSync(
+          path.join(opts.base, 'compiled/express.d.ts'),
+          `import e = require('@umijs/bundler-utils/compiled/express');\nexport = e;`,
+          'utf-8',
+        );
+      }
+
+      // validate babel dynamic dep version
+      if (opts.file === './bundles/babel/bundle') {
+        const pkg = require(path.join(opts.base, 'package.json'));
+
+        readWantedLockfile(PATHS.ROOT, {
+          ignoreIncompatible: true,
+        }).then((lockfile) => {
+          const unicodePkgName = 'regenerate-unicode-properties';
+          const [, unicodeParentPkg] = Object.entries(lockfile!.packages!).find(
+            ([name]) => name.startsWith('/regexpu-core/'),
+          )!;
+
+          if (
+            unicodeParentPkg.dependencies![unicodePkgName] !==
+            pkg.dependencies[unicodePkgName]
+          ) {
+            throw new Error(`regenerate-unicode-properties is outdated, please update it to ${
+              unicodeParentPkg.dependencies![unicodePkgName]
+            } in bundler-utils/package.json before update compiled files!
+       ref: https://github.com/umijs/umi/pull/7972`);
+          }
+        });
       }
     }
   }
@@ -203,6 +297,22 @@ Object.keys(exported).forEach(function (key) {
           // TODO
           // fs.copySync()
         }
+
+        // for bundler-utils
+        if (opts.pkgName === 'less') {
+          const dtsPath = path.join(opts.base, 'compiled/less/index.d.ts');
+
+          fs.writeFileSync(
+            dtsPath,
+            fs
+              .readFileSync(dtsPath, 'utf-8')
+              .replace(
+                'declare module "less"',
+                'declare module "@umijs/bundler-utils/compiled/less"',
+              ),
+            'utf-8',
+          );
+        }
       }
     }
   }
@@ -225,6 +335,9 @@ Object.keys(exported).forEach(function (key) {
   }
 }
 
+/**
+ * 编译打包 package.json 文件中 compiledConfig 配置的依赖库
+ */
 (async () => {
   const base = process.cwd();
   const pkg = fs.readJSONSync(path.join(base, 'package.json'));

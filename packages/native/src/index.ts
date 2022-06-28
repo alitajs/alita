@@ -1,7 +1,7 @@
 // ref:
 // - https://umijs.org/plugins/api
+import type { AlitaApi } from '@alita/types';
 import { chalk, crossSpawn, logger, yParser } from '@umijs/utils';
-import { AlitaApi } from 'alita';
 import * as child_process from 'child_process';
 import { embeddedPlugins } from './plugins';
 

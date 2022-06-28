@@ -1,7 +1,7 @@
 //TODO: 从 umi-next 复制过来，因为修复的bug umi-next 为发包
 // import modelPlugin from '@umijs/plugins/dist/antd';
 // import { logger } from '@umijs/utils';
-// import { AlitaApi } from 'alita';
+// import type { AlitaApi } from '@alita/types';
 
 // export default (api: AlitaApi) => {
 //   api.onStart(() => {
@@ -11,8 +11,9 @@
 //   modelPlugin(api);
 // };
 
+import type { AlitaApi } from '@alita/types';
 import { logger, Mustache } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { dirname } from 'path';
 import { resolveProjectDep } from './utils/resolveProjectDep';
 import { withTmpPath } from './utils/withTmpPath';

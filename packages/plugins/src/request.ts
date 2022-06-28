@@ -1,5 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import { logger, resolve, winPath } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { dirname } from 'path';
 
 export default (api: AlitaApi) => {

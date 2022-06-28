@@ -15,7 +15,7 @@
   "scripts": {
     "build": "pnpm tsc",
     "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
-    "dev": "pnpm build -- --watch"
+    "dev": "pnpm build --watch"
   },
   "repository": {
     "type": "git",
@@ -34,14 +34,15 @@
     "alita": "bin/alita.js"
   },
   "dependencies": {
+    "@alita/types": "3.0.0",
     "@alita/native": "3.0.3",
     "@alita/plugins": "3.0.3",
-    "@umijs/bundler-utils": "4.0.1",
-    "@umijs/core": "4.0.1",
-    "@umijs/renderer-react": "4.0.1",
-    "@umijs/utils": "4.0.1",
+    "@umijs/bundler-utils": "4.0.0-canary.20220628.2",
+    "@umijs/core": "4.0.0-canary.20220628.2",
+    "@umijs/renderer-react": "4.0.0-canary.20220628.2",
+    "@umijs/utils": "4.0.0-canary.20220628.2",
     "qrcode-terminal": "^0.12.0",
-    "umi": "4.0.1",
+    "umi": "4.0.0-canary.20220628.2",
     "v8-compile-cache": "^2.3.0"
   }
 }

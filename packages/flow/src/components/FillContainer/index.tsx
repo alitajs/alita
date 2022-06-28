@@ -28,6 +28,7 @@ const FillContainer: React.FC<FillContainerProps> = (props) => {
     backgroundColor = '',
     flexDirection = 'column',
     overflow = 'hidden',
+    // @ts-ignore
     children,
     classname = '',
   } = props;

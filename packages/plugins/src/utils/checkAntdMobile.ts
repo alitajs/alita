@@ -1,4 +1,5 @@
-import { AlitaApi } from 'alita';
+import type { AlitaApi } from '@alita/types';
+
 import semver from 'semver';
 import { resolveProjectDep } from './resolveProjectDep';
 

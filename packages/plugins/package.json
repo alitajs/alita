@@ -12,7 +12,7 @@
   "scripts": {
     "build": "pnpm tsc",
     "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
-    "dev": "pnpm build -- --watch"
+    "dev": "pnpm build --watch"
   },
   "repository": {
     "type": "git",
@@ -31,11 +31,11 @@
     "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
     "@alita/request": "3.0.0",
-    "@umijs/bundler-utils": "4.0.1",
-    "@umijs/plugins": "4.0.1",
-    "@umijs/utils": "4.0.1",
+    "@umijs/bundler-utils": "4.0.0-canary.20220628.2",
+    "@umijs/plugins": "4.0.0-canary.20220628.2",
+    "@umijs/utils": "4.0.0-canary.20220628.2",
     "ahooks": "^3.0.8",
-    "alita": "3.0.3",
+    "@alita/types": "3.0.0",
     "antd-mobile-icons": "^0.2.2",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-jsx-class": "^0.1.3",
