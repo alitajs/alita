@@ -47,10 +47,6 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
     }),
   );
 
-  // check package.json
-  logger.event('check package.json info');
-  await $`npm run check:packageFiles`;
-
   // clean
   logger.event('clean');
   eachPkg(pkgs, ({ dir, name }) => {

@@ -11,7 +11,7 @@
     "start": "cross-env APP_ROOT=example umi dev",
     "build": "pnpm tsc",
     "dev": "pnpm build --watch",
-    "build:deps": "pnpm esno ../../scripts/bundleDeps.ts"
+    "build:deps": "umi-scripts bundleDeps"
   },
   "authors": {
     "name": "ashoka",
