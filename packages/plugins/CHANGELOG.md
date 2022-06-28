@@ -1,5 +1,19 @@
 # @alita/plugins
 
+## 3.0.4
+
+### Patch Changes
+
+- [#366](https://github.com/alitajs/alita/pull/366) [`7ae4f0b8`](https://github.com/alitajs/alita/commit/7ae4f0b8ca8b9b1ecd9e94e6ccc2ee01a8e5fe08) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: react-helmet-async
+
+* [#371](https://github.com/alitajs/alita/pull/371) [`cc475999`](https://github.com/alitajs/alita/commit/cc47599902981b04db90fae638908aa3a8a56dfa) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support plugin-layout
+
+- [#370](https://github.com/alitajs/alita/pull/370) [`a7ce88ee`](https://github.com/alitajs/alita/commit/a7ce88eed9187578aeca7146e16ae116e51ef418) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: upgrade to pnpm v7
+
+- Updated dependencies [[`a7ce88ee`](https://github.com/alitajs/alita/commit/a7ce88eed9187578aeca7146e16ae116e51ef418)]:
+  - @alita/request@3.0.1
+  - @alita/types@3.0.1
+
 ## 3.0.3
 
 ### Patch Changes
