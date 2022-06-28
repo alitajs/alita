@@ -1,8 +1,9 @@
 // 从 @umijs/plugin 复制，因为需要默认开启，修改了 enableBy
 // 增加 types
+import type { AlitaApi } from '@alita/types';
 import * as t from '@umijs/bundler-utils/compiled/babel/types';
 import { chalk, logger, winPath } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { dirname, extname, join, relative } from 'path';
 import { Model, ModelUtils } from './utils/modelUtils';
 import { withTmpPath } from './utils/withTmpPath';

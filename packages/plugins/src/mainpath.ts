@@ -1,5 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import { logger } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 // import resetMainPath from './utils/resetMainPath/resetMainPath';
 
 export default (api: AlitaApi) => {

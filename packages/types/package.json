@@ -1,16 +1,15 @@
 {
-  "name": "@alita/chalk",
-  "version": "1.0.3",
-  "description": "@alita/browser-chalk",
+  "name": "@alita/types",
+  "version": "3.0.0",
+  "description": "@alita/types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "compiled"
+    "dist"
   ],
   "scripts": {
     "build": "pnpm tsc",
-    "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
+    "build:deps": "umi-scripts bundleDeps",
     "dev": "pnpm build --watch"
   },
   "repository": {
@@ -22,7 +21,7 @@
   ],
   "license": "MIT",
   "bugs": "https://github.com/alitajs/alita/issues",
-  "homepage": "https://github.com/alitajs/alita/tree/master/packages/chalk#readme",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/types#readme",
   "publishConfig": {
     "access": "public"
   }

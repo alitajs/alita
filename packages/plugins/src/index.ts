@@ -1,5 +1,5 @@
+import type { AlitaApi } from '@alita/types';
 import { logger } from '@umijs/utils';
-import type { AlitaApi } from 'alita';
 
 export default (api: AlitaApi) => {
   api.onStart(() => {

@@ -1,6 +1,6 @@
-import { AlitaApi } from '../types';
+import { IApi } from 'umi';
 
-export default (api: AlitaApi) => {
+export default (api: IApi) => {
   // nodeModulesTransform
   api.describe({
     key: 'nodeModulesTransform',

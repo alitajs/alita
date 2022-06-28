@@ -1,5 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import { logger, Mustache, winPath } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { dirname } from 'path';
 import { withTmpPath } from './utils/withTmpPath';
 

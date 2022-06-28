@@ -10,7 +10,7 @@
   "scripts": {
     "build": "pnpm tsc",
     "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
-    "dev": "pnpm build -- --watch"
+    "dev": "pnpm build --watch"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
   "dependencies": {
     "@sentry/browser": "^6.16.1",
     "hoist-non-react-statics": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/hoist-non-react-statics": "^3.3.1"
   }
 }

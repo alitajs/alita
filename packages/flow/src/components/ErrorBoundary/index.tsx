@@ -134,6 +134,7 @@ class ErrorBoundary extends React.Component<
   };
 
   public render(): React.ReactNode {
+    // @ts-ignore
     const { fallback, children } = this.props;
     const { error, componentStack, eventId } = this.state;
 
@@ -179,7 +180,9 @@ function withErrorBoundary<P extends Record<string, any>>(
     WrappedComponent.displayName || WrappedComponent.name || UNKNOWN_COMPONENT;
 
   const Wrapped: React.FC<P> = (props: P) => (
+    // @ts-ignore
     <ErrorBoundary {...errorBoundaryOptions}>
+      {/* @ts-ignore */}
       <WrappedComponent {...props} />
     </ErrorBoundary>
   );
@@ -189,6 +192,7 @@ function withErrorBoundary<P extends Record<string, any>>(
 
   // Copy over static methods from Wrapped component to Profiler HOC
   // See: https://reactjs.org/docs/higher-order-components.html#static-methods-must-be-copied-over
+  // @ts-ignore
   hoistNonReactStatics(Wrapped, WrappedComponent);
   return Wrapped;
 }

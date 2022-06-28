@@ -11,7 +11,7 @@
   "scripts": {
     "build": "pnpm tsc",
     "build:deps": "pnpm esno ../../scripts/bundleDeps.ts",
-    "dev": "pnpm build -- --watch"
+    "dev": "pnpm build --watch"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,6 @@
     "create-alita": "bin/create-alita.js"
   },
   "dependencies": {
-    "@umijs/utils": "4.0.1"
+    "@umijs/utils": "4.0.0-canary.20220628.2"
   }
 }

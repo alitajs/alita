@@ -1,5 +1,5 @@
+import type { AlitaApi } from '@alita/types';
 import { logger } from '@umijs/utils';
-import { AlitaApi } from 'alita';
 
 export default (api: AlitaApi) => {
   // 只是为了增加一个 tabsLayout 的配置开关，逻辑在 keepalive 插件中实现

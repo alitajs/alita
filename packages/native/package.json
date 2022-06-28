@@ -10,7 +10,7 @@
   "scripts": {
     "start": "cross-env APP_ROOT=example umi dev",
     "build": "pnpm tsc",
-    "dev": "pnpm build -- --watch",
+    "dev": "pnpm build --watch",
     "build:deps": "pnpm esno ../../scripts/bundleDeps.ts"
   },
   "authors": {
@@ -27,8 +27,8 @@
     "access": "public"
   },
   "dependencies": {
-    "alita": "3.0.3",
-    "@umijs/utils": "4.0.1"
+    "@alita/types": "3.0.0",
+    "@umijs/utils": "4.0.0-canary.20220628.2"
   },
   "license": "MIT"
 }

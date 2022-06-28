@@ -1,5 +1,6 @@
+import type { AlitaApi } from '@alita/types';
 import { winPath } from '@umijs/utils';
-import { AlitaApi } from 'alita';
+
 import { join } from 'path';
 
 export function withTmpPath(opts: {
