@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,12 +30,12 @@
   "dependencies": {
     "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
-    "@alita/request": "3.0.0",
+    "@alita/request": "3.0.1",
     "@umijs/bundler-utils": "4.0.0-canary.20220628.2",
     "@umijs/plugins": "4.0.0-canary.20220628.2",
     "@umijs/utils": "4.0.0-canary.20220628.2",
     "ahooks": "^3.0.8",
-    "@alita/types": "3.0.0",
+    "@alita/types": "3.0.1",
     "antd-mobile-icons": "^0.2.2",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-jsx-class": "^0.1.3",
