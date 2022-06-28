@@ -1,14 +1,14 @@
 {
   "name": "@examples/native",
   "private": true,
-  "version": "1.0.0",
   "scripts": {
     "dev": "alita dev",
     "dev:ios": "alita native run ios",
     "init": "alita native init",
     "ios": "alita native add ios",
     "build": "ANALYZE=1 alita build",
-    "plugin": "alita plugin list"
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
   },
   "dependencies": {
     "@alita/flow": "workspace:*",
@@ -16,7 +16,7 @@
     "@capacitor/core": "^3.6.0",
     "@capacitor/ios": "^3.6.0",
     "ahooks": "^3.0.8",
-    "alita": "workspace:*",
+    "alita": "3.0.4",
     "antd-mobile": "^5.10.0"
   },
   "devDependencies": {
