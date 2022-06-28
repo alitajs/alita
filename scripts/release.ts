@@ -66,7 +66,7 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
   ).stdout.trim().length;
   assert(!isGitCleanAfterClientBuild, 'client code is updated');
 
-  const version = require('../packages/alita').version;
+  const version = require('../packages/alita/package.json').version;
   let tag = 'latest';
   if (
     version.includes('-alpha.') ||
