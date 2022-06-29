@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -50,6 +50,21 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
     return tabName;
 }
 
+const getLocalFromClientRoutes = (data) => {
+    const local = {};
+    const getLocalFromRoutes = (routes) => {
+        routes.forEach(item => {
+            if(item.routes){
+                getLocalFromRoutes(item.routes);
+            }else{
+                local[item.path] = item.name;
+            }
+        })
+    }
+    getLocalFromRoutes(data);
+    return local;
+}
+
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
@@ -57,26 +72,11 @@ export function useKeepOutlets() {
     const navigate = useNavigate();
     const { clientRoutes } = useAppData();
 
-    const getLocalFromClientRoutes = (data) => {
-        const local = {};
-        const getLocalFromRoutes = (routes) => {
-            routes.forEach(item => {
-                if(item.routes){
-                    getLocalFromRoutes(item.routes);
-                }else{
-                    local[item.path] = item.name;
-                }
-            })
-        }
-        getLocalFromRoutes(data);
-        return local;
-    }
-    
-    const getLocal = () => {
+    const tabsLayoutConfig = useMemo(() => {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
-        if(runtime?.local) return runtime.local; 
+        if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
-    }
+    }, [clientRoutes]);
 {{/hasTabsLayout}}
 
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
@@ -87,7 +87,7 @@ export function useKeepOutlets() {
 {{#hasCustomTabs}}
     const CustomTabs = getCustomTabs();
     const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local: getLocal(), activeKey: location.pathname
+        isKeep, keepElements, navigate, dropByCacheKey, local: tabsLayoutConfig, activeKey: location.pathname
     }
 {{/hasCustomTabs}}
     return <>
@@ -131,7 +131,7 @@ export function useKeepOutlets() {
             }}>
                 {Object.entries(keepElements.current).map(([pathname, element]: any) => {
                     // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, getLocal());
+                    const tabName = getMatchPathName(pathname, tabsLayoutConfig);
                     return (
                         <TabPane tab={`${tabName}`} key={pathname}/>
                     );
