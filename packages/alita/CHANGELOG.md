@@ -1,5 +1,11 @@
 # alita
 
+## 3.0.5
+
+### Patch Changes
+
+- [#376](https://github.com/alitajs/alita/pull/376) [`c2e57239`](https://github.com/alitajs/alita/commit/c2e5723998e497aa8179d92f8bff93c2f9aa5321) Thanks [@xierenyuan](https://github.com/xierenyuan)! - feat(alita): 支持单侧导出
+
 ## 3.0.4
 
 ### Patch Changes

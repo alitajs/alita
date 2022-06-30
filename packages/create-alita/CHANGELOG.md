@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.3
+
+### Patch Changes
+
+- [`ac4ceb14`](https://github.com/alitajs/alita/commit/ac4ceb14317482d2e763609891c6f8006918a2b1) - chore: change umi version
+
 ## 3.0.2
 
 ### Patch Changes
