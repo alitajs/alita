@@ -186,7 +186,7 @@ importers:
     specifiers:
       '@alita/native': 3.0.4
       '@alita/plugins': 3.0.4
-      '@alita/types': 3.0.1
+      '@alita/types': 3.0.2
       '@umijs/bundler-utils': 4.0.0-canary.20220628.2
       '@umijs/core': 4.0.0-canary.20220628.2
       '@umijs/renderer-react': 4.0.0-canary.20220628.2
@@ -228,7 +228,7 @@ importers:
 
   packages/native:
     specifiers:
-      '@alita/types': 3.0.1
+      '@alita/types': 3.0.2
       '@umijs/utils': 4.0.0-canary.20220628.2
     dependencies:
       '@alita/types': link:../types
@@ -239,7 +239,7 @@ importers:
       '@alita/alita-layout': ^3.0.5
       '@alita/inspx': 0.0.2
       '@alita/request': 3.0.1
-      '@alita/types': 3.0.1
+      '@alita/types': 3.0.2
       '@alitajs/postcss-plugin-px2rem': ^0.0.1
       '@types/semver': ^7.3.9
       '@umijs/bundler-utils': 4.0.0-canary.20220628.2
