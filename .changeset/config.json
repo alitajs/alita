@@ -17,8 +17,10 @@
   "ignore": [
     "@examples/boilerplate",
     "@examples/helmet",
+    "@example/lint",
     "@examples/native",
     "@examples/tabs",
+    "@example/test-test",
     "umi-scripts"
   ]
 }
