@@ -211,9 +211,9 @@ importers:
 
   packages/create-alita:
     specifiers:
-      '@umijs/utils': 4.0.0-canary.20220628.2
+      '@umijs/utils': 4.0.2
     dependencies:
-      '@umijs/utils': 4.0.0-canary.20220628.2
+      '@umijs/utils': 4.0.2
 
   packages/flow:
     specifiers:
@@ -3406,6 +3406,13 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.2.11
       pino: 7.11.0
+
+  /@umijs/utils/4.0.2:
+    resolution: {integrity: sha512-YL0/9NSxmtJQb2a2/A03xVjOrEP0rZSRI5KjW2O3pWylKX6HK+pKDbalzx1GHjUj4OWRAUejXpz2Yv8uDIpRzg==}
+    dependencies:
+      chokidar: 3.5.3
+      pino: 7.11.0
+    dev: false
 
   /@use-gesture/core/10.2.11:
     resolution: {integrity: sha512-5YeVrT9prf9UeaAO+2fIuiKdZ01uVBvVsjG79berGZPTHVkz01eFX2ODWJG05uQTqmRw6olz1J80yt6qcGPdvA==}
