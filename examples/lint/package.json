@@ -7,7 +7,8 @@
     "lint:es": "alita lint --eslint-only",
     "lint:es-fix": "alita lint --eslint-only --fix",
     "lint:style": "alita lint --stylelint-only",
-    "lint:style-fix": "alita lint --stylelint-only --fix"
+    "lint:style-fix": "alita lint --stylelint-only --fix",
+    "start": "npm run dev"
   },
   "dependencies": {},
   "devDependencies": {

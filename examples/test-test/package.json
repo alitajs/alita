@@ -2,7 +2,8 @@
   "name": "@example/test-test",
   "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npm run dev"
   },
   "dependencies": {
     "alita": "3.0.5"

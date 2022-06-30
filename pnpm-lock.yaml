@@ -102,7 +102,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.0.4
+      alita: 3.0.5
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -112,13 +112,13 @@ importers:
 
   examples/helmet:
     specifiers:
-      alita: 3.0.4
+      alita: 3.0.5
     dependencies:
       alita: link:../../packages/alita
 
   examples/lint:
     specifiers:
-      alita: 3.0.4
+      alita: 3.0.5
       eslint: ^8.15.0
       stylelint: ^14.8.2
     devDependencies:
@@ -134,7 +134,7 @@ importers:
       '@capacitor/core': ^3.6.0
       '@capacitor/ios': ^3.6.0
       ahooks: ^3.0.8
-      alita: 3.0.4
+      alita: 3.0.5
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -151,7 +151,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       '@ant-design/icons': ^4.7.0
-      alita: 3.0.4
+      alita: 3.0.5
       antd: ^4.21.2
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -164,7 +164,7 @@ importers:
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12
       '@types/jest': ^27.5.1
-      alita: 3.0.4
+      alita: 3.0.5
       jest: ^27
       react: '17'
       react-dom: '17'
