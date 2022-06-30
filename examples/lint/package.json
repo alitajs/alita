@@ -1,0 +1,18 @@
+{
+  "name": "@example/lint",
+  "private": true,
+  "scripts": {
+    "lint": "alita lint",
+    "lint:cssinjs": "alita lint --stylelint-only --cssinjs",
+    "lint:es": "alita lint --eslint-only",
+    "lint:es-fix": "alita lint --eslint-only --fix",
+    "lint:style": "alita lint --stylelint-only",
+    "lint:style-fix": "alita lint --stylelint-only --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "stylelint": "^14.8.2",
+    "alita": "3.0.4"
+  }
+}
