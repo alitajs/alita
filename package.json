@@ -57,6 +57,7 @@
     "@vercel/ncc": "0.33.3",
     "dts-packer": "^0.0.3",
     "esno": "^0.14.1",
+    "execa": "4.0.3",
     "expect-playwright": "^0.8.0",
     "git-repo-info": "^2.1.1",
     "husky": "^7.0.4",

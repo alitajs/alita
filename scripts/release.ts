@@ -1,4 +1,5 @@
 import { logger } from '@umijs/utils';
+import execa from 'execa';
 import { existsSync } from 'fs';
 import getGitRepoInfo from 'git-repo-info';
 import { join } from 'path';
@@ -6,6 +7,8 @@ import rimraf from 'rimraf';
 import 'zx/globals';
 import { PATHS } from './.internal/constants';
 import { assert, eachPkg, getPkgs } from './.internal/utils';
+
+const cwd = process.cwd();
 
 (async () => {
   const { branch } = getGitRepoInfo();
@@ -144,8 +147,19 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
 
   await Promise.all(
     innerPkgs.map(async (pkg) => {
-      await $`cd packages/${pkg} && npm publish --tag ${tag} ${otpArg}`;
-      logger.info(`+ ${pkg}`);
+      const pkgPath = join(cwd, 'packages', pkg);
+      const { name, version } = require(join(pkgPath, 'package.json'));
+
+      // npm view xxxx version
+      const { stdout } = execa.sync('npm', ['view', name, 'version'], {
+        cwd: pkgPath,
+      });
+      if (stdout === version) {
+        console.log(`Skip Publish package ${name}`);
+      } else {
+        await $`cd packages/${pkg} && npm publish --tag ${tag} ${otpArg}`;
+        logger.info(`+ ${pkg}`);
+      }
     }),
   );
   await $`cd packages/alita && npm publish --tag ${tag} ${otpArg}`;
