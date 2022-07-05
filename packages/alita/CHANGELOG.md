@@ -1,5 +1,11 @@
 # alita
 
+## 3.0.7
+
+### Patch Changes
+
+- [#380](https://github.com/alitajs/alita/pull/380) [`d8e963ea`](https://github.com/alitajs/alita/commit/d8e963eaf0810f688aff5e5d59a9550da0d52a80) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: prettier
+
 ## 3.0.6
 
 ### Patch Changes
