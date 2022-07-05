@@ -10,7 +10,14 @@
     "templates",
     "index.d.ts",
     "index.esm.js",
-    "index.js"
+    "index.js",
+    "dist",
+    "bin",
+    "prettier.js",
+    "test.d.ts",
+    "test.js",
+    "eslint.js",
+    "stylelint.js"
   ],
   "scripts": {
     "build": "pnpm tsc",
