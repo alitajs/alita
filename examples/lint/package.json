@@ -12,8 +12,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.15.0",
-    "stylelint": "^14.8.2",
     "alita": "3.0.7"
   }
 }
