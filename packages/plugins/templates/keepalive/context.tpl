@@ -72,7 +72,7 @@ export function useKeepOutlets() {
     const navigate = useNavigate();
     const { clientRoutes } = useAppData();
 
-    const tabsLayoutConfig = useMemo(() => {
+    const localConfig = useMemo(() => {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
         if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
@@ -87,7 +87,7 @@ export function useKeepOutlets() {
 {{#hasCustomTabs}}
     const CustomTabs = getCustomTabs();
     const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local: tabsLayoutConfig, activeKey: location.pathname
+        isKeep, keepElements, navigate, dropByCacheKey, local: localConfig, activeKey: location.pathname
     }
 {{/hasCustomTabs}}
     return <>
@@ -131,7 +131,7 @@ export function useKeepOutlets() {
             }}>
                 {Object.entries(keepElements.current).map(([pathname, element]: any) => {
                     // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, tabsLayoutConfig);
+                    const tabName = getMatchPathName(pathname, localConfig);
                     return (
                         <TabPane tab={`${tabName}`} key={pathname}/>
                     );
