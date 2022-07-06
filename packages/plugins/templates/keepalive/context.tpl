@@ -76,7 +76,7 @@ export function useKeepOutlets() {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
         if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
-    }, [clientRoutes]);
+    }, []);
 {{/hasTabsLayout}}
 
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);

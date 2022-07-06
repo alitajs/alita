@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.5
+
+### Patch Changes
+
+- [#378](https://github.com/alitajs/alita/pull/378) [`0e5f5c2a`](https://github.com/alitajs/alita/commit/0e5f5c2aa0de6f331a7551b87b2f7aa0a61c63eb) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi 4.0.5
+
 ## 3.0.4
 
 ### Patch Changes

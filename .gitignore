@@ -12,5 +12,6 @@
 /packages/**/src/**/fixtures/*/.umi-production
 .umi
 .umi-production
+.umi-test
 dist
 .turbo

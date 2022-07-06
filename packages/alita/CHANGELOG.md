@@ -1,5 +1,27 @@
 # alita
 
+## 3.0.7
+
+### Patch Changes
+
+- [#380](https://github.com/alitajs/alita/pull/380) [`d8e963ea`](https://github.com/alitajs/alita/commit/d8e963eaf0810f688aff5e5d59a9550da0d52a80) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: prettier
+
+## 3.0.6
+
+### Patch Changes
+
+- [#378](https://github.com/alitajs/alita/pull/378) [`0e5f5c2a`](https://github.com/alitajs/alita/commit/0e5f5c2aa0de6f331a7551b87b2f7aa0a61c63eb) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi 4.0.5
+
+- Updated dependencies [[`0e5f5c2a`](https://github.com/alitajs/alita/commit/0e5f5c2aa0de6f331a7551b87b2f7aa0a61c63eb)]:
+  - @alita/native@3.0.5
+  - @alita/plugins@3.0.5
+
+## 3.0.5
+
+### Patch Changes
+
+- [#376](https://github.com/alitajs/alita/pull/376) [`c2e57239`](https://github.com/alitajs/alita/commit/c2e5723998e497aa8179d92f8bff93c2f9aa5321) Thanks [@xierenyuan](https://github.com/xierenyuan)! - feat(alita): 支持单侧导出
+
 ## 3.0.4
 
 ### Patch Changes
