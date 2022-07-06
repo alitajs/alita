@@ -1,5 +1,11 @@
 # alita
 
+## 3.0.8
+
+### Patch Changes
+
+- [#382](https://github.com/alitajs/alita/pull/382) [`71722ecf`](https://github.com/alitajs/alita/commit/71722ecfb4951a3e843abf10f300964877118ff1) Thanks [@xierenyuan](https://github.com/xierenyuan)! - - feat(alita): 补齐 eslint stylelint 依赖 & 移除无用依赖
+
 ## 3.0.7
 
 ### Patch Changes
