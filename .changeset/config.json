@@ -18,6 +18,7 @@
     "@examples/boilerplate",
     "@examples/helmet",
     "@example/lint",
+    "@examples/mobile2",
     "@examples/native",
     "@examples/tabs",
     "@example/test-test",

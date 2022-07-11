@@ -1,0 +1,16 @@
+{
+  "name": "@examples/mobile2",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "ANALYZE=1 alita build",
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@alita/flow": "workspace:*",
+    "ahooks": "^3.0.8",
+    "alita": "workspace:*",
+    "antd-mobile": "2.3.4"
+  }
+}
