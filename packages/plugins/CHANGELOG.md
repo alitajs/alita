@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.6
+
+### Patch Changes
+
+- [#384](https://github.com/alitajs/alita/pull/384) [`4ff25a34`](https://github.com/alitajs/alita/commit/4ff25a34a67401bf3483139b51c45aa6645af9e1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: remove alita-layout
+
 ## 3.0.5
 
 ### Patch Changes
