@@ -45,9 +45,9 @@ export default (api: AlitaApi) => {
       path: join(DIR_NAME, 'AlitaLayout.tsx'),
       noPluginDir: true,
       content: Mustache.render(layoutTpl, {
-        alitalayout: winPath(
-          dirname(require.resolve('@alita/alita-layout/package')),
-        ),
+        // alitalayout: winPath(
+        //   dirname(require.resolve('@alita/alita-layout/package')),
+        // ),
         alitarequest: winPath(
           dirname(require.resolve('@alita/request/package')),
         ),
@@ -68,9 +68,9 @@ export default (api: AlitaApi) => {
       path: join(DIR_NAME, 'layoutState.ts'),
       noPluginDir: true,
       content: Mustache.render(modelTpl, {
-        alitalayout: isAntdMobile5
-          ? './AlitaLayout'
-          : winPath(dirname(require.resolve('@alita/alita-layout/package'))),
+        // alitalayout: isAntdMobile5
+        //   ? './AlitaLayout'
+        //   : winPath(dirname(require.resolve('@alita/alita-layout/package'))),
       }),
     });
 

@@ -29,7 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@alita/alita-layout": "^3.0.5",
     "@alita/inspx": "0.0.2",
     "@alita/request": "3.0.1",
     "@umijs/bundler-utils": "4.0.5",
