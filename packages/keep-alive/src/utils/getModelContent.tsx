@@ -1,7 +1,7 @@
 export default () => `
 // @ts-nocheck
 
-import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
+import pathToRegexp from 'path-to-regexp';
 
 interface LayoutInstanceProps {
   alivePathnames: string[],
