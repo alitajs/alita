@@ -45,10 +45,10 @@
     "@alita/types": "3.0.2",
     "@alita/native": "3.0.5",
     "@alita/plugins": "3.0.6",
-    "@umijs/core": "4.0.5",
-    "@umijs/utils": "4.0.5",
+    "@umijs/core": "4.0.7",
+    "@umijs/utils": "4.0.7",
     "qrcode-terminal": "^0.12.0",
-    "umi": "4.0.5",
+    "umi": "4.0.7",
     "v8-compile-cache": "^2.3.0",
     "eslint": "8.15.0",
     "stylelint": "14.8.2"
