@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.7
+
+### Patch Changes
+
+- [#388](https://github.com/alitajs/alita/pull/388) [`d0416bec`](https://github.com/alitajs/alita/commit/d0416bec428d5f8c81f7955b8134634300ca4782) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: c routes \$index
+
 ## 3.0.6
 
 ### Patch Changes
