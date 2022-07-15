@@ -22,7 +22,8 @@
   "bugs": "http://github.com/alitajs/alita/issues",
   "homepage": "https://github.com/alitajs/alita/tree/master/packages/keep-alive#readme",
   "dependencies": {
-    "react-router-config": "^5.1.1"
+    "react-router-config": "^5.1.1",
+    "path-to-regexp": "1.7.0"
   },
   "publishConfig": {
     "access": "public"

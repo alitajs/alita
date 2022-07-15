@@ -2,7 +2,7 @@ export default (absTmpPath: string) => `
 import React from 'react';
 import { getRoutes } from '${absTmpPath}/core/routes';
 import { setLayoutInstance } from './KeepAliveModel';
-import pathToRegexp from '@umijs/deps/compiled/path-to-regexp';
+import pathToRegexp from 'path-to-regexp';
 import { matchRoutes } from 'react-router-config';
 import * as app from '@/app';
 
