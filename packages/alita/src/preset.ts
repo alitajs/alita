@@ -5,12 +5,14 @@ export default (api: IApi) => {
   api.onStart(() => {
     logger.info('Hello Alita@3');
   });
-  const plugins = [
+  const corePlugins = [
     require.resolve('./features/config/alitaconfig'),
     require.resolve('./features/alitaloading'),
     require.resolve('./features/apptype'),
     require.resolve('./features/qrcodeterminal'),
     require.resolve('./commands/generate/pages'),
+  ];
+  const plugins = [
     require.resolve('@alita/plugins/dist/aconsole'),
     require.resolve('@alita/plugins/dist/keepalive'),
     require.resolve('@alita/plugins/dist/tabs-layout'),
@@ -38,7 +40,9 @@ export default (api: IApi) => {
       plugins: [require.resolve('./features/apptype')],
     };
   }
+  // 执行 lint 时，只需要加载基础的插件
+  const onlyCorePlugin = ['lint'].includes(api.name);
   return {
-    plugins,
+    plugins: onlyCorePlugin ? corePlugins : [...corePlugins, ...plugins],
   };
 };
