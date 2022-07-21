@@ -1,6 +1,5 @@
-const fabric = require('@umijs/fabric');
+const prettier = require('alita/prettier');
 
 module.exports = {
-  ...fabric.prettier,
-  plugins: ["prettier-plugin-organize-imports", "prettier-plugin-packagejson"]
+  ...prettier,
 };

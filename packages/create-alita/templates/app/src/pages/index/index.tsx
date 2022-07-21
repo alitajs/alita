@@ -1,11 +1,9 @@
 import { query } from '@/services/api';
 import { useRequest } from 'alita';
-import React, { FC } from 'react';
-import styles from './index.less';
+import { FC } from 'react';
+import styles from './index.css';
 
-interface LifePageProps {}
-
-const HomePage: FC<LifePageProps> = () => {
+const HomePage: FC = () => {
   const { data } = useRequest(query);
   return <div className={styles.center}>Hello {data?.text}</div>;
 };
