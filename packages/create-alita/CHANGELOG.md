@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.4
+
+### Patch Changes
+
+- [#393](https://github.com/alitajs/alita/pull/393) [`1b39e4ea`](https://github.com/alitajs/alita/commit/1b39e4eaf0c9b90db4fb50cc0f1ca9556c577eed) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: alita verify-commit
+
 ## 3.0.3
 
 ### Patch Changes
