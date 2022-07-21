@@ -1,6 +1,6 @@
+/scripts
 .history
-scripts
+public
 dist
-css
-packages/react/src/react-component-lib
-packages/yinhu/src/interface.d.ts
+.umi
+mock

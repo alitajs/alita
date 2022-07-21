@@ -1,5 +1,4 @@
 {
-  "name": "alita-pro",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +8,8 @@
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .ts,.tsx",
     "plugin": "alita plugin list",
-    "start": "alita dev"
+    "start": "alita dev",
+    "test": "jest"
   },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
@@ -23,27 +23,21 @@
   "dependencies": {
     "@alita/flow": "*",
     "alita": "^{{{ version }}}",
-    "antd-mobile": "^5.10.1"
+    "antd-mobile": "^5.15.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "@types/node": "^17.0.19",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.13",
-    "@umijs/fabric": "2.6.4",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
-    "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.5.1",
-    "prettier-plugin-organize-imports": "^2.3.4",
-    "prettier-plugin-packagejson": "^2.2.15",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "stylelint": "^13.13.1",
-    "typescript": "^4.1.3",
-    "yorkie": "^2.0.0"
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13",
+    "@types/jest": "^27",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "jest": "^27",
+    "prettier": "^2",
+    "ts-node": "^10",
+    "typescript": "^4"
   },
   "engines": {
     "node": ">=14.0.1"

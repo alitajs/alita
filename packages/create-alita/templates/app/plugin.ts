@@ -1,4 +1,4 @@
-import { IApi } from 'umi';
+import { IApi } from 'alita';
 
 export default (api: IApi) => {
   api.onDevCompileDone((opts) => {
