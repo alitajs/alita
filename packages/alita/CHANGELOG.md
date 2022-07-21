@@ -1,5 +1,17 @@
 # alita
 
+## 3.0.11
+
+### Patch Changes
+
+- [#391](https://github.com/alitajs/alita/pull/391) [`cc46a255`](https://github.com/alitajs/alita/commit/cc46a255acaeaa1c48059684b804688465c0a944) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: select use plugins
+
+* [#393](https://github.com/alitajs/alita/pull/393) [`1b39e4ea`](https://github.com/alitajs/alita/commit/1b39e4eaf0c9b90db4fb50cc0f1ca9556c577eed) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: alita verify-commit
+
+* Updated dependencies [[`1b39e4ea`](https://github.com/alitajs/alita/commit/1b39e4eaf0c9b90db4fb50cc0f1ca9556c577eed)]:
+  - @alita/native@3.0.7
+  - @alita/plugins@3.0.8
+
 ## 3.0.10
 
 ### Patch Changes
