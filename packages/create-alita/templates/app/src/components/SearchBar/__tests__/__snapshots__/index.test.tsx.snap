@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div
+    class="search-bar-wrap"
+  >
+    <div
+      class="adm-search-bar"
+    >
+      <div
+        class="adm-search-bar-input-box"
+      >
+        <div
+          class="adm-search-bar-input-box-icon"
+        >
+          <svg
+            class="antd-mobile-icon"
+            height="1em"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 48 48"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>
+              1A7F0A7E-6023-4A8C-9C26-4DD5452D0C85@2x
+            </title>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="SearchOutline-SearchOutline"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                id="SearchOutline-编组"
+              >
+                <rect
+                  fill="#FFFFFF"
+                  height="48"
+                  id="SearchOutline-矩形"
+                  opacity="0"
+                  width="48"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M10.2434135,10.1505371 C17.2346315,3.28315429 28.5696354,3.28315429 35.5608534,10.1505371 C42.3159331,16.7859644 42.5440954,27.4048667 36.2453405,34.3093889 L43.7095294,41.6422249 C43.8671196,41.7970419 43.8693677,42.0502979 43.7145508,42.2078881 C43.7128864,42.2095822 43.7112069,42.2112616 43.7095126,42.2129259 L42.1705322,43.7246464 C42.014915,43.8775072 41.7655181,43.8775006 41.6099089,43.7246316 L34.0775268,36.3248916 L34.0775268,36.3248916 C27.0485579,41.8551751 16.7593545,41.4200547 10.2434135,35.0195303 C3.25219551,28.1521474 3.25219551,17.0179199 10.2434135,10.1505371 Z M12.3532001,12.2229532 C6.52718516,17.9457722 6.52718516,27.2242951 12.3532001,32.9471142 C18.1792151,38.6699332 27.6250517,38.6699332 33.4510667,32.9471142 C39.2770817,27.2242951 39.2770817,17.9457722 33.4510667,12.2229532 C27.6250517,6.50013419 18.1792151,6.50013419 12.3532001,12.2229532 Z"
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                  id="SearchOutline-形状"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div
+          class="adm-input adm-search-bar-input"
+        >
+          <input
+            class="adm-input-element"
+            enterkeyhint="search"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchBar Render correctly 1`] = `
+<div>
+  <div
+    class="search-bar-wrap"
+  >
+    <div
+      class="adm-search-bar"
+    >
+      <div
+        class="adm-search-bar-input-box"
+      >
+        <div
+          class="adm-search-bar-input-box-icon"
+        >
+          <svg
+            class="antd-mobile-icon"
+            height="1em"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 48 48"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>
+              1A7F0A7E-6023-4A8C-9C26-4DD5452D0C85@2x
+            </title>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="SearchOutline-SearchOutline"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                id="SearchOutline-编组"
+              >
+                <rect
+                  fill="#FFFFFF"
+                  height="48"
+                  id="SearchOutline-矩形"
+                  opacity="0"
+                  width="48"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M10.2434135,10.1505371 C17.2346315,3.28315429 28.5696354,3.28315429 35.5608534,10.1505371 C42.3159331,16.7859644 42.5440954,27.4048667 36.2453405,34.3093889 L43.7095294,41.6422249 C43.8671196,41.7970419 43.8693677,42.0502979 43.7145508,42.2078881 C43.7128864,42.2095822 43.7112069,42.2112616 43.7095126,42.2129259 L42.1705322,43.7246464 C42.014915,43.8775072 41.7655181,43.8775006 41.6099089,43.7246316 L34.0775268,36.3248916 L34.0775268,36.3248916 C27.0485579,41.8551751 16.7593545,41.4200547 10.2434135,35.0195303 C3.25219551,28.1521474 3.25219551,17.0179199 10.2434135,10.1505371 Z M12.3532001,12.2229532 C6.52718516,17.9457722 6.52718516,27.2242951 12.3532001,32.9471142 C18.1792151,38.6699332 27.6250517,38.6699332 33.4510667,32.9471142 C39.2770817,27.2242951 39.2770817,17.9457722 33.4510667,12.2229532 C27.6250517,6.50013419 18.1792151,6.50013419 12.3532001,12.2229532 Z"
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                  id="SearchOutline-形状"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div
+          class="adm-input adm-search-bar-input"
+        >
+          <input
+            class="adm-input-element"
+            enterkeyhint="search"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
