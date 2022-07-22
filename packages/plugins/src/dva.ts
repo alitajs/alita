@@ -17,9 +17,7 @@ export default (api: AlitaApi) => {
   // const enableBy = (opts: any) => {
   //   return !!opts.config.dva;
   // };
-  api.onStart(() => {
-    logger.info('Using Dva Plugin');
-  });
+
   api.describe({
     config: {
       schema(Joi) {
@@ -32,7 +30,14 @@ export default (api: AlitaApi) => {
     },
     // enableBy,
   });
+  api.addRuntimePluginKey(() => ['dva']);
 
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
+  api.onStart(() => {
+    logger.info('Using Dva Plugin');
+  });
   api.modifyAppData((memo) => {
     const models = getAllModels(api);
     memo.pluginDva = {
@@ -235,8 +240,6 @@ export { getDvaApp } from './dva';
   api.addRuntimePlugin(() => {
     return [withTmpPath({ api, path: 'runtime.tsx' })];
   });
-
-  api.addRuntimePluginKey(() => ['dva']);
 
   // dva list model
   api.registerCommand({

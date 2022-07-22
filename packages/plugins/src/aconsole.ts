@@ -6,9 +6,6 @@ import { dirname, join } from 'path';
 import { withTmpPath } from './utils/withTmpPath';
 
 export default (api: AlitaApi) => {
-  api.onStart(() => {
-    logger.info('Using AConsole Plugin');
-  });
   const { userConfig } = api;
   const { aconsole = {} } = userConfig;
 
@@ -39,6 +36,13 @@ export default (api: AlitaApi) => {
       },
     },
     enableBy: api.EnableBy.config,
+  });
+
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
+  api.onStart(() => {
+    logger.info('Using AConsole Plugin');
   });
 
   if (aconsole?.console) {

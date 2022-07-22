@@ -4,9 +4,6 @@ import { logger, resolve, winPath } from '@umijs/utils';
 import { dirname } from 'path';
 
 export default (api: AlitaApi) => {
-  api.onStart(() => {
-    logger.info('Using Request Plugin');
-  });
   api.describe({
     key: 'request',
     config: {
@@ -15,8 +12,15 @@ export default (api: AlitaApi) => {
       },
     },
   });
-  // 注册runtime配置
   api.addRuntimePluginKey(() => ['request']);
+
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
+  api.onStart(() => {
+    logger.info('Using Request Plugin');
+  });
+  // 注册runtime配置
   api.addEntryCodeAhead(() => [
     `
 import { getPluginManager } from './core/plugin';
