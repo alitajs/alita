@@ -4,6 +4,9 @@ import { logger } from '@umijs/utils';
 import { dirname } from 'path';
 
 export default (api: AlitaApi) => {
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
   api.onStart(() => {
     logger.info('Using ClassNames Plugin');
   });

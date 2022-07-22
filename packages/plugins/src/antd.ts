@@ -47,6 +47,9 @@ export default (api: AlitaApi) => {
     enableBy: api.EnableBy.config,
   });
 
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
   api.modifyAppData((memo) => {
     const version = require(`${pkgPath}/package.json`).version;
     memo.antd = {

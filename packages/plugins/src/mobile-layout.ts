@@ -10,9 +10,6 @@ import { withTmpPath } from './utils/withTmpPath';
 const DIR_NAME = 'plugin-mobile-layout';
 
 export default (api: AlitaApi) => {
-  api.onStart(() => {
-    logger.info('Using Mobile Layout Plugin');
-  });
   api.describe({
     key: 'mobileLayout',
     config: {
@@ -27,6 +24,13 @@ export default (api: AlitaApi) => {
   });
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['mobileLayout']);
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
+  api.onStart(() => {
+    logger.info('Using Mobile Layout Plugin');
+  });
+
   const isMicroApp = api.userConfig.appType === 'micro';
 
   api.onGenerateFiles(() => {

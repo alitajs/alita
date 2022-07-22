@@ -14,9 +14,6 @@ export default (api: AlitaApi) => {
   // 和 tabsLayout 插件组合使用
   const { tabsLayout } = api.userConfig;
 
-  api.onStart(() => {
-    logger.info('Using KeepAlive Plugin');
-  });
   api.describe({
     key: 'keepalive',
     config: {
@@ -26,7 +23,12 @@ export default (api: AlitaApi) => {
     },
     enableBy: api.EnableBy.config,
   });
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
 
+  api.onStart(() => {
+    logger.info('Using KeepAlive Plugin');
+  });
   const configStringify = (config: (string | RegExp)[]) => {
     return config.map((item) => {
       if (item instanceof RegExp) {

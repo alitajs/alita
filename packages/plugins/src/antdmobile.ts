@@ -11,6 +11,9 @@ import { checkAntdMobile } from './utils/checkAntdMobile';
  * (为了满足 antd-mobile 2 到 5 的过渡，更改此插件之前请先仔细阅读上述需求)
  */
 export default (api: AlitaApi) => {
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
   api.onStart(() => {
     logger.info('Using Antd Mobile Plugin');
   });

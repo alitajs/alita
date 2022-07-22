@@ -3,9 +3,6 @@ import modelPlugin from '@umijs/plugins/dist/model';
 import { logger } from '@umijs/utils';
 
 export default (api: AlitaApi) => {
-  api.onStart(() => {
-    logger.info('Using UseModel Plugin');
-  });
   api.describe({
     key: 'model',
     config: {
@@ -17,6 +14,12 @@ export default (api: AlitaApi) => {
     },
     // 默认开启
     // enableBy: api.EnableBy.config,
+  });
+  // only dev or build running
+  if (!['dev', 'build'].includes(api.name)) return;
+
+  api.onStart(() => {
+    logger.info('Using Mobile Layout Plugin');
   });
 
   // umi model 里面不注册
