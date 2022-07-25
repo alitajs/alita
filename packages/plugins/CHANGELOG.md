@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.0.9
+
+### Patch Changes
+
+- [#394](https://github.com/alitajs/alita/pull/394) [`410f08eb`](https://github.com/alitajs/alita/commit/410f08eb6ae33a4a253c73a29af28d5f2dfc4f19) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: only plugins
+
+* [#372](https://github.com/alitajs/alita/pull/372) [`02cecc99`](https://github.com/alitajs/alita/commit/02cecc9901bd8555c5cf2ea1d7df0613f1b40580) Thanks [@chj-damon](https://github.com/chj-damon)! - 使用 useMemo 提升 tabsLayout 渲染性能
+
 ## 3.0.8
 
 ### Patch Changes
