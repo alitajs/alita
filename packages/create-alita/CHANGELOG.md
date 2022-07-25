@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.0.5
+
+### Patch Changes
+
+- [`e297b713`](https://github.com/alitajs/alita/commit/e297b713eaeac4ff8fefa587806adbcc7cbce47e) - fix: tsconfig
+
 ## 3.0.4
 
 ### Patch Changes
