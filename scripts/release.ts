@@ -113,7 +113,7 @@ const cwd = process.cwd();
 
   const isGitClean2 = (await $`git status --porcelain`).stdout.trim().length;
 
-  if (!isGitClean2) {
+  if (isGitClean2) {
     // commit
     logger.event('commit');
 
