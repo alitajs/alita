@@ -111,19 +111,28 @@ const cwd = process.cwd();
   await $`pnpm i`;
   $.verbose = true;
 
-  // commit
-  logger.event('commit');
-  await $`git commit --all --message "release: ${version}"`;
+  const isGitClean2 = (await $`git status --porcelain`).stdout.trim().length;
 
-  // git tag
-  if (tag !== 'canary') {
-    logger.event('git tag');
-    await $`git tag v${version}`;
+  if (!isGitClean2) {
+    // commit
+    logger.event('commit');
+
+    await $`git commit --all --message "release: ${version}"`;
   }
 
-  // git push
-  logger.event('git push');
-  await $`git push origin ${branch} --tags`;
+  try {
+    // git tag
+    if (tag !== 'canary') {
+      logger.event('git tag');
+      await $`git tag v${version}`;
+    }
+
+    // git push
+    logger.event('git push');
+    await $`git push origin ${branch} --tags`;
+  } catch (error) {
+    logger.event('skip git push');
+  }
 
   // npm publish
   logger.event('pnpm publish');
