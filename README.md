@@ -1,6 +1,6 @@
 # alita
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
@@ -53,6 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/xierenyuan"><img src="https://avatars.githubusercontent.com/u/7599351?v=4?s=100" width="100px;" alt=""/><br /><sub><b>阿平</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=xierenyuan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/chj-damon"><img src="https://avatars.githubusercontent.com/u/4902684?v=4?s=100" width="100px;" alt=""/><br /><sub><b>damon.chen</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=chj-damon" title="Code">💻</a></td>
   </tr>
 </table>
 
