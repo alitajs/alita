@@ -1,3 +1,3 @@
 import { Navigate } from 'umi';
 
-<Navigate to="introduce/introduce" />
+<Navigate to="guides/boilerplate" />

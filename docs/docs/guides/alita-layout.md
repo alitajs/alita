@@ -1,17 +1,14 @@
 # 移动端全局布局
 
-The generic h5 layout in umi uses antd-mobile.
+默认的移动端 tabs 全局布局。
 
-> umi@2 和 alita@1 请使用 1.x 版本
-> 2.x 版本只支持 umi@3 和 alita@2
-
-> **在 `alita` 里使用可以参考[mobileLayout](/config/config#mobilelayout)**
+值得注意的是，会自动检测项目中安装的 antd0-mobile 版本，自动切换到 `antd-mobile@2.3.4` 或者 `antd-mobile@^5`。
 
 ## 使用
 
-### 1、通用配置
+配置 `mobileLayout:true` 开启
 
-在使用 `@alitajs/layout(框架已自动内置引入)` 时
+### 1、通用配置
 
 正常我们会在 `app.ts` 文件下通过 `mobileLayout` 的配置来实现。
 

@@ -24,10 +24,10 @@ export default {
         //   title: 'Tutorials',
         //   children: ['tutorials/getting-started', 'tutorials/blog'],
         // },
-        {
-          title: 'Introduce',
-          children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
-        },
+        // {
+        //   title: 'Introduce',
+        //   children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
+        // },
         {
           title: 'API',
           children: [
@@ -42,6 +42,8 @@ export default {
           children: [
             'guides/prepare',
             'guides/directory-structure',
+            'guides/alita-layout',
+            'guides/request',
             'guides/mock',
             'guides/proxy',
             'guides/helmet',
@@ -53,17 +55,17 @@ export default {
         },
       ],
     },
-    {
-      path: '/blog',
-      title: 'Blog',
-      type: 'nav',
-      children: [
-        {
-          title: 'Blog',
-          children: [],
-        },
-      ],
-    },
+    // {
+    //   path: '/blog',
+    //   title: 'Blog',
+    //   type: 'nav',
+    //   children: [
+    //     {
+    //       title: 'Blog',
+    //       children: [],
+    //     },
+    //   ],
+    // },
     {
       path: '/components',
       title: 'Components',
@@ -71,13 +73,7 @@ export default {
       children: [
         {
           title: '组件',
-          children: [
-            'd-form',
-            'list-view',
-            'alita-layout',
-            'd-a-d',
-            'gesture-password',
-          ],
+          children: ['d-form', 'list-view', 'd-a-d', 'gesture-password'],
         },
       ],
     },

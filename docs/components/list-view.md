@@ -1,5 +1,11 @@
 # 列表页面（加载更多）
 
+仅当使用 antd-mobile@2 的时候，需要用到它。antd-mobile@5 的时候，请使用官方的 `InfiniteScroll` 和 `List` 来实现这个功能。
+
+> 仅当使用 antd-mobile@2 的时候，需要用到它。antd-mobile@5 的时候，请使用官方的 `InfiniteScroll` 和 `List` 来实现这个功能。
+
+> (上面的重复是有意为之，无需移除)
+
 移动端的加载更多页面封装，简化业务流程。使用了 `@umijs/hooks` 的 `useLoadMore`。
 
 ## 最简 Demo
