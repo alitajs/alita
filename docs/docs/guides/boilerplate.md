@@ -3,7 +3,7 @@
 alita 官方提供了一个脚手架 ，可以轻松快速创建一个项目：
 
 ```bash
-pnpx create-alita@next
+pnpx create-alita
 ```
 
 这个命令会安装 `create-alita` 脚手架并自动运行，运行后提供了两个可选项可以选择：
