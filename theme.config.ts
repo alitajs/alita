@@ -66,16 +66,16 @@ export default {
     //     },
     //   ],
     // },
-    {
-      path: '/components',
-      title: 'Components',
-      type: 'nav',
-      children: [
-        {
-          title: '组件',
-          children: ['d-form', 'list-view', 'd-a-d', 'gesture-password'],
-        },
-      ],
-    },
+    // {
+    //   path: '/components',
+    //   title: 'Components',
+    //   type: 'nav',
+    //   children: [
+    //     {
+    //       title: '组件',
+    //       children: ['d-form', 'list-view', 'd-a-d', 'gesture-password'],
+    //     },
+    //   ],
+    // },
   ],
 };
