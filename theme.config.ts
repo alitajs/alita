@@ -20,10 +20,13 @@ export default {
       title: 'Docs',
       type: 'nav',
       children: [
-        // {
-        //   title: 'Tutorials',
-        //   children: ['tutorials/getting-started', 'tutorials/blog'],
-        // },
+        {
+          title: 'Tutorials',
+          children: [
+            'tutorials/getting-started',
+            // 'tutorials/blog'
+          ],
+        },
         // {
         //   title: 'Introduce',
         //   children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
