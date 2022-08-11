@@ -9,7 +9,7 @@
 获取当前路由信息。
 
 ```js
-import { history } from 'umi';
+import { history } from 'alita';
 
 // // history 栈里的实体个数
 history.length;
@@ -26,7 +26,7 @@ history.location.hash;
 命令式路由跳转。
 
 ```js
-import { history } from 'umi';
+import { history } from 'alita';
 
 // 跳转到指定路由
 history.push('/list');
@@ -48,7 +48,7 @@ history.go(-1);
 路由监听。
 
 ```js
-import { history } from 'umi';
+import { history } from 'alita';
 
 const unlisten = history.listen((location, action) => {
   console.log(location.pathname);
@@ -74,7 +74,7 @@ declare function Link(props: {
 比如：
 
 ```js
-import { Link } from 'umi';
+import { Link } from 'alita';
 
 function IndexPage({ user }) {
   return <Link to={user.id}>{user.name}</Link>;
@@ -90,7 +90,7 @@ function IndexPage({ user }) {
 示例，
 
 ```js
-import { Outlet } from 'umi';
+import { Outlet } from 'alita';
 
 function Dashboard() {
   return <div><h1>Dashboard</h1><Outlet /></div>;
@@ -115,7 +115,7 @@ declare function useLocation(): {
 一个场景是在 location change 时做一些 side effect 操作，比如 page view 统计。
 
 ```js
-import { useLocation } from 'umi';
+import { useLocation } from 'alita';
 
 function App() {
   const location = useLocation();
