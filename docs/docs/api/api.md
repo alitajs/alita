@@ -194,16 +194,19 @@ type URLSearchParamsInit =
 
 示例。
 
-```js
-import React from 'react';
-import { useSearchParams } from 'umi';
+[useSearchParams](https://reactrouter.com/docs/en/v6/api#usesearchparams)
 
-function App() {
-  let [searchParams, setSearchParams] = useSearchParams();
-  function handleSubmit(event) {
-    event.preventDefault();
-    setSearchParams(serializeFormQuery(event.target));
-  }
-  return <form onSubmit={handleSubmit}>{/* ... */}</form>;
-}
+```jsx
+import { useSearchParams } from 'alita';
+
+// 当前 location /comp?a=b;
+const [searchParams, setSearchParams] = useSearchParams();
+searchParams.get('a')  // b
+searchParams.toString()  // a=b
+
+setSearchParams({a:'c',d:'e'}) // location 变成 /comp?a=c&d=e
 ```
+
+`searchParams`的 api [参考](https://developer.mozilla.org/zh-CN/docs/Web/API/URL/searchParams)
+
+
