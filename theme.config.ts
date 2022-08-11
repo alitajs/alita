@@ -24,10 +24,10 @@ export default {
         //   title: 'Tutorials',
         //   children: ['tutorials/getting-started', 'tutorials/blog'],
         // },
-        // {
-        //   title: 'Introduce',
-        //   children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
-        // },
+        {
+          title: 'Introduce',
+          children: ['introduce/upgrade-to-alita-3'],
+        },
         {
           title: 'API',
           children: [
