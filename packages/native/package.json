@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@alita/types": "3.0.2",
-    "@umijs/utils": "4.0.12"
+    "@umijs/utils": "4.0.0-canary.20220819.1"
   },
   "license": "MIT"
 }

@@ -17,6 +17,7 @@
   "ignore": [
     "@examples/boilerplate",
     "@examples/helmet",
+    "@examples/boilerplate",
     "@example/lint",
     "@examples/mobile2",
     "@examples/native",
