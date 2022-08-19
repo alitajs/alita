@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.13
+
+### Patch Changes
+
+- [#401](https://github.com/alitajs/alita/pull/401) [`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+- Updated dependencies [[`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc), [`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc)]:
+  - @alita/plugins@3.0.10
+  - @alita/native@3.0.8
+
 ## 3.0.12
 
 ### Patch Changes
