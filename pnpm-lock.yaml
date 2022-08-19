@@ -104,7 +104,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.0.13
+      alita: 3.0.14
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -114,7 +114,7 @@ importers:
 
   examples/helmet:
     specifiers:
-      alita: 3.0.13
+      alita: 3.0.14
     dependencies:
       alita: link:../../packages/alita
 
@@ -122,7 +122,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.0.13
+      alita: 3.0.14
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -132,7 +132,7 @@ importers:
 
   examples/lint:
     specifiers:
-      alita: 3.0.13
+      alita: 3.0.14
     devDependencies:
       alita: link:../../packages/alita
 
@@ -140,7 +140,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.0.13
+      alita: 3.0.14
       antd-mobile: 2.3.4
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -156,7 +156,7 @@ importers:
       '@capacitor/core': ^3.6.0
       '@capacitor/ios': ^3.6.0
       ahooks: ^3.0.8
-      alita: 3.0.13
+      alita: 3.0.14
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -173,7 +173,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       '@ant-design/icons': ^4.7.0
-      alita: 3.0.13
+      alita: 3.0.14
       antd: ^4.21.2
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -186,7 +186,7 @@ importers:
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12
       '@types/jest': ^27.5.1
-      alita: 3.0.13
+      alita: 3.0.14
       jest: ^27
       react: '17'
       react-dom: '17'
@@ -206,8 +206,8 @@ importers:
 
   packages/alita:
     specifiers:
-      '@alita/native': 3.0.8
-      '@alita/plugins': 3.0.10
+      '@alita/native': 3.0.9
+      '@alita/plugins': 3.0.11
       '@alita/types': 3.0.2
       '@umijs/core': 4.0.0-canary.20220819.1
       '@umijs/utils': 4.0.0-canary.20220819.1
