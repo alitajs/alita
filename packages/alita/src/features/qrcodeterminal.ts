@@ -1,4 +1,4 @@
-import { address, chalk, logger } from '@umijs/utils';
+import { address } from '@umijs/utils';
 import qrCodeTerminal from 'qrcode-terminal';
 import { IApi } from 'umi';
 
@@ -24,6 +24,5 @@ export default (api: IApi) => {
         small: true,
       });
     }
-    logger.event(`Network: ${chalk.cyan(lanUrl)}`);
   });
 };

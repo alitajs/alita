@@ -20,7 +20,7 @@ export default () => {
         size="large"
         onClick={() => setCount(count + 1)}
       >
-        点我计数加1
+        点我计数加1 {count}
       </Button>
       <h3>
         点击底部的 tabs 切换试试效果吧，记得回来看当前页面状态有没有被保存哦

@@ -1,6 +1,5 @@
 export default {
   appType: 'h5',
-  keepalive: [/users/],
   aconsole: {
     console: {},
     inspx: {},

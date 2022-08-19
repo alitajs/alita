@@ -9,7 +9,8 @@ export default (api: IApi) => {
     require.resolve('./features/config/alitaconfig'),
     require.resolve('./features/alitaloading'),
     require.resolve('./features/apptype'),
-    require.resolve('./features/qrcodeterminal'),
+    // TODO: 需要和当前路由信息联动
+    // require.resolve('./features/qrcodeterminal'),
     require.resolve('./commands/generate/pages'),
   ];
   const plugins = [
