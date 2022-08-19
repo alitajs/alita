@@ -6,12 +6,12 @@ import { Tabs, message } from 'antd';
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
-import { getPluginManager } from '../core/plugin';
 import { useAppData } from '../exports';
 {{/hasTabsLayout}}
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
 {{/hasCustomTabs}}
+import { getPluginManager } from '../core/plugin';
 
 export const KeepAliveContext = React.createContext({});
 
@@ -78,9 +78,12 @@ export function useKeepOutlets() {
         return getLocalFromClientRoutes(clientRoutes);
     }, []);
 {{/hasTabsLayout}}
-
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname);
+    const runtimeConfig = useMemo(() => {
+        const runtime = getPluginManager().applyPlugins({ key: 'getKeepAlive',type: 'modify', initialValue: keepalive });
+        return runtime;
+    }, []);
+    const isKeep = isKeepPath(runtimeConfig, location.pathname);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
     }

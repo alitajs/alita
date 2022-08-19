@@ -101,3 +101,7 @@ export const mobileLayout = {
   tabBar,
   titleList,
 };
+
+export function getKeepAlive(keepaliva: any[]) {
+  return [/users/];
+}

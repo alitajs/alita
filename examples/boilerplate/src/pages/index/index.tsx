@@ -1,13 +1,21 @@
-import { history } from 'alita';
-import React from 'react';
+import { Button } from 'antd-mobile';
+import React, { useState } from 'react';
 import styles from './index.less';
-export default () => (
-  <div
-    className={styles['adm-button']}
-    onClick={() => {
-      history.push('/users');
-    }}
-  >
-    Hello Alita
-  </div>
-);
+export default () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div className={styles['adm-button']}>
+      Hello Alita
+      <Button
+        type="button"
+        color="primary"
+        fill="solid"
+        block
+        size="large"
+        onClick={() => setCount(count + 1)}
+      >
+        点我计数加1 {count}
+      </Button>
+    </div>
+  );
+};

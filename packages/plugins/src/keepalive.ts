@@ -23,6 +23,8 @@ export default (api: AlitaApi) => {
     },
     enableBy: api.EnableBy.config,
   });
+  api.addRuntimePluginKey(() => 'getKeepAlive');
+
   // only dev or build running
   if (!['dev', 'build'].includes(api.name)) return;
 
@@ -73,6 +75,7 @@ export { KeepAliveContext,useKeepOutlets } from './context';
 `,
     });
   });
+
   api.addRuntimePlugin(() => [
     join(api.paths.absTmpPath!, `${DIR_NAME}/runtime.tsx`),
   ]);
