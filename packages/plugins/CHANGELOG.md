@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.11
+
+### Patch Changes
+
+- [#403](https://github.com/alitajs/alita/pull/403) [`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
 ## 3.0.10
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # alita
 
+## 3.0.14
+
+### Patch Changes
+
+- [#403](https://github.com/alitajs/alita/pull/403) [`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add legacyBuild
+
+* [#403](https://github.com/alitajs/alita/pull/403) [`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* Updated dependencies [[`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1)]:
+  - @alita/native@3.0.9
+  - @alita/plugins@3.0.11
+
 ## 3.0.13
 
 ### Patch Changes
