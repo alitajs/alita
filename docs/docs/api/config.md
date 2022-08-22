@@ -108,7 +108,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <OtherLayout>
       <KeepAliveLayout {...props}>{children}</KeepAliveLayout>
-    </AlitaLayout>
+    </OtherLayout>
   );
 };
 
