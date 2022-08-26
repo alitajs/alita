@@ -1,5 +1,11 @@
 # @alita/flow
 
+## 3.0.2
+
+### Patch Changes
+
+- [`6c759c35`](https://github.com/alitajs/alita/commit/6c759c3557d3c96325f84dd17ab554bbd2169ed9) - feat: support es5
+
 ## 3.0.1
 
 ### Patch Changes
