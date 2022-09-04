@@ -60,7 +60,11 @@ $ mkdir myapp && cd myapp
 ```bash
 $ pnpx create-alita
 ```
-运行成功后，选择包管理工具，这里推荐 pnpm，
+运行成功后，如果你没安装 `create-alita`，会提示是否要安装最新的 `create-alita` 依赖包。
+```
+√ Install the following package: create-alita@latest? (Y/n) · true
+```
+安装成功后，选择包管理工具，这里推荐 pnpm，
 
 ```bash
 ? Pick Npm Client » - Use arrow-keys. Return to submit.

@@ -27,6 +27,14 @@ export default {
             // 'tutorials/blog'
           ],
         },
+        {
+          title: 'Config',
+          children: [
+            'config/config',
+            'config/runtime-config',
+            // 'tutorials/blog'
+          ],
+        },
         // {
         //   title: 'Introduce',
         //   children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
@@ -34,11 +42,17 @@ export default {
         {
           title: 'API',
           children: [
-            'api/api',
-            'api/config',
-            'api/runtime-config',
+            'api/route-api',
+            'api/request-api',
+            'api/model-api',
+            // 'api/config',
+            // 'api/runtime-config',
             'api/commands',
           ],
+        },
+        {
+          title: 'Component',
+          children: ['component/component'],
         },
         {
           title: 'Guides',
