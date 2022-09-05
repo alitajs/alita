@@ -4,7 +4,6 @@ importers:
 
   .:
     specifiers:
-      '@alita/plugins': workspace:*
       '@changesets/changelog-github': ^0.4.5
       '@changesets/cli': ^2.23.0
       '@manypkg/get-packages': ^1.1.3
@@ -53,7 +52,6 @@ importers:
       yorkie: ^2.0.0
       zx: ^4.3.0
     devDependencies:
-      '@alita/plugins': link:packages/plugins
       '@changesets/changelog-github': 0.4.5
       '@changesets/cli': 2.23.0
       '@manypkg/get-packages': 1.1.3
