@@ -1,5 +1,15 @@
 # alita
 
+## 3.0.15
+
+### Patch Changes
+
+- [`c99b6925`](https://github.com/alitajs/alita/commit/c99b6925cea76d3de20e0b63afee4645346237a9) - chore: update umi
+
+- Updated dependencies [[`bc245d45`](https://github.com/alitajs/alita/commit/bc245d4535bba50ddfb3be7dfcf089b6803b33b6), [`c99b6925`](https://github.com/alitajs/alita/commit/c99b6925cea76d3de20e0b63afee4645346237a9)]:
+  - @alita/plugins@3.0.12
+  - @alita/native@3.0.10
+
 ## 3.0.14
 
 ### Patch Changes
