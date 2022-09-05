@@ -102,6 +102,8 @@ export const mobileLayout = {
   titleList,
 };
 
-export function getKeepAlive(keepaliva: any[]) {
+export async function getKeepAlive(keepaliva: any[]) {
+  console.log('getKeepAlive');
+  console.log(keepaliva);
   return [/users/];
 }

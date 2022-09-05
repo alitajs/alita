@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -11,7 +11,6 @@ import { useAppData } from '../exports';
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
 {{/hasCustomTabs}}
-import { getPluginManager } from '../core/plugin';
 
 export const KeepAliveContext = React.createContext({});
 
@@ -79,11 +78,7 @@ export function useKeepOutlets() {
     }, []);
 {{/hasTabsLayout}}
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
-    const runtimeConfig = useMemo(() => {
-        const runtime = getPluginManager().applyPlugins({ key: 'getKeepAlive',type: 'modify', initialValue: keepalive });
-        return runtime;
-    }, []);
-    const isKeep = isKeepPath(runtimeConfig, location.pathname);
+    const isKeep = isKeepPath(keepalive, location.pathname);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
     }
