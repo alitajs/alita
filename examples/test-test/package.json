@@ -6,7 +6,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "alita": "3.0.14"
+    "alita": "3.0.15"
   },
   "devDependencies": {
     "react": "17",

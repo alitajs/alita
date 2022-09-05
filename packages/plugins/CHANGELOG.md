@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.0.12
+
+### Patch Changes
+
+- [#408](https://github.com/alitajs/alita/pull/408) [`bc245d45`](https://github.com/alitajs/alita/commit/bc245d4535bba50ddfb3be7dfcf089b6803b33b6) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: async getKeepalive
+
+* [`c99b6925`](https://github.com/alitajs/alita/commit/c99b6925cea76d3de20e0b63afee4645346237a9) - chore: update umi
+
 ## 3.0.11
 
 ### Patch Changes
