@@ -39,7 +39,6 @@
     "@changesets/cli": "^2.23.0",
     "@manypkg/get-packages": "^1.1.3",
     "@types/qrcode-terminal": "*",
-    "@alita/plugins": "workspace:*",
     "@umijs/plugin-docs": "4.0.0-canary.20220819.1",
     "@umijs/utils": "4.0.0-canary.20220819.1",
     "core-js": "3.19.2",
