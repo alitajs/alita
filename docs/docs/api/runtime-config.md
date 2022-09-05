@@ -113,6 +113,21 @@ args 包含：
 - plugin，运行时插件机制
 - history，history 实例
 
+### async getKeepAlive(keepaliva)
+
+配置 keepalive 开启时，才有这个配置。
+
+用于异步的修改 keepalive。
+
+```ts
+export async function getKeepAlive(keepaliva: any[]) {
+  console.log('getKeepAlive');
+  console.log(keepaliva);
+  const data = await fetch();
+  return data;
+}
+```
+
 ## 更多配置
 
 Alita 允许插件注册运行时配置，如果你使用插件，肯定会在插件里找到更多运行时的配置项。
