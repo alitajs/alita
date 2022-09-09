@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "description": "v3 develop version",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,7 +44,7 @@
   "dependencies": {
     "@alita/types": "3.0.2",
     "@alita/native": "3.0.10",
-    "@alita/plugins": "3.0.13",
+    "@alita/plugins": "3.0.14",
     "@umijs/core": "4.0.17",
     "@umijs/utils": "4.0.17",
     "qrcode-terminal": "^0.12.0",
