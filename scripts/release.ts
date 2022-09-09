@@ -172,7 +172,7 @@ const cwd = process.cwd();
     }),
   );
   await $`cd packages/alita && npm publish --tag ${tag} ${otpArg}`;
-  logger.info(`+ alita ${tag}`);
+  logger.info(`+ alita ${version}`);
 
   $.verbose = true;
 
