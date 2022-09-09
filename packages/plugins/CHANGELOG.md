@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.14
+
+### Patch Changes
+
+- [`86035361`](https://github.com/alitajs/alita/commit/860353615330fc15b8edadcee33d55919e998377) - fix: code chore
+
 ## 3.0.13
 
 ### Patch Changes
