@@ -7,6 +7,7 @@ import { Tabs, message } from 'antd';
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
 import { useAppData } from '../exports';
+import { getPluginManager } from '../core/plugin';
 {{/hasTabsLayout}}
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
@@ -71,7 +72,7 @@ export function useKeepOutlets() {
     const navigate = useNavigate();
     const { clientRoutes } = useAppData();
 
-    const localConfig = useMemo(() => {
+    const localConfig = React.useMemo(() => {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
         if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
