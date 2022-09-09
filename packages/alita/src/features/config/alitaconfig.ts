@@ -55,7 +55,11 @@ export default (api: IApi) => {
   api.modifyConfig((memo: any) => {
     memo.alias.alita = 'umi';
     Object.keys(configDefaults).forEach((key) => {
-      memo[key] = configDefaults[key];
+      if (key === 'alias') {
+        memo[key] = { ...memo[key], ...configDefaults[key] };
+      } else {
+        memo[key] = configDefaults[key];
+      }
     });
     return memo;
   });

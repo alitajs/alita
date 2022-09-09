@@ -1,26 +1,30 @@
 import React from 'react';
 import { KeepAliveContext } from './context';
-import * as app from '@/app';
+{{#hasGetKeepalive}}
+  
+import { getKeepAlive } from '@/app';
+{{/hasGetKeepalive}}
 
 const KeepAliveLayout = (props)=>{
   const keepElements = React.useRef<any>({})
   const [cacheKeyMap, setCacheKeyMap] = React.useState({})
   const [keepalive, setKeepalive] = React.useState([{{{ keepalive }}}]);
+{{#hasGetKeepalive}}
+  
   const init = async() => {
-    if (app?.getKeepAlive) {
-      try {
-        const runtime = await app?.getKeepAlive(keepalive);
-        setKeepalive(runtime);
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      const runtime = await getKeepAlive(keepalive);
+      setKeepalive(runtime);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   React.useEffect(()=>{
     init();
   },[])
-    
+{{/hasGetKeepalive}}
+
   function dropByCacheKey(path: string) {
     if(keepElements.current[path]){
       delete keepElements.current[path];
