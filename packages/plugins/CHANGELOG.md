@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.13
+
+### Patch Changes
+
+- [#410](https://github.com/alitajs/alita/pull/410) [`9be99373`](https://github.com/alitajs/alita/commit/9be9937324d20111b7fe40f8eae49fddc4621e03) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: getkeepalive nofind
+
 ## 3.0.12
 
 ### Patch Changes
