@@ -45,9 +45,9 @@ export default {
             'api/route-api',
             'api/request-api',
             'api/model-api',
-            // 'api/config',
-            // 'api/runtime-config',
-            'api/commands',
+            'api/dva-api',
+            'api/layout-api',
+            'api/other-api',
           ],
         },
         {
@@ -57,7 +57,6 @@ export default {
         {
           title: 'Guides',
           children: [
-            'guides/prepare',
             'guides/directory-structure',
             'guides/alita-layout',
             'guides/request',

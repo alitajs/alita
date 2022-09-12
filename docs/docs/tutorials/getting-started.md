@@ -342,14 +342,14 @@ $ mkdir config && cd config && touch config.ts
 当然得执行以下命令，回到根目录，安装一下 antd 。
 
 ```bash
-$ cd ..
+$ cd ../
 $ pnpm add antd
 ```
 
 ### 添加路由文件
 
 ```bash
-$ mkdir src && cd src
+$ cd ../ && mkdir src && cd src
 $ mkdir pages && cd pages
 $ mkdir home && cd home && touch index.tsx
 ```
@@ -360,7 +360,7 @@ $ mkdir home && cd home && touch index.tsx
 
 最后在 index.tsx 中添加以下代码。
 
-```js
+```ts
 import React from "react";
 import { Button} from 'antd';
 
@@ -398,7 +398,7 @@ export default Home;
 ### 启动项目
 
 ```bash
-$ cd ..
+$ cd ../../../
 $ pnpm dev
 ```
 

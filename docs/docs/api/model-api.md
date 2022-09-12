@@ -1,6 +1,6 @@
-# 数据流API
+# 数据共享API
 
-请求 API 是内置 `plugin-model` 插件，若 API 引用失败，请检查 `plugin-model` 插件是否安装成功。
+数据共享 API 是内置 `plugin-model` 插件，若 API 引用失败，请检查 `plugin-model` 插件是否安装成功。
 
 `plugin-model` 插件是基于 hooks 范式的简易数据管理方案（部分场景可以取代 dva），通常用于中台项目的全局共享数据。
 
@@ -39,7 +39,6 @@ export default function useAuthModel() {
 
 以上就是一个普通的自定义 hook，每次在组件中执行`const {user} = useAuthModel()` 所获取到的 `user` 都是不一样的。 而`plugin-model` 把其中的`user`变成了『全局数据』，多个组件中使用该 model 时，拿到的同一份数据。
 
-
 ```ts
 import { useModel } from 'alita';
 
@@ -48,7 +47,9 @@ export default () => {
   return <>hello</>
 };
 ```
+
 `useModel` 有两个参数，`namespace` 和 `updater`。
 
-`namespace` - 就是 hooks model 文件的文件名，如上面例子里的 `useAuthModel`
+`namespace` - 就是 hooks model 文件的文件名，如上面例子里的 `useAuthModel`；
+
 `updater` - 可选参数。在 hooks model 返回多个状态，但使用组件仅引用了其中部分状态，并且希望仅在这几个状态更新时 `rerender` 时使用（性能相关）。

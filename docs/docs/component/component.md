@@ -109,3 +109,36 @@ function Navs() {
   </ul>;
 }
 ```
+
+## HTML文档相关
+
+### Helmet
+
+`Helmet` 是内置 `plugin-helmet` 插件提供的组件，若组件引用失败，请检查 `plugin-helmet` 插件是否安装成功。
+
+用来管理 HTML 文档标签（如标题、描述等）。
+
+```ts
+import { Helmet } from 'alita';
+import React from 'react';
+ 
+const App = () => (
+  <>
+    <Helmet>
+      <title>Hello World</title>
+      <link rel="canonical" href="https://www.tacobell.com/" />
+    </Helmet>
+    <h1>Hello World</h1>
+  </>
+);
+export default App;
+```
+
+将会在 html 页面的 `head` 标签内添加：
+
+```
+<head>
+  <title>Hello World</title>
+  <link rel="canonical" href="https://www.tacobell.com/" data-rh="true">
+</head>
+```
