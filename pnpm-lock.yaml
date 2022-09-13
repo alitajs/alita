@@ -169,6 +169,18 @@ importers:
     devDependencies:
       '@capacitor/cli': 3.6.0
 
+  examples/routes:
+    specifiers:
+      '@alita/flow': workspace:*
+      ahooks: ^3.0.8
+      alita: 3.0.17
+      antd-mobile: ^5.10.0
+    dependencies:
+      '@alita/flow': link:../../packages/flow
+      ahooks: 3.3.0
+      alita: link:../../packages/alita
+      antd-mobile: 5.10.0
+
   examples/tabs:
     specifiers:
       '@alita/flow': workspace:*
