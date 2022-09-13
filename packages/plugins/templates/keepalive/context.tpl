@@ -13,7 +13,7 @@ import { getPluginManager } from '../core/plugin';
 import { getCustomTabs } from '@/app';
 {{/hasCustomTabs}}
 
-export const KeepAliveContext = React.createContext({});
+import { useAppData } from '../exports';
 
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -21,7 +21,27 @@ const { TabPane } = Tabs;
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 
-const isKeepPath = (aliveList: any[], path: string) => {
+
+
+export const KeepAliveContext = React.createContext({});
+const findRouteByPath = (path, routes) => {
+    let route = null;
+    const find = (routess) => {
+        for(let i = 0; i < routess.length; i++){
+            const item = routess[i];
+            if (matchPath(item.path, path)&&!item.isLayout) {
+                route = item;
+                break;
+            }
+            if(item.children){
+                find(item.children);
+            }
+        }
+    }
+    find(routes);
+    return route;
+}
+const isKeepPath = (aliveList: any[], path: string,clientRoutes:any[]) => {
     let isKeep = false;
     aliveList.map(item => {
         if (item === path) {
@@ -34,8 +54,15 @@ const isKeepPath = (aliveList: any[], path: string) => {
             isKeep = true;
         }
     })
+    if(isKeep === false){
+        const route = findRouteByPath(path,clientRoutes);
+        if(route){
+            isKeep = route.isKeepalive;
+        }
+    }
     return isKeep;
 }
+
 
 const getMatchPathName = (pathname: string, local: Record<string, string>) => {
     const tabs = Object.entries(local);
@@ -68,10 +95,9 @@ const getLocalFromClientRoutes = (data) => {
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
+    const { clientRoutes } = useAppData();
 {{#hasTabsLayout}}
     const navigate = useNavigate();
-    const { clientRoutes } = useAppData();
-
     const localConfig = React.useMemo(() => {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
         if(runtime?.local) return runtime.local;
@@ -79,7 +105,7 @@ export function useKeepOutlets() {
     }, []);
 {{/hasTabsLayout}}
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname);
+    const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
     }

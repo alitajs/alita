@@ -50,7 +50,6 @@ export default (api: AlitaApi) => {
       content: Mustache.render(contextTpl, {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
-        hasGetKeepalive: api.appData.appJS?.exports.includes('getKeepAlive'),
       }),
     });
     const runtimeTpl = readFileSync(
@@ -64,6 +63,7 @@ export default (api: AlitaApi) => {
         keepalive: configStringify(
           (api.userConfig.keepalive as KeepAliveType) || [],
         ),
+        hasGetKeepalive: api.appData.appJS?.exports.includes('getKeepAlive'),
       }),
     });
 
