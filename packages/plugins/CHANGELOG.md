@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.15
+
+### Patch Changes
+
+- [#415](https://github.com/alitajs/alita/pull/415) [`2fa98d05`](https://github.com/alitajs/alita/commit/2fa98d05f05227bcfe4b73b3e21fe386c1db88a5) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: keepalive by config routes
+
 ## 3.0.14
 
 ### Patch Changes
