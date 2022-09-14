@@ -78,11 +78,14 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
 
 const getLocalFromClientRoutes = (data) => {
     const local = {};
-    const getLocalFromRoutes = (routes) => {
+    const getLocalFromRoutes = (routes,parentPath = '') => {
         routes.forEach(item => {
+            // 兼容非全路径的 path
+            const fullPath = `${parentPath.replace(/\/$/,'')}/${item.path.replace(/^\//,'')}`;
             if(item.routes){
-                getLocalFromRoutes(item.routes);
+                getLocalFromRoutes(item.routes,fullPath);
             }else{
+                local[fullPath] = item.name;
                 local[item.path] = item.name;
             }
         })
