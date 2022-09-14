@@ -6,7 +6,6 @@ import { Tabs, message } from 'antd';
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
-import { useAppData } from '../exports';
 import { getPluginManager } from '../core/plugin';
 {{/hasTabsLayout}}
 {{#hasCustomTabs}}
