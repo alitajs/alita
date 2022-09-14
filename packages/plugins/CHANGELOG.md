@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.16
+
+### Patch Changes
+
+- [`baa47fc5`](https://github.com/alitajs/alita/commit/baa47fc550f13904e1e7392b7a7d471e8db8a9ff) - fix: import error
+
 ## 3.0.15
 
 ### Patch Changes
