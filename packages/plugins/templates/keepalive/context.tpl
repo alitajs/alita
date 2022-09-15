@@ -23,17 +23,25 @@ const { TabPane } = Tabs;
 
 
 export const KeepAliveContext = React.createContext({});
+// 兼容非全路径的 path
+const getFullPath = (currPath = '', parentPath = '') => {
+  if (currPath.startsWith('/')) {
+    return currPath;
+  }
+  return `${parentPath.replace(/\/$/, '')}/${currPath}`;
+};
 const findRouteByPath = (path, routes) => {
     let route = null;
-    const find = (routess) => {
+    const find = (routess, parentPath) => {
         for(let i = 0; i < routess.length; i++){
             const item = routess[i];
-            if (matchPath(item.path, path)&&!item.isLayout) {
+            const fullPath = getFullPath(item.path, parentPath);
+            if (matchPath(fullPath, path)&&!item.isLayout) {
                 route = item;
                 break;
             }
             if(item.children){
-                find(item.children);
+                find(item.children, fullPath);
             }
         }
     }
@@ -78,17 +86,13 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
 
 const getLocalFromClientRoutes = (data) => {
     const local = {};
-    const getLocalFromRoutes = (routes, parentPath = '') => {
+    const getLocalFromRoutes = (routes, parentPath) => {
         routes.forEach(item => {
-            // 兼容非全路径的 path
-            let path = item.path;
-            if (!path.startsWith('/')) {
-              path = `${parentPath.replace(/\/$/, '')}/${path}`;
-            }
+            const fullPath = getFullPath(item.path, parentPath);
             if(item.routes){
-                getLocalFromRoutes(item.routes, path);
+                getLocalFromRoutes(item.routes, fullPath);
             }else{
-                local[path] = item.name;
+                local[fullPath] = item.name;
             }
         })
     }
