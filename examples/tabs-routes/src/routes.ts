@@ -43,7 +43,7 @@ const routes: MenuDataItem[] = [
     routes: [
       {
         name: '示例 21',
-        path: 'demo21',
+        path: 'demo21/',
         routes: [
           {
             name: '示例 211',
