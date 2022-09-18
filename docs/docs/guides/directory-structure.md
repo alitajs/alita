@@ -19,8 +19,12 @@
 │   │   ├── global.ts
 │   │   └── index.ts
 │   ├── pages
-│   │   ├── index.less
-│   │   └── index.tsx
+│   │   ├── home
+│   │   │   ├── index.less
+│   │   │   └── index.tsx
+│   │   ├── list
+│   │   │   ├── index.less
+│   │   │   └── index.tsx
 │   ├── utils // 推荐目录
 │   │   └── index.ts
 │   ├── services // 推荐目录
@@ -97,8 +101,8 @@ build 时的临时文件目录，比如入口文件、路由等，都会被临�
 
 ```
 [
-  { path: '/', component: './pages/index' },
-  { path: '/users', component: './pages/users' },
+  { path: '/', component: './pages/home' },
+  { path: '/list', component: './pages/list' },
 ]
 ```
 

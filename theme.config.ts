@@ -59,6 +59,7 @@ export default {
           children: [
             'guides/directory-structure',
             'guides/alita-layout',
+            'guides/route',
             'guides/request',
             'guides/mock',
             'guides/proxy',

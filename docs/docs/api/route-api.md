@@ -50,41 +50,57 @@ history.location.hash;
 命令式路由跳转：
 
 ```ts
-import { history } from 'umi';
+import React from 'react';
+import { history } from 'alita';
+import type {FC} from 'react';
 
-// 跳转到指定路由
-history.push('/list');
+const App:FC = () =>{
 
-// 带参数跳转到指定路由
-history.push('/foo?type=1');
-history.push({
-  pathname: '/foo',
-  query: {
+  // 跳转到指定路由
+  history.push('/list');
+
+  // 带参数跳转到指定路由
+  history.push('/foo?type=1');
+  history.push({
     type: 1,
-  },
-});
+  });
 
-// 替换掉history栈当前地址为要跳转的地址
-history.replace('/foo?type=1');
+  // 替换掉history栈当前地址为要跳转的地址
+  history.replace('/foo?type=1');
 
-// 跳转到上一个路由
-history.back();
-history.go(-1);
+  // 跳转到上一个路由
+  history.back();
+  history.go(-1);
 
-// 跳转到下一个路由
-history.forward();
-history.go(1);
+  // 跳转到下一个路由
+  history.forward();
+  history.go(1);
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 路由监听：
 
 ```ts
-import { history } from 'umi';
+import React from 'react';
+import { history } from 'alita';
+import type { FC } from 'react';
 
-const unlisten = history.listen((location, action) => {
-  console.log(location.pathname);
-});
-unlisten();
+const App: FC = () => {
+  const unlisten = history.listen((location: any, action: any) => {
+    console.log(location.pathname);
+    console.log(action)
+    return '';
+  });
+  unlisten();
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 创建 `<a>` 标签的 `href`
@@ -124,6 +140,8 @@ const SomeRouteComponentUnderLayout = () => {
   const layoutContext = useOutletContext();
   return JSON.stringify(layoutContext)   // "{"prop":"from Layout"}"
 }
+
+export default Layout;
 ```
 ## useOutlet
 
@@ -172,58 +190,91 @@ interface NavigateFunction {
 路由跳转。
 
 ```ts
+import React from 'react';
 import { useNavigate } from 'alita';
+import type { FC } from 'react';
 
-const navigate = useNavigate();
+const App: FC = () => {
+  const navigate = useNavigate();
 
-// 在history栈里添加跳转的页面地址
-navigate(path);
+  // 在history栈里添加跳转的页面地址
+  navigate('/foo');
+  
+  // 替换掉history栈当前地址为要跳转的地址
+  navigate('/foo', {replace: true});
+  
+  // 返回前一个url
+  navigate(-1);
 
-// 替换掉history栈当前地址为要跳转的地址
-navigate(path, {replace: true});
+  return <div>hello alita</div>
+}
 
-// 返回前一个url
-navigate(-1);
+export default App;
 ```
 
 隐式传参，通过`state`隐式传参，刷新页面会消失。
 
 ```ts
+import React from 'react';
 import { useNavigate } from 'alita';
+import type { FC } from 'react';
 
-const navigate = useNavigate();
-navigate('/foo', {
-  state: {
-    type: '1',
-  }
-})
+const App: FC = () => {
+  const navigate = useNavigate();
+  navigate('/foo', {
+    state: {
+      type: '1',
+    }
+  })
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 显式传参，通过`search`显式传参，有两种写法。
 
 ```ts
+import React from 'react';
 import { useNavigate } from 'alita';
+import type { FC } from 'react';
 
-const navigate = useNavigate();
+const App: FC = () => {
+  const navigate = useNavigate();
 
-navigate('/foo?type=1');
+  navigate('/foo?type=1');
 
-navigate({
-  pathname: '/foo',
-  search: '?type=1',
-});
-// 跳转后新页面的url：http://localhost:3000/#/foo?type=1
+  navigate({
+    pathname: '/foo',
+    search: '?type=1',
+  });
+  // 跳转后新页面的url：http://localhost:3000/#/foo?type=1
+
+  return <div>hello alita</div>
+}
+
+export default App;
+
 ```
 
 路径传参。
 
 ```ts
+import React from 'react';
 import { useNavigate } from 'alita';
+import type { FC } from 'react';
 
-const navigate = useNavigate();
+const App: FC = () => {
+  const navigate = useNavigate();
+  
+  // 假设有路由配置  foo/:type
+  navigate('/foo/1');
 
-// 假设有路由配置  foo/:type
-navigate('/foo/1');
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 ## useLocation
@@ -246,9 +297,11 @@ declare function useLocation(): {
 获取隐式传参的参数。
 
 ```ts
+import React from 'react';
 import { useLocation } from 'alita';
+import type { FC } from 'react';
 
-function App() {
+const App: FC = () => {
   /*
   navigate('/foo', {
     state: {
@@ -258,15 +311,21 @@ function App() {
   */
   const location = useLocation();
   console.log(location.state);// {type: '1'};
+
+  return <div>hello alita</div>
 }
+
+export default App;
 ```
 
 也可以获取显示传参的参数，不过最好是用`useSearchParams`。
 
 ```ts
+import React from 'react';
 import { useLocation } from 'alita';
+import type { FC } from 'react';
 
-function App() {
+const App: FC = () => {
   /*
   navigate({
     pathname: '/foo',
@@ -275,21 +334,31 @@ function App() {
   */
   const location = useLocation();
   console.log(location.search);// '?type=1';
+
+  return <div>hello alita</div>
 }
+
+export default App;
 ```
 
 一个场景是在 location change 时做一些 side effect 操作，比如 page view 统计。
 
 ```ts
-import {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'alita';
+import type { FC } from 'react';
 
-function App() {
+const App: FC = () => {
   const location = useLocation();
   useEffect(() => {
     ga('send', 'pageview');
   }, [location]);
+
+  return <div>hello alita</div>
 }
+
+export default App;
+
 ```
 
 ## useSearchParams
@@ -319,31 +388,41 @@ type URLSearchParamsInit =
 获取显示传参的参数。
 
 ```ts
-import { useSearchParams } from 'umi';
+import React from 'react';
+import { useSearchParams } from 'alita';
+import type { FC } from 'react';
 
-function App() {
+const App: FC = () => {
   const [searchParams] = useSearchParams();
   
   // 当url为 foo?type=1 时
   console.log(searchParams.get('type')) // 1
+
+  return <div>hello alita</div>
 }
+
+export default App;
+
 ```
 
 改变显示传参的参数。
 
 ```ts
-import {useEffect} from 'react';
-import { useSearchParams } from 'umi';
+import React, {useEffect} from 'react';
+import { useSearchParams } from 'alita';
+import type { FC } from 'react';
 
-function App() {
+const App: FC () => {
   let [searchParams, setSearchParams] = useSearchParams();
-  
+
   useEffect(() =>{
     setSearchParams({
       type:3
     })
   }, [] )
 }
+
+export default App;
 ```
 
 ## useParams
@@ -363,14 +442,24 @@ declare function useParams<
 示例：
 
 ```ts
+import React from 'react';
 import { useParams } from 'alita';
+import type { FC } from 'react';
+
+const App: FC = () => {
  
-// 假设有路由配置  user/:uId/repo/:rId
-// 当前路径       user/abc/repo/def
-const params = useParams()
-/* params
-{ uId: 'abc', rId: 'def'}
-*/
+  // 假设有路由配置  user/:uId/repo/:rId
+  // 当前路径       user/abc/repo/def
+  const params = useParams();
+  console.log(params)
+  /* params
+  { uId: 'abc', rId: 'def'}
+  */
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 ## useMatch
@@ -397,22 +486,31 @@ declare function useMatch(pattern: {
 示例：
 
 ```ts
+import React from 'react';
 import { useMatch } from 'alita';
- 
-// 页面url为 '/events/12' 时
-const match = useMatch('/events/:eventId');
-console.log(match);
-/* match
-{
-  params: {eventId: '12'}
-  pathname: "/events/12"  
-  pathnameBase: "/events/12"
-  pattern: {
-    path: '/events/:eventId', 
-    caseSensitive: false, // 是否区分大小写
-    end: false
+import type { FC } from 'react';
+
+const App: FC = () => {
+  // 页面url为 '/events/12' 时
+  const match = useMatch('/events/:eventId');
+  console.log(match);
+  /* match
+  {
+    params: {eventId: '12'}
+    pathname: "/events/12"
+    pathnameBase: "/events/12"
+    pattern: {
+      path: '/events/:eventId',
+      caseSensitive: false, // 是否区分大小写
+      end: false
+    }
   }
+  */
+
+  return <div>hello alita</div>
 }
+
+export default App;
 ```
 
 ## useResolvedPath
@@ -427,13 +525,22 @@ declare function useResolvedPath(to: To): Path;
 
 示例：
 
-```
+```ts
+import React from 'react';
 import { useResolvedPath } from 'alita';
- 
-const path = useResolvedPath('docs')
-/* path
-{ pathname: '/a/new/page/docs', search: '', hash: '' }
-*/
+import type { FC } from 'react';
+
+const App: FC = () => {
+  const path = useResolvedPath('docs')
+  console.log(path)
+  /* path
+  { pathname: '/a/new/page/docs', search: '', hash: '' }
+  */
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 
 ## useRouteData
@@ -453,19 +560,29 @@ declare function useRouteData(): {
 示例：
 
 ```ts
+import React from 'react';
 import { useRouteData } from 'alita';
- 
-const route = useRouteData();
-/* route
-{
-  route: {
-    path: 'a/page',
-    id: 'a/page/index',
-    parentId: '@@/global-layout',
-    file: 'a/page/index.tsx'
+import type { FC } from 'react';
+
+const App: FC = () => {
+  const route = useRouteData();
+  console.log(route)
+  /* route
+  {
+    route: {
+      path: 'a/page',
+      id: 'a/page/index',
+      parentId: '@@/global-layout',
+      file: 'a/page/index.tsx'
+    }
   }
+  */
+
+  return <div>hello alita</div>
 }
-*/
+
+export default App;
+
 ```
 ## useRoutes
 
@@ -483,10 +600,15 @@ declare function useRoutes(
 示例：
 
 ```ts
-import * as React from "react";
-import { useRoutes } from "alita";
- 
-function App() {
+import React from 'react';
+import { useRoutes } from 'alita';
+import type { FC } from 'react';
+import Dashboard from './dashboard';
+import DashboardMessages from './dashboardMessages';
+import DashboardTasks from './dashboardTasks';
+import AboutPage from './aboutPage';
+
+const App: FC = () => {
   let element = useRoutes([
     {
       path: "/",
@@ -501,22 +623,9 @@ function App() {
     },
     { path: "team", element: <AboutPage /> },
   ]);
- 
+
   return element;
 }
-```
 
-## generatePath
-
-使用给定的带参数的 path 和对应的 params 生成实际要访问的路由。
-
-```ts
-import { generatePath } from 'umi';
- 
-generatePath("/users/:id", { id: "42" }); // "/users/42"
-
-generatePath("/files/:type/*", {
-  type: "img",
-  "*": "cat.jpg",
-}); // "/files/img/cat.jpg"
+export default App;
 ```
