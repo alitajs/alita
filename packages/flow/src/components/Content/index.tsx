@@ -11,7 +11,7 @@ import React from 'react';
  */
 const Content: React.FC<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children, ...reset }) => {
+> = ({ children, style, ...reset }) => {
   return (
     <div
       style={{
@@ -28,6 +28,7 @@ const Content: React.FC<
         willChange: 'scroll-position',
         WebkitOverflowScrolling: 'touch',
         overscrollBehaviorY: 'contain',
+        ...style,
       }}
       {...reset}
     >

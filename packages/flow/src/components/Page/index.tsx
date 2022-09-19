@@ -13,7 +13,7 @@ import React from 'react';
  */
 const Page: React.FC<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children, ...reset }) => {
+> = ({ children, style, ...reset }) => {
   return (
     <div
       style={{
@@ -27,6 +27,7 @@ const Page: React.FC<
         justifyContent: 'space-between',
         overflow: 'hidden',
         contain: 'layout size style',
+        ...style,
       }}
       {...reset}
     >
