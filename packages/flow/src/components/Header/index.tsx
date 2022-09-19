@@ -11,7 +11,7 @@ import React from 'react';
  */
 const Header: React.FC<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children, ...reset }) => {
+> = ({ children, style, ...reset }) => {
   return (
     <div
       style={{
@@ -20,6 +20,7 @@ const Header: React.FC<
         display: 'block',
         order: '-1',
         width: '100%',
+        ...style,
       }}
       {...reset}
     >
