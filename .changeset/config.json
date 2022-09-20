@@ -23,6 +23,7 @@
     "@examples/native",
     "@examples/routes",
     "@examples/tabs",
+    "@examples/tabs-routes",
     "@example/test-test",
     "umi-scripts"
   ]
