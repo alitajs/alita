@@ -92,6 +92,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "sushi-su",
+      "name": "修行",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50985188?v=4",
+      "profile": "https://github.com/sushi-su",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
