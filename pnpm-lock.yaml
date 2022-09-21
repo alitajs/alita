@@ -102,6 +102,12 @@ importers:
       yorkie: 2.0.0
       zx: 4.3.0
 
+  examples/a-class:
+    specifiers:
+      alita: 3.0.19
+    dependencies:
+      alita: link:../../packages/alita
+
   examples/boilerplate:
     specifiers:
       '@alita/flow': workspace:*
@@ -286,6 +292,7 @@ importers:
 
   packages/plugins:
     specifiers:
+      '@alita/babel-transform-jsx-class': 0.0.2
       '@alita/inspx': 0.0.2
       '@alita/request': 3.0.1
       '@alita/types': 3.0.2
@@ -297,7 +304,6 @@ importers:
       ahooks: ^3.0.8
       antd-mobile-icons: ^0.2.2
       babel-plugin-import: ^1.13.3
-      babel-plugin-transform-jsx-class: ^0.1.3
       babel-runtime-jsx-plus: ^0.1.5
       classnames: ^2.3.1
       dva-core: ^2.0.4
@@ -311,6 +317,7 @@ importers:
       semver: 7.3.5
       vconsole: 3.10.0
     dependencies:
+      '@alita/babel-transform-jsx-class': 0.0.2
       '@alita/inspx': 0.0.2
       '@alita/request': link:../request
       '@alita/types': link:../types
@@ -320,7 +327,6 @@ importers:
       ahooks: 3.1.5
       antd-mobile-icons: 0.2.2
       babel-plugin-import: 1.13.3
-      babel-plugin-transform-jsx-class: 0.1.3
       babel-runtime-jsx-plus: 0.1.5
       classnames: 2.3.1
       dva-core: 2.0.4_redux@4.1.2
@@ -358,6 +364,10 @@ packages:
     dependencies:
       lodash.debounce: 4.0.8
       lodash.throttle: 4.1.1
+    dev: false
+
+  /@alita/babel-transform-jsx-class/0.0.2:
+    resolution: {integrity: sha512-TW4KukvBsmMcebUWfquhFQ36Uo+wFrRB4NiimXhtQ+QXrYBmHoVm5GgVojQ3AJKIAjTVicYsz4lEo/MPN+ZgNw==}
     dev: false
 
   /@alita/inspx/0.0.2:
@@ -5130,10 +5140,6 @@ packages:
       resolve: 1.22.0
     dev: false
 
-  /babel-plugin-transform-jsx-class/0.1.3:
-    resolution: {integrity: sha512-Udi3d5qzwEyteqchxKoV/JfgktZZ8O3SLlADO936Os8LXolkuhl3joq71KiU0yMip8wz7+3zBKU+7otK1iZCLw==}
-    dev: false
-
   /babel-preset-current-node-syntax/1.0.1:
     resolution: {integrity: sha512-M7LQ0bxarkxQoN+vz5aJPsLBn77n8QgTFmo8WK0/44auK2xlCXrYcUxHFxgU7qW5Yzw/CjmLRK2uJzaCd7LvqQ==}
     peerDependencies:
@@ -9611,7 +9617,7 @@ packages:
       pretty-format: 27.5.1
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.8.1_x2utdhayajzrh747hktprshhby
+      ts-node: 10.8.1_typescript@4.7.4
     transitivePeerDependencies:
       - bufferutil
       - canvas

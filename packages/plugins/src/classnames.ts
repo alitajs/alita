@@ -12,7 +12,7 @@ export default (api: AlitaApi) => {
   });
 
   api.addExtraBabelPlugins(() => {
-    return [require.resolve('babel-plugin-transform-jsx-class')];
+    return [require.resolve('@alita/babel-transform-jsx-class')];
   });
   api.modifyConfig((memo) => {
     memo.alias['babel-runtime-jsx-plus'] = dirname(
