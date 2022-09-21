@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.0.17
+
+### Patch Changes
+
+- [#430](https://github.com/alitajs/alita/pull/430) [`b723d3c4`](https://github.com/alitajs/alita/commit/b723d3c408027ff349f7ea4d9fbae2339f4c29fa) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add aclass like classnames
+
+* [#426](https://github.com/alitajs/alita/pull/426) [`6a3e7eaa`](https://github.com/alitajs/alita/commit/6a3e7eaa9eca98228373162cd67c4040956ce482) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: replace path
+
 ## 3.0.16
 
 ### Patch Changes
