@@ -15,6 +15,7 @@
     "updateInternalDependents": "always"
   },
   "ignore": [
+    "@examples/aclass",
     "@examples/boilerplate",
     "@examples/helmet",
     "@examples/boilerplate",
