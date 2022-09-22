@@ -15,12 +15,16 @@
     "updateInternalDependents": "always"
   },
   "ignore": [
+    "@examples/aclass",
     "@examples/boilerplate",
     "@examples/helmet",
+    "@examples/boilerplate",
     "@example/lint",
     "@examples/mobile2",
     "@examples/native",
+    "@examples/routes",
     "@examples/tabs",
+    "@examples/tabs-routes",
     "@example/test-test",
     "umi-scripts"
   ]

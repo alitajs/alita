@@ -6,9 +6,9 @@ export default (api: IApi) => {
   const configDefaults: Record<string, any> = {
     history: { type: 'hash' },
     // title: false, // 默认内置了 Helmet
-    targets: {
-      ie: 9,
-    },
+    // targets: {
+    //   ie: 9,
+    // },
     hash: true,
     // esbuild: {},
     // 不需要路由按需加载，只需要支持 import() 语法的 code splitting
@@ -55,7 +55,11 @@ export default (api: IApi) => {
   api.modifyConfig((memo: any) => {
     memo.alias.alita = 'umi';
     Object.keys(configDefaults).forEach((key) => {
-      memo[key] = configDefaults[key];
+      if (key === 'alias') {
+        memo[key] = { ...memo[key], ...configDefaults[key] };
+      } else {
+        memo[key] = configDefaults[key];
+      }
     });
     return memo;
   });

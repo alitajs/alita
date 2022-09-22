@@ -1,5 +1,23 @@
 # @alita/native
 
+## 3.0.10
+
+### Patch Changes
+
+- [`c99b6925`](https://github.com/alitajs/alita/commit/c99b6925cea76d3de20e0b63afee4645346237a9) - chore: update umi
+
+## 3.0.9
+
+### Patch Changes
+
+- [#403](https://github.com/alitajs/alita/pull/403) [`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+## 3.0.8
+
+### Patch Changes
+
+- [#401](https://github.com/alitajs/alita/pull/401) [`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
 ## 3.0.7
 
 ### Patch Changes

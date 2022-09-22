@@ -57,7 +57,7 @@ export default {
 在 `src/app.ts` 中你可以配置一些运行时的配置项来实现部分自定义需求。示例配置如下：
 
 ```typescript
-import { RequestConfig } from 'umi';
+import { RequestConfig } from 'alita';
 
 export const request: RequestConfig = {
   timeout: 1000,
@@ -143,7 +143,7 @@ export default () => {
 这是一个 TypeScript 定义，它可以帮助你更好的配置运行时配置。
 
 ```typescript
-import { RequestConfig } from 'umi';
+import { RequestConfig } from 'alita';
 
 export const request: RequestConfig = {};
 ```

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -7,13 +7,12 @@ import { Tabs, message } from 'antd';
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
 import { getPluginManager } from '../core/plugin';
-import { useAppData } from '../exports';
 {{/hasTabsLayout}}
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
 {{/hasCustomTabs}}
 
-export const KeepAliveContext = React.createContext({});
+import { useAppData } from '../exports';
 
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -21,7 +20,35 @@ const { TabPane } = Tabs;
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 
-const isKeepPath = (aliveList: any[], path: string) => {
+
+
+export const KeepAliveContext = React.createContext({});
+// 兼容非全路径的 path
+const getFullPath = (currPath = '', parentPath = '') => {
+  if (currPath.startsWith('/')) {
+    return currPath;
+  }
+  return `${parentPath.replace(/\/$/, '')}/${currPath}`;
+};
+const findRouteByPath = (path, routes) => {
+    let route = null;
+    const find = (routess, parentPath) => {
+        for(let i = 0; i < routess.length; i++){
+            const item = routess[i];
+            const fullPath = getFullPath(item.path, parentPath);
+            if (matchPath(fullPath, path)&&!item.isLayout) {
+                route = item;
+                break;
+            }
+            if(item.children){
+                find(item.children, fullPath);
+            }
+        }
+    }
+    find(routes);
+    return route;
+}
+const isKeepPath = (aliveList: any[], path: string,clientRoutes:any[]) => {
     let isKeep = false;
     aliveList.map(item => {
         if (item === path) {
@@ -34,8 +61,15 @@ const isKeepPath = (aliveList: any[], path: string) => {
             isKeep = true;
         }
     })
+    if(isKeep === false){
+        const route = findRouteByPath(path,clientRoutes);
+        if(route){
+            isKeep = route.isKeepalive;
+        }
+    }
     return isKeep;
 }
+
 
 const getMatchPathName = (pathname: string, local: Record<string, string>) => {
     const tabs = Object.entries(local);
@@ -52,12 +86,13 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
 
 const getLocalFromClientRoutes = (data) => {
     const local = {};
-    const getLocalFromRoutes = (routes) => {
+    const getLocalFromRoutes = (routes, parentPath) => {
         routes.forEach(item => {
+            const fullPath = getFullPath(item.path, parentPath);
             if(item.routes){
-                getLocalFromRoutes(item.routes);
+                getLocalFromRoutes(item.routes, fullPath);
             }else{
-                local[item.path] = item.name;
+                local[fullPath] = item.name;
             }
         })
     }
@@ -68,19 +103,17 @@ const getLocalFromClientRoutes = (data) => {
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
+    const { clientRoutes } = useAppData();
 {{#hasTabsLayout}}
     const navigate = useNavigate();
-    const { clientRoutes } = useAppData();
-
-    const localConfig = useMemo(() => {
+    const localConfig = React.useMemo(() => {
         const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
         if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
     }, []);
 {{/hasTabsLayout}}
-
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname);
+    const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
     if (isKeep) {
         keepElements.current[location.pathname] = element;
     }

@@ -1,0 +1,16 @@
+{
+  "name": "@examples/routes",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "alita build",
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@alita/flow": "workspace:*",
+    "ahooks": "^3.0.8",
+    "alita": "3.0.20",
+    "antd-mobile": "^5.10.0"
+  }
+}

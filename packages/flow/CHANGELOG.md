@@ -1,5 +1,17 @@
 # @alita/flow
 
+## 3.0.3
+
+### Patch Changes
+
+- [#422](https://github.com/alitajs/alita/pull/422) [`98cce464`](https://github.com/alitajs/alita/commit/98cce4641636f96f6f424c8c5322ef77ae03e54a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: reset style
+
+## 3.0.2
+
+### Patch Changes
+
+- [`6c759c35`](https://github.com/alitajs/alita/commit/6c759c3557d3c96325f84dd17ab554bbd2169ed9) - feat: support es5
+
 ## 3.0.1
 
 ### Patch Changes

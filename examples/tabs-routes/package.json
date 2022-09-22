@@ -1,0 +1,17 @@
+{
+  "name": "@examples/tabs-routes",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "ANALYZE=1 alita build",
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@alita/flow": "workspace:*",
+    "@ant-design/icons": "^4.7.0",
+    "alita": "3.0.20",
+    "antd": "^4.21.2",
+    "@ant-design/pro-components": "^2.3.8"
+  }
+}

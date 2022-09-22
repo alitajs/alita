@@ -1,5 +1,59 @@
 # @alita/plugins
 
+## 3.0.17
+
+### Patch Changes
+
+- [#430](https://github.com/alitajs/alita/pull/430) [`b723d3c4`](https://github.com/alitajs/alita/commit/b723d3c408027ff349f7ea4d9fbae2339f4c29fa) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add aclass like classnames
+
+* [#426](https://github.com/alitajs/alita/pull/426) [`6a3e7eaa`](https://github.com/alitajs/alita/commit/6a3e7eaa9eca98228373162cd67c4040956ce482) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: replace path
+
+## 3.0.16
+
+### Patch Changes
+
+- [`baa47fc5`](https://github.com/alitajs/alita/commit/baa47fc550f13904e1e7392b7a7d471e8db8a9ff) - fix: import error
+
+## 3.0.15
+
+### Patch Changes
+
+- [#415](https://github.com/alitajs/alita/pull/415) [`2fa98d05`](https://github.com/alitajs/alita/commit/2fa98d05f05227bcfe4b73b3e21fe386c1db88a5) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: keepalive by config routes
+
+## 3.0.14
+
+### Patch Changes
+
+- [`86035361`](https://github.com/alitajs/alita/commit/860353615330fc15b8edadcee33d55919e998377) - fix: code chore
+
+## 3.0.13
+
+### Patch Changes
+
+- [#410](https://github.com/alitajs/alita/pull/410) [`9be99373`](https://github.com/alitajs/alita/commit/9be9937324d20111b7fe40f8eae49fddc4621e03) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: getkeepalive nofind
+
+## 3.0.12
+
+### Patch Changes
+
+- [#408](https://github.com/alitajs/alita/pull/408) [`bc245d45`](https://github.com/alitajs/alita/commit/bc245d4535bba50ddfb3be7dfcf089b6803b33b6) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: async getKeepalive
+
+* [`c99b6925`](https://github.com/alitajs/alita/commit/c99b6925cea76d3de20e0b63afee4645346237a9) - chore: update umi
+
+## 3.0.11
+
+### Patch Changes
+
+- [#403](https://github.com/alitajs/alita/pull/403) [`7a6ed0e5`](https://github.com/alitajs/alita/commit/7a6ed0e5dd349abb489fcd5c194fd5e39f4188b1) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+## 3.0.10
+
+### Patch Changes
+
+- [#401](https://github.com/alitajs/alita/pull/401) [`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add getKeepalive
+
+* [#401](https://github.com/alitajs/alita/pull/401) [`5d2b45f1`](https://github.com/alitajs/alita/commit/5d2b45f10568fe2d5770ba1c0ebc554cd6f5e0dc) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
 ## 3.0.9
 
 ### Patch Changes
