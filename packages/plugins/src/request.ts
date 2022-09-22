@@ -23,11 +23,11 @@ export default (api: AlitaApi) => {
   // 注册runtime配置
   api.addEntryCodeAhead(() => [
     `
-import { getPluginManager } from './core/plugin';
-  
-  import { setRequestConfig } from '${winPath(
-    dirname(require.resolve('@alita/request/package')),
-  )}';`,
+      import { getPluginManager } from './core/plugin';
+      import { setRequestConfig } from '${winPath(
+        dirname(require.resolve('@alita/request/package')),
+      )}';
+    `,
   ]);
   api.addEntryCode(() => [
     `setRequestConfig(getPluginManager().applyPlugins({ key: 'request',type: 'modify', initialValue: {} }))`,
@@ -38,13 +38,13 @@ import { getPluginManager } from './core/plugin';
     api.writeTmpFile({
       path: 'index.ts',
       content: `
-export { request } from '${winPath(
-        dirname(require.resolve('@alita/request/package')),
-      )}';
-export { useRequest } from '${winPath(
-        dirname(require.resolve('ahooks/package')),
-      )}';
-`,
+        export { request } from '${winPath(
+          dirname(require.resolve('@alita/request/package')),
+        )}';
+        export { useRequest } from '${winPath(
+          dirname(require.resolve('ahooks/package')),
+        )}';
+      `,
     });
 
     // types.ts

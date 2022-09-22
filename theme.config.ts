@@ -20,33 +20,51 @@ export default {
       title: 'Docs',
       type: 'nav',
       children: [
-        // {
-        //   title: 'Tutorials',
-        //   children: ['tutorials/getting-started', 'tutorials/blog'],
-        // },
         {
-          title: 'Introduce',
-          children: ['introduce/upgrade-to-alita-3'],
+          title: 'Tutorials',
+          children: [
+            'tutorials/getting-started',
+            // 'tutorials/blog'
+          ],
         },
+        {
+          title: 'Config',
+          children: [
+            'config/config',
+            'config/runtime-config',
+            // 'tutorials/blog'
+          ],
+        },
+        // {
+        //   title: 'Introduce',
+        //   children: ['introduce/introduce', 'introduce/upgrade-to-alita-3'],
+        // },
         {
           title: 'API',
           children: [
-            'api/api',
-            'api/config',
-            'api/runtime-config',
-            'api/commands',
+            'api/route-api',
+            'api/request-api',
+            'api/model-api',
+            'api/dva-api',
+            'api/layout-api',
+            'api/other-api',
           ],
+        },
+        {
+          title: 'Component',
+          children: ['component/component'],
         },
         {
           title: 'Guides',
           children: [
-            'guides/prepare',
             'guides/directory-structure',
             'guides/alita-layout',
+            'guides/route',
             'guides/request',
             'guides/mock',
             'guides/proxy',
-            'guides/helmet',
+            // 'guides/helmet',
+            'guides/commands',
             'guides/env-variables',
             'guides/boilerplate',
             'guides/generator',
