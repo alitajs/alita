@@ -36,6 +36,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/48704410?v=4",
       "profile": "https://github.com/hang1017",
       "contributions": [
+        "code",
         "plugin"
       ]
     },
@@ -100,6 +101,15 @@
       "profile": "https://github.com/sushi-su",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "532pyh",
+      "name": "红尘炼心",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26398280?v=4",
+      "profile": "https://github.com/532pyh",
+      "contributions": [
+        "doc"
       ]
     }
   ],
