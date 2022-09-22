@@ -1,7 +1,57 @@
-# 数据管理API
+# 状态管理API
 
-数据管理 API 是内置 `plugin-dva` 插件，若 API 引用失败，请检查 `plugin-dva` 插件是否安装成功。
+状态是数据的变化，状态管理既是对数据的变化的管理。
 
+在 src/models 下存在 dva model 文件，状态管理API才可以使用。
+
+例如在以下目录结构中，useAuth.ts 是一个 dva model 文件。
+
+```
+├── models
+│   ├── useAuth.ts
+```
+
+useAuth.ts 文件内容如下所示：
+
+```ts
+import { query } from '@/services/api';
+import type { DvaModel } from 'alita';
+
+export interface UseAuthModelState {
+  name: string;
+  sex: string;
+}
+
+const UseAuthModel: DvaModel<UseAuthModelState> = {
+  namespace: 'useAuth',
+
+  state: {
+    name: '张三',
+    sex: '男',
+
+  },
+
+  effects: {
+    *queryName({ payload }, { call, put }): any {
+      const data = yield call(query, payload);
+      yield put({
+        type: 'save',
+        payload: { name: data.text },
+      });
+    },
+  },
+  reducers: {
+    save(state, action) {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
+  },
+};
+
+export default UseAuthModel;
+```
 ## connect
 
 其作用是将 model 和 组件连接起来，同时被 `connect` 的 组件会自动在 `props` 中拥有 `dispatch` 方法。

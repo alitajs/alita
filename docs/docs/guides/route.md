@@ -2,6 +2,8 @@
 
 alita 推荐约定式路由，约定式路由也叫文件路由，就是不需要手写配置，文件系统即路由，通过目录和文件及其命名分析出路由配置。
 
+## 基础路由
+
 比如以下文件结构：
 
 ```
@@ -40,8 +42,6 @@ alita 推荐约定式路由，约定式路由也叫文件路由，就是不需�
 ├── pages
 │   ├── home
 │   │   └── $index.tsx
-│   ├── $id
-│   │   └── $index.tsx
 ```
 
 会生成路由配置如下：
@@ -49,36 +49,185 @@ alita 推荐约定式路由，约定式路由也叫文件路由，就是不需�
 ```js
 [
   { path: '/home/:index', component: './pages/home/$index.js' },
-  { path: '/:id/:index', component: './pages/$id/$index.js' },
 ];
 ```
 
-看到路由配置中的 `path`，动态路由是用来配置路由的地址参数，也叫路径参数。
+动态路由可以用来配置路由的路径参数 `index`。
 
-通过 API `useParams` 来获取这些地址参数，示例：
+
+## 404页面
+
+约定在 src/pages 目录下创建 404.tsx 作为404页面，当访问的路由地址不存在时，会自动显示 404 页面。只有 build 之后生效。调试的时候可以访问 `/404` 。
+
+```
+├── pages
+│   └──  404.tsx
+```
+
+## 路由参数
+
+### 路径参数
+
+需配合动态路由使用，例如 home 路由组件所在目录结构：
+
+```
+├── pages
+│   ├── home
+│   │   └── $index.tsx
+```
+访问的路由地址为 http://localhost:8000/#/home/10124 ，其中 `10124`  就是名为 `index` 的路径参数。
+
+除了直接在访问的路由地址上设置，还可以通过 `history` 或 `useNavigate` 跳转路由时候设置。
+
+```ts
+import React from 'react';
+import { history } from 'alita';
+import type {FC} from 'react';
+
+const App: FC = () =>{
+  const toHome = () =>{
+    history.push('/home/10124');
+  }
+
+  return <div onClick={toHome}>hello alita</div>
+}
+
+export default App;
+```
+
+```ts
+import React from 'react';
+import { useNavigate } from 'alita';
+import type { FC } from 'react';
+
+const App: FC = () => {
+  const navigate = useNavigate();
+
+  const toHome = () => {
+    navigate('/home/10124');
+  }
+
+  return <div onClick={toHome}>hello alita</div>
+}
+
+export default App;
+```
+
+通过 `useParams` 获取。
 
 ```ts
 import React from 'react';
 import { useParams } from 'alita';
 import type { FC } from 'react';
 
-const App: FC = () => {
-  // 当前路径       182/1
+const Home: FC = () => {
   const params = useParams();
-  console.log(params)
-  /* params
-  { id: '182', index: '1'}
-  */
+  console.log('params',params)// { index: '10124'}
 
-  // 当前路径       home/1
-  const params = useParams();
-  console.log(params)
-  /* params
-  { index: '1'}
-  */
+  return <div>Home</div>
+}
 
-  return <div>hello alita</div>
+export default Home;
+```
+
+### 显式参数
+
+例如访问的路由地址为 http://localhost:8000/#/home/?type=1，其中 `1` 就是名为 `type` 的显式参数。
+
+除了直接在访问的路由地址上设置，还可以通过 `history` 或 `useNavigate` 跳转路由时候设置。
+
+```ts
+import React from 'react';
+import { history } from 'alita';
+import type {FC} from 'react';
+
+const App: FC = () =>{
+  const toHome = () =>{
+    history.push('/home/?type=1');
+  }
+
+  return <div onClick={toHome}>hello alita</div>
 }
 
 export default App;
+```
+
+```ts
+import React from 'react';
+import { useNavigate } from 'alita';
+import type { FC } from 'react';
+
+const App: FC = () => {
+  const navigate = useNavigate();
+
+  const toHome = () => {
+    navigate('/home/?type=1');
+  }
+
+  return <div onClick={toHome}>hello alita</div>
+}
+
+export default App;
+```
+
+通过 `useSearchParams` 获取。
+
+```ts
+import React from 'react';
+import { useSearchParams } from 'alita';
+import type { FC } from 'react';
+
+const Home: FC = () => {
+  const [searchParams] = useSearchParams();
+  console.log('type',searchParams.get('type'))// { type: '1'}
+
+  return <div>Home</div>
+}
+
+export default Home;
+```
+
+### 隐式参数
+
+隐式参数顾名思义在访问的路由地址上看不见任何参数，如果想一个路由页面获取到路由参数只能在跳转时设置，而不能在路由地址上手动添加，可以采用隐式参数。
+
+可以通过 `useNavigate` 跳转路由时候设置。
+
+```ts
+import React from 'react';
+import { useNavigate } from 'alita';
+import type { FC } from 'react';
+
+const App: FC = () => {
+  const navigate = useNavigate();
+
+  const toHome = () => {
+    navigate('/home', {
+      state: {
+        type: '1',
+      }
+    })
+  }
+
+  return <div onClick={toHome}>hello alita</div>
+}
+
+export default App;
+```
+
+通过 `useLocation` 获取。
+
+```ts
+import React from 'react';
+import { useLocation } from 'alita';
+import type { FC } from 'react';
+
+const Home: FC = () => {
+  const location = useLocation();
+  console.log(location.state);// {type: '1'};
+
+  return <div>Home</div>
+}
+
+export default Home;
 ```

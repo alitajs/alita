@@ -54,29 +54,30 @@ import React from 'react';
 import { history } from 'alita';
 import type {FC} from 'react';
 
-const App:FC = () =>{
+const App: FC = () =>{
+  const toFoo = () =>{
+    // 跳转到指定路由
+    history.push('/list');
 
-  // 跳转到指定路由
-  history.push('/list');
+    // 带参数跳转到指定路由
+    history.push('/foo?type=1');
+    history.push({
+      type: 1,
+    });
 
-  // 带参数跳转到指定路由
-  history.push('/foo?type=1');
-  history.push({
-    type: 1,
-  });
+    // 替换掉history栈当前地址为要跳转的地址
+    history.replace('/foo?type=1');
 
-  // 替换掉history栈当前地址为要跳转的地址
-  history.replace('/foo?type=1');
+    // 跳转到上一个路由
+    history.back();
+    history.go(-1);
 
-  // 跳转到上一个路由
-  history.back();
-  history.go(-1);
+    // 跳转到下一个路由
+    history.forward();
+    history.go(1);
+  }
 
-  // 跳转到下一个路由
-  history.forward();
-  history.go(1);
-
-  return <div>hello alita</div>
+  return <div onClick={toFoo}>hello alita</div>
 }
 
 export default App;
@@ -93,7 +94,6 @@ const App: FC = () => {
   const unlisten = history.listen((location: any, action: any) => {
     console.log(location.pathname);
     console.log(action)
-    return '';
   });
   unlisten();
 
@@ -106,13 +106,17 @@ export default App;
 创建 `<a>` 标签的 `href`
 
 ```ts
-import { history } from 'umi';
+import React from 'react';
+import { history } from 'alita';
+import type { FC } from 'react';
 
-const App = () =>{
+const App: FC = () =>{
   return (
-    <a href={history.createHref('/list?type=1')}>跳转</a>
+    <a href={history.createHref('/list?type=1')}>hello alita</a>
   )
 }
+
+export default App;
 ```
 
 ## useOutletContext
@@ -128,20 +132,34 @@ declare function useOutletContext<Context = unknown>(): Context;
 示例：
 
 ```ts
+import React from 'react';
 import { useOutletContext, Outlet } from 'alita';
+import type { FC } from 'react';
  
-const Layout = () => {
-  return <div className="fancyLayout">
-    <Outlet context={{ prop: 'from Layout'}} />
-  </div>
-}
- 
-const SomeRouteComponentUnderLayout = () => {
-  const layoutContext = useOutletContext();
-  return JSON.stringify(layoutContext)   // "{"prop":"from Layout"}"
+const Layout: FC = () => {
+  return (
+    <div className="fancyLayout">
+      <Outlet context={{ prop: 'from Layout'}} />
+    </div>
+  )
 }
 
 export default Layout;
+```
+
+```ts
+import React from 'react';
+import { history } from 'alita';
+import type { FC } from 'react';
+
+const App: FC = () =>{
+  const layoutContext = useOutletContext();
+  console.log(layoutContext)// {"prop":"from Layout"}
+
+  return <div>hello alita</div>
+}
+
+export default App;
 ```
 ## useOutlet
 
@@ -156,15 +174,21 @@ declare function useOutlet(): React.ReactElement | null;
 示例：
 
 ```ts
+import React from 'react';
 import { useOutlet } from 'alita';
+import type { FC } from 'react';
  
-const Layout = ()=>{
+const Layout: FC = ()=>{
   const outlet = useOutlet()
  
-  return <div className="fancyLayout">
-    {outlet}
-  </div>
+  return (
+    <div className="fancyLayout">
+      {outlet}
+    </div>
+  )
 }
+
+export default Layout;
 ```
 
 ## useNavigate
@@ -197,16 +221,18 @@ import type { FC } from 'react';
 const App: FC = () => {
   const navigate = useNavigate();
 
-  // 在history栈里添加跳转的页面地址
-  navigate('/foo');
-  
-  // 替换掉history栈当前地址为要跳转的地址
-  navigate('/foo', {replace: true});
-  
-  // 返回前一个url
-  navigate(-1);
+  const toFoo = () =>{
+    // 在history栈里添加跳转的页面地址
+    navigate('/foo');
+    
+    // 替换掉history栈当前地址为要跳转的地址
+    navigate('/foo', {replace: true});
+    
+    // 返回前一个url
+    navigate(-1);
+  }
 
-  return <div>hello alita</div>
+  return <div onClick={toFoo}>hello alita</div>
 }
 
 export default App;
@@ -221,13 +247,16 @@ import type { FC } from 'react';
 
 const App: FC = () => {
   const navigate = useNavigate();
-  navigate('/foo', {
-    state: {
-      type: '1',
-    }
-  })
 
-  return <div>hello alita</div>
+  const toFoo = () =>{
+    navigate('/foo', {
+      state: {
+        type: '1',
+      }
+    })
+  }
+
+  return <div onClick={toFoo}>hello alita</div>
 }
 
 export default App;
@@ -243,22 +272,25 @@ import type { FC } from 'react';
 const App: FC = () => {
   const navigate = useNavigate();
 
-  navigate('/foo?type=1');
+  
+  const toFoo = () =>{
+    // 跳转后新页面的url：http://localhost:8000/#/foo?type=1
+    navigate('/foo?type=1');
 
-  navigate({
-    pathname: '/foo',
-    search: '?type=1',
-  });
-  // 跳转后新页面的url：http://localhost:3000/#/foo?type=1
+    navigate({
+      pathname: '/foo',
+      search: '?type=1',
+    });
+  }
 
-  return <div>hello alita</div>
+  return <div onClick={toFoo}>hello alita</div>
 }
 
 export default App;
 
 ```
 
-路径传参。
+路径传参，需配合动态路由使用。
 
 ```ts
 import React from 'react';
@@ -267,11 +299,13 @@ import type { FC } from 'react';
 
 const App: FC = () => {
   const navigate = useNavigate();
-  
-  // 假设有路由配置  foo/:type
-  navigate('/foo/1');
 
-  return <div>hello alita</div>
+  const toFoo = () =>{
+    // 假设有路由配置  foo/:type
+    navigate('/foo/1');
+  }
+
+  return <div onClick={toFoo}>hello alita</div>
 }
 
 export default App;
@@ -318,7 +352,7 @@ const App: FC = () => {
 export default App;
 ```
 
-也可以获取显示传参的参数，不过最好是用`useSearchParams`。
+也可以获取显式传参的参数，不过最好是用`useSearchParams`。
 
 ```ts
 import React from 'react';
@@ -385,7 +419,7 @@ type URLSearchParamsInit =
 
 示例：
 
-获取显示传参的参数。
+获取显式传参的参数。
 
 ```ts
 import React from 'react';
@@ -405,7 +439,7 @@ export default App;
 
 ```
 
-改变显示传参的参数。
+改变显式传参的参数。
 
 ```ts
 import React, {useEffect} from 'react';

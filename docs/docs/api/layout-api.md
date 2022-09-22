@@ -1,6 +1,14 @@
 # 移动端布局API
 
-移动端布局API 是内置 `plugin-mobile-layout` 插件，若 API 引用失败，请检查 `plugin-mobile-layout` 插件是否安装成功。
+src/config/config.ts中开启 `mobileLayout` 才可以使用移动端布局API。
+
+```ts
+import { defineConfig } from 'alita';
+
+export default defineConfig({
+  mobileLayout: true,
+});
+```
 
 ## setPageNavBar
 
@@ -58,6 +66,8 @@ const Foo: FC = (props) => {
     <div>Foo</div>
   )
 }
+
+export default Foo;
 ```
 
 ## getPageNavBar
@@ -128,6 +138,8 @@ const Foo: FC = (props) => {
     <div>Foo</div>
   )
 }
+
+export default Foo;
 ```
 
 ## getTabBarList

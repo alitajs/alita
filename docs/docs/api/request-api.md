@@ -1,6 +1,6 @@
 # 请求API
 
-请求 API 是内置 `plugin-request` 插件，若 API 引用失败，请检查 `plugin-request` 插件是否安装成功。
+请求 API 是内置 `plugin-request` 插件提供的。
 
 ## request
 

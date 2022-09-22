@@ -1,6 +1,6 @@
 # 数据共享API
 
-数据共享 API 是内置 `plugin-model` 插件，若 API 引用失败，请检查 `plugin-model` 插件是否安装成功。
+在 src/models 下存在 useModel 文件，数据共享API才可以使用。
 
 `plugin-model` 插件是基于 hooks 范式的简易数据管理方案（部分场景可以取代 dva），通常用于中台项目的全局共享数据。
 
@@ -40,12 +40,17 @@ export default function useAuthModel() {
 以上就是一个普通的自定义 hook，每次在组件中执行`const {user} = useAuthModel()` 所获取到的 `user` 都是不一样的。 而`plugin-model` 把其中的`user`变成了『全局数据』，多个组件中使用该 model 时，拿到的同一份数据。
 
 ```ts
+import React from 'react';
 import { useModel } from 'alita';
+import type { FC } from 'react';
 
-export default () => {
+const Home: FC = () => {
   const { user, signin } = useModel('user', model => ({ user: model.user, signin: model.signin }));
-  return <>hello</>
-};
+
+  return <div>Home</div>
+}
+
+export default Home;
 ```
 
 `useModel` 有两个参数，`namespace` 和 `updater`。
