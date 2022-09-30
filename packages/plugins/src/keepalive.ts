@@ -50,6 +50,7 @@ export default (api: AlitaApi) => {
       content: Mustache.render(contextTpl, {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
+        isPluginModelEnable: api.isPluginEnable('model'),
       }),
     });
     const runtimeTpl = readFileSync(
