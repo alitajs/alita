@@ -22,7 +22,7 @@
     "@example/lint",
     "@examples/mobile2",
     "@examples/native",
-    "ant-design-pro",
+    "@examples/pro",
     "@examples/routes",
     "@examples/tabs",
     "@examples/tabs-routes",
