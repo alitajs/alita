@@ -11,7 +11,9 @@ import { getPluginManager } from '../core/plugin';
 {{#hasCustomTabs}}
 import { getCustomTabs } from '@/app';
 {{/hasCustomTabs}}
-
+{{#isPluginModelEnable}}
+import { useModel } from '@@/plugin-model';
+{{/isPluginModelEnable}}
 import { useAppData } from '../exports';
 
 {{^hasCustomTabs}}
@@ -103,14 +105,37 @@ const getLocalFromClientRoutes = (data) => {
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
+
+{{#isPluginModelEnable}}
+    const {initialState} = useModel('@@initialState');
+{{/isPluginModelEnable}}
+
     const { clientRoutes } = useAppData();
+
 {{#hasTabsLayout}}
     const navigate = useNavigate();
+    {{#isPluginModelEnable}}
     const localConfig = React.useMemo(() => {
-        const runtime = getPluginManager().applyPlugins({ key: 'tabsLayout',type: 'modify', initialValue: {} });
+        const runtime = getPluginManager().applyPlugins({
+          key: 'tabsLayout',
+          type: 'modify',
+          initialValue: {initialState},
+        });
         if(runtime?.local) return runtime.local;
         return getLocalFromClientRoutes(clientRoutes);
-    }, []);
+    }, [initialState]);
+    {{/isPluginModelEnable}}
+    {{^isPluginModelEnable}}
+      const localConfig = React.useMemo(() => {
+        const runtime = getPluginManager().applyPlugins({
+          key: 'tabsLayout',
+          type: 'modify',
+          initialValue: {},
+        });
+        if(runtime?.local) return runtime.local;
+        return getLocalFromClientRoutes(clientRoutes);
+      }, []);
+    {{/isPluginModelEnable}}
 {{/hasTabsLayout}}
     const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
@@ -118,7 +143,7 @@ export function useKeepOutlets() {
         keepElements.current[location.pathname] = element;
     }
 {{#hasCustomTabs}}
-    const CustomTabs = getCustomTabs();
+    const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
         isKeep, keepElements, navigate, dropByCacheKey, local: localConfig, activeKey: location.pathname
     }
