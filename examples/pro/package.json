@@ -4,7 +4,7 @@
   "description": "An out-of-box UI solution for enterprise applications",
   "scripts": {
     "openapi": "max openapi",
-    "start": "max dev"
+    "start": "npm run dev"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
