@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.0.18
+
+### Patch Changes
+
+- [#439](https://github.com/alitajs/alita/pull/439) [`820d3ad6`](https://github.com/alitajs/alita/commit/820d3ad61a5996cbab2881293bbc2882e8af5f83) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support antd-pro
+
+* [#437](https://github.com/alitajs/alita/pull/437) [`dc7fe271`](https://github.com/alitajs/alita/commit/dc7fe2714d4d0735c339f63942b51ee8f978523a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: keepalive redirect
+
 ## 3.0.17
 
 ### Patch Changes
