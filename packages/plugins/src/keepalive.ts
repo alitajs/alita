@@ -44,13 +44,14 @@ export default (api: AlitaApi) => {
       join(__dirname, '..', 'templates', 'keepalive', 'context.tpl'),
       'utf-8',
     );
+    const hasInitialStatePlugin = api.config.initialState;
     api.writeTmpFile({
       path: `${DIR_NAME}/context.tsx`,
       noPluginDir: true,
       content: Mustache.render(contextTpl, {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
-        isPluginModelEnable: api.isPluginEnable('model'),
+        isPluginModelEnable: hasInitialStatePlugin,
       }),
     });
     const runtimeTpl = readFileSync(

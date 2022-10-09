@@ -1,8 +1,4 @@
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { DesktopOutlined, UserOutlined } from '@ant-design/icons';
 import { useKeepOutlets, useLocation, useNavigate } from 'alita';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
@@ -27,7 +23,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('首页', '/', <PieChartOutlined />),
+  // getItem('首页', '/', <PieChartOutlined />),
   getItem('用户', '/users', <UserOutlined />),
   getItem('其他', '/foo', <DesktopOutlined />),
 ];
