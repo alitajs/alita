@@ -3,7 +3,7 @@ import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
 import { Tabs, message, Dropdown, Button, Menu } from "antd";
-import { EllipsisOutlined } from "@ant-design/icons";
+import { EllipsisOutlined, VerticalRightOutlined, VerticalLeftOutlined, CloseOutlined, ReloadOutlined } from "@ant-design/icons";
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -194,14 +194,17 @@ export function useKeepOutlets() {
               items={[
                 {
                   label: "关闭左侧",
+                  icon: <VerticalRightOutlined />,
                   key: "left",
                 },
                 {
                   label: "关闭右侧",
+                  icon: <VerticalLeftOutlined />,
                   key: "right",
                 },
                 {
                   label: "关闭其他",
+                  icon: <CloseOutlined />,
                   key: "others",
                 },
                 {
@@ -209,6 +212,7 @@ export function useKeepOutlets() {
                 },
                 {
                   label: "刷新",
+                  icon: <ReloadOutlined />,
                   key: "refresh",
                 },
               ]}
@@ -225,7 +229,16 @@ export function useKeepOutlets() {
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local: localConfig, activeKey: location.pathname
+        isKeep,
+        keepElements,
+        navigate,
+        dropByCacheKey,
+        dropLeftTabs,
+        dropRightTabs,
+        dropOtherTabs,
+        refreshCurrentTab,
+        local: localConfig,
+        activeKey: location.pathname
     }
 {{/hasCustomTabs}}
     return <>
