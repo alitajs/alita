@@ -34,7 +34,7 @@ const getFullPath = (currPath = '', parentPath = '') => {
   return `${parentPath.replace(/\/$/, '')}/${currPath}`;
 };
 const findRouteByPath = (path, routes) => {
-    let route = null;
+    let route = {};
     const find = (routess, parentPath) => {
         for(let i = 0; i < routess.length; i++){
             const item = routess[i];
@@ -51,7 +51,7 @@ const findRouteByPath = (path, routes) => {
     find(routes);
     return route;
 }
-const isKeepPath = (aliveList: any[], path: string,clientRoutes:any[]) => {
+const isKeepPath = (aliveList: any[], path: string, route:any) => {
     let isKeep = false;
     aliveList.map(item => {
         if (item === path) {
@@ -65,10 +65,11 @@ const isKeepPath = (aliveList: any[], path: string,clientRoutes:any[]) => {
         }
     })
     if(isKeep === false){
-        const route = findRouteByPath(path,clientRoutes);
-        if(route){
-            isKeep = route.isKeepalive;
-        }
+        isKeep = !!route.isKeepalive;
+    }
+    if(route?.redirect) {
+        console.log('redirect')
+        isKeep = false;
     }
     return isKeep;
 }
@@ -111,7 +112,9 @@ export function useKeepOutlets() {
     const {initialState} = useModel('@@initialState');
 {{/isPluginModelEnable}}
 
-    const { clientRoutes } = useAppData();
+    const { clientRoutes, routes} = useAppData();
+    const route = findRouteByPath(location.pathname,clientRoutes);
+    const routeConfig = {...route,...(routes[route?.id]||{})};
 
 {{#hasTabsLayout}}
     const navigate = useNavigate();
