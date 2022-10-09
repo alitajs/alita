@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-import { Tabs, message } from 'antd';
+import { Tabs, message, Dropdown, Button, Menu } from "antd";
+import { EllipsisOutlined } from "@ant-design/icons";
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -137,11 +138,87 @@ export function useKeepOutlets() {
       }, []);
     {{/isPluginModelEnable}}
 {{/hasTabsLayout}}
-    const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+    const {
+      cacheKeyMap,
+      keepElements,
+      keepalive,
+      dropByCacheKey,
+      dropLeftTabs,
+      dropRightTabs,
+      dropOtherTabs,
+      refreshCurrentTab,
+    } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
-    if (isKeep) {
-        keepElements.current[location.pathname] = element;
+    if (isKeep && !keepElements.current[location.pathname]) {
+      const currentIndex = Object.keys(keepElements.current).length;
+      keepElements.current[location.pathname] = {
+        children: element,
+        index: currentIndex,
+        name: getMatchPathName(location.pathname, localConfig),
+      };
     }
+
+    const selectAction = React.useCallback(({ key }) => {
+      switch (key) {
+        case "left":
+          dropLeftTabs(location.pathname);
+          break;
+
+        case "right":
+          dropRightTabs(location.pathname);
+          break;
+
+        case "others":
+          dropOtherTabs(location.pathname);
+          break;
+
+        case "refresh":
+          refreshCurrentTab(location.pathname);
+          break;
+
+        default:
+          break;
+      }
+    },
+    [location.pathname]
+  );
+
+    const TabsExtraContent = React.useMemo(() => {
+      return (
+        <Dropdown
+          overlay={
+            <Menu
+              items={[
+                {
+                  label: "关闭左侧",
+                  key: "left",
+                },
+                {
+                  label: "关闭右侧",
+                  key: "right",
+                },
+                {
+                  label: "关闭其他",
+                  key: "others",
+                },
+                {
+                  type: "divider",
+                },
+                {
+                  label: "刷新",
+                  key: "refresh",
+                },
+              ]}
+              onClick={selectAction}
+            />
+          }
+          trigger={["click"]}
+        >
+          <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
+        </Dropdown>
+      );
+  }, [selectAction]);
+
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
@@ -155,9 +232,15 @@ export function useKeepOutlets() {
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
         <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
-            <Tabs hideAdd onChange={(key: string) => {
+            <Tabs
+              tabBarExtraContent={TabsExtraContent}
+              hideAdd
+              onChange={(key: string) => {
                 navigate(key);
-            }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {
+              }}
+              activeKey={location.pathname}
+              type="editable-card"
+              onEdit={(targetKey: string,) => {
                 let newActiveKey = location.pathname;
                 let lastIndex = -1;
                 const newPanel = Object.keys(keepElements.current);
@@ -187,19 +270,15 @@ export function useKeepOutlets() {
                     }
                 }
             }}>
-                {Object.entries(keepElements.current).map(([pathname, element]: any) => {
-                    // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, localConfig);
-                    return (
-                        <TabPane tab={`${tabName}`} key={pathname}/>
-                    );
+                {Object.entries(keepElements.current).map(([pathname, { name }]) => {
+                    return <TabPane tab={name} key={pathname} />;
                 })}
             </Tabs>
         </div>
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
         {
-            Object.entries(keepElements.current).map(([pathname, children]: any) => (
+            Object.entries(keepElements.current).map(([pathname, { children }]: any) => (
                 <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
