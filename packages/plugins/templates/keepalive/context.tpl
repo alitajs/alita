@@ -15,7 +15,9 @@ import { getCustomTabs } from '@/app';
 import { useModel } from '@@/plugin-model';
 {{/isPluginModelEnable}}
 import { useAppData } from '../exports';
-
+{{#hasIntl}}
+import { useIntl } from '../exports';
+{{/hasIntl}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
 const { TabPane } = Tabs;
@@ -38,7 +40,8 @@ const findRouteByPath = (path, routes) => {
         for(let i = 0; i < routess.length; i++){
             const item = routess[i];
             const fullPath = getFullPath(item.path, parentPath);
-            if (matchPath(fullPath, path)&&!item.isLayout) {
+            // path:'*' 404 page
+            if (matchPath(fullPath, path)&&!item.isLayout&& item.path !=='*') {
                 route = item;
                 break;
             }
@@ -74,12 +77,13 @@ const isKeepPath = (aliveList: any[], path: string, route:any) => {
 }
 
 
-const getMatchPathName = (pathname: string, local: Record<string, string>) => {
+const getMatchPathName = (pathname: string, local: Record<string, string>={}) => {
     const tabs = Object.entries(local);
     let tabName = pathname;
 
     for (const [key, value] of tabs) {
-        if (matchPath(key, pathname)) {
+        // /* 404 page
+        if (matchPath(key, pathname) && key !== '/*') {
             tabName = value;
             break;
         }
@@ -87,26 +91,38 @@ const getMatchPathName = (pathname: string, local: Record<string, string>) => {
     return tabName;
 }
 
-const getLocalFromClientRoutes = (data) => {
-    const local = {};
+const getLocalFromClientRoutes = (data,routesConfig) => {
+    const config = {
+        local: {},
+        icon:{}
+    };
     const getLocalFromRoutes = (routes, parentPath) => {
         routes.forEach(item => {
             const fullPath = getFullPath(item.path, parentPath);
             if(item.routes){
                 getLocalFromRoutes(item.routes, fullPath);
             }else{
-                local[fullPath] = item.name;
+                const routeConfig = {...item,...(routesConfig[item?.id]||{})};
+                config.local[fullPath] = routeConfig.name;
+                config.icon[fullPath] = routeConfig.icon;
             }
         })
     }
-    getLocalFromRoutes(data);
-    return local;
+    getLocalFromRoutes(data,'');
+    return config;
 }
 
 export function useKeepOutlets() {
     const location = useLocation();
     const element = useOutlet();
-
+{{#hasIntl}}
+    const intl = useIntl();
+{{/hasIntl}}
+{{^hasIntl}}
+    const intl = {
+        formatMessage:({defaultMessage})=>defaultMessage
+    };
+{{/hasIntl}}
 {{#isPluginModelEnable}}
     const {initialState} = useModel('@@initialState');
 {{/isPluginModelEnable}}
@@ -124,8 +140,8 @@ export function useKeepOutlets() {
           type: 'modify',
           initialValue: {initialState},
         });
-        if(runtime?.local) return runtime.local;
-        return getLocalFromClientRoutes(clientRoutes);
+        if(runtime?.local) return runtime;
+        return getLocalFromClientRoutes(clientRoutes,routes);
     }, [initialState]);
     {{/isPluginModelEnable}}
     {{^isPluginModelEnable}}
@@ -135,8 +151,8 @@ export function useKeepOutlets() {
           type: 'modify',
           initialValue: {},
         });
-        if(runtime?.local) return runtime.local;
-        return getLocalFromClientRoutes(clientRoutes);
+        if(runtime?.local) return runtime;
+        return getLocalFromClientRoutes(clientRoutes,routes);
       }, []);
     {{/isPluginModelEnable}}
 {{/hasTabsLayout}}
@@ -192,10 +208,14 @@ export function useKeepOutlets() {
             }}>
                 {Object.entries(keepElements.current).map(([pathname, element]: any) => {
                     // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, localConfig);
+                    const tabName = getMatchPathName(pathname, localConfig.local);
+                    let icon = getMatchPathName(pathname, localConfig.icon);
+                    if(typeof icon === 'string') icon ='';
+                    // 国际化使用 pro 的约定
                     return (
-                        <TabPane tab={`${tabName}`} key={pathname}/>
+                        <TabPane tab={<>{icon}{intl.formatMessage({id:`menu${pathname.replaceAll('/','.')}`,defaultMessage:tabName})}</>} key={pathname}/>
                     );
+
                 })}
             </Tabs>
         </div>
