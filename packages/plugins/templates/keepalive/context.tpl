@@ -1,3 +1,4 @@
+// tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
 import React, { useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
@@ -182,6 +183,7 @@ export function useKeepOutlets() {
     [location.pathname]
   );
 {{/hasTabsLayout}}
+
     const {
       cacheKeyMap,
       keepElements,
@@ -192,13 +194,15 @@ export function useKeepOutlets() {
       dropOtherTabs,
       refreshCurrentTab,
     } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
+    const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
       keepElements.current[location.pathname] = {
         children: element,
         index: currentIndex,
+{{#hasTabsLayout}}
         name: getMatchPathName(location.pathname, localConfig),
+{{/hasTabsLayout}}
       };
     }
 
@@ -225,6 +229,7 @@ export function useKeepOutlets() {
 {{#hasTabsLayout}}
         <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs
+{{#hasDropdown}}
               tabBarExtraContent={
                 <Dropdown
                   overlay={
@@ -262,6 +267,7 @@ export function useKeepOutlets() {
                   <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
                 </Dropdown>
               }
+{{/hasDropdown}}
               hideAdd
               onChange={(key: string) => {
                 navigate(key);
