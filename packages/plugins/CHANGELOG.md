@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.19
+
+### Patch Changes
+
+- [#441](https://github.com/alitajs/alita/pull/441) [`c2006814`](https://github.com/alitajs/alita/commit/c2006814fc76bd369af346feb9955e26fac34f22) Thanks [@chj-damon](https://github.com/chj-damon)! - 为多页签布局增加关闭/刷新等操作功能
+
 ## 3.0.18
 
 ### Patch Changes
