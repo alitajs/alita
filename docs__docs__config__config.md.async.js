@@ -88,22 +88,18 @@
 `,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"  "}),(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"return"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" <>{"}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"OutLet"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"}</>;"})]}),`
 `,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"};"})}),`
 `,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"export"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"default"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"Layout"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:";"})]}),`
+`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"export"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"default"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"Layout"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:";"})]})]})})}),`
+`,(0,s.jsxs)(l.h3,{id:"mainpath",children:[(0,s.jsx)(l.a,{"aria-hidden":"true",tabIndex:"-1",href:"#mainpath",children:(0,s.jsx)(l.span,{className:"icon icon-link"})}),"mainPath"]}),`
+`,(0,s.jsxs)(l.ul,{children:[`
+`,(0,s.jsxs)(l.li,{children:["\u7C7B\u578B\uFF1A",(0,s.jsx)(l.code,{children:"string"})]}),`
+`]}),`
+`,(0,s.jsx)(l.p,{children:"\u4FEE\u6539\u9879\u76EE\u7684\u8DEF\u7531\u4E3B\u5165\u53E3\u3002"}),`
+`,(0,s.jsxs)(l.p,{children:["\u9ED8\u8BA4\u4E3B\u5165\u53E3\u662F ",(0,s.jsx)(l.code,{children:"src/pages/index/index.tsx"})]}),`
+`,(0,s.jsx)(l.div,{"data-rehype-pretty-code-fragment":"",children:(0,s.jsx)(l.pre,{"data-language":"ts","data-theme":"default",children:(0,s.jsxs)(l.code,{"data-language":"ts","data-theme":"default",children:[(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"import"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" { "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"defineConfig"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" } "}),(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"from"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"'alita'"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:";"})]}),`
 `,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"### "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"mainPath"})]}),`
-`,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"* "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"\u7C7B\u578B"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"\uFF1A"}),(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"`string`"})]}),`
-`,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"\u4FEE\u6539\u9879\u76EE\u7684\u8DEF\u7531\u4E3B\u5165\u53E3"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"\u3002"})]}),`
-`,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"\u9ED8\u8BA4\u4E3B\u5165\u53E3\u662F"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"`src/pages/index/index.tsx`"})]}),`
-`,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"```ts"})}),`
-`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"import { defineConfig } from 'alita';"})}),`
-`,(0,s.jsx)(l.span,{className:"line",children:" "}),`
-`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"export default defineConfig({"})}),`
-`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"  mainPath: '/home',,"})}),`
-`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"});"})})]})})}),`
+`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"export"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#C586C0"},children:"default"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#DCDCAA"},children:"defineConfig"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"({"})]}),`
+`,(0,s.jsxs)(l.span,{className:"line",children:[(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"  "}),(0,s.jsx)(l.span,{style:{color:"#9CDCFE"},children:"mainPath:"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:" "}),(0,s.jsx)(l.span,{style:{color:"#CE9178"},children:"'/home'"}),(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:",,"})]}),`
+`,(0,s.jsx)(l.span,{className:"line",children:(0,s.jsx)(l.span,{style:{color:"#D4D4D4"},children:"});"})})]})})}),`
 `,(0,s.jsxs)(l.p,{children:["\u7ECF\u8FC7\u4E0A\u9762\u914D\u7F6E\u4FEE\u6539\u4E4B\u540E\uFF0C\u4E3B\u5165\u53E3\u53D8\u6210 ",(0,s.jsx)(l.code,{children:"src/pages/home/index.tsx"})]}),`
 `,(0,s.jsxs)(l.h3,{id:"mobilelayout",children:[(0,s.jsx)(l.a,{"aria-hidden":"true",tabIndex:"-1",href:"#mobilelayout",children:(0,s.jsx)(l.span,{className:"icon icon-link"})}),"mobileLayout"]}),`
 `,(0,s.jsxs)(l.ul,{children:[`
