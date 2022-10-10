@@ -1,8 +1,10 @@
+// tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
 import React, { useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-import { Tabs, message } from 'antd';
+import { Tabs, message, Dropdown, Button, Menu } from "antd";
+import { EllipsisOutlined, VerticalRightOutlined, VerticalLeftOutlined, CloseOutlined, ReloadOutlined } from "@ant-design/icons";
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -155,16 +157,68 @@ export function useKeepOutlets() {
         return getLocalFromClientRoutes(clientRoutes,routes);
       }, []);
     {{/isPluginModelEnable}}
+
+    const selectAction = React.useCallback(({ key }) => {
+      switch (key) {
+        case "left":
+          dropLeftTabs(location.pathname);
+          break;
+
+        case "right":
+          dropRightTabs(location.pathname);
+          break;
+
+        case "others":
+          dropOtherTabs(location.pathname);
+          break;
+
+        case "refresh":
+          refreshCurrentTab(location.pathname);
+          break;
+
+        default:
+          break;
+      }
+    },
+    [location.pathname]
+  );
 {{/hasTabsLayout}}
-    const { cacheKeyMap, keepElements, keepalive, dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+
+    const {
+      cacheKeyMap,
+      keepElements,
+      keepalive,
+      dropByCacheKey,
+      dropLeftTabs,
+      dropRightTabs,
+      dropOtherTabs,
+      refreshCurrentTab,
+    } = React.useContext<any>(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
-    if (isKeep) {
-        keepElements.current[location.pathname] = element;
+    if (isKeep && !keepElements.current[location.pathname]) {
+      const currentIndex = Object.keys(keepElements.current).length;
+      keepElements.current[location.pathname] = {
+        children: element,
+        index: currentIndex,
+{{#hasTabsLayout}}
+        name: getMatchPathName(location.pathname, localConfig),
+{{/hasTabsLayout}}
+      };
     }
+
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
-        isKeep, keepElements, navigate, dropByCacheKey, local: localConfig, activeKey: location.pathname
+        isKeep,
+        keepElements,
+        navigate,
+        dropByCacheKey,
+        dropLeftTabs,
+        dropRightTabs,
+        dropOtherTabs,
+        refreshCurrentTab,
+        local: localConfig,
+        activeKey: location.pathname
     }
 {{/hasCustomTabs}}
     return <>
@@ -174,9 +228,53 @@ export function useKeepOutlets() {
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
         <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
-            <Tabs hideAdd onChange={(key: string) => {
+            <Tabs
+{{#hasDropdown}}
+              tabBarExtraContent={
+                <Dropdown
+                  overlay={
+                    <Menu
+                      items={[
+                        {
+                          label: "关闭左侧",
+                          icon: <VerticalRightOutlined />,
+                          key: "left",
+                        },
+                        {
+                          label: "关闭右侧",
+                          icon: <VerticalLeftOutlined />,
+                          key: "right",
+                        },
+                        {
+                          label: "关闭其他",
+                          icon: <CloseOutlined />,
+                          key: "others",
+                        },
+                        {
+                          type: "divider",
+                        },
+                        {
+                          label: "刷新",
+                          icon: <ReloadOutlined />,
+                          key: "refresh",
+                        },
+                      ]}
+                      onClick={selectAction}
+                    />
+                  }
+                  trigger={["click"]}
+                >
+                  <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
+                </Dropdown>
+              }
+{{/hasDropdown}}
+              hideAdd
+              onChange={(key: string) => {
                 navigate(key);
-            }} activeKey={location.pathname} type="editable-card" onEdit={(targetKey: string,) => {
+              }}
+              activeKey={location.pathname}
+              type="editable-card"
+              onEdit={(targetKey: string,) => {
                 let newActiveKey = location.pathname;
                 let lastIndex = -1;
                 const newPanel = Object.keys(keepElements.current);
@@ -206,14 +304,12 @@ export function useKeepOutlets() {
                     }
                 }
             }}>
-                {Object.entries(keepElements.current).map(([pathname, element]: any) => {
-                    // 拿这个pathname去local里面的key去匹配，匹配上的就是要显示的，如果都没有匹配上，才显示pathname
-                    const tabName = getMatchPathName(pathname, localConfig.local);
+                {Object.entries(keepElements.current).map(([pathname, {name}]: any) => {
                     let icon = getMatchPathName(pathname, localConfig.icon);
                     if(typeof icon === 'string') icon ='';
                     // 国际化使用 pro 的约定
                     return (
-                        <TabPane tab={<>{icon}{intl.formatMessage({id:`menu${pathname.replaceAll('/','.')}`,defaultMessage:tabName})}</>} key={pathname}/>
+                        <TabPane tab={<>{icon}{intl.formatMessage({id:`menu${pathname.replaceAll('/','.')}`,defaultMessage:name})}</>} key={pathname}/>
                     );
 
                 })}
@@ -222,7 +318,7 @@ export function useKeepOutlets() {
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
         {
-            Object.entries(keepElements.current).map(([pathname, children]: any) => (
+            Object.entries(keepElements.current).map(([pathname, { children }]: any) => (
                 <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>

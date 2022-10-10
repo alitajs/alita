@@ -77,7 +77,7 @@ const tabList: TabBarListItem[] = [
     badge: '',
   },
   {
-    pagePath: '/foo',
+    pagePath: '/foo/1232',
     text: '设置',
     iconPath: SetGary,
     selectedIconPath: SetBlue,

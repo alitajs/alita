@@ -51,6 +51,7 @@ export default (api: AlitaApi) => {
       content: Mustache.render(contextTpl, {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
+        hasDropdown: !!tabsLayout?.hasDropdown,
         isPluginModelEnable: hasInitialStatePlugin,
         hasIntl: !!api.config.locale,
       }),

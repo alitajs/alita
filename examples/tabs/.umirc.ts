@@ -4,7 +4,9 @@ export default {
   mfsu: {},
   antd: {},
   hash: false,
-  tabsLayout: {},
+  tabsLayout: {
+    hasDropdown: true,
+  },
   routes: [
     {
       path: '/users',
