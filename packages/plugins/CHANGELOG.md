@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.0.20
+
+### Patch Changes
+
+- [#443](https://github.com/alitajs/alita/pull/443) [`9e5df132`](https://github.com/alitajs/alita/commit/9e5df13264af3beba4395972389bbc68ab31be05) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复 tabsLayout 的 local 配置不生效的问题
+
 ## 3.0.19
 
 ### Patch Changes
