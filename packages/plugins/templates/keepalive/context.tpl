@@ -201,7 +201,7 @@ export function useKeepOutlets() {
         children: element,
         index: currentIndex,
 {{#hasTabsLayout}}
-        name: getMatchPathName(location.pathname, localConfig),
+        name: getMatchPathName(location.pathname, localConfig.local),
 {{/hasTabsLayout}}
       };
     }
@@ -217,7 +217,8 @@ export function useKeepOutlets() {
         dropRightTabs,
         dropOtherTabs,
         refreshCurrentTab,
-        local: localConfig,
+        local: localConfig.local,
+        icons: localConfig.icon,
         activeKey: location.pathname
     }
 {{/hasCustomTabs}}
