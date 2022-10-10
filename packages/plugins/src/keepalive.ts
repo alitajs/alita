@@ -52,6 +52,7 @@ export default (api: AlitaApi) => {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
         isPluginModelEnable: hasInitialStatePlugin,
+        hasIntl: !!api.config.locale,
       }),
     });
     const runtimeTpl = readFileSync(

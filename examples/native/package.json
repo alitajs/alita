@@ -16,7 +16,7 @@
     "@capacitor/core": "^3.6.0",
     "@capacitor/ios": "^3.6.0",
     "ahooks": "^3.0.8",
-    "alita": "3.0.20",
+    "alita": "3.0.21",
     "antd-mobile": "^5.10.0"
   },
   "devDependencies": {

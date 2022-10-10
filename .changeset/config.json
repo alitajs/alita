@@ -22,6 +22,7 @@
     "@example/lint",
     "@examples/mobile2",
     "@examples/native",
+    "@examples/pro",
     "@examples/routes",
     "@examples/tabs",
     "@examples/tabs-routes",
