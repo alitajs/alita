@@ -140,26 +140,6 @@ export function useKeepOutlets() {
         return getLocalFromClientRoutes(clientRoutes);
       }, []);
     {{/isPluginModelEnable}}
-{{/hasTabsLayout}}
-    const {
-      cacheKeyMap,
-      keepElements,
-      keepalive,
-      dropByCacheKey,
-      dropLeftTabs,
-      dropRightTabs,
-      dropOtherTabs,
-      refreshCurrentTab,
-    } = React.useContext<any>(KeepAliveContext);
-    const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
-    if (isKeep && !keepElements.current[location.pathname]) {
-      const currentIndex = Object.keys(keepElements.current).length;
-      keepElements.current[location.pathname] = {
-        children: element,
-        index: currentIndex,
-        name: getMatchPathName(location.pathname, localConfig),
-      };
-    }
 
     const selectAction = React.useCallback(({ key }) => {
       switch (key) {
@@ -185,46 +165,26 @@ export function useKeepOutlets() {
     },
     [location.pathname]
   );
-
-    const TabsExtraContent = React.useMemo(() => {
-      return (
-        <Dropdown
-          overlay={
-            <Menu
-              items={[
-                {
-                  label: "关闭左侧",
-                  icon: <VerticalRightOutlined />,
-                  key: "left",
-                },
-                {
-                  label: "关闭右侧",
-                  icon: <VerticalLeftOutlined />,
-                  key: "right",
-                },
-                {
-                  label: "关闭其他",
-                  icon: <CloseOutlined />,
-                  key: "others",
-                },
-                {
-                  type: "divider",
-                },
-                {
-                  label: "刷新",
-                  icon: <ReloadOutlined />,
-                  key: "refresh",
-                },
-              ]}
-              onClick={selectAction}
-            />
-          }
-          trigger={["click"]}
-        >
-          <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
-        </Dropdown>
-      );
-  }, [selectAction]);
+{{/hasTabsLayout}}
+    const {
+      cacheKeyMap,
+      keepElements,
+      keepalive,
+      dropByCacheKey,
+      dropLeftTabs,
+      dropRightTabs,
+      dropOtherTabs,
+      refreshCurrentTab,
+    } = React.useContext<any>(KeepAliveContext);
+    const isKeep = isKeepPath(keepalive, location.pathname, clientRoutes);
+    if (isKeep && !keepElements.current[location.pathname]) {
+      const currentIndex = Object.keys(keepElements.current).length;
+      keepElements.current[location.pathname] = {
+        children: element,
+        index: currentIndex,
+        name: getMatchPathName(location.pathname, localConfig),
+      };
+    }
 
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
@@ -249,7 +209,43 @@ export function useKeepOutlets() {
 {{#hasTabsLayout}}
         <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} >
             <Tabs
-              tabBarExtraContent={TabsExtraContent}
+              tabBarExtraContent={
+                <Dropdown
+                  overlay={
+                    <Menu
+                      items={[
+                        {
+                          label: "关闭左侧",
+                          icon: <VerticalRightOutlined />,
+                          key: "left",
+                        },
+                        {
+                          label: "关闭右侧",
+                          icon: <VerticalLeftOutlined />,
+                          key: "right",
+                        },
+                        {
+                          label: "关闭其他",
+                          icon: <CloseOutlined />,
+                          key: "others",
+                        },
+                        {
+                          type: "divider",
+                        },
+                        {
+                          label: "刷新",
+                          icon: <ReloadOutlined />,
+                          key: "refresh",
+                        },
+                      ]}
+                      onClick={selectAction}
+                    />
+                  }
+                  trigger={["click"]}
+                >
+                  <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
+                </Dropdown>
+              }
               hideAdd
               onChange={(key: string) => {
                 navigate(key);
