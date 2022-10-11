@@ -1,4 +1,4 @@
-import { history, KeepAliveContext, Outlet, useLocation } from 'umi';
+import { history, KeepAliveContext, Outlet, useLocation } from 'alita';
 
 import { Button } from 'antd';
 import React, { useState } from 'react';
@@ -10,7 +10,10 @@ export default () => {
     React.useContext<any>(KeepAliveContext);
 
   const handleClick = () => {
-    updateTabName(location.pathname, 'hahaha');
+    updateTabName(
+      location.pathname,
+      'hahaha' + Math.ceil((Math.random() * 100) / 10),
+    );
   };
   return (
     <div>
