@@ -6,8 +6,9 @@ import { getKeepAlive } from '@/app';
 {{/hasGetKeepalive}}
 
 const KeepAliveLayout = (props)=>{
-  const keepElements = React.useRef<any>({})
-  const [cacheKeyMap, setCacheKeyMap] = React.useState({})
+  const keepElements = React.useRef<any>({});
+  const [cacheKeyMap, setCacheKeyMap] = React.useState({});
+  const [tabNameMap, setTabNameMap] = React.useState({});
   const [keepalive, setKeepalive] = React.useState([{{{ keepalive }}}]);
 {{#hasGetKeepalive}}
 
@@ -114,8 +115,8 @@ const KeepAliveLayout = (props)=>{
   function updateTabName(path: string, name: string) {
     keepElements.current[path].name = name;
 
-    setCacheKeyMap((cacheKeyMap) => ({
-      ...cacheKeyMap,
+    setTabNameMap((tabNameMap) => ({
+      ...tabNameMap,
       [path]: Math.random(),
     }));
   }
@@ -128,6 +129,7 @@ const KeepAliveLayout = (props)=>{
         keepElements,
         dropByCacheKey,
         cacheKeyMap,
+        tabNameMap,
         dropLeftTabs,
         dropRightTabs,
         dropOtherTabs,

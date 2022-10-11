@@ -186,6 +186,7 @@ export function useKeepOutlets() {
 
     const {
       cacheKeyMap,
+      tabNameMap,
       keepElements,
       keepalive,
       dropByCacheKey,
@@ -197,12 +198,17 @@ export function useKeepOutlets() {
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
+      {{#hasTabsLayout}}
+      const defaultName = getMatchPathName(location.pathname, localConfig.local);
+      // 国际化使用 pro 的约定
+      const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
+      {{/hasTabsLayout}}
       keepElements.current[location.pathname] = {
         children: element,
         index: currentIndex,
-{{#hasTabsLayout}}
-        name: getMatchPathName(location.pathname, localConfig.local),
-{{/hasTabsLayout}}
+        {{#hasTabsLayout}}
+        name,
+        {{/hasTabsLayout}}
       };
     }
 
@@ -271,11 +277,13 @@ export function useKeepOutlets() {
 {{/hasDropdown}}
               hideAdd
               onChange={(key: string) => {
-                navigate(key);
+                const path = key.split(':')[0];
+                navigate(path);
               }}
               activeKey={location.pathname}
               type="editable-card"
-              onEdit={(targetKey: string,) => {
+              onEdit={(key: string) => {
+                const targetKey = key.split(':')[0];
                 let newActiveKey = location.pathname;
                 let lastIndex = -1;
                 const newPanel = Object.keys(keepElements.current);
@@ -308,9 +316,8 @@ export function useKeepOutlets() {
                 {Object.entries(keepElements.current).map(([pathname, {name}]: any) => {
                     let icon = getMatchPathName(pathname, localConfig.icon);
                     if(typeof icon === 'string') icon ='';
-                    // 国际化使用 pro 的约定
                     return (
-                        <TabPane tab={<>{icon}{intl.formatMessage({id:`menu${pathname.replaceAll('/','.')}`,defaultMessage:name})}</>} key={pathname}/>
+                        <TabPane tab={<>{icon}{name}</>} key={`${pathname}:${tabNameMap[pathname] || ''}`}/>
                     );
 
                 })}
