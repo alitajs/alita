@@ -1,3 +1,4 @@
+import { UserOutlined } from '@ant-design/icons';
 import { KeepAliveContext, useLocation, useParams } from 'alita';
 import { Button } from 'antd';
 import React, { useEffect, useState } from 'react';
@@ -5,18 +6,19 @@ import React, { useEffect, useState } from 'react';
 export default () => {
   const [count, setCount] = useState(0);
   const location = useLocation();
-  const { updateTabName } = React.useContext<any>(KeepAliveContext);
+  const { updateTab } = React.useContext(KeepAliveContext);
   const params = useParams();
 
   useEffect(() => {
-    updateTabName(location.pathname, '详情' + params?.index);
+    updateTab(location.pathname, { name: '详情' + params?.index });
   }, []);
 
   const handleClick = () => {
-    updateTabName(
-      location.pathname,
-      'hahaha' + Math.ceil((Math.random() * 100) / 10),
-    );
+    updateTab(location.pathname, {
+      icon: <UserOutlined />,
+      name: 'hahaha' + Math.ceil((Math.random() * 100) / 10),
+      closable: false,
+    });
   };
 
   return (
@@ -31,7 +33,7 @@ export default () => {
       >
         点我计数加1
       </Button>
-      <Button onClick={handleClick}>修改tabName</Button>
+      <Button onClick={handleClick}>修改tab</Button>
     </div>
   );
 };

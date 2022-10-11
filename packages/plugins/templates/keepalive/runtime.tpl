@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeepAliveContext } from './context';
+import { KeepAliveContext, TabConfig } from './context';
 {{#hasGetKeepalive}}
 
 import { getKeepAlive } from '@/app';
@@ -98,10 +98,10 @@ const KeepAliveLayout = (props)=>{
   }
 
   /**
-   * 重载当前tab对应的页面
+   * 重载tab页面
    * @param path
    */
-  function refreshCurrentTab(path: string) {
+  function refreshTab(path: string) {
     setCacheKeyMap((cacheKeyMap) => ({
       ...cacheKeyMap,
       [path]: Math.random(),
@@ -109,12 +109,15 @@ const KeepAliveLayout = (props)=>{
   }
 
   /**
-   * 修改当前tab的name
+   * 修改当前tab
    * @param path
    */
-  function updateTabName(path: string, name: string) {
+  function updateTab(path: string, config: TabConfig) {
     if (keepElements.current[path]) {
-      keepElements.current[path].name = name;
+      keepElements.current[path] = {
+        ...keepElements.current[path],
+        ...config,
+      }
 
       setTabNameMap((tabNameMap) => ({
         ...tabNameMap,
@@ -129,14 +132,14 @@ const KeepAliveLayout = (props)=>{
         keepalive,
         setKeepalive,
         keepElements,
-        dropByCacheKey,
         cacheKeyMap,
         tabNameMap,
+        dropByCacheKey,
         dropLeftTabs,
         dropRightTabs,
         dropOtherTabs,
-        refreshCurrentTab,
-        updateTabName,
+        refreshTab,
+        updateTab,
       }}
       {...props}
     />
