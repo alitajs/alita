@@ -1,5 +1,4 @@
 ---
-'@examples/tabs': patch
 '@alita/plugins': patch
 ---
 
