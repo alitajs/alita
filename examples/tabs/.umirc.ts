@@ -1,6 +1,6 @@
 export default {
   appType: 'pc',
-  keepalive: [/./],
+  keepalive: [/foo/],
   mfsu: {},
   antd: {},
   hash: false,

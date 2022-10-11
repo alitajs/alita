@@ -113,12 +113,14 @@ const KeepAliveLayout = (props)=>{
    * @param path
    */
   function updateTabName(path: string, name: string) {
-    keepElements.current[path].name = name;
+    if (keepElements.current[path]) {
+      keepElements.current[path].name = name;
 
-    setTabNameMap((tabNameMap) => ({
-      ...tabNameMap,
-      [path]: Math.random(),
-    }));
+      setTabNameMap((tabNameMap) => ({
+        ...tabNameMap,
+        [path]: Math.random(),
+      }));
+    }
   }
 
   return (

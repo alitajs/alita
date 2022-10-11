@@ -11,6 +11,14 @@ export default () => {
   useEffect(() => {
     updateTabName(location.pathname, '详情' + params?.index);
   }, []);
+
+  const handleClick = () => {
+    updateTabName(
+      location.pathname,
+      'hahaha' + Math.ceil((Math.random() * 100) / 10),
+    );
+  };
+
   return (
     <div>
       <h3>当前页面状态被设置成自动保存</h3>
@@ -23,6 +31,7 @@ export default () => {
       >
         点我计数加1
       </Button>
+      <Button onClick={handleClick}>修改tabName</Button>
     </div>
   );
 };
