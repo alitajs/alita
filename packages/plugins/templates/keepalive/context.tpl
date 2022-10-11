@@ -280,10 +280,11 @@ export function useKeepOutlets() {
                 const path = key.split(':')[0];
                 navigate(path);
               }}
-              activeKey={location.pathname}
+              activeKey={`${location.pathname}::${tabNameMap[location.pathname]}`}
               type="editable-card"
               onEdit={(key: string) => {
-                const targetKey = key.split(':')[0];
+                // 因为下方的 key 拼接了 tabNameMap[location.pathname]
+                const targetKey = key.split('::')[0];
                 let newActiveKey = location.pathname;
                 let lastIndex = -1;
                 const newPanel = Object.keys(keepElements.current);
@@ -317,7 +318,7 @@ export function useKeepOutlets() {
                     let icon = getMatchPathName(pathname, localConfig.icon);
                     if(typeof icon === 'string') icon ='';
                     return (
-                        <TabPane tab={<>{icon}{name}</>} key={`${pathname}:${tabNameMap[pathname] || ''}`}/>
+                        <TabPane tab={<>{icon}{name}</>} key={`${pathname}::${tabNameMap[pathname]}`}/>
                     );
 
                 })}
