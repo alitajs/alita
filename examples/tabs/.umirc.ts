@@ -15,7 +15,7 @@ export default {
       component: './users',
     },
     {
-      path: '/foo',
+      path: '/foo/:index',
       name: 'foo',
       icon: 'smile',
       component: './foo',

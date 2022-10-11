@@ -1,12 +1,20 @@
-import { KeepAliveContext } from '@@/plugin-keepalive';
-import { history, Outlet, useLocation } from 'alita';
+import { history, KeepAliveContext, Outlet, useLocation } from 'alita';
+
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
 export default () => {
   const [count, setCount] = useState(0);
   const location = useLocation();
-  const { dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+  const { dropByCacheKey, updateTabName } =
+    React.useContext<any>(KeepAliveContext);
+
+  const handleClick = () => {
+    updateTabName(
+      location.pathname,
+      'hahaha' + Math.ceil((Math.random() * 100) / 10),
+    );
+  };
   return (
     <div>
       <h2>users layout</h2>
@@ -31,6 +39,7 @@ export default () => {
       <Button onClick={() => dropByCacheKey(location.pathname)}>
         清除当前页面缓存
       </Button>
+      <Button onClick={handleClick}>修改tabName</Button>
     </div>
   );
 };

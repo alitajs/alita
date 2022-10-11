@@ -25,7 +25,8 @@ function getItem(
 const items: MenuItem[] = [
   // getItem('首页', '/', <PieChartOutlined />),
   getItem('用户', '/users', <UserOutlined />),
-  getItem('其他', '/foo', <DesktopOutlined />),
+  getItem('其他123', '/foo/123', <DesktopOutlined />),
+  getItem('其他456', '/foo/456', <DesktopOutlined />),
 ];
 
 const App: React.FC = () => {
