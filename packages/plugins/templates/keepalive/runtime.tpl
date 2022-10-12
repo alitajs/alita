@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeepAliveContext } from './context';
+import { KeepAliveContext, TabConfig } from './context';
 {{#hasGetKeepalive}}
 
 import { getKeepAlive } from '@/app';
@@ -44,16 +44,16 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     const leftTabs = Object.entries(keepElements.current).filter(
-      ([key, { index }]) => index < currentIndex
+      ([_, { index, closable }]) => index < currentIndex & closable
     );
 
     // 挨个删除
-    leftTabs.forEach(([key, { index }]) => {
+    leftTabs.forEach(([key]) => {
       dropByCacheKey(key);
     });
 
     // 遍历剩下的keepElements，修改它们的index
-    Object.entries(keepElements.current).forEach(([key, item]) => {
+    Object.entries(keepElements.current).forEach(([_, item]) => {
       item.index = item.index - leftTabs.length;
     });
   }
@@ -66,16 +66,16 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     const rightTabs = Object.entries(keepElements.current).filter(
-      ([key, { index }]) => index > currentIndex
+      ([_, { index, closable }]) => index > currentIndex & closable
     );
 
     // 挨个删除
-    rightTabs.forEach(([key, { index }]) => {
+    rightTabs.forEach(([key]) => {
       dropByCacheKey(key);
     });
 
     // 遍历剩下的keepElements，修改它们的index
-    Object.entries(keepElements.current).forEach(([key, item], index) => {
+    Object.entries(keepElements.current).forEach(([_, item], index) => {
       item.index = index;
     });
   }
@@ -88,8 +88,8 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     // 遍历keepElements
-    Object.entries(keepElements.current).forEach(([key, { index }]) => {
-      if (index != currentIndex) {
+    Object.entries(keepElements.current).forEach(([key, { index, closable }]) => {
+      if (index != currentIndex & closable) {
         dropByCacheKey(key);
       }
     });
@@ -98,10 +98,10 @@ const KeepAliveLayout = (props)=>{
   }
 
   /**
-   * 重载当前tab对应的页面
+   * 重载tab页面
    * @param path
    */
-  function refreshCurrentTab(path: string) {
+  function refreshTab(path: string) {
     setCacheKeyMap((cacheKeyMap) => ({
       ...cacheKeyMap,
       [path]: Math.random(),
@@ -109,16 +109,21 @@ const KeepAliveLayout = (props)=>{
   }
 
   /**
-   * 修改当前tab的name
+   * 修改当前tab
    * @param path
    */
-  function updateTabName(path: string, name: string) {
-    keepElements.current[path].name = name;
+  function updateTab(path: string, config: TabConfig) {
+    if (keepElements.current[path]) {
+      keepElements.current[path] = {
+        ...keepElements.current[path],
+        ...config,
+      }
 
-    setTabNameMap((tabNameMap) => ({
-      ...tabNameMap,
-      [path]: Math.random(),
-    }));
+      setTabNameMap((tabNameMap) => ({
+        ...tabNameMap,
+        [path]: Math.random(),
+      }));
+    }
   }
 
   return (
@@ -127,14 +132,14 @@ const KeepAliveLayout = (props)=>{
         keepalive,
         setKeepalive,
         keepElements,
-        dropByCacheKey,
         cacheKeyMap,
         tabNameMap,
+        dropByCacheKey,
         dropLeftTabs,
         dropRightTabs,
         dropOtherTabs,
-        refreshCurrentTab,
-        updateTabName,
+        refreshTab,
+        updateTab,
       }}
       {...props}
     />

@@ -1,5 +1,5 @@
 // tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -26,9 +26,28 @@ const { TabPane } = Tabs;
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
 
+export interface TabConfig {
+  icon?: ReactNode;
+  name?: string;
+  closable?: boolean;
+}
 
+export interface KeepAliveContextProps {
+  keepalive: RegExp[],
+  setKeepalive: React.Dispatch<React.SetStateAction<RegExp[]>>,
+  keepElements: React.MutableRefObject<any>,
+  dropByCacheKey: (path: string) => void,
+  cacheKeyMap: Record<string, number>,
+  tabNameMap: Record<string, number>,
+  dropLeftTabs: (path: string) => void,
+  dropRightTabs: (path: string) => void,
+  dropOtherTabs: (path: string) => void,
+  refreshTab: (path: string) => void,
+  updateTab: (path: string, config: TabConfig) => void,
+}
 
-export const KeepAliveContext = React.createContext({});
+export const KeepAliveContext = React.createContext<KeepAliveContextProps>({});
+
 // 兼容非全路径的 path
 const getFullPath = (currPath = '', parentPath = '') => {
   if (currPath.startsWith('/')) {
@@ -173,7 +192,7 @@ export function useKeepOutlets() {
           break;
 
         case "refresh":
-          refreshCurrentTab(location.pathname);
+          refreshTab(location.pathname);
           break;
 
         default:
@@ -193,12 +212,15 @@ export function useKeepOutlets() {
       dropLeftTabs,
       dropRightTabs,
       dropOtherTabs,
-      refreshCurrentTab,
-    } = React.useContext<any>(KeepAliveContext);
+      refreshTab,
+    } = React.useContext(KeepAliveContext);
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
+      let icon = getMatchPathName(location.pathname, localConfig.icon);
+      if(typeof icon === 'string') icon ='';
+
       const defaultName = getMatchPathName(location.pathname, localConfig.local);
       // 国际化使用 pro 的约定
       const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
@@ -208,6 +230,8 @@ export function useKeepOutlets() {
         index: currentIndex,
         {{#hasTabsLayout}}
         name,
+        icon,
+        closable: true, // 默认是true
         {{/hasTabsLayout}}
       };
     }
@@ -222,7 +246,7 @@ export function useKeepOutlets() {
         dropLeftTabs,
         dropRightTabs,
         dropOtherTabs,
-        refreshCurrentTab,
+        refreshTab,
         local: localConfig.local,
         icons: localConfig.icon,
         activeKey: location.pathname
@@ -314,11 +338,13 @@ export function useKeepOutlets() {
                     }
                 }
             }}>
-                {Object.entries(keepElements.current).map(([pathname, {name}]: any) => {
-                    let icon = getMatchPathName(pathname, localConfig.icon);
-                    if(typeof icon === 'string') icon ='';
+                {Object.entries(keepElements.current).map(([pathname, {name, icon, closable}]: any) => {
                     return (
-                        <TabPane tab={<>{icon}{name}</>} key={`${pathname}::${tabNameMap[pathname]}`}/>
+                      <TabPane
+                        key={`${pathname}::${tabNameMap[pathname]}`}
+                        tab={<>{icon}{name}</>}
+                        closable={Object.entries(keepElements.current).length === 1?false:closable}
+                      />
                     );
 
                 })}

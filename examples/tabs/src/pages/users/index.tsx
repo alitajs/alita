@@ -6,14 +6,12 @@ import React, { useState } from 'react';
 export default () => {
   const [count, setCount] = useState(0);
   const location = useLocation();
-  const { dropByCacheKey, updateTabName } =
-    React.useContext<any>(KeepAliveContext);
+  const { dropByCacheKey, updateTab } = React.useContext<any>(KeepAliveContext);
 
   const handleClick = () => {
-    updateTabName(
-      location.pathname,
-      'hahaha' + Math.ceil((Math.random() * 100) / 10),
-    );
+    updateTab(location.pathname, {
+      name: 'hahaha' + Math.ceil((Math.random() * 100) / 10),
+    });
   };
   return (
     <div>
