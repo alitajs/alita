@@ -1,5 +1,23 @@
 # @alita/plugins
 
+## 3.1.0
+
+### Minor Changes
+
+- [`bca7e46d`](https://github.com/alitajs/alita/commit/bca7e46d7b9c29deb1342a5ac1fac131d25be9a4) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update version for tabs
+
+### Patch Changes
+
+- [#445](https://github.com/alitajs/alita/pull/445) [`23464ab6`](https://github.com/alitajs/alita/commit/23464ab69bfdcf2f0298b3959e7b85f55dfa408f) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复因修改 tabName 导致页面死循环的 bug
+
+* [#449](https://github.com/alitajs/alita/pull/449) [`7571b8ff`](https://github.com/alitajs/alita/commit/7571b8ff2c4375a72479228032817b714530ce4f) Thanks [@chj-damon](https://github.com/chj-damon)! - 支持修改 tab 的名称/图标/是否可关闭修复 KeepAliveContext 没有 TS 类型的 bug
+
+- [#450](https://github.com/alitajs/alita/pull/450) [`902c3bcf`](https://github.com/alitajs/alita/commit/902c3bcf573e097f9e3d5187a47303f72631e05f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: vconsole none
+
+- Updated dependencies [[`bca7e46d`](https://github.com/alitajs/alita/commit/bca7e46d7b9c29deb1342a5ac1fac131d25be9a4)]:
+  - @alita/request@3.1.0
+  - @alita/types@3.1.0
+
 ## 3.0.20
 
 ### Patch Changes
