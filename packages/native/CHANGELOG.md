@@ -1,5 +1,16 @@
 # @alita/native
 
+## 3.1.0
+
+### Minor Changes
+
+- [`bca7e46d`](https://github.com/alitajs/alita/commit/bca7e46d7b9c29deb1342a5ac1fac131d25be9a4) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update version for tabs
+
+### Patch Changes
+
+- Updated dependencies [[`bca7e46d`](https://github.com/alitajs/alita/commit/bca7e46d7b9c29deb1342a5ac1fac131d25be9a4)]:
+  - @alita/types@3.1.0
+
 ## 3.0.10
 
 ### Patch Changes
