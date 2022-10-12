@@ -62,7 +62,9 @@ export default (api: AlitaApi) => {
     });
     api.addEntryCode(() => {
       return [
-        `const c = new window.VConsole(${JSON.stringify(aconsole.console)});`,
+        `if(window.VConsole) new window.VConsole(${JSON.stringify(
+          aconsole.console,
+        )});`,
       ];
     });
   }
