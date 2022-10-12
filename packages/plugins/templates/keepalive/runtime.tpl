@@ -44,16 +44,16 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     const leftTabs = Object.entries(keepElements.current).filter(
-      ([key, { index }]) => index < currentIndex
+      ([_, { index, closable }]) => index < currentIndex & closable
     );
 
     // 挨个删除
-    leftTabs.forEach(([key, { index }]) => {
+    leftTabs.forEach(([key]) => {
       dropByCacheKey(key);
     });
 
     // 遍历剩下的keepElements，修改它们的index
-    Object.entries(keepElements.current).forEach(([key, item]) => {
+    Object.entries(keepElements.current).forEach(([_, item]) => {
       item.index = item.index - leftTabs.length;
     });
   }
@@ -66,16 +66,16 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     const rightTabs = Object.entries(keepElements.current).filter(
-      ([key, { index }]) => index > currentIndex
+      ([_, { index, closable }]) => index > currentIndex & closable
     );
 
     // 挨个删除
-    rightTabs.forEach(([key, { index }]) => {
+    rightTabs.forEach(([key]) => {
       dropByCacheKey(key);
     });
 
     // 遍历剩下的keepElements，修改它们的index
-    Object.entries(keepElements.current).forEach(([key, item], index) => {
+    Object.entries(keepElements.current).forEach(([_, item], index) => {
       item.index = index;
     });
   }
@@ -88,8 +88,8 @@ const KeepAliveLayout = (props)=>{
     const currentIndex = keepElements.current[path].index;
 
     // 遍历keepElements
-    Object.entries(keepElements.current).forEach(([key, { index }]) => {
-      if (index != currentIndex) {
+    Object.entries(keepElements.current).forEach(([key, { index, closable }]) => {
+      if (index != currentIndex & closable) {
         dropByCacheKey(key);
       }
     });
