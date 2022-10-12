@@ -343,7 +343,7 @@ export function useKeepOutlets() {
                       <TabPane
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
-                        closable={closable}
+                        closable={Object.entries(keepElements.current).length === 1?false:closable}
                       />
                     );
 
