@@ -1,9 +1,12 @@
-import { logger } from '@umijs/utils';
+import { chalk, logger } from '@umijs/utils';
 import type { IApi } from 'umi';
+// @ts-ignore
+import pkg from '../package.json';
 
 export default (api: IApi) => {
   api.onStart(() => {
-    logger.info('Hello Alita@3');
+    console.log(pkg?.version);
+    logger.info(chalk.bold(chalk.cyan(`alita v${pkg?.version || '3'}`)));
   });
   const corePlugins = [
     require.resolve('./features/config/alitaconfig'),
@@ -24,6 +27,7 @@ export default (api: IApi) => {
     require.resolve('@alita/plugins/dist/classnames'),
     require.resolve('@alita/plugins/dist/model'),
     require.resolve('@alita/plugins/dist/helmet'),
+    require.resolve('@alita/plugins/dist/moment'),
   ];
   if (api.userConfig.antd) {
     plugins.push(require.resolve('@alita/plugins/dist/antd'));
