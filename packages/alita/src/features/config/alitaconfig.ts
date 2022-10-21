@@ -37,6 +37,10 @@ export default (api: IApi) => {
         /services\//,
       ],
     },
+    moment2dayjs: {
+      preset: 'antd',
+      plugins: ['duration'],
+    },
     ...api.userConfig,
   };
   if (api.userConfig.complexRoute) {

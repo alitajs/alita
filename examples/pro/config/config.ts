@@ -113,5 +113,7 @@ export default defineConfig({
   access: {},
   //================ pro 插件配置 =================
   keepalive: [/./],
-  tabsLayout: {},
+  tabsLayout: {
+    hasDropdown: true,
+  },
 });
