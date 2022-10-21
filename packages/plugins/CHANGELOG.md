@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.1.1
+
+### Patch Changes
+
+- [#452](https://github.com/alitajs/alita/pull/452) [`4076f5bc`](https://github.com/alitajs/alita/commit/4076f5bca5c5283d49ca1809afb40d245fa87e39) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: use umi moment plugin
+
 ## 3.1.0
 
 ### Minor Changes
