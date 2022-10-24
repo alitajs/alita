@@ -203,6 +203,12 @@ importers:
       rc-menu: 9.6.0
       rc-util: 5.24.3
 
+  examples/rerender:
+    specifiers:
+      alita: 3.1.1
+    dependencies:
+      alita: link:../../packages/alita
+
   examples/routes:
     specifiers:
       '@alita/flow': workspace:*

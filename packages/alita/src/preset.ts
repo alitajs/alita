@@ -13,6 +13,7 @@ export default (api: IApi) => {
     require.resolve('./features/alitaloading'),
     require.resolve('./features/apptype'),
     require.resolve('./features/legacy'),
+    require.resolve('./features/preloading'),
     // TODO: 需要和当前路由信息联动
     // require.resolve('./features/qrcodeterminal'),
     require.resolve('./commands/generate/pages'),

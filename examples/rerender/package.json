@@ -1,0 +1,13 @@
+{
+  "name": "@examples/rerender",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "alita build",
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "alita": "3.1.1"
+  }
+}
