@@ -23,6 +23,7 @@
     "@examples/mobile2",
     "@examples/native",
     "@examples/pro",
+    "@examples/rerender",
     "@examples/routes",
     "@examples/tabs",
     "@examples/tabs-routes",
