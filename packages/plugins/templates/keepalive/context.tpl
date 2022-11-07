@@ -236,13 +236,13 @@ export function useKeepOutlets() {
     } = React.useContext(KeepAliveContext);
       
   keepaliveEmitter?.useSubscription?.((event) => {
-    const {type='',payload={}} = event;
+    const { type = '', payload = {} } = event;
     switch(type){
       case 'dropByCacheKey':
         dropByCacheKey(payload?.path);
         break;
-        default:
-          break;
+      default:
+        break;
     }
   });
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
@@ -250,7 +250,7 @@ export function useKeepOutlets() {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
       let icon = getMatchPathName(location.pathname, localConfig.icon);
-      if(typeof icon === 'string') icon ='';
+      if(typeof icon === 'string') icon = '';
 
       const defaultName = getMatchPathName(location.pathname, localConfig.local);
       // 国际化使用 pro 的约定
