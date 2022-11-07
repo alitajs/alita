@@ -449,7 +449,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
   return (
     <AlitaLayout {...layout}>
-      {children}
       {element}
     </AlitaLayout>
   );

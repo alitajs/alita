@@ -22,6 +22,7 @@ export default (api: IApi) => {
     dva: {
       enableModelsReExport: true,
     },
+    reactRouter5Compat: {},
     model: {},
     request: {},
     displayName: 'alita-demo',
@@ -65,6 +66,10 @@ export default (api: IApi) => {
         memo[key] = configDefaults[key];
       }
     });
+    // umi4 开发环境不允许配置为 './'
+    if (process.env.NODE_ENV === 'development' && memo.publicPath === './') {
+      memo.publicPath = '/';
+    }
     return memo;
   });
 

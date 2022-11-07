@@ -5,7 +5,6 @@ import pkg from '../package.json';
 
 export default (api: IApi) => {
   api.onStart(() => {
-    console.log(pkg?.version);
     logger.info(chalk.bold(chalk.cyan(`alita v${pkg?.version || '3'}`)));
   });
   const corePlugins = [

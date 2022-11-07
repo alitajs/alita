@@ -16,6 +16,7 @@
   },
   "ignore": [
     "@examples/aclass",
+    "@examples/alita2",
     "@examples/boilerplate",
     "@examples/helmet",
     "@examples/boilerplate",
