@@ -1,5 +1,15 @@
 # @alita/plugins
 
+## 3.2.0
+
+### Minor Changes
+
+- [#461](https://github.com/alitajs/alita/pull/461) [`36e289f0`](https://github.com/alitajs/alita/commit/36e289f0029c4fcee69a4051f09c9a92f185a669) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support alita2
+
+### Patch Changes
+
+- [#462](https://github.com/alitajs/alita/pull/462) [`2d4f2492`](https://github.com/alitajs/alita/commit/2d4f249245fc79f437709c3cd8a9741649fe47be) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support import drop from alita
+
 ## 3.1.1
 
 ### Patch Changes
