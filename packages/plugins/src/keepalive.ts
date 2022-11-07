@@ -70,13 +70,26 @@ export default (api: AlitaApi) => {
         hasGetKeepalive: api.appData.appJS?.exports.includes('getKeepAlive'),
       }),
     });
-
+    api.writeTmpFile({
+      path: `${DIR_NAME}/support.tsx`,
+      noPluginDir: true,
+      content: `
+import { keepaliveEmitter } from './context';
+      
+export function dropByCacheKey(path: string) {
+  keepaliveEmitter.emit({type:'dropByCacheKey', payload: {
+    path
+  }});
+}
+`,
+    });
     // index.ts for export
     api.writeTmpFile({
       noPluginDir: true,
       path: `${DIR_NAME}/index.tsx`,
       content: `
 export { KeepAliveContext,useKeepOutlets } from './context';
+export {dropByCacheKey} from './support';
 `,
     });
   });

@@ -48,6 +48,26 @@ export interface KeepAliveContextProps {
 
 export const KeepAliveContext = React.createContext<KeepAliveContextProps>({});
 
+class EventEmitter<T> {
+  private subscriptions = new Set<Subscription<T>>();
+
+  emit = (val: T) => {
+    for (const subscription of this.subscriptions) {
+      subscription(val);
+    }
+  };
+
+  useSubscription = (callback: Subscription<T>) => {
+    function subscription(val: T) {
+      if (callback) {
+        callback(val);
+      }
+    }
+    this.subscriptions.add(subscription);
+  };
+}
+export const keepaliveEmitter = new EventEmitter();
+
 // 兼容非全路径的 path
 const getFullPath = (currPath = '', parentPath = '') => {
   if (currPath.startsWith('/')) {
@@ -214,6 +234,17 @@ export function useKeepOutlets() {
       dropOtherTabs,
       refreshTab,
     } = React.useContext(KeepAliveContext);
+      
+  keepaliveEmitter?.useSubscription?.((event) => {
+    const {type='',payload={}} = event;
+    switch(type){
+      case 'dropByCacheKey':
+        dropByCacheKey(payload?.path);
+        break;
+        default:
+          break;
+    }
+  });
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
