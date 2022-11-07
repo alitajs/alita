@@ -1,10 +1,5 @@
-import HomeGary from '@/assets/demoIcon/home.png';
-import HomeBlue from '@/assets/demoIcon/home1.png';
-import ListGary from '@/assets/demoIcon/list.png';
-import ListBlue from '@/assets/demoIcon/list1.png';
-import SetGary from '@/assets/demoIcon/setting.png';
-import SetBlue from '@/assets/demoIcon/setting1.png';
-import type {
+import type { RequestConfig, ResponseError } from 'alita';
+import {
   NavBarListItem,
   NavBarProps,
   TabBarListItem,
@@ -12,12 +7,22 @@ import type {
   TitleListItem,
 } from 'alita';
 
-export const request = {
-  prefix: '/api',
-  method: 'get',
-  errorHandler: (error) => {
+import HomeGary from './assets/demoIcon/home.png';
+import HomeBlue from './assets/demoIcon/home1.png';
+import ListGary from './assets/demoIcon/list.png';
+import ListBlue from './assets/demoIcon/list1.png';
+import SetGary from './assets/demoIcon/setting.png';
+import SetBlue from './assets/demoIcon/setting1.png';
+
+export function getKeepAlive() {
+  return [/list/];
+}
+
+export const request: RequestConfig = {
+  prefix: '',
+  method: 'post',
+  errorHandler: (error: ResponseError) => {
     // 集中处理错误
-    console.log(11111111);
     console.log(error);
   },
 };
@@ -28,28 +33,15 @@ const titleList: TitleListItem[] = [
     title: '首页',
   },
   {
-    pagePath: '/users',
+    pagePath: '/list',
     title: '列表',
   },
   {
-    pagePath: '/users/foo',
+    pagePath: '/settings',
     title: '设置',
   },
 ];
-const navList: NavBarListItem[] = [
-  {
-    pagePath: '/',
-    navBar: {
-      pageBackground: '#fff',
-    },
-  },
-  {
-    pagePath: '/users',
-    navBar: {
-      pageBackground: '#000',
-    },
-  },
-];
+const navList: NavBarListItem[] = [];
 const navBar: NavBarProps = {
   navList,
   fixed: false,
@@ -68,7 +60,7 @@ const tabList: TabBarListItem[] = [
     badge: '',
   },
   {
-    pagePath: '/users',
+    pagePath: '/list',
     text: '列表',
     iconPath: ListGary,
     selectedIconPath: ListBlue,
@@ -77,7 +69,7 @@ const tabList: TabBarListItem[] = [
     badge: '',
   },
   {
-    pagePath: '/foo/1232',
+    pagePath: '/settings',
     text: '设置',
     iconPath: SetGary,
     selectedIconPath: SetBlue,
@@ -101,9 +93,3 @@ export const mobileLayout = {
   tabBar,
   titleList,
 };
-
-export async function getKeepAlive(keepaliva: any[]) {
-  console.log('getKeepAlive');
-  console.log(keepaliva);
-  return [/./];
-}

@@ -9,4 +9,5 @@ export default defineConfig({
   // mainPath:'users',
   mfsu: {},
   hash: false,
+  reactRouter5Compat: {},
 });

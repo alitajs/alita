@@ -31,9 +31,9 @@
   "dependencies": {
     "@alita/inspx": "0.0.2",
     "@alita/request": "3.1.0",
-    "@umijs/bundler-utils": "4.0.17",
-    "@umijs/plugins": "4.0.17",
-    "@umijs/utils": "4.0.17",
+    "@umijs/bundler-utils": "4.0.29",
+    "@umijs/plugins": "4.0.29",
+    "@umijs/utils": "4.0.29",
     "ahooks": "^3.0.8",
     "@alita/types": "3.1.0",
     "antd-mobile-icons": "^0.2.2",

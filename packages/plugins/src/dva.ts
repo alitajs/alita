@@ -70,6 +70,12 @@ export default (api: AlitaApi) => {
       tpl: `
 export interface ConnectProps {
       dispatch?: Dispatch;
+      // 兼容 alita2
+      match?: any;
+      location?: any;
+      history?: History;
+      route?: any;
+      routes?: any;
 }
 type RequiredConnectProps = Required<ConnectProps>
 export type ConnectRC<

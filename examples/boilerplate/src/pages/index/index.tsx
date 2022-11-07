@@ -1,11 +1,13 @@
 import { Button } from 'antd-mobile';
 import React, { useState } from 'react';
 import styles from './index.less';
-export default () => {
+export default (props) => {
+  console.log(props);
   const [count, setCount] = useState(0);
   return (
     <div className={styles['adm-button']}>
-      Hello Alita
+      Hello 123
+      {Math.random()}
       <Button
         type="button"
         color="primary"
@@ -14,7 +16,7 @@ export default () => {
         size="large"
         onClick={() => setCount(count + 1)}
       >
-        点我计数加1 {count}
+        点我计数加1134 {count}
       </Button>
     </div>
   );
