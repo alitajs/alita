@@ -1,5 +1,19 @@
 # alita
 
+## 3.2.0
+
+### Minor Changes
+
+- [#461](https://github.com/alitajs/alita/pull/461) [`36e289f0`](https://github.com/alitajs/alita/commit/36e289f0029c4fcee69a4051f09c9a92f185a669) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support alita2
+
+### Patch Changes
+
+- [#455](https://github.com/alitajs/alita/pull/455) [`1fa708bb`](https://github.com/alitajs/alita/commit/1fa708bbe000df18450dc19251e4ca9bedd29cbe) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: preloadding
+
+- Updated dependencies [[`2d4f2492`](https://github.com/alitajs/alita/commit/2d4f249245fc79f437709c3cd8a9741649fe47be), [`36e289f0`](https://github.com/alitajs/alita/commit/36e289f0029c4fcee69a4051f09c9a92f185a669)]:
+  - @alita/plugins@3.2.0
+  - @alita/native@3.2.0
+
 ## 3.1.1
 
 ### Patch Changes
