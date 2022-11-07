@@ -89,7 +89,7 @@ export function dropByCacheKey(path: string) {
       path: `${DIR_NAME}/index.tsx`,
       content: `
 export { KeepAliveContext,useKeepOutlets } from './context';
-export {dropByCacheKey} from './support';
+export { dropByCacheKey } from './support';
 `,
     });
   });
