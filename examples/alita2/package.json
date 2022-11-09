@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "alita dev",
+    "start": "npm run dev",
     "build": "alita build"
   },
   "keywords": [],
