@@ -42,6 +42,10 @@ export default (api: IApi) => {
       preset: 'antd',
       plugins: ['duration'],
     },
+    mfsu: false,
+    codeSplitting: {
+      jsStrategy: 'granularChunks',
+    },
     ...api.userConfig,
   };
   if (api.userConfig.complexRoute) {

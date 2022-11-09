@@ -10,4 +10,5 @@ export default defineConfig({
   mfsu: {},
   hash: false,
   reactRouter5Compat: {},
+  exportStatic: {},
 });
