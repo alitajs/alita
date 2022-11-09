@@ -114,6 +114,7 @@ importers:
       '@alitajs/dform': 3.0.0-alpha.1
       '@alitajs/iframe': ^0.0.3
       '@alitajs/list-view': 1.0.7
+      ahooks: ^3.0.8
       alita: 3.2.1
       antd: ^4.24.1
       antd-mobile: 2.3.4
@@ -123,6 +124,7 @@ importers:
       '@alitajs/dform': 3.0.0-alpha.1
       '@alitajs/iframe': 0.0.3
       '@alitajs/list-view': 1.0.7_antd-mobile@2.3.4
+      ahooks: 3.7.2
       alita: link:../../packages/alita
       antd: 4.24.1
       antd-mobile: 2.3.4

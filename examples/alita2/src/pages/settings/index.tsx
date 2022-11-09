@@ -16,7 +16,7 @@ const SettingsPage: FC<PageProps> = ({ settings, dispatch, location }) => {
   const onLeftClick = () => {
     console.log('click left');
   };
-
+  console.log(location);
   useEffect(() => {
     setPageNavBar?.({
       pagePath: location.pathname,
