@@ -175,7 +175,7 @@ const headerRender = ({
     className,
     pageTitle,
   } = realNavBar;
-  const defaultEvent = onLeftClick || (!hasTabsBar ? navigate.goBack : () => { });
+  const defaultEvent = onLeftClick || (!hasTabsBar ?  () => { navigate(-1)} : () => { });
   if (hideNavBar === true) {
     return null;
   }

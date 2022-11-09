@@ -11,8 +11,6 @@ import HomeGary from './assets/demoIcon/home.png';
 import HomeBlue from './assets/demoIcon/home1.png';
 import ListGary from './assets/demoIcon/list.png';
 import ListBlue from './assets/demoIcon/list1.png';
-import SetGary from './assets/demoIcon/setting.png';
-import SetBlue from './assets/demoIcon/setting1.png';
 
 export function getKeepAlive() {
   return [/list/];
@@ -45,9 +43,6 @@ const navList: NavBarListItem[] = [];
 const navBar: NavBarProps = {
   navList,
   fixed: false,
-  onLeftClick: () => {
-    // router.goBack();
-  },
 };
 const tabList: TabBarListItem[] = [
   {
@@ -68,15 +63,15 @@ const tabList: TabBarListItem[] = [
     iconSize: '',
     badge: '',
   },
-  {
-    pagePath: '/settings',
-    text: '设置',
-    iconPath: SetGary,
-    selectedIconPath: SetBlue,
-    title: '设置',
-    iconSize: '',
-    badge: '',
-  },
+  // {
+  //   pagePath: '/settings',
+  //   text: '设置',
+  //   iconPath: SetGary,
+  //   selectedIconPath: SetBlue,
+  //   title: '设置',
+  //   iconSize: '',
+  //   badge: '',
+  // },
 ];
 
 const tabBar: TabBarProps = {

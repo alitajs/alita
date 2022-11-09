@@ -180,7 +180,7 @@ const headerRender = ({
         className,
         pageTitle,
     } = realNavBar;
-    const defaultEvent = onBack || onLeftClick || (!hasTabsBar ? navigate.goBack : () => { });
+    const defaultEvent = onBack || onLeftClick || (!hasTabsBar ?  () => { navigate(-1)} : () => { });
     if (hideNavBar === true) {
         return null;
     }

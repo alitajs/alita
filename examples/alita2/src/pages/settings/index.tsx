@@ -22,7 +22,7 @@ const SettingsPage: FC<PageProps> = ({ settings, dispatch, location }) => {
       pagePath: location.pathname,
       navBar: {
         pageBackground: '#000000',
-        onLeftClick,
+        // onLeftClick,
         rightContent: [
           <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
           <Icon key="1" type="ellipsis" />,
