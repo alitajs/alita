@@ -22,7 +22,9 @@ export default (api: IApi) => {
     dva: {
       enableModelsReExport: true,
     },
+    // 兼容 alita2
     reactRouter5Compat: {},
+    historyWithQuery: {},
     model: {},
     request: {},
     displayName: 'alita-demo',

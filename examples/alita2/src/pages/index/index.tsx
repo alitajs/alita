@@ -9,6 +9,7 @@ import DynamicForm, {
   ValidateErrorEntity,
 } from '@alitajs/dform';
 import IFrame from '@alitajs/iframe';
+import { history } from 'alita';
 import { Button as AButton } from 'antd';
 import { Button, WhiteSpace } from 'antd-mobile';
 import { Button as Button5 } from 'antd-mobile-5';
@@ -91,7 +92,19 @@ const UserName: FC = (props) => {
       </DynamicForm>
       <WhiteSpace />
       <AButton onClick={() => form.submit()}>Antd Button</AButton>
-      <Button type="primary">Antd Mobile@2 Button</Button>
+      <Button
+        type="primary"
+        onClick={() => {
+          history.push({
+            pathname: '/settings',
+            query: {
+              x1: 1,
+            },
+          });
+        }}
+      >
+        Antd Mobile@2 Button
+      </Button>
       <Button5 block color="primary" size="large">
         Antd Mobile@5 Button
       </Button5>
