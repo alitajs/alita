@@ -20,14 +20,14 @@ import {
 import { useKeepOutlets } from '../plugin-keepalive/context';
 {{/hasKeepAlive}}
 
-import TabBar from 'antd-mobile/es/tab-bar';
-import NavBar from 'antd-mobile/es/nav-bar';
-import Icon from 'antd-mobile/es/icon';
-import { TabIcon } from 'antd-mobile/es/tab-bar/PropsType';
+import TabBar from '{{{ mobilelib }}}/tab-bar';
+import NavBar from '{{{ mobilelib }}}/nav-bar';
+import Icon from '{{{ mobilelib }}}/icon';
+import { TabIcon } from '{{{ mobilelib }}}/tab-bar/PropsType';
 
-import 'antd-mobile/es/tab-bar/style';
-import 'antd-mobile/es/nav-bar/style';
-import 'antd-mobile/es/icon/style';
+import '{{{ mobilelib }}}/tab-bar/style';
+import '{{{ mobilelib }}}/nav-bar/style';
+import '{{{ mobilelib }}}/icon/style';
 
 export interface NavBarListItem {
   pagePath: string;
