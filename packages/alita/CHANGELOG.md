@@ -1,5 +1,11 @@
 # alita
 
+## 3.2.2
+
+### Patch Changes
+
+- [#465](https://github.com/alitajs/alita/pull/465) [`d8c8f048`](https://github.com/alitajs/alita/commit/d8c8f048dc046540b7298af1cad1dbf8c712bd86) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: close mfsu
+
 ## 3.2.1
 
 ### Patch Changes
