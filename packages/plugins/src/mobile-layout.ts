@@ -34,14 +34,14 @@ export default (api: AlitaApi) => {
   const isMicroApp = api.userConfig.appType === 'micro';
 
   api.onGenerateFiles(() => {
-    const [isAntdMobile5] = checkAntdMobile(api);
+    const [isAntdMobile5, hasDep] = checkAntdMobile(api);
     const layoutTpl = readFileSync(
       join(
         __dirname,
         '..',
         'templates',
         'mobile-layout',
-        isAntdMobile5 ? 'layout5.tpl' : 'layout.tpl',
+        isAntdMobile5 && hasDep ? 'layout5.tpl' : 'layout.tpl',
       ),
       'utf-8',
     );
@@ -49,9 +49,8 @@ export default (api: AlitaApi) => {
       path: join(DIR_NAME, 'AlitaLayout.tsx'),
       noPluginDir: true,
       content: Mustache.render(layoutTpl, {
-        // alitalayout: winPath(
-        //   dirname(require.resolve('@alita/alita-layout/package')),
-        // ),
+        // 用户都没安装的时候，用 antd-mobile-alita 做兜底
+        mobilelib: winPath(dirname(require.resolve('antd-mobile-alita'))),
         alitarequest: winPath(
           dirname(require.resolve('@alita/request/package')),
         ),

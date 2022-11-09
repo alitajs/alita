@@ -23,6 +23,7 @@
     "@example/lint",
     "@examples/mobile2",
     "@examples/native",
+    "@examples/aclass",
     "@examples/pro",
     "@examples/rerender",
     "@examples/routes",

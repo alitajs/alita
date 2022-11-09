@@ -22,15 +22,16 @@ export default (api: AlitaApi) => {
   api.addExtraBabelPlugins(() => {
     const [isAntdMobile5, hasDeps] = checkAntdMobile(api);
     const imps = [
-      [
-        require.resolve('babel-plugin-import'),
-        {
-          libraryName: 'antd-mobile-v2',
-          libraryDirectory: 'es',
-          style: true,
-        },
-        'antd-mobile-v2',
-      ],
+      // TODO: 让用户手动配置
+      // [
+      //   require.resolve('babel-plugin-import'),
+      //   {
+      //     libraryName: 'antd-mobile-v2',
+      //     libraryDirectory: 'es',
+      //     style: true,
+      //   },
+      //   'antd-mobile-v2',
+      // ],
     ];
     // 如果用户显示安装了 antd-mobile@2 则为用户添加 babel-plugin-import
     if (hasDeps && !isAntdMobile5) {
