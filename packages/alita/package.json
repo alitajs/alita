@@ -11,6 +11,7 @@
     "index.d.ts",
     "index.esm.js",
     "index.js",
+    "hackumi.js",
     "dist",
     "bin",
     "prettier.js",
