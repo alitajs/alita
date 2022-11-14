@@ -1,5 +1,4 @@
-import { KeepAliveContext } from '@@/plugin-keepalive';
-import { Outlet, useLocation } from 'alita';
+import { KeepAliveContext, Outlet, useLocation } from 'alita';
 import { Button } from 'antd-mobile';
 import React, { useState } from 'react';
 

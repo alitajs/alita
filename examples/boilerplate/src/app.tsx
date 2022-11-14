@@ -11,6 +11,7 @@ import type {
   TabBarProps,
   TitleListItem,
 } from 'alita';
+import { history } from 'alita';
 
 export const request = {
   prefix: '/api',
@@ -106,4 +107,10 @@ export async function getKeepAlive(keepaliva: any[]) {
   console.log('getKeepAlive');
   console.log(keepaliva);
   return [/./];
+}
+
+export function render(oldRender: any) {
+  console.log('history');
+  console.log(history);
+  oldRender();
 }

@@ -20,6 +20,7 @@
     "stylelint.js"
   ],
   "scripts": {
+    "postinstall": "node hackumi",
     "build": "pnpm tsc",
     "build:deps": "umi-scripts bundleDeps",
     "dev": "pnpm build --watch",
@@ -46,6 +47,7 @@
     "@alita/native": "3.2.0",
     "@alita/plugins": "3.2.1",
     "@umijs/core": "4.0.29",
+    "@umijs/preset-umi": "4.0.29",
     "@umijs/utils": "4.0.29",
     "qrcode-terminal": "^0.12.0",
     "umi": "4.0.29",
