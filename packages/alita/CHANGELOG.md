@@ -1,5 +1,11 @@
 # alita
 
+## 3.2.4
+
+### Patch Changes
+
+- [`9ae33ec4`](https://github.com/alitajs/alita/commit/9ae33ec491ee28d7063d26463090d0e7094f5446) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: lose files
+
 ## 3.2.3
 
 ### Patch Changes
