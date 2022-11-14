@@ -304,6 +304,7 @@ importers:
       '@alita/plugins': 3.2.1
       '@alita/types': 3.1.0
       '@umijs/core': 4.0.29
+      '@umijs/preset-umi': 4.0.29
       '@umijs/utils': 4.0.29
       eslint: 8.15.0
       qrcode-terminal: ^0.12.0
@@ -315,6 +316,7 @@ importers:
       '@alita/plugins': link:../plugins
       '@alita/types': link:../types
       '@umijs/core': 4.0.29
+      '@umijs/preset-umi': 4.0.29
       '@umijs/utils': 4.0.29
       eslint: 8.15.0
       qrcode-terminal: 0.12.0
@@ -7344,7 +7346,7 @@ packages:
   /babel-plugin-dynamic-import-node/2.3.3:
     resolution: {integrity: sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ==}
     dependencies:
-      object.assign: 4.1.2
+      object.assign: 4.1.4
 
   /babel-plugin-import/1.13.3:
     resolution: {integrity: sha512-1qCWdljJOrDRH/ybaCZuDgySii4yYrtQ8OJQwrcDqdt0y67N30ng3X3nABg6j7gR7qUJgcMa9OMhc4AGViDwWw==}
