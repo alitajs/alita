@@ -1,5 +1,11 @@
 # alita
 
+## 3.2.3
+
+### Patch Changes
+
+- [#468](https://github.com/alitajs/alita/pull/468) [`61ec78be`](https://github.com/alitajs/alita/commit/61ec78bef57c4e3eacb1de8be6199529e64db59d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: hack umi tmp
+
 ## 3.2.2
 
 ### Patch Changes
