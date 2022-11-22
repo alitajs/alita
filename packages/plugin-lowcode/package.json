@@ -1,0 +1,33 @@
+{
+  "name": "@alita/plugin-lowcode",
+  "version": "3.0.5",
+  "description": "@alita/plugin-lowcode",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "umi-scripts bundleDeps",
+    "dev": "pnpm build --watch",
+    "test": "umi-scripts jest-turbo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita"
+  },
+  "authors": [
+    "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/plugin-lowcode#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@alita/types": "3.1.0",
+    "@umijs/utils": "4.0.32"
+  }
+}

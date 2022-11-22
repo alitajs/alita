@@ -55,7 +55,7 @@ const ListPage: FC<PageProps> = ({ list, dispatch, history }) => {
   return (
     <div>
       <div>Model Name:{name}</div>
-      <div onClick={() => history.push('/list/a')}>Go to list/A</div>
+      <div onClick={() => history?.push('/list/a')}>Go to list/A</div>
       <LoadMoreListView
         height="11rem"
         isTabsPage

@@ -50,6 +50,7 @@ export default (api: AlitaApi) => {
       return [
         {
           src: 'https://unpkg.com/vconsole@latest/dist/vconsole.min.js',
+          async: true,
         },
       ];
     });

@@ -26,7 +26,7 @@ export default (api: IApi) => {
     require.resolve('@alita/plugins/dist/dva'),
     require.resolve('@alita/plugins/dist/classnames'),
     require.resolve('@alita/plugins/dist/model'),
-    require.resolve('@alita/plugins/dist/helmet'),
+    // umi 内置了 helmet
     require.resolve('@alita/plugins/dist/moment'),
   ];
   if (api.userConfig.antd) {
