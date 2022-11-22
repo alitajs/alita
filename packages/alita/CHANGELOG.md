@@ -1,5 +1,17 @@
 # alita
 
+## 3.2.5
+
+### Patch Changes
+
+- [#472](https://github.com/alitajs/alita/pull/472) [`ff74665b`](https://github.com/alitajs/alita/commit/ff74665b00d0fdeacfe4b26b5808cdd3eab62f6d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* [#472](https://github.com/alitajs/alita/pull/472) [`ff74665b`](https://github.com/alitajs/alita/commit/ff74665b00d0fdeacfe4b26b5808cdd3eab62f6d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: legacy
+
+* Updated dependencies [[`ff74665b`](https://github.com/alitajs/alita/commit/ff74665b00d0fdeacfe4b26b5808cdd3eab62f6d), [`ff74665b`](https://github.com/alitajs/alita/commit/ff74665b00d0fdeacfe4b26b5808cdd3eab62f6d)]:
+  - @alita/plugins@3.2.2
+  - @alita/native@3.2.1
+
 ## 3.2.4
 
 ### Patch Changes
