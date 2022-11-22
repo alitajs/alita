@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
+    "dev": "alita dev",
     "build": "alita build"
   },
   "keywords": [],
@@ -14,7 +15,7 @@
     "@alita/react": "^0.1.0",
     "@alitajs/dform": "3.0.0-alpha.1",
     "@alitajs/iframe": "^0.0.3",
-    "@alitajs/list-view": "1.0.7",
+    "@alitajs/list-view": "1.1.2",
     "ahooks": "^3.0.8",
     "alita": "3.2.4",
     "antd": "^4.24.1",
