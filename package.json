@@ -1,6 +1,7 @@
 {
+  "name": "alita3",
   "private": true,
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0",
   "scripts": {
     "bootstrap": "umi-scripts bootstrap",
     "build": "umi-scripts turbo --cmd build",
