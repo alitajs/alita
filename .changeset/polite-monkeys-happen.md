@@ -1,0 +1,5 @@
+---
+'alita': patch
+---
+
+fix: legacy
