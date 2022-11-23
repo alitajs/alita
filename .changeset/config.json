@@ -21,6 +21,7 @@
     "@examples/helmet",
     "@examples/boilerplate",
     "@example/lint",
+    "@examples/helmet",
     "@examples/mobile2",
     "@examples/native",
     "@examples/aclass",
