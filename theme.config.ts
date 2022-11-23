@@ -63,6 +63,7 @@ export default {
             'guides/request',
             'guides/mock',
             'guides/proxy',
+            'guides/locale',
             // 'guides/helmet',
             'guides/commands',
             'guides/env-variables',
