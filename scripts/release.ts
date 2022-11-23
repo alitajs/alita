@@ -109,7 +109,7 @@ const cwd = process.cwd();
   // update pnpm lockfile
   logger.event('update pnpm lockfile');
   $.verbose = false;
-  await $`pnpm i`;
+  await $`pnpm i --registry=https://registry.npmmirror.com`;
   $.verbose = true;
 
   const isGitClean2 = (await $`git status --porcelain`).stdout.trim().length;
