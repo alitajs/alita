@@ -104,7 +104,7 @@ importers:
 
   examples/a-class:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     dependencies:
       alita: link:../../packages/alita
 
@@ -115,7 +115,7 @@ importers:
       '@alitajs/iframe': ^0.0.3
       '@alitajs/list-view': 1.1.2
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd: ^4.24.1
       antd-mobile: 2.3.4
       antd-mobile-5: ^5.24.2
@@ -134,7 +134,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -144,7 +144,7 @@ importers:
 
   examples/helmet:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     dependencies:
       alita: link:../../packages/alita
 
@@ -152,7 +152,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -162,13 +162,13 @@ importers:
 
   examples/lint:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     devDependencies:
       alita: link:../../packages/alita
 
   examples/locale:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     dependencies:
       alita: link:../../packages/alita
 
@@ -176,7 +176,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd-mobile: 2.3.4
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -192,7 +192,7 @@ importers:
       '@capacitor/core': ^3.6.0
       '@capacitor/ios': ^3.6.0
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -207,7 +207,7 @@ importers:
 
   examples/patchClientRoutes:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     dependencies:
       alita: link:../../packages/alita
 
@@ -239,7 +239,7 @@ importers:
 
   examples/rerender:
     specifiers:
-      alita: 3.2.5
+      alita: 3.2.6
     dependencies:
       alita: link:../../packages/alita
 
@@ -247,7 +247,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       ahooks: ^3.0.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd-mobile: ^5.10.0
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -259,7 +259,7 @@ importers:
     specifiers:
       '@alita/flow': workspace:*
       '@ant-design/icons': ^4.7.0
-      alita: 3.2.5
+      alita: 3.2.6
       antd: ^4.21.2
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -272,7 +272,7 @@ importers:
       '@alita/flow': workspace:*
       '@ant-design/icons': ^4.7.0
       '@ant-design/pro-components': ^2.3.8
-      alita: 3.2.5
+      alita: 3.2.6
       antd: ^4.21.2
     dependencies:
       '@alita/flow': link:../../packages/flow
@@ -286,7 +286,7 @@ importers:
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12
       '@types/jest': ^27.5.1
-      alita: 3.2.5
+      alita: 3.2.6
       jest: ^27
       react: '17'
       react-dom: '17'
@@ -307,7 +307,7 @@ importers:
   packages/alita:
     specifiers:
       '@alita/native': 3.2.1
-      '@alita/plugins': 3.2.2
+      '@alita/plugins': 3.2.3
       '@alita/types': 3.1.0
       '@umijs/babel-preset-umi': 4.0.32
       '@umijs/bundler-webpack': 4.0.32
