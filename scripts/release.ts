@@ -36,19 +36,20 @@ const cwd = process.cwd();
   );
 
   // check npm ownership
-  logger.event('check npm ownership');
-  const whoami = (await $`npm whoami`).stdout.trim();
-  await Promise.all(
-    ['alita'].map(async (pkg) => {
-      const owners = (await $`npm owner ls ${pkg}`).stdout
-        .trim()
-        .split('\n')
-        .map((line) => {
-          return line.split(' ')[0];
-        });
-      assert(owners.includes(whoami), `${pkg} is not owned by ${whoami}`);
-    }),
-  );
+  // 公司网路太差了，多执行一个命令就多很长时间
+  // logger.event('check npm ownership');
+  // const whoami = (await $`npm whoami`).stdout.trim();
+  // await Promise.all(
+  //   ['alita'].map(async (pkg) => {
+  //     const owners = (await $`npm owner ls ${pkg}`).stdout
+  //       .trim()
+  //       .split('\n')
+  //       .map((line) => {
+  //         return line.split(' ')[0];
+  //       });
+  //     assert(owners.includes(whoami), `${pkg} is not owned by ${whoami}`);
+  //   }),
+  // );
 
   // clean
   logger.event('clean');
