@@ -166,6 +166,12 @@ importers:
     devDependencies:
       alita: link:../../packages/alita
 
+  examples/locale:
+    specifiers:
+      alita: 3.2.5
+    dependencies:
+      alita: link:../../packages/alita
+
   examples/mobile2:
     specifiers:
       '@alita/flow': workspace:*
