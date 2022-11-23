@@ -46,6 +46,12 @@ export default (api: IApi) => {
       plugins: [require.resolve('./features/apptype')],
     };
   }
+
+  // 增加国际化需求
+  if (api.userConfig.locale) {
+    plugins.push(require.resolve('@alita/plugins/dist/locale'));
+  }
+
   // 记忆偏差修正，umi 中没有这个功能。
   // 执行 lint 时，只需要加载基础的插件
   // const onlyCorePlugin = ['lint'].includes(api.name);
