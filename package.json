@@ -10,6 +10,7 @@
     "build:force": "umi-scripts turbo --cmd build --no-cache",
     "build:release": "umi-scripts turbo --cmd build --no-cache -- --declarationMap false",
     "cov": "jest --coverage",
+    "cnpm": "pnpm i --registry=https://registry.npmmirror.com",
     "ac:add": "all-contributors add",
     "ac:g": "all-contributors generate",
     "dep:update": "pnpm up --interactive --latest --recursive",
