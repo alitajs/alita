@@ -1,5 +1,14 @@
 # alita
 
+## 3.2.6
+
+### Patch Changes
+
+- [#474](https://github.com/alitajs/alita/pull/474) [`aaf37aea`](https://github.com/alitajs/alita/commit/aaf37aea108f9718f7de2cfea2a1a907c76862aa) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add umi locale plugin
+
+- Updated dependencies [[`aaf37aea`](https://github.com/alitajs/alita/commit/aaf37aea108f9718f7de2cfea2a1a907c76862aa)]:
+  - @alita/plugins@3.2.3
+
 ## 3.2.5
 
 ### Patch Changes
