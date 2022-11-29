@@ -259,6 +259,7 @@ export function useKeepOutlets() {
       keepElements.current[location.pathname] = {
         children: element,
         index: currentIndex,
+        location,
         {{#hasTabsLayout}}
         name,
         icon,
@@ -333,7 +334,8 @@ export function useKeepOutlets() {
               hideAdd
               onChange={(key: string) => {
                 const path = key.split(':')[0];
-                navigate(path);
+                const { pathname, hash, search } = keepElements.current[path].location;
+                navigate(`${pathname}${search}${hash}`);
               }}
               activeKey={`${location.pathname}::${tabNameMap[location.pathname]}`}
               type="editable-card"
