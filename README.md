@@ -1,6 +1,6 @@
 # alita
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
@@ -57,6 +57,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/chj-damon"><img src="https://avatars.githubusercontent.com/u/4902684?v=4?s=100" width="100px;" alt=""/><br /><sub><b>damon.chen</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=chj-damon" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/sushi-su"><img src="https://avatars.githubusercontent.com/u/50985188?v=4?s=100" width="100px;" alt=""/><br /><sub><b>修行</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=sushi-su" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/532pyh"><img src="https://avatars.githubusercontent.com/u/26398280?v=4?s=100" width="100px;" alt=""/><br /><sub><b>红尘炼心</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=532pyh" title="Documentation">📖</a></td>
+      <td align="center"><a href="https://github.com/tangbzai"><img src="https://avatars.githubusercontent.com/u/47456577?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tangbzai</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=tangbzai" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
