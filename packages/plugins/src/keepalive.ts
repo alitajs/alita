@@ -26,7 +26,7 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => 'getKeepAlive');
 
   // only dev or build running
-  if (!['dev', 'build'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
 
   api.onStart(() => {
     logger.info('Using KeepAlive Plugin');

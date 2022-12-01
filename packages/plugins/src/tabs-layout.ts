@@ -21,7 +21,7 @@ export default (api: AlitaApi) => {
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['tabsLayout', 'getCustomTabs']);
   // only dev or build running
-  if (!['dev', 'build'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
 
   // 只是为了增加一个 tabsLayout 的配置开关，逻辑在 keepalive 插件中实现
   api.onStart(() => {

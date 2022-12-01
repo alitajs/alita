@@ -26,7 +26,7 @@ export default (api: AlitaApi) => {
     enableBy,
   });
   // only dev or build running
-  if (!['dev', 'build'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
 
   api.onStart(() => {
     logger.info('Using HD Plugin');
@@ -44,7 +44,7 @@ export default (api: AlitaApi) => {
       px2rem({
         rootValue: 100,
         minPixelValue: 2,
-        selectorDoubleRemList: [/.adm-/, /.ant-/, /\:root/],
+        selectorDoubleRemList: [/^.adm-/, /^.ant-/, /^\:root/],
         ...(configPx2rem || {}),
       }),
     ];

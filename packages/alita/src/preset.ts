@@ -49,7 +49,12 @@ export default (api: IApi) => {
 
   // 增加国际化需求
   if (api.userConfig.locale) {
-    plugins.push(require.resolve('@alita/plugins/dist/locale'));
+    plugins.push(require.resolve('@alita/plugins/dist/max/locale'));
+  }
+  // 增加初始化数据
+  if (api.userConfig.initialState) {
+    // initial-state 需要在 model 之前加载
+    plugins.unshift(require.resolve('@alita/plugins/dist/max/initial-state'));
   }
 
   // 记忆偏差修正，umi 中没有这个功能。

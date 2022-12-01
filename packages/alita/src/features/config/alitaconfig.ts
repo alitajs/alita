@@ -63,6 +63,12 @@ export default (api: IApi) => {
       ],
     };
   }
+  api.modifyAppData((memo) => {
+    memo.umi.name = 'Alita';
+    memo.umi.importSource = 'alita';
+    memo.umi.cliName = 'alita';
+    return memo;
+  });
   api.modifyConfig((memo: any) => {
     memo.alias.alita = 'umi';
     Object.keys(configDefaults).forEach((key) => {
