@@ -6,7 +6,5 @@ export default {
   },
   mobileLayout: true,
   polyfill: false,
-  // mainPath:'users',
-  mfsu: {},
   hash: false,
 };

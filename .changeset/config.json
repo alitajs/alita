@@ -19,6 +19,7 @@
     "@examples/alita2",
     "@examples/boilerplate",
     "@examples/helmet",
+    "@examples/state",
     "@examples/boilerplate",
     "@example/lint",
     "@examples/helmet",

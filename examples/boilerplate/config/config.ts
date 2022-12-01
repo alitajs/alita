@@ -7,7 +7,7 @@ export default defineConfig({
   mobileLayout: true,
   legacyBuild: false,
   // mainPath:'users',
-  mfsu: {},
+  mfsu: false,
   hash: false,
   reactRouter5Compat: {},
   exportStatic: {},

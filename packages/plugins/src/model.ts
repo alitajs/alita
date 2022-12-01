@@ -16,10 +16,10 @@ export default (api: AlitaApi) => {
     // enableBy: api.EnableBy.config,
   });
   // only dev or build running
-  if (!['dev', 'build'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
 
   api.onStart(() => {
-    logger.info('Using Mobile Layout Plugin');
+    logger.info('Using Model Plugin');
   });
 
   // umi model 里面不注册

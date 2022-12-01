@@ -25,7 +25,7 @@ export default (api: AlitaApi) => {
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['mobileLayout']);
   // only dev or build running
-  if (!['dev', 'build'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
 
   api.onStart(() => {
     logger.info('Using Mobile Layout Plugin');
