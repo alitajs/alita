@@ -1,5 +1,15 @@
 # @alita/plugins
 
+## 3.2.4
+
+### Patch Changes
+
+- [#479](https://github.com/alitajs/alita/pull/479) [`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* [#477](https://github.com/alitajs/alita/pull/477) [`204d70e9`](https://github.com/alitajs/alita/commit/204d70e9037169f6cc9d7bea0e7ccf978e967a3c) Thanks [@tangbzai](https://github.com/tangbzai)! - 修复点击标签切换页面时 query 和 hash 丢失
+
+- [#479](https://github.com/alitajs/alita/pull/479) [`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: plugins no run when mfsu
+
 ## 3.2.3
 
 ### Patch Changes

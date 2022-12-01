@@ -1,5 +1,17 @@
 # alita
 
+## 3.2.7
+
+### Patch Changes
+
+- [#479](https://github.com/alitajs/alita/pull/479) [`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* [#479](https://github.com/alitajs/alita/pull/479) [`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add initialState
+
+* Updated dependencies [[`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f), [`204d70e9`](https://github.com/alitajs/alita/commit/204d70e9037169f6cc9d7bea0e7ccf978e967a3c), [`4678f8b9`](https://github.com/alitajs/alita/commit/4678f8b97efe38901b919a23c9d99c1f99de612f)]:
+  - @alita/native@3.2.2
+  - @alita/plugins@3.2.4
+
 ## 3.2.6
 
 ### Patch Changes
