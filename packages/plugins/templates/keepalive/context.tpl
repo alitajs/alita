@@ -234,7 +234,7 @@ export function useKeepOutlets() {
       dropOtherTabs,
       refreshTab,
     } = React.useContext(KeepAliveContext);
-      
+
   keepaliveEmitter?.useSubscription?.((event) => {
     const { type = '', payload = {} } = event;
     switch(type){
@@ -263,6 +263,7 @@ export function useKeepOutlets() {
         name,
         icon,
         closable: true, // 默认是true
+        location,
         {{/hasTabsLayout}}
       };
     }
@@ -333,7 +334,8 @@ export function useKeepOutlets() {
               hideAdd
               onChange={(key: string) => {
                 const path = key.split(':')[0];
-                navigate(path);
+                const { pathname, hash, search } = keepElements.current[path].location;
+                navigate(`${pathname}${search}${hash}`);
               }}
               activeKey={`${location.pathname}::${tabNameMap[location.pathname]}`}
               type="editable-card"
