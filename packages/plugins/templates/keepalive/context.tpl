@@ -234,7 +234,7 @@ export function useKeepOutlets() {
       dropOtherTabs,
       refreshTab,
     } = React.useContext(KeepAliveContext);
-      
+
   keepaliveEmitter?.useSubscription?.((event) => {
     const { type = '', payload = {} } = event;
     switch(type){
@@ -259,11 +259,11 @@ export function useKeepOutlets() {
       keepElements.current[location.pathname] = {
         children: element,
         index: currentIndex,
-        location,
         {{#hasTabsLayout}}
         name,
         icon,
         closable: true, // 默认是true
+        location,
         {{/hasTabsLayout}}
       };
     }
