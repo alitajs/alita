@@ -45,14 +45,7 @@ export default (api: AlitaApi) => {
       'utf-8',
     );
     const hasInitialStatePlugin = api.config.initialState;
-    // 默认hasFixedHeader为true
-    let hasFixedHeader = true;
-    if(!tabsLayout) {
-      hasFixedHeader = false;
-    }
-    if(tabsLayout.hasFixedHeader === false) {
-      hasFixedHeader = false;
-    }
+
     api.writeTmpFile({
       path: `${DIR_NAME}/context.tsx`,
       noPluginDir: true,
@@ -60,7 +53,7 @@ export default (api: AlitaApi) => {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
         hasDropdown: !!tabsLayout?.hasDropdown,
-        hasFixedHeader,
+        hasFixedHeader: !!tabsLayout?.hasFixedHeader,
         isPluginModelEnable: hasInitialStatePlugin,
         hasIntl: !!api.config.locale,
       }),
