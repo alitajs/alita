@@ -234,7 +234,7 @@ export function useKeepOutlets() {
       dropOtherTabs,
       refreshTab,
     } = React.useContext(KeepAliveContext);
-      
+
   keepaliveEmitter?.useSubscription?.((event) => {
     const { type = '', payload = {} } = event;
     switch(type){
@@ -335,6 +335,18 @@ export function useKeepOutlets() {
                 const path = key.split(':')[0];
                 navigate(path);
               }}
+{{#hasFixedHeader}}
+              renderTabBar={(props, DefaultTabBar) => (
+                <div style={{
+                  position: 'fixed', zIndex: 1, padding: 0, width: '100%',
+                  background: 'white'
+                }}>
+                  <DefaultTabBar {...props} style={{
+                    marginBottom: 0,
+                  }} />
+                </div>
+              )}
+{{/hasFixedHeader}}
               activeKey={`${location.pathname}::${tabNameMap[location.pathname]}`}
               type="editable-card"
               onEdit={(key: string) => {
@@ -372,6 +384,11 @@ export function useKeepOutlets() {
                 {Object.entries(keepElements.current).map(([pathname, {name, icon, closable}]: any) => {
                     return (
                       <TabPane
+{{#hasFixedHeader}}
+                        style={{
+                          paddingTop:"20px"
+                        }}
+{{/hasFixedHeader}}
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}

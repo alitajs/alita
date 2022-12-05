@@ -11,6 +11,7 @@ export default (api: AlitaApi) => {
           Joi.object({
             hasCustomTabs: Joi.boolean(),
             hasDropdown: Joi.boolean(),
+            hasFixedHeader: Joi.boolean()
           }),
         );
       },

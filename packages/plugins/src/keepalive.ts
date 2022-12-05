@@ -52,6 +52,7 @@ export default (api: AlitaApi) => {
         hasTabsLayout: !!tabsLayout,
         hasCustomTabs: !!tabsLayout?.hasCustomTabs,
         hasDropdown: !!tabsLayout?.hasDropdown,
+        hasFixedHeader: !!tabsLayout?.hasFixedHeader,
         isPluginModelEnable: hasInitialStatePlugin,
         hasIntl: !!api.config.locale,
       }),
@@ -75,7 +76,7 @@ export default (api: AlitaApi) => {
       noPluginDir: true,
       content: `
 import { keepaliveEmitter } from './context';
-      
+
 export function dropByCacheKey(path: string) {
   keepaliveEmitter.emit({type:'dropByCacheKey', payload: {
     path
