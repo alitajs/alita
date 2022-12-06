@@ -1,5 +1,16 @@
 # alita
 
+## 3.2.9
+
+### Patch Changes
+
+- [#487](https://github.com/alitajs/alita/pull/487) [`b9cc6dea`](https://github.com/alitajs/alita/commit/b9cc6dea265be4374478e6ca13c675556263f701) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support antd-mobile-5
+
+* [#487](https://github.com/alitajs/alita/pull/487) [`b9cc6dea`](https://github.com/alitajs/alita/commit/b9cc6dea265be4374478e6ca13c675556263f701) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support extend alita
+
+* Updated dependencies [[`b9cc6dea`](https://github.com/alitajs/alita/commit/b9cc6dea265be4374478e6ca13c675556263f701)]:
+  - @alita/plugins@3.2.6
+
 ## 3.2.8
 
 ### Patch Changes

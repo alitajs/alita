@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.6
+
+### Patch Changes
+
+- [#487](https://github.com/alitajs/alita/pull/487) [`b9cc6dea`](https://github.com/alitajs/alita/commit/b9cc6dea265be4374478e6ca13c675556263f701) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support antd-mobile-5
+
 ## 3.2.5
 
 ### Patch Changes

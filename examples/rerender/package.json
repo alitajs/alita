@@ -8,6 +8,6 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "alita": "3.2.8"
+    "alita": "3.2.9"
   }
 }
