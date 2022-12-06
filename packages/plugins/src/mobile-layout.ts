@@ -3,7 +3,7 @@ import { logger, Mustache, winPath } from '@umijs/utils';
 
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
-import { checkAntdMobile } from './utils/checkAntdMobile';
+import { checkAntdMobile, hasAntdMobile5 } from './utils/checkAntdMobile';
 import { resolveProjectDep } from './utils/resolveProjectDep';
 import { withTmpPath } from './utils/withTmpPath';
 
@@ -35,13 +35,14 @@ export default (api: AlitaApi) => {
 
   api.onGenerateFiles(() => {
     const [isAntdMobile5, hasDep] = checkAntdMobile(api);
+    const hasMobilev5 = hasAntdMobile5(api);
     const layoutTpl = readFileSync(
       join(
         __dirname,
         '..',
         'templates',
         'mobile-layout',
-        isAntdMobile5 && hasDep ? 'layout5.tpl' : 'layout.tpl',
+        (isAntdMobile5 && hasDep) || hasMobilev5 ? 'layout5.tpl' : 'layout.tpl',
       ),
       'utf-8',
     );
@@ -57,6 +58,7 @@ export default (api: AlitaApi) => {
         mobileicons: winPath(
           dirname(require.resolve('antd-mobile-icons/package')),
         ),
+        antdMobile: hasMobilev5 ? 'antd-mobile-5' : 'antd-mobile',
         hasKeepAlive: !!api.userConfig.keepalive,
         isMicroApp,
       }),
