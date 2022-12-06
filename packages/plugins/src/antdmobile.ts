@@ -12,7 +12,7 @@ import { checkAntdMobile } from './utils/checkAntdMobile';
  */
 export default (api: AlitaApi) => {
   // only dev or build running
-  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
 
   api.onStart(() => {
     logger.info('Using Antd Mobile Plugin');

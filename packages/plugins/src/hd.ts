@@ -26,7 +26,7 @@ export default (api: AlitaApi) => {
     enableBy,
   });
   // only dev or build running
-  if (!['dev', 'build', 'dev-config'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
 
   api.onStart(() => {
     logger.info('Using HD Plugin');
