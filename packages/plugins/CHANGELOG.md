@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.5
+
+### Patch Changes
+
+- [#485](https://github.com/alitajs/alita/pull/485) [`773a874f`](https://github.com/alitajs/alita/commit/773a874fb93734bdbe5d196d72b3405337fe705d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: alita preview
+
 ## 3.2.4
 
 ### Patch Changes
