@@ -32,7 +32,10 @@ export async function run(opts: IOpts = {}) {
   } else if (command === 'build') {
     process.env.NODE_ENV = 'production';
   }
-  opts.presets = opts?.presets ?? [require.resolve('./preset')];
+  opts.presets = opts?.presets
+    ? opts?.presets.concat([require.resolve('./preset')])
+    : [require.resolve('./preset')];
+
   if (opts?.presets) {
     process.env.UMI_PRESETS = opts.presets.join(',');
   }

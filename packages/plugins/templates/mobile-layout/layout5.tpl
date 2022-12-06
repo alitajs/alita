@@ -21,7 +21,7 @@ import {
 import { useKeepOutlets } from '../plugin-keepalive/context';
 {{/hasKeepAlive}}
 
-import { NavBar, TabBar } from 'antd-mobile';
+import { NavBar, TabBar } from '{{{ antdMobile }}}';
 import { LeftOutline } from '{{{ mobileicons }}}'
 
 export interface NavBarListItem {

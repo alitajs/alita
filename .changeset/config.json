@@ -24,6 +24,8 @@
     "@example/lint",
     "@examples/helmet",
     "@examples/mobile2",
+    "@examples/mobile5",
+    "@examples/mobilev2",
     "@examples/native",
     "@examples/aclass",
     "@examples/pro",

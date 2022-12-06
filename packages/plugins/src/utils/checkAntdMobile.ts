@@ -30,3 +30,20 @@ export const checkAntdMobile = (api: AlitaApi) => {
   // 用户没有安装
   return [true, false];
 };
+
+export const hasAntdMobile5 = (api: AlitaApi) => {
+  if (
+    // @ts-ignore
+    (api.pkg.dependencies && api.pkg.dependencies['antd-mobile-5']) ||
+    // @ts-ignore
+    (api.pkg.devDependencies && api.pkg.devDependencies['antd-mobile-5']) ||
+    // egg project using `clientDependencies` in ali tnpm
+    // @ts-ignore
+    (api.pkg.clientDependencies && api.pkg.clientDependencies['antd-mobile-5'])
+  ) {
+    return true;
+  }
+
+  // 用户没有安装
+  return false;
+};
