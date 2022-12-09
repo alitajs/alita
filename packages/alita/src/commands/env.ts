@@ -31,7 +31,7 @@ export default (api: AlitaApi) => {
   api.registerCommand({
     name: 'env',
     description: 'env list',
-    fn: async ({ args }: any) => {
+    fn: async ({}: any) => {
       logger.info('[ENV list] 打印所有可用的环境变量');
       console.table(locales);
     },
