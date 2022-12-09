@@ -28,21 +28,15 @@ export default (api: AlitaApi) => {
       'scheduler',
     ];
 
-    const LINGXI_BUNDLES = [
-      '@lingxiteam',
-      'lodash',
-      '@antv',
-      '@alita/s2',
-      '@alita/s2-react',
-      '@ant-design',
-      'mapbox-gl',
-      '@wufengteam',
-      'echarts',
+    const LINGXI_BUNDLES = ['@lingxiteam', 'echarts', '@babel'];
+    const WUFENG_BUNDLES = ['@alita/s2', '@alita/s2-react', '@wufengteam'];
+
+    const ANTD_BUNDLES = [
       'antd',
       'antd-mobile',
       'antd-mobile-icons',
-      'lottie-web',
-      '@babel',
+      '@antv',
+      '@ant-design',
     ];
     memo.module
       .rule('extra-src')
@@ -50,6 +44,9 @@ export default (api: AlitaApi) => {
         new RegExp(
           `[\\\\/]node_modules[\\\\/](${FRAMEWORK_BUNDLES.concat(
             LINGXI_BUNDLES,
+            WUFENG_BUNDLES,
+            ANTD_BUNDLES,
+            ['lodash', 'lottie-web', 'mapbox-gl', '@bundled-es-modules'],
           ).join(`|`)})[\\\\/]`,
         ),
       )
@@ -72,6 +69,24 @@ export default (api: AlitaApi) => {
           chunks: 'all',
           test: new RegExp(
             `[\\\\/]node_modules[\\\\/](${LINGXI_BUNDLES.join(`|`)})[\\\\/]`,
+          ),
+          priority: 40,
+          enforce: true,
+        },
+        antd: {
+          name: 'antd',
+          chunks: 'all',
+          test: new RegExp(
+            `[\\\\/]node_modules[\\\\/](${ANTD_BUNDLES.join(`|`)})[\\\\/]`,
+          ),
+          priority: 40,
+          enforce: true,
+        },
+        wufeng: {
+          name: 'wufeng',
+          chunks: 'all',
+          test: new RegExp(
+            `[\\\\/]node_modules[\\\\/](${WUFENG_BUNDLES.join(`|`)})[\\\\/]`,
           ),
           priority: 40,
           enforce: true,

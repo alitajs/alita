@@ -14,5 +14,27 @@
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "updateInternalDependents": "always"
   },
-  "ignore": ["@examples/*", "umi-scripts"]
+  "ignore": [
+    "@examples/aclass",
+    "@examples/alita2",
+    "@examples/boilerplate",
+    "@examples/helmet",
+    "@examples/state",
+    "@examples/boilerplate",
+    "@example/lint",
+    "@examples/helmet",
+    "@examples/min",
+    "@examples/mobile2",
+    "@examples/mobile5",
+    "@examples/mobilev2",
+    "@examples/native",
+    "@examples/aclass",
+    "@examples/pro",
+    "@examples/rerender",
+    "@examples/routes",
+    "@examples/tabs",
+    "@examples/tabs-routes",
+    "@example/test-test",
+    "umi-scripts"
+  ]
 }
