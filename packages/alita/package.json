@@ -21,7 +21,6 @@
     "stylelint.js"
   ],
   "scripts": {
-    "postinstall": "node hackumi",
     "build": "pnpm tsc",
     "build:deps": "umi-scripts bundleDeps",
     "dev": "pnpm build --watch",
@@ -47,13 +46,13 @@
     "@alita/types": "3.1.0",
     "@alita/native": "3.2.2",
     "@alita/plugins": "3.2.6",
-    "@umijs/core": "4.0.34",
-    "@umijs/bundler-webpack": "4.0.34",
-    "@umijs/babel-preset-umi": "4.0.34",
-    "@umijs/preset-umi": "4.0.34",
-    "@umijs/utils": "4.0.34",
+    "@umijs/core": "4.0.36",
+    "@umijs/bundler-webpack": "4.0.36",
+    "@umijs/babel-preset-umi": "4.0.36",
+    "@umijs/preset-umi": "4.0.36",
+    "@umijs/utils": "4.0.36",
     "qrcode-terminal": "^0.12.0",
-    "umi": "4.0.34",
+    "umi": "4.0.36",
     "v8-compile-cache": "^2.3.0",
     "eslint": "8.15.0",
     "stylelint": "14.8.2"

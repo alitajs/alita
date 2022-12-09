@@ -62,22 +62,20 @@ export default (api: AlitaApi) => {
           name: 'framework',
           chunks: 'all',
           test: new RegExp(
-            `[\\\\/]node_modules[\\\\/](${FRAMEWORK_BUNDLES.concat(
-              LINGXI_BUNDLES,
-            ).join(`|`)})[\\\\/]`,
+            `[\\\\/]node_modules[\\\\/](${FRAMEWORK_BUNDLES.join(`|`)})[\\\\/]`,
           ),
           priority: 40,
           enforce: true,
         },
-        // lingxi: {
-        //   name: 'lingxi',
-        //   chunks: 'all',
-        //   test: new RegExp(
-        //     `[\\\\/]node_modules[\\\\/](${LINGXI_BUNDLES.join(`|`)})[\\\\/]`,
-        //   ),
-        //   priority: 40,
-        //   enforce: true,
-        // },
+        lingxi: {
+          name: 'lingxi',
+          chunks: 'all',
+          test: new RegExp(
+            `[\\\\/]node_modules[\\\\/](${LINGXI_BUNDLES.join(`|`)})[\\\\/]`,
+          ),
+          priority: 40,
+          enforce: true,
+        },
         lib: {
           test(module: any) {
             return (
