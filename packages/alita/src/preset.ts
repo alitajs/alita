@@ -15,6 +15,7 @@ export default (api: IApi) => {
     require.resolve('./features/preloading'),
     // TODO: 需要和当前路由信息联动
     // require.resolve('./features/qrcodeterminal'),
+    require.resolve('./commands/env'),
     require.resolve('./commands/generate/pages'),
   ];
   const plugins = [

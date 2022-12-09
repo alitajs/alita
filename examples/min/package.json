@@ -1,0 +1,12 @@
+{
+  "name": "@examples/min",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "ANALYZE=1 alita build",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "alita": "3.2.9"
+  }
+}
