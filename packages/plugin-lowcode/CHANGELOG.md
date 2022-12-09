@@ -1,5 +1,11 @@
 # @alita/plugin-lowcode
 
+## 3.0.8
+
+### Patch Changes
+
+- [`996b17d3`](https://github.com/alitajs/alita/commit/996b17d3b04fc08bc985f44bc75ece5c7a49bb7e) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: split chunks
+
 ## 3.0.7
 
 ### Patch Changes
