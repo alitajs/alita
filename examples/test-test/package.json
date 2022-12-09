@@ -6,7 +6,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "alita": "3.2.9"
+    "alita": "3.2.10"
   },
   "devDependencies": {
     "react": "17",
@@ -17,5 +17,6 @@
     "jest": "^27",
     "ts-node": "^10",
     "typescript": "^4.7.2"
-  }
+  },
+  "version": null
 }
