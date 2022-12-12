@@ -1,5 +1,11 @@
 # @alita/plugin-lowcode
 
+## 3.0.9
+
+### Patch Changes
+
+- [#493](https://github.com/alitajs/alita/pull/493) [`9d714d8a`](https://github.com/alitajs/alita/commit/9d714d8ab7266926b03e7306fc1743bc82bb8e90) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix lib/codemirror 404
+
 ## 3.0.8
 
 ### Patch Changes
