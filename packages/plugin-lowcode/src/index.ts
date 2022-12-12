@@ -94,6 +94,7 @@ export default (api: AlitaApi) => {
         lib: {
           test(module: any) {
             return (
+              !isModuleCSS(module) &&
               module.size() > 160000 &&
               /node_modules[/\\]/.test(module.identifier())
             );
@@ -102,7 +103,14 @@ export default (api: AlitaApi) => {
             const rawRequest =
               module.rawRequest &&
               module.rawRequest.replace(/^@(\w+)[/\\]/, '$1-');
-            if (rawRequest) return `${rawRequest}-lib`;
+            if (rawRequest) {
+              return `${
+                // when `require()` a package with relative path,
+                // need remove leading `.` and `/`, otherwise will not found `.js` file
+                // e.g. require('../../lib/codemirror')
+                rawRequest.replace(/\./g, '_').replace(/\//g, '-')
+              }-lib`;
+            }
 
             const identifier = module.identifier();
             const trimmedIdentifier = /(?:^|[/\\])node_modules[/\\](.*)/.exec(
@@ -129,13 +137,17 @@ export default (api: AlitaApi) => {
                 }, ''),
               )
               .digest('base64')
-              .replace(/\//g, '');
+              // replace `+=/` that may be escaped in the url
+              // https://github.com/umijs/umi/issues/9845
+              .replace(/\//g, '')
+              .replace(/\+/g, '-')
+              .replace(/=/g, '_');
             return `shared-${cryptoName}`;
           },
-          chunks: 'async',
           priority: 10,
-          minChunks: 3,
+          minChunks: 2,
           reuseExistingChunk: true,
+          chunks: 'async',
         },
       },
     });
@@ -145,3 +157,13 @@ export default (api: AlitaApi) => {
   //   console.log(stats);
   // });
 };
+function isModuleCSS(module: { type: string }) {
+  return (
+    // mini-css-extract-plugin
+    module.type === `css/mini-extract` ||
+    // extract-css-chunks-webpack-plugin (old)
+    module.type === `css/extract-chunks` ||
+    // extract-css-chunks-webpack-plugin (new)
+    module.type === `css/extract-css-chunks`
+  );
+}
