@@ -362,12 +362,13 @@ export function useKeepOutlets() {
                         newActiveKey = newPanel[0];
                     }
                 }
+                const { pathname, hash, search } = keepElements.current[newActiveKey].location;
                 if (lastIndex === -1 && targetKey === location.pathname) {
                     message.info('至少要保留一个窗口');
                 } else {
                     dropByCacheKey(targetKey);
                     if (newActiveKey !== location.pathname) {
-                        navigate(newActiveKey);
+                        navigate(`${pathname}${search}${hash}`);
                     }
                 }
             }}>
