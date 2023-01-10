@@ -11,7 +11,7 @@
 info  - alita v3.2.9
 info  - Using Request Plugin
 info  - Using ClassNames Plugin
-info  - Umi v4.0.36
+info  - Umi v4.0.42
 event - [Webpack] Compiled in 883 ms (314 modules)
 Webpack Bundle Analyzer is started at http://127.0.0.1:8888
 Use Ctrl+C to close it
@@ -39,7 +39,7 @@ ready - legacy mode is enabled, we automatically modify the srcTranspiler, jsMin
 info  - alita v3.2.9
 info  - Using Request Plugin
 info  - Using ClassNames Plugin
-info  - Umi v4.0.36
+info  - Umi v4.0.42
 event - [Webpack] Compiled in 5035 ms (942 modules)
 Webpack Bundle Analyzer is started at http://127.0.0.1:8888
 Use Ctrl+C to close it
