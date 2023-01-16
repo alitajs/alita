@@ -78,12 +78,12 @@ $ alita version
 
 ## preview
 
-`umi preview` 命令会在本地启动一个静态 Web 服务器，将 dist 文件夹运行在 http://127.0.0.1:4172, 用于预览构建后产物, 支持 proxy、mock 等设置。
+`alita preview` 命令会在本地启动一个静态 Web 服务器，将 dist 文件夹运行在 http://127.0.0.1:4172, 用于预览构建后产物, 支持 proxy、mock 等设置。
 
 你可以通过 `--port` 参数来配置服务的运行端口。
 
 ```bash
-$ umi preview --port 9527
+$ alita preview --port 9527
 ```
 
 现在 `preview` 命令会将服务器运行在 http://127.0.0.1:9527.
