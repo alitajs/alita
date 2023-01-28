@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugin-lowcode",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "@alita/plugin-lowcode",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

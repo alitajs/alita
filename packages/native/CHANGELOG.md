@@ -1,5 +1,11 @@
 # @alita/native
 
+## 3.2.4
+
+### Patch Changes
+
+- [`931d8d7d`](https://github.com/alitajs/alita/commit/931d8d7d6e5ea0df0a071a315dcd11b867917445) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
 ## 3.2.3
 
 ### Patch Changes
