@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.2.8
+
+### Patch Changes
+
+- [`931d8d7d`](https://github.com/alitajs/alita/commit/931d8d7d6e5ea0df0a071a315dcd11b867917445) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update umi
+
+* [`1ef16145`](https://github.com/alitajs/alita/commit/1ef161454a38155f30aac5d12ddf570f70950e5c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: navbar use style
+
 ## 3.2.7
 
 ### Patch Changes
