@@ -47,6 +47,7 @@ export interface NavBarProps extends React.HTMLProps<HTMLDivElement> {
     fixed?: boolean;
     pageTitle?: string;
     pageBackground?: string;
+    style?: React.CSSProperties;
 }
 export interface Match<Params extends { [K in keyof Params]?: string } = {}> {
     params: Params;
@@ -179,6 +180,7 @@ const headerRender = ({
         hideNavBar,
         className,
         pageTitle,
+        style = {}
     } = realNavBar;
     const defaultEvent = onBack || onLeftClick || (!hasTabsBar ? navigate.goBack : () => { });
     if (hideNavBar === true) {
@@ -194,7 +196,7 @@ const headerRender = ({
                 className="alita-head alita-layout-head"
             >
                 <NavBar
-                    style={ { width: '100%',...modeStyle } }
+                    style={ { width: '100%',...modeStyle, ...style } }
                     backArrow={backArrow || icon || defaultIcon}
                     onBack={() => defaultEvent(navigate)}
                     right={right || rightContent}

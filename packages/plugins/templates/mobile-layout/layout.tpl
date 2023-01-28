@@ -47,6 +47,7 @@ export interface NavBarProps extends React.HTMLProps<HTMLDivElement> {
   fixed?: boolean;
   pageTitle?: string;
   pageBackground?: string;
+  style?:React.CSSProperties;
 }
 export interface Match<Params extends { [K in keyof Params]?: string } = {}> {
   params: Params;
@@ -174,6 +175,7 @@ const headerRender = ({
     hideNavBar,
     className,
     pageTitle,
+    style = {}
   } = realNavBar;
   const defaultEvent = onLeftClick || (!hasTabsBar ? navigate.goBack : () => { });
   if (hideNavBar === true) {
@@ -191,7 +193,7 @@ const headerRender = ({
       >
         <NavBar
           mode={mode}
-          style={ { width: '100%' } }
+          style={ { width: '100%',...style } }
           icon={icon || defaultIcon}
           onLeftClick={() => defaultEvent(navigate)}
           rightContent={rightContent}

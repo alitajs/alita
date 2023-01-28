@@ -1,12 +1,22 @@
 import { KeepAliveContext } from '@@/plugin-keepalive';
-import { Outlet, useLocation } from 'alita';
+import { Outlet, setPageNavBar, useLocation } from 'alita';
 import { Button } from 'antd-mobile';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default () => {
   const [count, setCount] = useState(0);
   const location = useLocation();
   const { dropByCacheKey } = React.useContext<any>(KeepAliveContext);
+  useEffect(() => {
+    setPageNavBar({
+      pagePath: location.pathname,
+      navBar: {
+        style: {
+          background: 'red',
+        },
+      },
+    });
+  }, []);
   return (
     <div>
       <h2>users layout</h2>

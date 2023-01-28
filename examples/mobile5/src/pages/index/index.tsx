@@ -1,8 +1,19 @@
+import { setPageNavBar } from 'alita';
 import { Button } from 'antd-mobile-5';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.less';
 export default () => {
   const [count, setCount] = useState(0);
+  useEffect(() => {
+    setPageNavBar({
+      pagePath: '/',
+      navBar: {
+        style: {
+          background: 'red',
+        },
+      },
+    });
+  }, []);
   return (
     <>
       <div className={styles['adm-button']}>antd mobile</div>
