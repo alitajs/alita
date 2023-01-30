@@ -1,5 +1,15 @@
 # @alita/plugins
 
+## 3.2.9
+
+### Patch Changes
+
+- [#483](https://github.com/alitajs/alita/pull/483) [`84c35599`](https://github.com/alitajs/alita/commit/84c35599ea747af370230067c2de67ed750628b5) Thanks [@Hexi1997](https://github.com/Hexi1997)! - feat: add hasFixedHeader config for tabs-layout and keep-alive plugin
+
+* [#508](https://github.com/alitajs/alita/pull/508) [`06323553`](https://github.com/alitajs/alita/commit/0632355389595cd20832e0043a566b74df8c8197) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support antd tabs props
+
+- [#505](https://github.com/alitajs/alita/pull/505) [`105f4e44`](https://github.com/alitajs/alita/commit/105f4e44022e532a289ff2d13ba2aff7723d1ba4) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: keepalive tpl
+
 ## 3.2.8
 
 ### Patch Changes
