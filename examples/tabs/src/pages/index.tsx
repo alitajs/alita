@@ -8,6 +8,6 @@ export default () => (
       history.push('/users');
     }}
   >
-    Hello Alita
+    Hello Alita, Click Me Go To /Users!
   </div>
 );

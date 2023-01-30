@@ -1,12 +1,12 @@
 export default {
   appType: 'pc',
-  keepalive: [/foo/],
+  keepalive: [/./],
   mfsu: {},
   antd: {},
   hash: false,
   tabsLayout: {
     hasDropdown: true,
-    hasFixedHeader: true,
+    // hasFixedHeader: true,
   },
   routes: [
     {
@@ -23,7 +23,9 @@ export default {
     },
     {
       path: '/',
-      redirect: '/users',
+      name: 'home',
+      icon: 'smile',
+      component: './index',
     },
   ],
 };

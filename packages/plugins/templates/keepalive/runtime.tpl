@@ -1,14 +1,19 @@
 import React from 'react';
-import { KeepAliveContext, TabConfig } from './context';
+import { KeepAliveContext, 
+{{#hasTabsLayout}}
+  TabConfig
+{{/hasTabsLayout}}
+} from './context';
 {{#hasGetKeepalive}}
-
 import { getKeepAlive } from '@/app';
 {{/hasGetKeepalive}}
 
 const KeepAliveLayout = (props)=>{
   const keepElements = React.useRef<any>({});
   const [cacheKeyMap, setCacheKeyMap] = React.useState({});
+{{#hasTabsLayout}}
   const [tabNameMap, setTabNameMap] = React.useState({});
+{{/hasTabsLayout}}
   const [keepalive, setKeepalive] = React.useState([{{{ keepalive }}}]);
 {{#hasGetKeepalive}}
 
@@ -35,7 +40,7 @@ const KeepAliveLayout = (props)=>{
       }))
     }
   }
-
+{{#hasTabsLayout}}
   /**
    * 关闭当前tab左侧的所有tab
    * @param path
@@ -125,7 +130,7 @@ const KeepAliveLayout = (props)=>{
       }));
     }
   }
-
+{{/hasTabsLayout}}
   return (
     <KeepAliveContext.Provider
       value={ {
@@ -133,13 +138,15 @@ const KeepAliveLayout = (props)=>{
         setKeepalive,
         keepElements,
         cacheKeyMap,
-        tabNameMap,
         dropByCacheKey,
+{{#hasTabsLayout}}
+        tabNameMap,
         dropLeftTabs,
         dropRightTabs,
         dropOtherTabs,
         refreshTab,
         updateTab,
+{{/hasTabsLayout}}
       }}
       {...props}
     />
