@@ -70,6 +70,7 @@ export default {
             'guides/boilerplate',
             'guides/generator',
             'guides/native',
+            'guides/tabs',
           ],
         },
       ],
