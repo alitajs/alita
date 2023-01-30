@@ -294,41 +294,47 @@ export function useKeepOutlets() {
             <Tabs
 {{#hasDropdown}}
               tabBarExtraContent={
-                <Dropdown
-                  overlay={
-                    <Menu
-                      items={[
-                        {
-                          label: "关闭左侧",
-                          icon: <VerticalRightOutlined />,
-                          key: "left",
-                        },
-                        {
-                          label: "关闭右侧",
-                          icon: <VerticalLeftOutlined />,
-                          key: "right",
-                        },
-                        {
-                          label: "关闭其他",
-                          icon: <CloseOutlined />,
-                          key: "others",
-                        },
-                        {
-                          type: "divider",
-                        },
-                        {
-                          label: "刷新",
-                          icon: <ReloadOutlined />,
-                          key: "refresh",
-                        },
-                      ]}
-                      onClick={selectAction}
-                    />
-                  }
-                  trigger={["click"]}
-                >
-                  <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
-                </Dropdown>
+{{#hasFixedHeader}}
+                <div style={{ position: 'fixed', right: 0,transform:'translateY(-50%)' }}>
+{{/hasFixedHeader}}
+                  <Dropdown
+                    overlay={
+                      <Menu
+                        items={[
+                          {
+                            label: "关闭左侧",
+                            icon: <VerticalRightOutlined />,
+                            key: "left",
+                          },
+                          {
+                            label: "关闭右侧",
+                            icon: <VerticalLeftOutlined />,
+                            key: "right",
+                          },
+                          {
+                            label: "关闭其他",
+                            icon: <CloseOutlined />,
+                            key: "others",
+                          },
+                          {
+                            type: "divider",
+                          },
+                          {
+                            label: "刷新",
+                            icon: <ReloadOutlined />,
+                            key: "refresh",
+                          },
+                        ]}
+                        onClick={selectAction}
+                      />
+                    }
+                    trigger={["click"]}
+                  >
+                    <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
+                  </Dropdown>
+{{#hasFixedHeader}}
+                </div>
+{{/hasFixedHeader}}
               }
 {{/hasDropdown}}
               hideAdd
@@ -337,6 +343,18 @@ export function useKeepOutlets() {
                 const { pathname, hash, search } = keepElements.current[path].location;
                 navigate(`${pathname}${search}${hash}`);
               }}
+{{#hasFixedHeader}}
+              renderTabBar={(props, DefaultTabBar) => (
+                <div style={{
+                  position: 'fixed', zIndex: 1, padding: 0, width: '100%',
+                  background: 'white'
+                }}>
+                  <DefaultTabBar {...props} style={{
+                    marginBottom: 0,
+                  }} />
+                </div>
+              )}
+{{/hasFixedHeader}}
               activeKey={`${location.pathname}::${tabNameMap[location.pathname]}`}
               type="editable-card"
               onEdit={(key: string) => {
@@ -374,6 +392,11 @@ export function useKeepOutlets() {
                 {Object.entries(keepElements.current).map(([pathname, {name, icon, closable}]: any) => {
                     return (
                       <TabPane
+{{#hasFixedHeader}}
+                        style={{
+                          paddingTop:"20px"
+                        }}
+{{/hasFixedHeader}}
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}
