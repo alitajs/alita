@@ -3,7 +3,7 @@ import React, { useEffect, ReactNode } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-import { Tabs, message, Dropdown, Button, Menu } from "antd";
+import { Tabs, message, Dropdown, Button, Menu, TabPaneProps } from "antd";
 import { EllipsisOutlined, VerticalRightOutlined, VerticalLeftOutlined, CloseOutlined, ReloadOutlined } from "@ant-design/icons";
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
@@ -23,14 +23,16 @@ import { useIntl } from '../exports';
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
 const { TabPane } = Tabs;
-{{/hasTabsLayout}}
-{{/hasCustomTabs}}
 
-export interface TabConfig {
+export interface TabConfig extends TabPaneProps{
   icon?: ReactNode;
   name?: string;
   closable?: boolean;
 }
+
+{{/hasTabsLayout}}
+{{/hasCustomTabs}}
+
 
 export interface KeepAliveContextProps {
   keepalive: RegExp[],
@@ -38,16 +40,18 @@ export interface KeepAliveContextProps {
   keepElements: React.MutableRefObject<any>,
   dropByCacheKey: (path: string) => void,
   cacheKeyMap: Record<string, number>,
+{{#hasTabsLayout}}
   tabNameMap: Record<string, number>,
   dropLeftTabs: (path: string) => void,
   dropRightTabs: (path: string) => void,
   dropOtherTabs: (path: string) => void,
   refreshTab: (path: string) => void,
   updateTab: (path: string, config: TabConfig) => void,
+{{/hasTabsLayout}}
 }
 
 export const KeepAliveContext = React.createContext<KeepAliveContextProps>({});
-
+type Subscription<T> = (val: T) => void;
 class EventEmitter<T> {
   private subscriptions = new Set<Subscription<T>>();
 
@@ -117,7 +121,7 @@ const isKeepPath = (aliveList: any[], path: string, route:any) => {
     return isKeep;
 }
 
-
+{{#hasTabsLayout}}
 const getMatchPathName = (pathname: string, local: Record<string, string>={}) => {
     const tabs = Object.entries(local);
     let tabName = pathname;
@@ -152,6 +156,7 @@ const getLocalFromClientRoutes = (data,routesConfig) => {
     getLocalFromRoutes(data,'');
     return config;
 }
+{{/hasTabsLayout}}
 
 export function useKeepOutlets() {
     const location = useLocation();
@@ -190,7 +195,7 @@ export function useKeepOutlets() {
         const runtime = getPluginManager().applyPlugins({
           key: 'tabsLayout',
           type: 'modify',
-          initialValue: {},
+          initialValue: {initialState:{}},
         });
         if(runtime?.local) return runtime;
         return getLocalFromClientRoutes(clientRoutes,routes);
@@ -221,18 +226,21 @@ export function useKeepOutlets() {
     },
     [location.pathname]
   );
+  const {icon:localConfigIcon ,local,...tabsProps} = localConfig;
 {{/hasTabsLayout}}
 
     const {
       cacheKeyMap,
-      tabNameMap,
       keepElements,
       keepalive,
       dropByCacheKey,
+{{#hasTabsLayout}}
+      tabNameMap,
       dropLeftTabs,
       dropRightTabs,
       dropOtherTabs,
       refreshTab,
+{{/hasTabsLayout}}
     } = React.useContext(KeepAliveContext);
 
   keepaliveEmitter?.useSubscription?.((event) => {
@@ -249,10 +257,10 @@ export function useKeepOutlets() {
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
-      let icon = getMatchPathName(location.pathname, localConfig.icon);
+      let icon = getMatchPathName(location.pathname, localConfigIcon);
       if(typeof icon === 'string') icon = '';
 
-      const defaultName = getMatchPathName(location.pathname, localConfig.local);
+      const defaultName = getMatchPathName(location.pathname, local);
       // 国际化使用 pro 的约定
       const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
       {{/hasTabsLayout}}
@@ -388,8 +396,10 @@ export function useKeepOutlets() {
                         navigate(newActiveKey);
                     }
                 }
-            }}>
-                {Object.entries(keepElements.current).map(([pathname, {name, icon, closable}]: any) => {
+            }}
+            {...tabsProps}
+            >
+                {Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => {
                     return (
                       <TabPane
 {{#hasFixedHeader}}
@@ -400,6 +410,7 @@ export function useKeepOutlets() {
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}
+                        {...other}
                       />
                     );
 

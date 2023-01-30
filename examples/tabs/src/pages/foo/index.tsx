@@ -10,7 +10,10 @@ export default () => {
   const params = useParams();
 
   useEffect(() => {
-    updateTab(location.pathname, { name: '详情' + params?.index });
+    updateTab(location.pathname, {
+      name: '详情' + params?.index,
+      closeIcon: <UserOutlined />,
+    });
   }, []);
 
   const handleClick = () => {

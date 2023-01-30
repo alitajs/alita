@@ -66,6 +66,7 @@ export default (api: AlitaApi) => {
       path: `${DIR_NAME}/runtime.tsx`,
       noPluginDir: true,
       content: Mustache.render(runtimeTpl, {
+        hasTabsLayout: !!tabsLayout,
         keepalive: configStringify(
           (api.userConfig.keepalive as KeepAliveType) || [],
         ),

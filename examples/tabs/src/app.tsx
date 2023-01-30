@@ -1,5 +1,6 @@
+import { UserOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
-
+import React from 'react';
 const { TabPane } = Tabs;
 
 export const request = {
@@ -12,25 +13,22 @@ export const request = {
   },
 };
 
-export const tabsLayout = {
-  local: {
-    '/': '首页',
-    '/users': '用户',
-    '/foo': '其他',
-  },
-};
-
-// async function delay(ms: number) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
-// export async function tabsLayout() {
-//   await delay(500);
-//   return {local:{
-//     '/':'首页',
-//     '/users':'用户',
-//     '/foo':'其他'
-//   }};
-// }
+export function tabsLayout() {
+  return {
+    local: {
+      '/': '首页',
+      '/users': '用户',
+      '/foo': '其他',
+    },
+    icon: {
+      '/users': <UserOutlined />,
+    },
+    size: 'large',
+    onTabClick: (key: string) => {
+      console.log(key);
+    },
+  };
+}
 
 // export const getCustomTabs = () => {
 //   return ({
