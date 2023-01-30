@@ -295,7 +295,7 @@ export function useKeepOutlets() {
 {{#hasDropdown}}
               tabBarExtraContent={
 {{#hasFixedHeader}}
-                <div style={{ position: 'fixed', right: 0,transform:'translateY(-50%)' }}>
+                <div style={ { position: 'fixed', right: 0,transform:'translateY(-50%)' } }>
 {{/hasFixedHeader}}
                   <Dropdown
                     overlay={
@@ -345,13 +345,13 @@ export function useKeepOutlets() {
               }}
 {{#hasFixedHeader}}
               renderTabBar={(props, DefaultTabBar) => (
-                <div style={{
+                <div style={ {
                   position: 'fixed', zIndex: 1, padding: 0, width: '100%',
                   background: 'white'
-                }}>
-                  <DefaultTabBar {...props} style={{
+                } }>
+                  <DefaultTabBar {...props} style={ {
                     marginBottom: 0,
-                  }} />
+                  } } />
                 </div>
               )}
 {{/hasFixedHeader}}
@@ -393,9 +393,9 @@ export function useKeepOutlets() {
                     return (
                       <TabPane
 {{#hasFixedHeader}}
-                        style={{
+                        style={ {
                           paddingTop:"20px"
-                        }}
+                        } }
 {{/hasFixedHeader}}
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
