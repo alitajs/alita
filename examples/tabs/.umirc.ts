@@ -6,7 +6,7 @@ export default {
   hash: false,
   tabsLayout: {
     hasDropdown: true,
-    // hasFixedHeader: true,
+    hasFixedHeader: true,
   },
   routes: [
     {
