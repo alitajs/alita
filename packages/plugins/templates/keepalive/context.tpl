@@ -226,7 +226,7 @@ export function useKeepOutlets() {
     },
     [location.pathname]
   );
-  const {icon:localConfigIcon ,local,...tabsProps} = localConfig;
+  const {icon:localConfigIcon ,local,...tabProps} = localConfig;
 {{/hasTabsLayout}}
 
     const {
@@ -397,7 +397,7 @@ export function useKeepOutlets() {
                     }
                 }
             }}
-            {...tabsProps}
+            {...tabProps}
             >
                 {Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => {
                     return (
