@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.10
+
+### Patch Changes
+
+- [#511](https://github.com/alitajs/alita/pull/511) [`79def33f`](https://github.com/alitajs/alita/commit/79def33f7167b3b74227b8d05d7cc030ae140f40) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: tabsProps
+
 ## 3.2.9
 
 ### Patch Changes

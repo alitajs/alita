@@ -10,7 +10,7 @@
   "dependencies": {
     "@alita/flow": "workspace:*",
     "ahooks": "^3.0.8",
-    "alita": "3.2.12",
+    "alita": "3.2.13",
     "antd-mobile-v2": "2.3.4"
   }
 }
