@@ -75,13 +75,15 @@ const App: React.FC = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0 }} />
-        <Content style={{ margin: '0 16px' }}>
-          <div style={{ padding: 24, minHeight: 360 }}>{element}</div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Umi@4 实战小册 Created by xiaohuoni
-        </Footer>
+        <Header />
+        <div style={{ height: 'calc(100vh - 64px)', overflowY: 'auto' }}>
+          <Content>
+            <div>{element}</div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            Umi@4 实战小册 Created by xiaohuoni
+          </Footer>
+        </div>
       </Layout>
     </Layout>
   );
