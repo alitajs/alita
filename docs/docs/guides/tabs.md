@@ -2,7 +2,7 @@
 
 ## 开始使用
 
-配置 `tabsLayout` 开启 
+配置 `tabsLayout` 开启
 
 ```ts
 // config/config.ts
@@ -19,7 +19,7 @@ export default {
 
 ```ts
 import { defineConfig } from 'umi';
- 
+
 export default defineConfig({
   layout: {
     hasCustomTabs: Joi.boolean(),
@@ -33,13 +33,16 @@ export default defineConfig({
 
 是否使用自定义的 tabs 组件，需要搭配运行时配置 `getCustomTabs` 使用(详见下方运行时配置说明)
 
-#### hasDropdown 
+#### hasDropdown
 
 是否开启右侧的 tabs 管理器，可以实现“关闭左侧”，“关闭右侧”，“关闭其他”和“刷新”等功能。
 
 #### hasFixedHeader
 
 是否开启 tabs 头部定位
+
+* 默认适配 [ProLayout](https://procomponents.ant.design/components/layout/) 布局
+* 如果使用 ant-design 作为ui库，则需要确保layout中 header、slider 固定，content 滚动，详见 [Demo](https://github.com/alitajs/alita/blob/master/examples/tabs/src/layouts/index.tsx)
 
 ### 运行时配置
 
@@ -202,7 +205,7 @@ export default () => {
   };
 
   return (
-    
+
   );
 };
 
