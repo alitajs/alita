@@ -1,5 +1,5 @@
 // tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
-import React, { useEffect, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -310,17 +310,26 @@ export function useKeepOutlets() {
                       <Menu
                         items={[
                           {
-                            label: "关闭左侧",
+                            label: intl.formatMessage({
+                              id: `tabs.close.left`,
+                              defaultMessage: "关闭左侧",
+                            }),
                             icon: <VerticalRightOutlined />,
                             key: "left",
                           },
                           {
-                            label: "关闭右侧",
+                            label: intl.formatMessage({
+                              id: `tabs.close.right`,
+                              defaultMessage: "关闭右侧",
+                            }),
                             icon: <VerticalLeftOutlined />,
                             key: "right",
                           },
                           {
-                            label: "关闭其他",
+                            label: intl.formatMessage({
+                              id: `tabs.close.others`,
+                              defaultMessage: "关闭其他",
+                            }),
                             icon: <CloseOutlined />,
                             key: "others",
                           },
@@ -328,7 +337,10 @@ export function useKeepOutlets() {
                             type: "divider",
                           },
                           {
-                            label: "刷新",
+                            label: intl.formatMessage({
+                              id: `tabs.refresh`,
+                              defaultMessage: "刷新",
+                            }),
                             icon: <ReloadOutlined />,
                             key: "refresh",
                           },
@@ -389,7 +401,10 @@ export function useKeepOutlets() {
                     }
                 }
                 if (lastIndex === -1 && targetKey === location.pathname) {
-                    message.info('至少要保留一个窗口');
+                    message.info(intl.formatMessage({
+                          id: `tabs.warning`,
+                          defaultMessage: '至少要保留一个窗口',
+                        }));
                 } else {
                     dropByCacheKey(targetKey);
                     if (newActiveKey !== location.pathname) {

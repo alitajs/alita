@@ -1,4 +1,12 @@
-import { history, KeepAliveContext, Outlet, useLocation } from 'alita';
+import {
+  getLocale,
+  history,
+  KeepAliveContext,
+  Outlet,
+  setLocale,
+  useIntl,
+  useLocation,
+} from 'alita';
 
 import { Button } from 'antd';
 import React, { useState } from 'react';
@@ -6,6 +14,8 @@ import React, { useState } from 'react';
 export default () => {
   const [count, setCount] = useState(0);
   const location = useLocation();
+  const currentLang = getLocale();
+  const intl = useIntl();
   const { dropByCacheKey, updateTab } = React.useContext<any>(KeepAliveContext);
 
   const handleClick = () => {
@@ -13,6 +23,15 @@ export default () => {
       name: 'hahaha' + Math.ceil((Math.random() * 100) / 10),
     });
   };
+
+  const switchLang = () => {
+    if (currentLang === 'zh-CN') {
+      setLocale('en-US');
+    } else {
+      setLocale('zh-CN');
+    }
+  };
+
   return (
     <div>
       <h2>users layout</h2>
@@ -38,6 +57,15 @@ export default () => {
         清除当前页面缓存
       </Button>
       <Button onClick={handleClick}>修改tabName</Button>
+
+      <div>
+        <span>当前语言: {currentLang}</span>
+        <Button onClick={switchLang}>切换语言</Button>
+      </div>
+      <div>
+        <span>测试locale文件是否生效: </span>
+        <span>{intl.formatMessage({ id: 'tabs.close.left' })}</span>
+      </div>
     </div>
   );
 };

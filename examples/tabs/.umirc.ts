@@ -8,6 +8,11 @@ export default {
     hasDropdown: true,
     hasFixedHeader: true,
   },
+  locale: {
+    // 默认使用 src/locales/zh-CN.ts 作为多语言文件
+    default: 'zh-CN',
+    baseSeparator: '-',
+  },
   routes: [
     {
       path: '/users',
