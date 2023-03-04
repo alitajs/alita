@@ -93,12 +93,6 @@ const cwd = process.cwd();
     const pkg = require(join(examplesDir, example, 'package.json'));
     pkg.scripts ||= {};
     pkg.scripts['start'] = 'npm run dev';
-    // change deps version
-    setDepsVersion({
-      pkg,
-      version,
-      deps: ['alita'],
-    });
     delete pkg.version;
     fs.writeFileSync(
       join(examplesDir, example, 'package.json'),
@@ -189,21 +183,3 @@ const cwd = process.cwd();
   // );
   // $.verbose = true;
 })();
-
-function setDepsVersion(opts: {
-  deps: string[];
-  pkg: Record<string, any>;
-  version: string;
-}) {
-  const { deps, pkg, version } = opts;
-  pkg.dependencies ||= {};
-  deps.forEach((dep) => {
-    if (pkg?.dependencies?.[dep]) {
-      pkg.dependencies[dep] = version;
-    }
-    if (pkg?.devDependencies?.[dep]) {
-      pkg.devDependencies[dep] = version;
-    }
-  });
-  return pkg;
-}
