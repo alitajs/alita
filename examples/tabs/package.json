@@ -10,7 +10,7 @@
   "dependencies": {
     "@alita/flow": "workspace:*",
     "@ant-design/icons": "^4.7.0",
-    "alita": "3.2.13",
+    "alita": "workspace:*",
     "antd": "^4.21.2"
   }
 }

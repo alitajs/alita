@@ -7,6 +7,6 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "alita": "3.2.13"
+    "alita": "workspace:*"
   }
 }
