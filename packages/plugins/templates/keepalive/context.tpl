@@ -461,7 +461,6 @@ export function useKeepOutlets() {
                   className="runtime-keep-alive-layout"
                   style={ {
                     height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto',
-                    padding:'0 24px'
                   } }
                   hidden={!matchPath(location.pathname, pathname)}>
                     {children}
