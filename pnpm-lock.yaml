@@ -342,9 +342,9 @@ importers:
 
   packages/alita:
     specifiers:
-      '@alita/native': 3.2.4
-      '@alita/plugins': 3.2.10
-      '@alita/types': 3.1.0
+      '@alita/native': 3.2.5
+      '@alita/plugins': 3.2.11
+      '@alita/types': 3.1.1
       '@umijs/babel-preset-umi': 4.0.55
       '@umijs/bundler-webpack': 4.0.55
       '@umijs/core': 4.0.55
@@ -392,7 +392,7 @@ importers:
 
   packages/native:
     specifiers:
-      '@alita/types': 3.1.0
+      '@alita/types': 3.1.1
       '@umijs/utils': 4.0.55
     dependencies:
       '@alita/types': link:../types
@@ -400,7 +400,7 @@ importers:
 
   packages/plugin-lowcode:
     specifiers:
-      '@alita/types': 3.1.0
+      '@alita/types': 3.1.1
       '@umijs/utils': 4.0.55
     dependencies:
       '@alita/types': link:../types
@@ -410,8 +410,8 @@ importers:
     specifiers:
       '@alita/babel-transform-jsx-class': 0.0.2
       '@alita/inspx': 0.0.2
-      '@alita/request': 3.1.0
-      '@alita/types': 3.1.0
+      '@alita/request': 3.1.1
+      '@alita/types': 3.1.1
       '@alitajs/postcss-plugin-px2rem': ^0.0.1
       '@types/semver': ^7.3.9
       '@umijs/bundler-utils': 4.0.55
@@ -15435,6 +15435,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -15444,6 +15445,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
@@ -15453,6 +15455,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -15462,6 +15465,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
