@@ -24,9 +24,7 @@ export const checkAntdVersion = (api: AlitaApi) => {
         }) || `${api.cwd}/node_modules/antd`;
       version = require(`${nodeModulesPath}/package.json`).version;
     } catch (error) {}
-    return [semver.lt('4.22.8', version), true];
+    return semver.lt('4.22.8', version);
   }
-
-  // 用户没有安装
-  return [true, false];
+  return true;
 };

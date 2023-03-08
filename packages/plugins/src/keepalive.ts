@@ -41,7 +41,7 @@ export default (api: AlitaApi) => {
     });
   };
   api.onGenerateFiles(() => {
-    const [isAntdVersionNew, hasDep] = checkAntdVersion(api);
+    const isAntdVersionNew = checkAntdVersion(api);
 
     const contextTpl = readFileSync(
       join(__dirname, '..', 'templates', 'keepalive', 'context.tpl'),
@@ -59,7 +59,7 @@ export default (api: AlitaApi) => {
         hasFixedHeader: !!tabsLayout?.hasFixedHeader,
         isPluginModelEnable: hasInitialStatePlugin,
         hasIntl: !!api.config.locale,
-        isNewTabs: isAntdVersionNew && hasDep,
+        isNewTabs: isAntdVersionNew,
       }),
     });
     const runtimeTpl = readFileSync(
