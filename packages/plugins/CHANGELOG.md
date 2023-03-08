@@ -1,5 +1,21 @@
 # @alita/plugins
 
+## 3.2.11
+
+### Patch Changes
+
+- [#520](https://github.com/alitajs/alita/pull/520) [`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46) Thanks [@fz6m](https://github.com/fz6m)! - Upgrade umi deps version
+
+- [#521](https://github.com/alitajs/alita/pull/521) [`0e8866c2`](https://github.com/alitajs/alita/commit/0e8866c2e65850bcb5e5d71211feb37848de8b6d) Thanks [@chj-damon](https://github.com/chj-damon)! - 通过判断 antd 的版本来决定 Tabs 的渲染方式
+
+- [#510](https://github.com/alitajs/alita/pull/510) [`eaa4c750`](https://github.com/alitajs/alita/commit/eaa4c7503e2f9ed96b578ba7d7f9fdaec981d089) Thanks [@Hexi1997](https://github.com/Hexi1997)! - 修复 hasFixedHeader 配置 tabs demo 中的样式问题
+
+- [#515](https://github.com/alitajs/alita/pull/515) [`bcc3ff05`](https://github.com/alitajs/alita/commit/bcc3ff051fef4242f377a62f04c3d540178ba15d) Thanks [@chj-damon](https://github.com/chj-damon)! - 为 Tabs 下拉操作选项增加国际化支持
+
+- Updated dependencies [[`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46)]:
+  - @alita/request@3.1.1
+  - @alita/types@3.1.1
+
 ## 3.2.10
 
 ### Patch Changes

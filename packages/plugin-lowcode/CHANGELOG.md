@@ -1,5 +1,14 @@
 # @alita/plugin-lowcode
 
+## 3.0.11
+
+### Patch Changes
+
+- [#520](https://github.com/alitajs/alita/pull/520) [`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46) Thanks [@fz6m](https://github.com/fz6m)! - Upgrade umi deps version
+
+- Updated dependencies [[`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46)]:
+  - @alita/types@3.1.1
+
 ## 3.0.10
 
 ### Patch Changes
