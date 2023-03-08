@@ -1,5 +1,16 @@
 # alita
 
+## 3.2.14
+
+### Patch Changes
+
+- [#520](https://github.com/alitajs/alita/pull/520) [`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46) Thanks [@fz6m](https://github.com/fz6m)! - Upgrade umi deps version
+
+- Updated dependencies [[`f4e17c50`](https://github.com/alitajs/alita/commit/f4e17c50e118d05b7a7124ab0aa0c279caf21d46), [`0e8866c2`](https://github.com/alitajs/alita/commit/0e8866c2e65850bcb5e5d71211feb37848de8b6d), [`eaa4c750`](https://github.com/alitajs/alita/commit/eaa4c7503e2f9ed96b578ba7d7f9fdaec981d089), [`bcc3ff05`](https://github.com/alitajs/alita/commit/bcc3ff051fef4242f377a62f04c3d540178ba15d)]:
+  - @alita/native@3.2.5
+  - @alita/plugins@3.2.11
+  - @alita/types@3.1.1
+
 ## 3.2.13
 
 ### Patch Changes

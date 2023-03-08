@@ -1,6 +1,6 @@
 {
   "name": "@alita/native",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "alita native cli",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alita/types": "3.1.0",
+    "@alita/types": "3.1.1",
     "@umijs/utils": "4.0.55"
   },
   "license": "MIT"
