@@ -3,6 +3,7 @@ import { logger, Mustache } from '@umijs/utils';
 
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { checkAntdVersion } from './utils/checkAntd';
 
 const DIR_NAME = 'plugin-keepalive';
 // keepalive:['route path','route path']
@@ -40,6 +41,8 @@ export default (api: AlitaApi) => {
     });
   };
   api.onGenerateFiles(() => {
+    const isAntdVersionNew = checkAntdVersion(api);
+
     const contextTpl = readFileSync(
       join(__dirname, '..', 'templates', 'keepalive', 'context.tpl'),
       'utf-8',
@@ -56,6 +59,7 @@ export default (api: AlitaApi) => {
         hasFixedHeader: !!tabsLayout?.hasFixedHeader,
         isPluginModelEnable: hasInitialStatePlugin,
         hasIntl: !!api.config.locale,
+        isNewTabs: isAntdVersionNew,
       }),
     });
     const runtimeTpl = readFileSync(

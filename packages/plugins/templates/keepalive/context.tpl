@@ -22,7 +22,9 @@ import { useIntl } from '../exports';
 {{/hasIntl}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
+{{^isNewTabs}}
 const { TabPane } = Tabs;
+{{/isNewTabs}}
 
 export interface TabConfig extends TabPaneProps{
   icon?: ReactNode;
@@ -226,7 +228,7 @@ export function useKeepOutlets() {
     },
     [location.pathname]
   );
-  const {icon:localConfigIcon ,local,...tabProps} = localConfig;
+  const {icon:localConfigIcon ,local, initialState: _initialState, ...tabProps} = localConfig;
 {{/hasTabsLayout}}
 
     const {
@@ -298,7 +300,13 @@ export function useKeepOutlets() {
 {{/hasCustomTabs}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-        <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} style={ {height:'40px',marginBottom:'12px'} }>
+        <div
+          className="runtime-keep-alive-tabs-layout"
+          hidden={!isKeep}
+          {{#hasFixedHeader}}
+          style={ {height:'40px',marginBottom:'12px'} }
+          {{/hasFixedHeader}}
+        >
             <Tabs
 {{#hasDropdown}}
               tabBarExtraContent={
@@ -413,30 +421,48 @@ export function useKeepOutlets() {
                 }
             }}
             {...tabProps}
+            {{#isNewTabs}}
+            items={Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => ({
+              label: <>{icon}{name}</>,
+              key: `${pathname}::${tabNameMap[pathname]}`,
+              closable: Object.entries(keepElements.current).length === 1 ? false : closable,
+              {{#hasFixedHeader}}
+              style: {{paddingTop: '20px'}}
+              {{/hasFixedHeader}}
+              ...other
+            }))}
+            {{/isNewTabs}}
             >
+            {{^isNewTabs}}
                 {Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => {
                     return (
                       <TabPane
-{{#hasFixedHeader}}
+                        {{#hasFixedHeader}}
                         style={ {
                           paddingTop:"20px"
                         } }
-{{/hasFixedHeader}}
+                        {{/hasFixedHeader}}
                         key={`${pathname}::${tabNameMap[pathname]}`}
                         tab={<>{icon}{name}</>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}
                         {...other}
                       />
                     );
-
                 })}
+                {{/isNewTabs}}
             </Tabs>
         </div>
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
         {
             Object.entries(keepElements.current).map(([pathname, { children }]: any) => (
-                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" style={ {padding:'0 24px'} } hidden={!matchPath(location.pathname, pathname)}>
+                <div
+                  key={`${pathname}:${cacheKeyMap[pathname] || '_'}`}
+                  className="runtime-keep-alive-layout"
+                  style={ {
+                    height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto',
+                  } }
+                  hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
             ))
