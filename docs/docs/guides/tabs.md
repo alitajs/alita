@@ -93,29 +93,18 @@ export const getCustomTabs = () => {
           activeKey={activeKey}
           type="editable-card"
           onEdit={(targetKey: string) => {
-            let newActiveKey = activeKey;
-            let lastIndex = -1;
-            const newPanel = Object.keys(keepElements.current);
-            for (let i = 0; i < newPanel.length; i++) {
-              if (newPanel[i] === targetKey) {
-                lastIndex = i - 1;
-              }
+            const pathList = Object.keys(keepElements.current)
+            if (pathList.length === 1) {
+              message.info('至少要保留一个窗口')
+              return
             }
-            const newPanes = newPanel.filter((pane) => pane !== targetKey);
-            if (newPanes.length && newActiveKey === targetKey) {
-              if (lastIndex >= 0) {
-                newActiveKey = newPanes[lastIndex];
-              } else {
-                newActiveKey = newPanes[0];
-              }
-            }
-            if (lastIndex === -1 && targetKey === location.pathname) {
-              message.info('至少要保留一个窗口');
-            } else {
-              dropByCacheKey(targetKey);
-              if (newActiveKey !== location.pathname) {
-                navigate(newActiveKey);
-              }
+            dropByCacheKey(targetKey)
+            if (targetKey === activeKey) {
+              // 删除当前选中的tab时:
+              // 1.如果当前tab是第一个时自动选中后一个
+              // 2.不是第一个时自动选中前一个
+              const i = pathList.indexOf(targetKey)
+              navigate(pathList[i === 0 ? i + 1 : i - 1])
             }
           }}
         >
