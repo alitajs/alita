@@ -18,7 +18,7 @@ const change = async () => {
 
   const config = await fs.readJson(changesetConfig, { encoding: 'utf-8' });
   config.ignore = appNames;
-  await fs.writeFile(changesetConfig, JSON.stringify(config, null, 2), {
+  await fs.writeFile(changesetConfig, `${JSON.stringify(config, null, 2)}\n`, {
     encoding: 'utf-8',
   });
 
