@@ -298,13 +298,7 @@ export function useKeepOutlets() {
 {{/hasCustomTabs}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-        <div
-          className="runtime-keep-alive-tabs-layout"
-          hidden={!isKeep}
-          {{#hasFixedHeader}}
-          style={ {height:'40px',marginBottom:'12px'} }
-          {{/hasFixedHeader}}
-        >
+        <div className="runtime-keep-alive-tabs-layout" hidden={!isKeep} style={ {height:'40px',marginBottom:'12px'} }>
             <Tabs
 {{#hasDropdown}}
               tabBarExtraContent={
@@ -442,14 +436,7 @@ export function useKeepOutlets() {
 {{/hasCustomTabs}}
         {
             Object.entries(keepElements.current).map(([pathname, { children }]: any) => (
-                <div
-                  key={`${pathname}:${cacheKeyMap[pathname] || '_'}`}
-                  className="runtime-keep-alive-layout"
-                  style={ {
-                    height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto',
-                    padding:'0 24px'
-                  } }
-                  hidden={!matchPath(location.pathname, pathname)}>
+                <div key={`${pathname}:${cacheKeyMap[pathname] || '_'}`} style={ { height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto' } } className="runtime-keep-alive-layout" style={ {padding:'0 24px'} } hidden={!matchPath(location.pathname, pathname)}>
                     {children}
                 </div>
             ))
