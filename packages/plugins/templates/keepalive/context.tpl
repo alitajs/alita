@@ -361,7 +361,7 @@ export function useKeepOutlets() {
                     }
                     {{/isNewDropdownAPISupported}}
                     {{#isNewDropdownAPISupported}}
-                    menu={ {items} }
+                    menu={ {items, onClick: selectAction} }
                     {{/isNewDropdownAPISupported}}
                     trigger={["click"]}
                   >
