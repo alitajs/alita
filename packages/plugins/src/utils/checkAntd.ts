@@ -3,7 +3,11 @@ import type { AlitaApi } from '@alita/types';
 import semver from 'semver';
 import { resolveProjectDep } from './resolveProjectDep';
 
-export const checkAntdVersion = (api: AlitaApi) => {
+export const checkAntdVersion = (
+  api: AlitaApi,
+  unsupportVersion: string,
+  minVersion: string,
+) => {
   if (
     // @ts-ignore
     (api.pkg.dependencies && api.pkg.dependencies['antd']) ||
@@ -13,7 +17,7 @@ export const checkAntdVersion = (api: AlitaApi) => {
     // @ts-ignore
     (api.pkg.clientDependencies && api.pkg.clientDependencies['antd'])
   ) {
-    let version = '4.23.0';
+    let version = minVersion;
     try {
       // modifyConfig 的时候 api.paths 为 {}
       const nodeModulesPath =
@@ -24,7 +28,7 @@ export const checkAntdVersion = (api: AlitaApi) => {
         }) || `${api.cwd}/node_modules/antd`;
       version = require(`${nodeModulesPath}/package.json`).version;
     } catch (error) {}
-    return semver.lt('4.22.8', version);
+    return semver.lt(unsupportVersion, version);
   }
   return true;
 };
