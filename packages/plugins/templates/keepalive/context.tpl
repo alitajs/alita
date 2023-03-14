@@ -278,6 +278,8 @@ export function useKeepOutlets() {
       };
     }
 
+{{#hasTabsLayout}}
+
     const items = [
       {
         label: intl.formatMessage({
@@ -315,6 +317,7 @@ export function useKeepOutlets() {
         key: "refresh",
       },
     ];
+{{/hasTabsLayout}}
 
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
