@@ -22,9 +22,9 @@ import { useIntl } from '../exports';
 {{/hasIntl}}
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-{{^isNewTabs}}
+{{^isNewTabsAPISupported}}
 const { TabPane } = Tabs;
-{{/isNewTabs}}
+{{/isNewTabsAPISupported}}
 
 export interface TabConfig extends TabPaneProps{
   icon?: ReactNode;
@@ -278,6 +278,44 @@ export function useKeepOutlets() {
       };
     }
 
+    const items = [
+      {
+        label: intl.formatMessage({
+          id: `tabs.close.left`,
+          defaultMessage: "关闭左侧",
+        }),
+        icon: <VerticalRightOutlined />,
+        key: "left",
+      },
+      {
+        label: intl.formatMessage({
+          id: `tabs.close.right`,
+          defaultMessage: "关闭右侧",
+        }),
+        icon: <VerticalLeftOutlined />,
+        key: "right",
+      },
+      {
+        label: intl.formatMessage({
+          id: `tabs.close.others`,
+          defaultMessage: "关闭其他",
+        }),
+        icon: <CloseOutlined />,
+        key: "others",
+      },
+      {
+        type: "divider",
+      },
+      {
+        label: intl.formatMessage({
+          id: `tabs.refresh`,
+          defaultMessage: "刷新",
+        }),
+        icon: <ReloadOutlined />,
+        key: "refresh",
+      },
+    ];
+
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
@@ -314,48 +352,17 @@ export function useKeepOutlets() {
                 <div style={ { position: 'fixed', right: 0,transform:'translateY(-50%)' } }>
 {{/hasFixedHeader}}
                   <Dropdown
+                    {{^isNewDropdownAPISupported}}
                     overlay={
                       <Menu
-                        items={[
-                          {
-                            label: intl.formatMessage({
-                              id: `tabs.close.left`,
-                              defaultMessage: "关闭左侧",
-                            }),
-                            icon: <VerticalRightOutlined />,
-                            key: "left",
-                          },
-                          {
-                            label: intl.formatMessage({
-                              id: `tabs.close.right`,
-                              defaultMessage: "关闭右侧",
-                            }),
-                            icon: <VerticalLeftOutlined />,
-                            key: "right",
-                          },
-                          {
-                            label: intl.formatMessage({
-                              id: `tabs.close.others`,
-                              defaultMessage: "关闭其他",
-                            }),
-                            icon: <CloseOutlined />,
-                            key: "others",
-                          },
-                          {
-                            type: "divider",
-                          },
-                          {
-                            label: intl.formatMessage({
-                              id: `tabs.refresh`,
-                              defaultMessage: "刷新",
-                            }),
-                            icon: <ReloadOutlined />,
-                            key: "refresh",
-                          },
-                        ]}
+                        items={items}
                         onClick={selectAction}
                       />
                     }
+                    {{/isNewDropdownAPISupported}}
+                    {{#isNewDropdownAPISupported}}
+                    menu={ {items, onClick: selectAction} }
+                    {{/isNewDropdownAPISupported}}
                     trigger={["click"]}
                   >
                     <Button size="small" icon={<EllipsisOutlined />} style={ { marginRight: 12 } } />
@@ -421,7 +428,7 @@ export function useKeepOutlets() {
                 }
             }}
             {...tabProps}
-            {{#isNewTabs}}
+            {{#isNewTabsAPISupported}}
             items={Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => ({
               label: <>{icon}{name}</>,
               key: `${pathname}::${tabNameMap[pathname]}`,
@@ -431,9 +438,9 @@ export function useKeepOutlets() {
               {{/hasFixedHeader}}
               ...other
             }))}
-            {{/isNewTabs}}
+            {{/isNewTabsAPISupported}}
             >
-            {{^isNewTabs}}
+            {{^isNewTabsAPISupported}}
                 {Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => {
                     return (
                       <TabPane
@@ -449,7 +456,7 @@ export function useKeepOutlets() {
                       />
                     );
                 })}
-                {{/isNewTabs}}
+                {{/isNewTabsAPISupported}}
             </Tabs>
         </div>
 {{/hasTabsLayout}}
