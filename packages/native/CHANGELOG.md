@@ -1,5 +1,11 @@
 # @alita/native
 
+## 3.2.6
+
+### Patch Changes
+
+- [#526](https://github.com/alitajs/alita/pull/526) [`fd76b5a2`](https://github.com/alitajs/alita/commit/fd76b5a2a0be8d94a77463a03d301639f364a790) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: native independent operation
+
 ## 3.2.5
 
 ### Patch Changes
