@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.2.12
+
+### Patch Changes
+
+- [#523](https://github.com/alitajs/alita/pull/523) [`ef5c316d`](https://github.com/alitajs/alita/commit/ef5c316d5dd37f1f42f95d381e64e314dd2142a7) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复 Dropdown 组件在控制台的 warning
+
+- [#525](https://github.com/alitajs/alita/pull/525) [`e4a3360b`](https://github.com/alitajs/alita/commit/e4a3360bca0f9ac4b81a9be81288a3f2309b9a69) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: keepalive tpl
+
 ## 3.2.11
 
 ### Patch Changes
