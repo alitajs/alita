@@ -40,6 +40,19 @@ export default (api: AlitaApi) => {
     logger.info('Using Native Plugin');
   });
 
+  ['displayName', 'packageId'].forEach((key) => {
+    const config: Record<string, any> = {
+      schema: (joi: any) => joi.string(),
+    };
+    api.registerPlugins([
+      {
+        id: `alita-native: config-${key}`,
+        key: key,
+        config,
+      },
+    ]);
+  });
+
   function getNpmClient() {
     // 支持 ['npm', 'pnpm', 'yarn'] 这几种 npm client，如果配置了非这三种的，统一使用 npm
     return ['npm', 'pnpm', 'yarn'].includes(api.config.npmClient)
