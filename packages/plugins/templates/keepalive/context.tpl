@@ -439,7 +439,7 @@ export function useKeepOutlets() {
               {{#hasFixedHeader}}
               style: {{paddingTop: '20px'}}
               {{/hasFixedHeader}}
-              ...other
+              {...other}
             }))}
             {{/isNewTabsAPISupported}}
             >
