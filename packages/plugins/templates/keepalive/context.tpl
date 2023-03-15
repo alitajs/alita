@@ -437,9 +437,9 @@ export function useKeepOutlets() {
               key: `${pathname}::${tabNameMap[pathname]}`,
               closable: Object.entries(keepElements.current).length === 1 ? false : closable,
               {{#hasFixedHeader}}
-              style: {{paddingTop: '20px'}}
+              style: { paddingTop: '20px' },
               {{/hasFixedHeader}}
-              {...other}
+              ...other
             }))}
             {{/isNewTabsAPISupported}}
             >
