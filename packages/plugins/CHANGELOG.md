@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.14
+
+### Patch Changes
+
+- [#530](https://github.com/alitajs/alita/pull/530) [`bc1a0cc5`](https://github.com/alitajs/alita/commit/bc1a0cc56c4a617c9dcac58a0684624a54fe0279) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support keepalive lowercase
+
 ## 3.2.13
 
 ### Patch Changes
