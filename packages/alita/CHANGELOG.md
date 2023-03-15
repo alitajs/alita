@@ -1,5 +1,15 @@
 # alita
 
+## 3.2.19
+
+### Patch Changes
+
+- [#533](https://github.com/alitajs/alita/pull/533) [`b4db08aa`](https://github.com/alitajs/alita/commit/b4db08aad7697e7e5558bc3de9f90dc7eebdb0bd) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - revert: umi 47
+
+- Updated dependencies [[`b4db08aa`](https://github.com/alitajs/alita/commit/b4db08aad7697e7e5558bc3de9f90dc7eebdb0bd)]:
+  - @alita/plugins@3.2.15
+  - @alita/native@3.2.7
+
 ## 3.2.18
 
 ### Patch Changes
