@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.1.3
+
+### Patch Changes
+
+- [#536](https://github.com/alitajs/alita/pull/536) [`d8c3fe16`](https://github.com/alitajs/alita/commit/d8c3fe166a8b2e76381c6809b0ebdda1c930a7ea) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: umi 59
+
 ## 3.1.2
 
 ### Patch Changes

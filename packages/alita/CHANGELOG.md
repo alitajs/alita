@@ -1,5 +1,15 @@
 # alita
 
+## 3.2.20
+
+### Patch Changes
+
+- [#536](https://github.com/alitajs/alita/pull/536) [`d8c3fe16`](https://github.com/alitajs/alita/commit/d8c3fe166a8b2e76381c6809b0ebdda1c930a7ea) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: umi 59
+
+- Updated dependencies [[`d8c3fe16`](https://github.com/alitajs/alita/commit/d8c3fe166a8b2e76381c6809b0ebdda1c930a7ea), [`7b0a8775`](https://github.com/alitajs/alita/commit/7b0a87756938ca372f7094674611c347ddd3d753)]:
+  - @alita/plugins@3.2.16
+  - @alita/native@3.2.8
+
 ## 3.2.19
 
 ### Patch Changes
