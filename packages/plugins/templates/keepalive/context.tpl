@@ -1,5 +1,5 @@
 // tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
@@ -159,9 +159,11 @@ const getLocalFromClientRoutes = (data,routesConfig) => {
     return config;
 }
 {{/hasTabsLayout}}
-
+// this error
+let pathname = '';
 export function useKeepOutlets() {
     const location = useLocation();
+    pathname = location.pathname;
     const element = useOutlet();
 {{#hasIntl}}
     const intl = useIntl();
@@ -180,6 +182,21 @@ export function useKeepOutlets() {
     const routeConfig = {...route,...(routes[route?.id]||{})};
 
 {{#hasTabsLayout}}
+    const closeTab = (targetKey:string) => {
+      const pathList = Object.keys(keepElements.current)
+          if (pathList.length === 1) {
+            message.info('至少要保留一个窗口')
+            return
+          }
+          dropByCacheKey(targetKey)
+          if (targetKey === pathname) {
+            // 删除当前选中的tab时:
+            // 1.如果当前tab是第一个时自动选中后一个
+            // 2.不是第一个时自动选中前一个
+            const i = pathList.indexOf(targetKey)
+            navigate(pathList[i === 0 ? i + 1 : i - 1])
+          }
+    };
     const navigate = useNavigate();
     {{#isPluginModelEnable}}
     const localConfig = React.useMemo(() => {
@@ -245,16 +262,23 @@ export function useKeepOutlets() {
 {{/hasTabsLayout}}
     } = React.useContext(KeepAliveContext);
 
-  keepaliveEmitter?.useSubscription?.((event) => {
-    const { type = '', payload = {} } = event;
-    switch(type){
-      case 'dropByCacheKey':
-        dropByCacheKey(payload?.path);
-        break;
-      default:
-        break;
-    }
-  });
+    useEffect(()=>{
+      keepaliveEmitter?.useSubscription?.((event) => {
+        const { type = '', payload = {} } = event;
+        switch(type){
+          case 'dropByCacheKey':
+            dropByCacheKey(payload?.path);
+            break;
+{{#hasTabsLayout}}
+            case 'closeTab':
+              closeTab(payload?.path);
+              break;
+{{/hasTabsLayout}}
+          default:
+            break;
+        }
+      });
+    },[])
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
     if (isKeep && !keepElements.current[location.pathname]) {
       const currentIndex = Object.keys(keepElements.current).length;
@@ -330,6 +354,7 @@ export function useKeepOutlets() {
         dropRightTabs,
         dropOtherTabs,
         refreshTab,
+        closeTab,
         local: localConfig.local,
         icons: localConfig.icon,
         activeKey: location.pathname
@@ -398,37 +423,7 @@ export function useKeepOutlets() {
               onEdit={(key: string) => {
                 // 因为下方的 key 拼接了 tabNameMap[location.pathname]
                 const targetKey = key.split('::')[0];
-                let newActiveKey = location.pathname;
-                let lastIndex = -1;
-                const newPanel = Object.keys(keepElements.current);
-                for (let i = 0; i < newPanel.length; i++) {
-                    if (newPanel[i] === targetKey) {
-                        if(i===0 && newPanel.length>1){
-                            lastIndex = newPanel.length-1
-                        }else{
-                            lastIndex = i - 1;
-                        }
-                    }
-                }
-                const newPanes = newPanel.filter(pane => pane !== targetKey);
-                if (newPanes.length && newActiveKey === targetKey) {
-                    if (lastIndex >= 0) {
-                        newActiveKey = newPanel[lastIndex];
-                    } else {
-                        newActiveKey = newPanel[0];
-                    }
-                }
-                if (lastIndex === -1 && targetKey === location.pathname) {
-                    message.info(intl.formatMessage({
-                          id: `tabs.warning`,
-                          defaultMessage: '至少要保留一个窗口',
-                        }));
-                } else {
-                    dropByCacheKey(targetKey);
-                    if (newActiveKey !== location.pathname) {
-                        navigate(newActiveKey);
-                    }
-                }
+                closeTab(targetKey);
             }}
             {...tabProps}
             {{#isNewTabsAPISupported}}
