@@ -109,7 +109,7 @@ const isKeepPath = (aliveList: any[], path: string, route:any) => {
         if (item instanceof RegExp && item.test(path)) {
             isKeep = true;
         }
-        if (typeof item === 'string' && item.toLowerCase() === path) {
+        if (typeof item === 'string' && item.toLowerCase() === path.toLowerCase()) {
             isKeep = true;
         }
     })
