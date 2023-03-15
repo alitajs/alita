@@ -46,15 +46,11 @@
     "@alita/types": "3.1.1",
     "@alita/native": "3.2.7",
     "@alita/plugins": "3.2.15",
-    "@umijs/core": "4.0.47",
-    "@umijs/bundler-webpack": "4.0.47",
-    "@umijs/babel-preset-umi": "4.0.47",
-    "@umijs/preset-umi": "4.0.47",
-    "@umijs/utils": "4.0.47",
-    "qrcode-terminal": "^0.12.0",
-    "umi": "4.0.47",
-    "v8-compile-cache": "^2.3.0",
-    "eslint": "8.15.0",
-    "stylelint": "14.8.2"
+    "@umijs/core": "4.0.59",
+    "@umijs/bundler-webpack": "4.0.59",
+    "@umijs/babel-preset-umi": "4.0.59",
+    "@umijs/preset-umi": "4.0.59",
+    "@umijs/utils": "4.0.59",
+    "umi": "4.0.59"
   }
 }
