@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.17
+
+### Patch Changes
+
+- [#540](https://github.com/alitajs/alita/pull/540) [`b2482b6c`](https://github.com/alitajs/alita/commit/b2482b6c070b3a44b520071e6a8aa6cd4163a521) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: closeTab
+
 ## 3.2.16
 
 ### Patch Changes
