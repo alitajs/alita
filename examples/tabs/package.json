@@ -11,6 +11,6 @@
     "@alita/flow": "workspace:*",
     "@ant-design/icons": "^4.7.0",
     "alita": "workspace:*",
-    "antd": "^4.21.2"
+    "antd": "^4.24.8"
   }
 }
