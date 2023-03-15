@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.2.17",
+  "version": "3.2.18",
   "description": "v3 develop version",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -45,7 +45,7 @@
   "dependencies": {
     "@alita/types": "3.1.1",
     "@alita/native": "3.2.6",
-    "@alita/plugins": "3.2.13",
+    "@alita/plugins": "3.2.14",
     "@umijs/core": "4.0.55",
     "@umijs/bundler-webpack": "4.0.55",
     "@umijs/babel-preset-umi": "4.0.55",
