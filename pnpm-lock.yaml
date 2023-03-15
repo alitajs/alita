@@ -344,8 +344,8 @@ importers:
 
   packages/alita:
     specifiers:
-      '@alita/native': 3.2.7
-      '@alita/plugins': 3.2.15
+      '@alita/native': 3.2.8
+      '@alita/plugins': 3.2.16
       '@alita/types': 3.1.1
       '@umijs/babel-preset-umi': 4.0.59
       '@umijs/bundler-webpack': 4.0.59
@@ -15985,6 +15985,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -15993,6 +15994,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -16001,6 +16003,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -16009,6 +16012,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
