@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.13
+
+### Patch Changes
+
+- [#528](https://github.com/alitajs/alita/pull/528) [`b63e8c16`](https://github.com/alitajs/alita/commit/b63e8c16e303280ea1e701e6e0634f90b42ad2b8) Thanks [@chj-damon](https://github.com/chj-damon)! - 修复...other 引起的报错
+
 ## 3.2.12
 
 ### Patch Changes
