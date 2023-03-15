@@ -57,7 +57,14 @@ export default () => {
         清除当前页面缓存
       </Button>
       <Button onClick={handleClick}>修改tabName</Button>
-
+      <Button
+        color="primary"
+        block
+        size="large"
+        onClick={() => history.push('/')}
+      >
+        打开首页
+      </Button>
       <div>
         <span>当前语言: {currentLang}</span>
         <Button onClick={switchLang}>切换语言</Button>

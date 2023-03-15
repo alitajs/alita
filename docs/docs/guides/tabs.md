@@ -151,6 +151,26 @@ export default () => {
 
 清空当前页面的状态保持，其实也就是刷新页面。
 
+使用方法
+
+```ts
+import { dropByCacheKey } from 'alita || umi || @umijs/max';
+
+dropByCacheKey(pathname);
+``` 
+
+#### closeTab
+
+关闭某个页面
+
+使用方法
+
+```ts
+import { closeTab } from 'alita || umi || @umijs/max';
+
+closeTab(pathname);
+``` 
+
 #### updateTab
 
 更新当前 tab 的属性。可以用于透传参数到 TabPane 组件上。
@@ -202,6 +222,7 @@ export default () => {
 
 ####  其他不常用
 
+使用方法同 updateTab ，都是从 `React.useContext(KeepAliveContext);` 取出
 ```ts
   // 关闭左侧 tabs
   dropLeftTabs: (path: string) => void,

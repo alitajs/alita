@@ -1,13 +1,13 @@
-import { history } from 'alita';
+import { closeTab } from 'alita';
 import React from 'react';
 import styles from './index.less';
 export default () => (
   <div
     className={styles['adm-button']}
     onClick={() => {
-      history.push('/users');
+      closeTab('/');
     }}
   >
-    Hello Alita, Click Me Go To /Users!
+    Hello Alita, Click Me Close This Tab!
   </div>
 );

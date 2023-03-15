@@ -15,6 +15,7 @@ export default {
   keepalive: [/list/],
   packageId: 'com.alita.demos',
   displayName: 'alita-demos',
+  antd: {},
   // mobile5: true,
   aconsole: {
     inspx: {},

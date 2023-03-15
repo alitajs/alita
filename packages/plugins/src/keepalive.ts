@@ -87,6 +87,11 @@ export function dropByCacheKey(path: string) {
     path
   }});
 }
+export function closeTab(path: string) {
+  keepaliveEmitter.emit({type:'closeTab', payload: {
+    path
+  }});
+}
 `,
     });
     // index.ts for export
@@ -95,7 +100,7 @@ export function dropByCacheKey(path: string) {
       path: `${DIR_NAME}/index.tsx`,
       content: `
 export { KeepAliveContext,useKeepOutlets } from './context';
-export { dropByCacheKey } from './support';
+export { dropByCacheKey, closeTab } from './support';
 `,
     });
   });
