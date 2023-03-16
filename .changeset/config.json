@@ -33,8 +33,8 @@
     "@examples/rerender",
     "@examples/routes",
     "@examples/tabs",
+    "@examples/tabs-custom",
     "@examples/tabs-routes",
-    "@examples/tabs",
     "@example/test-test",
     "umi-scripts"
   ]
