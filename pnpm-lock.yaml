@@ -313,6 +313,18 @@ importers:
       alita: link:../../packages/alita
       antd: 4.24.8
 
+  examples/tabs-custom:
+    specifiers:
+      '@alita/flow': workspace:*
+      '@ant-design/icons': ^4.7.0
+      alita: workspace:*
+      antd: ^4.24.8
+    dependencies:
+      '@alita/flow': link:../../packages/flow
+      '@ant-design/icons': 4.7.0
+      alita: link:../../packages/alita
+      antd: 4.24.8
+
   examples/tabs-routes:
     specifiers:
       '@alita/flow': workspace:*
@@ -326,18 +338,6 @@ importers:
       '@ant-design/pro-components': 2.3.8_antd@4.21.2
       alita: link:../../packages/alita
       antd: 4.21.2
-
-  examples/tabsCustomTabs:
-    specifiers:
-      '@alita/flow': workspace:*
-      '@ant-design/icons': ^4.7.0
-      alita: workspace:*
-      antd: ^4.24.8
-    dependencies:
-      '@alita/flow': link:../../packages/flow
-      '@ant-design/icons': 4.7.0
-      alita: link:../../packages/alita
-      antd: 4.24.8
 
   examples/test-test:
     specifiers:
