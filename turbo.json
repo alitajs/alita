@@ -17,7 +17,8 @@
     },
     "test": {
       "outputs": [".jest-cache/**"]
-    }
+    },
+    "test:e2e": {}
   },
   "globalDependencies": [
     "tsconfig.base.json",
