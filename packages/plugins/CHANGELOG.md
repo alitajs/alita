@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.18
+
+### Patch Changes
+
+- [#543](https://github.com/alitajs/alita/pull/543) [`465a9c27`](https://github.com/alitajs/alita/commit/465a9c27379f0d0764933dd0e76d774570541ced) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: tabs customtabs
+
 ## 3.2.17
 
 ### Patch Changes
