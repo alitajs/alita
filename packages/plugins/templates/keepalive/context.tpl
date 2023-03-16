@@ -301,7 +301,7 @@ export function useKeepOutlets() {
         {{/hasTabsLayout}}
       };
     }
-
+{{^hasCustomTabs}}
 {{#hasTabsLayout}}
 
     const items = [
@@ -342,7 +342,7 @@ export function useKeepOutlets() {
       },
     ];
 {{/hasTabsLayout}}
-
+{{/hasCustomTabs}}
 {{#hasCustomTabs}}
     const CustomTabs = React.useMemo(()=>getCustomTabs(), []);
     const tabsProps = {
@@ -357,7 +357,9 @@ export function useKeepOutlets() {
         closeTab,
         local: localConfig.local,
         icons: localConfig.icon,
-        activeKey: location.pathname
+        activeKey: location.pathname,
+        tabProps,
+        tabNameMap
     }
 {{/hasCustomTabs}}
     return <>

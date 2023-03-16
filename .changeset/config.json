@@ -34,6 +34,7 @@
     "@examples/routes",
     "@examples/tabs",
     "@examples/tabs-routes",
+    "@examples/tabs",
     "@example/test-test",
     "umi-scripts"
   ]
