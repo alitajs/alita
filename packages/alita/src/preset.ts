@@ -7,6 +7,7 @@ export default (api: IApi) => {
   api.onStart(() => {
     logger.info(chalk.bold(chalk.cyan(`alita v${pkg?.version || '3'}`)));
   });
+  const mobileType = ['h5', 'cordova', 'micro', 'native'];
   const corePlugins = [
     require.resolve('./features/config/alitaconfig'),
     require.resolve('./features/alitaloading'),
@@ -36,7 +37,7 @@ export default (api: IApi) => {
   if (api.userConfig.appType === 'native') {
     plugins.push(require.resolve('@alita/native'));
   }
-  if (api.userConfig.appType === 'native' || api.userConfig.appType === 'h5') {
+  if (api.userConfig.appType && mobileType.includes(api.userConfig.appType)) {
     plugins.push(require.resolve('@alita/plugins/dist/hd'));
     plugins.push(require.resolve('@alita/plugins/dist/antdmobile'));
     plugins.push(require.resolve('@alita/plugins/dist/mobile-layout'));
