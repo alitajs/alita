@@ -1,5 +1,11 @@
 # alita
 
+## 3.2.23
+
+### Patch Changes
+
+- [#548](https://github.com/alitajs/alita/pull/548) [`2ba6cbe9`](https://github.com/alitajs/alita/commit/2ba6cbe9d83627f9fd2375bb6c6d733f9ab502e2) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support lingfeng
+
 ## 3.2.22
 
 ### Patch Changes
