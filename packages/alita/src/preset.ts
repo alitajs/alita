@@ -36,7 +36,7 @@ export default (api: IApi) => {
   if (api.userConfig.appType === 'native') {
     plugins.push(require.resolve('@alita/native'));
   }
-  if (api.userConfig.appType !== 'pc') {
+  if (api.userConfig.appType === 'native' || api.userConfig.appType === 'h5') {
     plugins.push(require.resolve('@alita/plugins/dist/hd'));
     plugins.push(require.resolve('@alita/plugins/dist/antdmobile'));
     plugins.push(require.resolve('@alita/plugins/dist/mobile-layout'));
