@@ -9,6 +9,7 @@ import { Service } from 'umi/dist/service/service';
 
 interface IOpts {
   presets?: string[];
+  defaultConfigFiles?: string[];
 }
 
 export async function run(opts: IOpts = {}) {
@@ -35,14 +36,16 @@ export async function run(opts: IOpts = {}) {
   if (opts?.presets) {
     process.env.UMI_PRESETS = opts.presets.join(',');
   }
-  if (command === DEV_COMMAND) {
+  if (!opts.defaultConfigFiles && command === DEV_COMMAND) {
     dev();
   } else if (command === 'version' || command === 'v') {
     const version = require('../package.json').version;
     console.log(`alita@${version}`);
   } else {
     try {
-      await new Service().run2({
+      await new Service({
+        defaultConfigFiles: opts.defaultConfigFiles || null,
+      }).run2({
         name: args._[0],
         args,
       });
