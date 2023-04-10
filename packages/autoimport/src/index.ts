@@ -31,10 +31,10 @@ export default (api: IApi) => {
 
   api.modifyAppData(async (memo) => {
     memo.autoImport = [
-      await api.applyPlugins({
+      ...(await api.applyPlugins({
         key: 'addLowImportLibs',
         initialValue: [],
-      }),
+      })),
       ...(api.config.autoImport.libs || []),
     ];
   });
