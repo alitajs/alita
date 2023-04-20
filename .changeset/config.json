@@ -22,7 +22,7 @@
     "@examples/state",
     "@examples/legacy",
     "@example/lint",
-    "@examples/helmet",
+    "@examples/locale",
     "@examples/min",
     "@examples/mobile2",
     "@examples/mobile5",

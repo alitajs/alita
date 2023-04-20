@@ -1,5 +1,5 @@
 {
-  "name": "@examples/helmet",
+  "name": "@examples/locale",
   "private": true,
   "scripts": {
     "dev": "alita dev",
