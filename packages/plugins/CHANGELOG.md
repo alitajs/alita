@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.19
+
+### Patch Changes
+
+- [#561](https://github.com/alitajs/alita/pull/561) [`727f0de3`](https://github.com/alitajs/alita/commit/727f0de3ed588d17d9c441cc0eb0661f6b848c94) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: pathname
+
 ## 3.2.18
 
 ### Patch Changes
