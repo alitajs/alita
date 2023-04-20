@@ -20,7 +20,7 @@
     "@examples/boilerplate",
     "@examples/helmet",
     "@examples/state",
-    "@examples/boilerplate",
+    "@examples/legacy",
     "@example/lint",
     "@examples/helmet",
     "@examples/min",
