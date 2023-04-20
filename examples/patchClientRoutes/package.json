@@ -1,5 +1,5 @@
 {
-  "name": "@examples/aclass",
+  "name": "@examples/patch",
   "private": true,
   "scripts": {
     "dev": "alita dev",

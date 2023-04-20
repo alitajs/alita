@@ -46,7 +46,7 @@ const ListPage: FC<PageProps> = ({ list, dispatch, history }) => {
       thumb={<img src={Logo} className={styles.listIcon} />}
       multipleLine
       onClick={() => {
-        dropByCacheKey('/list');
+        dropByCacheKey('/lISt');
       }}
     >
       {rowData.title} <Brief>{rowID}</Brief>

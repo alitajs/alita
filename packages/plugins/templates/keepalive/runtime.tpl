@@ -32,11 +32,11 @@ const KeepAliveLayout = (props)=>{
 {{/hasGetKeepalive}}
 
   function dropByCacheKey(path: string) {
-    if(keepElements.current[path]){
-      delete keepElements.current[path];
+    if(keepElements.current[path.toLowerCase()]){
+      delete keepElements.current[path.toLowerCase()];
       setCacheKeyMap(cacheKeyMap => ({
         ...cacheKeyMap,
-        [path]: Math.random()
+        [path.toLowerCase()]: Math.random()
       }))
     }
   }
@@ -46,7 +46,7 @@ const KeepAliveLayout = (props)=>{
    * @param path
    */
   function dropLeftTabs(path: string) {
-    const currentIndex = keepElements.current[path].index;
+    const currentIndex = keepElements.current[path.toLowerCase()].index;
 
     const leftTabs = Object.entries(keepElements.current).filter(
       ([_, { index, closable }]) => index < currentIndex & closable
@@ -68,7 +68,7 @@ const KeepAliveLayout = (props)=>{
    * @param path
    */
   function dropRightTabs(path: string) {
-    const currentIndex = keepElements.current[path].index;
+    const currentIndex = keepElements.current[path.toLowerCase()].index;
 
     const rightTabs = Object.entries(keepElements.current).filter(
       ([_, { index, closable }]) => index > currentIndex & closable
@@ -90,7 +90,7 @@ const KeepAliveLayout = (props)=>{
    * @param path
    */
   function dropOtherTabs(path: string) {
-    const currentIndex = keepElements.current[path].index;
+    const currentIndex = keepElements.current[path.toLowerCase()].index;
 
     // 遍历keepElements
     Object.entries(keepElements.current).forEach(([key, { index, closable }]) => {
@@ -99,7 +99,7 @@ const KeepAliveLayout = (props)=>{
       }
     });
     // 只剩当前tab，需要修改它的index为0
-    keepElements.current[path].index = 0;
+    keepElements.current[path.toLowerCase()].index = 0;
   }
 
   /**
@@ -118,9 +118,9 @@ const KeepAliveLayout = (props)=>{
    * @param path
    */
   function updateTab(path: string, config: TabConfig) {
-    if (keepElements.current[path]) {
-      keepElements.current[path] = {
-        ...keepElements.current[path],
+    if (keepElements.current[path.toLowerCase()]) {
+      keepElements.current[path.toLowerCase()] = {
+        ...keepElements.current[path.toLowerCase()],
         ...config,
       }
 

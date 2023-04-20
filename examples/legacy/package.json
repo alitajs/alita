@@ -1,5 +1,5 @@
 {
-  "name": "@examples/boilerplate",
+  "name": "@examples/legacy",
   "private": true,
   "scripts": {
     "dev": "alita dev",
