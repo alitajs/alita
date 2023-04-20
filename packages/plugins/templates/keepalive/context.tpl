@@ -280,7 +280,7 @@ export function useKeepOutlets() {
       });
     },[])
     const isKeep = isKeepPath(keepalive, location.pathname, routeConfig);
-    if (isKeep && !keepElements.current[location.pathname]) {
+    if (isKeep && !keepElements.current[location.pathname.toLowerCase()]) {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
       let icon = getMatchPathName(location.pathname, localConfigIcon);
@@ -290,7 +290,7 @@ export function useKeepOutlets() {
       // 国际化使用 pro 的约定
       const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
       {{/hasTabsLayout}}
-      keepElements.current[location.pathname] = {
+      keepElements.current[location.pathname.toLowerCase()] = {
         children: element,
         index: currentIndex,
         {{#hasTabsLayout}}
@@ -405,7 +405,7 @@ export function useKeepOutlets() {
               hideAdd
               onChange={(key: string) => {
                 const path = key.split(':')[0];
-                const { pathname, hash, search } = keepElements.current[path].location;
+                const { pathname, hash, search } = keepElements.current[path.toLowerCase()].location;
                 navigate(`${pathname}${search}${hash}`);
               }}
 {{#hasFixedHeader}}
