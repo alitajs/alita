@@ -28,7 +28,7 @@
     "@examples/mobile5",
     "@examples/mobilev2",
     "@examples/native",
-    "@examples/aclass",
+    "@examples/patch",
     "@examples/pro",
     "@examples/rerender",
     "@examples/routes",
