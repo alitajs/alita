@@ -18,6 +18,7 @@ export function tabsLayout() {
     local: {
       '/': '首页',
       '/users': '用户',
+      '/lowercase': '大小写',
       '/foo': '其他',
     },
     icon: {
