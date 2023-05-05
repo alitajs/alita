@@ -162,7 +162,7 @@ const cwd = process.cwd();
         console.log(`Skip Publish package ${name}`);
       } else {
         await $`cd packages/${pkg} && npm publish --tag ${tag} ${otpArg}`;
-        logger.info(`+ ${pkg} ${version}`);
+        logger.info(`+ @alita/${pkg} ${version}`);
       }
     }),
   );
