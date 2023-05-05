@@ -259,6 +259,7 @@ export function useKeepOutlets() {
       dropRightTabs,
       dropOtherTabs,
       refreshTab,
+      updateTab,
 {{/hasTabsLayout}}
     } = React.useContext(KeepAliveContext);
 
@@ -354,6 +355,7 @@ export function useKeepOutlets() {
         dropRightTabs,
         dropOtherTabs,
         refreshTab,
+        updateTab,
         closeTab,
         local: localConfig.local,
         icons: localConfig.icon,
