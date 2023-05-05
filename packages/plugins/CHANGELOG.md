@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.2.20
+
+### Patch Changes
+
+- [#565](https://github.com/alitajs/alita/pull/565) [`60854808`](https://github.com/alitajs/alita/commit/60854808194324583d8c963194ae493d2c9a5634) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: custom tabsProps add updateTab
+
+- [#565](https://github.com/alitajs/alita/pull/565) [`35a0d795`](https://github.com/alitajs/alita/commit/35a0d7951f4b9fbc3aaf89baef5a757dcdb2a33d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: tabs pathname
+
 ## 3.2.19
 
 ### Patch Changes
