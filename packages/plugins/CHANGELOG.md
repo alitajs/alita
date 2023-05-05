@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.21
+
+### Patch Changes
+
+- [#567](https://github.com/alitajs/alita/pull/567) [`b3c701a6`](https://github.com/alitajs/alita/commit/b3c701a6a7a0501300fe4c96b14b43b5a1ee70c2) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: intl pathname
+
 ## 3.2.20
 
 ### Patch Changes
