@@ -359,7 +359,7 @@ export function useKeepOutlets() {
         closeTab,
         local: localConfig.local,
         icons: localConfig.icon,
-        activeKey: location.pathname.toLowerCase(),
+        activeKey: location.pathname,
         tabProps,
         tabNameMap
     }
