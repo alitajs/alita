@@ -126,7 +126,7 @@ const isKeepPath = (aliveList: any[], path: string, route:any) => {
 {{#hasTabsLayout}}
 const getMatchPathName = (pathname: string, local: Record<string, string>={}) => {
     const tabs = Object.entries(local);
-    let tabName = pathname.toLowerCase();
+    let tabName = pathname;
 
     for (const [key, value] of tabs) {
         // /* 404 page
@@ -284,12 +284,12 @@ export function useKeepOutlets() {
     if (isKeep && !keepElements.current[location.pathname.toLowerCase()]) {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
-      let icon = getMatchPathName(location.pathname.toLowerCase(), localConfigIcon);
+      let icon = getMatchPathName(location.pathname, localConfigIcon);
       if(typeof icon === 'string') icon = '';
 
-      const defaultName = getMatchPathName(location.pathname.toLowerCase(), local);
+      const defaultName = getMatchPathName(location.pathname, local);
       // 国际化使用 pro 的约定
-      const name = intl.formatMessage({ id: `menu${location.pathname.toLowerCase().replaceAll('/', '.')}`, defaultMessage: defaultName });
+      const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
       {{/hasTabsLayout}}
       keepElements.current[location.pathname.toLowerCase()] = {
         children: element,
