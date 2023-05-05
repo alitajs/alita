@@ -21,6 +21,12 @@ export default {
       component: './users',
     },
     {
+      path: '/lowerCase',
+      name: 'lowerCase',
+      icon: 'smile',
+      component: './lowerCase',
+    },
+    {
       path: '/foo/:index',
       name: 'foo',
       icon: 'smile',

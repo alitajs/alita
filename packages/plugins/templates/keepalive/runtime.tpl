@@ -109,7 +109,7 @@ const KeepAliveLayout = (props)=>{
   function refreshTab(path: string) {
     setCacheKeyMap((cacheKeyMap) => ({
       ...cacheKeyMap,
-      [path]: Math.random(),
+      [path.toLowerCase()]: Math.random(),
     }));
   }
 
@@ -126,7 +126,7 @@ const KeepAliveLayout = (props)=>{
 
       setTabNameMap((tabNameMap) => ({
         ...tabNameMap,
-        [path]: Math.random(),
+        [path.toLowerCase()]: Math.random(),
       }));
     }
   }
