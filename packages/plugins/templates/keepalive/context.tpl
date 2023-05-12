@@ -88,7 +88,7 @@ const findRouteByPath = (path, routes) => {
             const item = routess[i];
             const fullPath = getFullPath(item.path, parentPath);
             // path:'*' 404 page
-            if (matchPath(fullPath.toLowerCase(), path.toLowerCase())&&!item.isLayout&& item.path !=='*') {
+            if (matchPath(fullPath?.toLowerCase(), path?.toLowerCase())&&!item.isLayout&& item.path !=='*') {
                 route = item;
                 break;
             }
@@ -109,7 +109,7 @@ const isKeepPath = (aliveList: any[], path: string, route:any) => {
         if (item instanceof RegExp && item.test(path)) {
             isKeep = true;
         }
-        if (typeof item === 'string' && item.toLowerCase() === path.toLowerCase()) {
+        if (typeof item === 'string' && item?.toLowerCase() === path?.toLowerCase()) {
             isKeep = true;
         }
     })
@@ -130,7 +130,7 @@ const getMatchPathName = (pathname: string, local: Record<string, string>={}) =>
 
     for (const [key, value] of tabs) {
         // /* 404 page
-        if (matchPath(key.toLowerCase(), pathname.toLowerCase()) && key !== '/*') {
+        if (matchPath(key?.toLowerCase(), pathname?.toLowerCase()) && key !== '/*') {
             tabName = value;
             break;
         }
@@ -145,7 +145,7 @@ const getLocalFromClientRoutes = (data,routesConfig) => {
     };
     const getLocalFromRoutes = (routes, parentPath) => {
         routes.forEach(item => {
-            const fullPath = getFullPath(item.path.toLowerCase(), parentPath.toLowerCase());
+            const fullPath = getFullPath(item.path?.toLowerCase(), parentPath?.toLowerCase());
             if(item.routes){
                 getLocalFromRoutes(item.routes, fullPath);
             }else{
@@ -163,7 +163,7 @@ const getLocalFromClientRoutes = (data,routesConfig) => {
 let pathname = '';
 export function useKeepOutlets() {
     const location = useLocation();
-    pathname = location.pathname.toLowerCase();
+    pathname = location.pathname?.toLowerCase();
     const element = useOutlet();
 {{#hasIntl}}
     const intl = useIntl();
@@ -178,7 +178,7 @@ export function useKeepOutlets() {
 {{/isPluginModelEnable}}
 
     const { clientRoutes, routes} = useAppData();
-    const route = findRouteByPath(location.pathname.toLowerCase(),clientRoutes);
+    const route = findRouteByPath(location.pathname?.toLowerCase(),clientRoutes);
     const routeConfig = {...route,...(routes[route?.id]||{})};
 
 {{#hasTabsLayout}}
@@ -188,12 +188,12 @@ export function useKeepOutlets() {
             message.info('至少要保留一个窗口')
             return
           }
-          dropByCacheKey(targetKey.toLowerCase())
-          if (targetKey.toLowerCase() === pathname.toLowerCase()) {
+          dropByCacheKey(targetKey?.toLowerCase())
+          if (targetKey?.toLowerCase() === pathname?.toLowerCase()) {
             // 删除当前选中的tab时:
             // 1.如果当前tab是第一个时自动选中后一个
             // 2.不是第一个时自动选中前一个
-            const i = pathList.indexOf(targetKey.toLowerCase())
+            const i = pathList.indexOf(targetKey?.toLowerCase())
             navigate(pathList[i === 0 ? i + 1 : i - 1])
           }
     };
@@ -224,19 +224,19 @@ export function useKeepOutlets() {
     const selectAction = React.useCallback(({ key }) => {
       switch (key) {
         case "left":
-          dropLeftTabs(location.pathname.toLowerCase());
+          dropLeftTabs(location.pathname?.toLowerCase());
           break;
 
         case "right":
-          dropRightTabs(location.pathname.toLowerCase());
+          dropRightTabs(location.pathname?.toLowerCase());
           break;
 
         case "others":
-          dropOtherTabs(location.pathname.toLowerCase());
+          dropOtherTabs(location.pathname?.toLowerCase());
           break;
 
         case "refresh":
-          refreshTab(location.pathname.toLowerCase());
+          refreshTab(location.pathname?.toLowerCase());
           break;
 
         default:
@@ -268,11 +268,11 @@ export function useKeepOutlets() {
         const { type = '', payload = {} } = event;
         switch(type){
           case 'dropByCacheKey':
-            dropByCacheKey(payload?.path.toLowerCase());
+            dropByCacheKey(payload?.path?.toLowerCase());
             break;
 {{#hasTabsLayout}}
             case 'closeTab':
-              closeTab(payload?.path.toLowerCase());
+              closeTab(payload?.path?.toLowerCase());
               break;
 {{/hasTabsLayout}}
           default:
@@ -280,8 +280,8 @@ export function useKeepOutlets() {
         }
       });
     },[])
-    const isKeep = isKeepPath(keepalive, location.pathname.toLowerCase(), routeConfig);
-    if (isKeep && !keepElements.current[location.pathname.toLowerCase()]) {
+    const isKeep = isKeepPath(keepalive, location.pathname?.toLowerCase(), routeConfig);
+    if (isKeep && !keepElements.current[location.pathname?.toLowerCase()]) {
       const currentIndex = Object.keys(keepElements.current).length;
       {{#hasTabsLayout}}
       let icon = getMatchPathName(location.pathname, localConfigIcon);
@@ -291,7 +291,7 @@ export function useKeepOutlets() {
       // 国际化使用 pro 的约定
       const name = intl.formatMessage({ id: `menu${location.pathname.replaceAll('/', '.')}`, defaultMessage: defaultName });
       {{/hasTabsLayout}}
-      keepElements.current[location.pathname.toLowerCase()] = {
+      keepElements.current[location.pathname?.toLowerCase()] = {
         children: element,
         index: currentIndex,
         {{#hasTabsLayout}}
@@ -407,7 +407,7 @@ export function useKeepOutlets() {
               hideAdd
               onChange={(key: string) => {
                 const path = key.split(':')[0];
-                const { pathname, hash, search } = keepElements.current[path.toLowerCase()].location;
+                const { pathname, hash, search } = keepElements.current[path?.toLowerCase()].location;
                 navigate(`${pathname}${search}${hash}`);
               }}
 {{#hasFixedHeader}}
@@ -422,18 +422,18 @@ export function useKeepOutlets() {
                 </div>
               )}
 {{/hasFixedHeader}}
-              activeKey={`${location.pathname.toLowerCase()}::${tabNameMap[location.pathname.toLowerCase()]}`}
+              activeKey={`${location.pathname?.toLowerCase()}::${tabNameMap[location.pathname?.toLowerCase()]}`}
               type="editable-card"
               onEdit={(key: string) => {
                 // 因为下方的 key 拼接了 tabNameMap[location.pathname]
                 const targetKey = key.split('::')[0];
-                closeTab(targetKey.toLowerCase());
+                closeTab(targetKey?.toLowerCase());
             }}
             {...tabProps}
             {{#isNewTabsAPISupported}}
             items={Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => ({
               label: <>{icon}{name}</>,
-              key: `${pathname.toLowerCase()}::${tabNameMap[pathname.toLowerCase()]}`,
+              key: `${pathname?.toLowerCase()}::${tabNameMap[pathname?.toLowerCase()]}`,
               closable: Object.entries(keepElements.current).length === 1 ? false : closable,
               {{#hasFixedHeader}}
               style: { paddingTop: '20px' },
@@ -451,7 +451,7 @@ export function useKeepOutlets() {
                           paddingTop:"20px"
                         } }
                         {{/hasFixedHeader}}
-                        key={`${pathname.toLowerCase()}::${tabNameMap[pathname.toLowerCase()]}`}
+                        key={`${pathname?.toLowerCase()}::${tabNameMap[pathname?.toLowerCase()]}`}
                         tab={<>{icon}{name}</>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}
                         {...other}
@@ -466,12 +466,12 @@ export function useKeepOutlets() {
         {
             Object.entries(keepElements.current).map(([pathname, { children }]: any) => (
                 <div
-                  key={`${pathname.toLowerCase()}:${cacheKeyMap[pathname.toLowerCase()] || '_'}`}
+                  key={`${pathname?.toLowerCase()}:${cacheKeyMap[pathname?.toLowerCase()] || '_'}`}
                   className="runtime-keep-alive-layout"
                   style={ {
                     height: '100%', width: '100%', position: 'relative', overflow: 'hidden auto',
                   } }
-                  hidden={!matchPath(location.pathname.toLowerCase(), pathname.toLowerCase())}>
+                  hidden={!matchPath(location.pathname?.toLowerCase(), pathname?.toLowerCase())}>
                     {children}
                 </div>
             ))
