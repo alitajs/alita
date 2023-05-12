@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.2.22
+
+### Patch Changes
+
+- [`ffa923ac`](https://github.com/alitajs/alita/commit/ffa923ac1038d5713f30aef634c867a630531195) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: path is undefined
+
 ## 3.2.21
 
 ### Patch Changes

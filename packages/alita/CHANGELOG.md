@@ -1,5 +1,12 @@
 # alita
 
+## 3.2.27
+
+### Patch Changes
+
+- Updated dependencies [[`ffa923ac`](https://github.com/alitajs/alita/commit/ffa923ac1038d5713f30aef634c867a630531195)]:
+  - @alita/plugins@3.2.22
+
 ## 3.2.26
 
 ### Patch Changes
