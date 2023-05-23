@@ -6,10 +6,10 @@ export default {
   description: '基于 Umi 的 React 前端框架',
   logo: AlitaLogo,
   github: 'https://github.com/alitajs/alita',
-  i18n: [
-    // { locale: 'en-US', text: 'English' },
-    { locale: 'zh-CN', text: '简体中文' },
-  ],
+  // i18n: [
+  // { locale: 'en-US', text: 'English' },
+  // { locale: 'zh-CN', text: '简体中文' },
+  // ],
   searchHotKey: {
     macos: '⌘+k',
     windows: 'ctrl+k',
@@ -17,7 +17,7 @@ export default {
   navs: [
     {
       path: '/docs',
-      title: 'Docs',
+      title: '文档',
       type: 'nav',
       children: [
         {
@@ -51,7 +51,7 @@ export default {
           ],
         },
         {
-          title: 'Component',
+          title: '组件',
           children: ['component/component'],
         },
         {
