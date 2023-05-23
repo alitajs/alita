@@ -1,5 +1,4 @@
 export default {
-  mfsu: false,
   analytics: {
     ga: 'G-ET6VJN7XQ8',
     baidu: '5a66c03cb0ae986f876184554f2b9e13',
@@ -8,4 +7,11 @@ export default {
     '@umijs/plugin-docs',
     require.resolve('./packages/plugins/src/analytics'),
   ],
+  favicons: ['/logo.png'],
+  mfsu: { strategy: 'normal' },
+  routePrefetch: {},
+  manifest: {},
+  conventionRoutes: {
+    exclude: [/\/components\//],
+  },
 };
