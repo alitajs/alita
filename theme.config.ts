@@ -7,7 +7,7 @@ export default {
   logo: AlitaLogo,
   github: 'https://github.com/alitajs/alita',
   i18n: [
-    { locale: 'en-US', text: 'English' },
+    // { locale: 'en-US', text: 'English' },
     { locale: 'zh-CN', text: '简体中文' },
   ],
   searchHotKey: {
