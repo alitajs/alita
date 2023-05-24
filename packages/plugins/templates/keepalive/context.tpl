@@ -413,8 +413,7 @@ export function useKeepOutlets() {
 {{#hasFixedHeader}}
               renderTabBar={(props, DefaultTabBar) => (
                 <div style={ {
-                  position: 'fixed', zIndex: 1, padding: 0, width: '100%',
-                  background: 'white'
+                  position: 'fixed', zIndex: 1, padding: 0, width: '100%'
                 } }>
                   <DefaultTabBar {...props} style={ {
                     marginBottom: 0,
