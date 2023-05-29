@@ -2,7 +2,7 @@ import { defineConfig } from 'alita';
 
 export default defineConfig({
   appType: 'h5',
-  keepalive: [/users/],
+  keepalive: [/list/],
   aconsole: {
     console: {},
     inspx: {},

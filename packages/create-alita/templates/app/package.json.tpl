@@ -21,8 +21,8 @@
     ]
   },
   "dependencies": {
-    "@alita/flow": "*",
-    "alita": "^{{{ version }}}",
+    "@alita/flow": "^3.1.1",
+    "alita": "^3.2.27",
     "antd-mobile": "^5.15.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
