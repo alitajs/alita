@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.1.4
+
+### Patch Changes
+
+- [`4e7f31e8`](https://github.com/alitajs/alita/commit/4e7f31e84186b0b83b4cd758c44145e51b49537d) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: native error
+
 ## 3.1.3
 
 ### Patch Changes
