@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
 {{^hasCustomTabs}}
 {{#hasTabsLayout}}
-import { Tabs, message, Dropdown, Button, Menu, TabPaneProps } from "antd";
+import { Tabs, message, Dropdown, Button, Menu, TabPaneProps, theme } from "antd";
 import { EllipsisOutlined, VerticalRightOutlined, VerticalLeftOutlined, CloseOutlined, ReloadOutlined } from "@ant-design/icons";
 {{/hasTabsLayout}}
 {{/hasCustomTabs}}
@@ -165,6 +165,7 @@ export function useKeepOutlets() {
     const location = useLocation();
     pathname = location.pathname?.toLowerCase();
     const element = useOutlet();
+    const { token } = theme.useToken();
 {{#hasIntl}}
     const intl = useIntl();
 {{/hasIntl}}
@@ -413,7 +414,8 @@ export function useKeepOutlets() {
 {{#hasFixedHeader}}
               renderTabBar={(props, DefaultTabBar) => (
                 <div style={ {
-                  position: 'fixed', zIndex: 1, padding: 0, width: '100%'
+                  position: 'fixed', zIndex: 1, padding: 0, width: '100%',
+                  backgroundColor: token.colorBgContainer
                 } }>
                   <DefaultTabBar {...props} style={ {
                     marginBottom: 0,

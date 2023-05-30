@@ -2,4 +2,4 @@
 '@alita/plugins': patch
 ---
 
-Remove background-color
+Remove background-color, use antd token
