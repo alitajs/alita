@@ -13,8 +13,8 @@ export default {
   outputPath: outputPath,
   publicPath: isSSR && !isCordova ? path : './',
   keepalive: ['lisT'],
-  packageId: 'com.alita.demos',
-  displayName: 'alita-demos',
+  // packageId: 'com.alita.demos',
+  // displayName: 'alita-demos',
   antd: {},
   // mobile5: true,
   aconsole: {
