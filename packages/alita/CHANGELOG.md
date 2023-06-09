@@ -1,5 +1,16 @@
 # alita
 
+## 3.3.0
+
+### Minor Changes
+
+- [`d8b4126f`](https://github.com/alitajs/alita/commit/d8b4126f6b11291a339b715cde5703c5d69c3954) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: remove legacy build
+
+### Patch Changes
+
+- Updated dependencies [[`d8b4126f`](https://github.com/alitajs/alita/commit/d8b4126f6b11291a339b715cde5703c5d69c3954), [`86a3af14`](https://github.com/alitajs/alita/commit/86a3af14176afecd2bebaf6fa06dd4e510ebdae4)]:
+  - @alita/plugins@3.3.0
+
 ## 3.2.28
 
 ### Patch Changes
