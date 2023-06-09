@@ -1,5 +1,5 @@
 import type { AlitaApi } from '@alita/types';
-import { logger, Mustache, winPath } from '@umijs/utils';
+import { Mustache, winPath } from '@umijs/utils';
 
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
@@ -26,10 +26,6 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => ['mobileLayout']);
   // only dev or build running
   if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
-
-  api.onStart(() => {
-    logger.info('Using Mobile Layout Plugin');
-  });
 
   const isMicroApp = api.userConfig.appType === 'micro';
 

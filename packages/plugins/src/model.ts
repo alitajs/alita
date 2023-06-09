@@ -1,6 +1,5 @@
 import type { AlitaApi } from '@alita/types';
 import modelPlugin from '@umijs/plugins/dist/model';
-import { logger } from '@umijs/utils';
 
 export default (api: AlitaApi) => {
   api.describe({
@@ -17,10 +16,6 @@ export default (api: AlitaApi) => {
   });
   // only dev or build running
   if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
-
-  api.onStart(() => {
-    logger.info('Using Model Plugin');
-  });
 
   // umi model 里面不注册
   api.describe = () => {};

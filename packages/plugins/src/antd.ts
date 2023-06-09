@@ -12,16 +12,13 @@
 // };
 
 import type { AlitaApi } from '@alita/types';
-import { logger, Mustache } from '@umijs/utils';
+import { Mustache } from '@umijs/utils';
 
 import { dirname } from 'path';
 import { resolveProjectDep } from './utils/resolveProjectDep';
 import { withTmpPath } from './utils/withTmpPath';
 
 export default (api: AlitaApi) => {
-  api.onStart(() => {
-    logger.info('Using Antd Plugin');
-  });
   const pkgPath =
     resolveProjectDep({
       pkg: api.pkg,

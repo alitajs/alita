@@ -2,7 +2,7 @@
 // 增加 types
 import type { AlitaApi } from '@alita/types';
 import * as t from '@umijs/bundler-utils/compiled/babel/types';
-import { chalk, logger, winPath } from '@umijs/utils';
+import { chalk, winPath } from '@umijs/utils';
 
 import { dirname, extname, join, relative } from 'path';
 import { Model, ModelUtils } from './utils/modelUtils';
@@ -35,9 +35,6 @@ export default (api: AlitaApi) => {
   // only dev or build running
   if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
 
-  api.onStart(() => {
-    logger.info('Using Dva Plugin');
-  });
   api.modifyAppData((memo) => {
     const models = getAllModels(api);
     memo.pluginDva = {

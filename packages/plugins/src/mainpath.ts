@@ -1,5 +1,4 @@
 import type { AlitaApi } from '@alita/types';
-import { logger } from '@umijs/utils';
 
 // import resetMainPath from './utils/resetMainPath/resetMainPath';
 
@@ -16,9 +15,6 @@ export default (api: AlitaApi) => {
   // only dev or build running
   if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
 
-  api.onStart(() => {
-    logger.info('Using Main Path Plugin');
-  });
   if (api.userConfig.mainPath) {
     const mainPath = api.userConfig.mainPath.startsWith('/')
       ? api.userConfig.mainPath
