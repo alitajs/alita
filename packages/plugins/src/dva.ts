@@ -12,8 +12,9 @@ export default (api: AlitaApi) => {
   const pkgPath = join(
     dirname(require.resolve('@umijs/plugins/package.json')),
     'libs',
-    'dva.ts',
+    'dva.tsx',
   );
+  console.log(pkgPath);
   // const enableBy = (opts: any) => {
   //   return !!opts.config.dva;
   // };
