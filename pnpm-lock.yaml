@@ -482,10 +482,10 @@ importers:
   packages/alita:
     dependencies:
       '@alita/native':
-        specifier: 3.2.8
+        specifier: 3.2.9
         version: link:../native
       '@alita/plugins':
-        specifier: 3.3.0
+        specifier: 3.3.1
         version: link:../plugins
       '@alita/types':
         specifier: 3.1.1
@@ -3051,7 +3051,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.0
       '@babel/helper-create-regexp-features-plugin': 7.19.0(@babel/core@7.21.0)
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.20.2
     dev: false
 
   /@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.17.9):
@@ -3894,9 +3894,9 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.0
-      '@babel/helper-compilation-targets': 7.22.5(@babel/core@7.21.0)
-      '@babel/helper-function-name': 7.21.0
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-compilation-targets': 7.20.7(@babel/core@7.21.0)
+      '@babel/helper-function-name': 7.19.0
+      '@babel/helper-plugin-utils': 7.20.2
     dev: false
 
   /@babel/plugin-transform-literals@7.18.9(@babel/core@7.18.9):
