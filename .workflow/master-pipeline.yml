@@ -16,9 +16,9 @@ stages:
       - step: build@nodejs
         name: build_nodejs
         displayName: Nodejs 构建
-        nodeVersion: 14.16.0
+        nodeVersion: 16.14.2
         commands:
-          - npm install && rm -rf ./dist && npm run doc:build
+          - pnpm install && rm -rf ./dist && pnpm run doc:build
         artifacts:
           - name: BUILD_ARTIFACT
             path:
