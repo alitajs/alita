@@ -18,6 +18,8 @@ stages:
         displayName: Nodejs 构建
         nodeVersion: 16.14.2
         commands:
+          - npm i pnpm -g
+          - ''
           - pnpm install && rm -rf ./dist && pnpm run doc:build
         artifacts:
           - name: BUILD_ARTIFACT
