@@ -406,7 +406,7 @@ export function useKeepOutlets() {
 {{/hasDropdown}}
               hideAdd
               onChange={(key: string) => {
-                const path = key.split(':')[0];
+                const path = key.split('::')[0];
                 const { pathname, hash, search } = keepElements.current[path?.toLowerCase()].location;
                 navigate(`${pathname}${search}${hash}`);
               }}
