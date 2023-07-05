@@ -96,8 +96,8 @@ dev 时的临时文件目录，比如入口文件、路由等，都会被临时�
 
 build 时的临时文件目录，比如入口文件、路由等，都会被临时生成到这里。**不要提交 .umi-production 目录到 git 仓库，他们会在 alita build 时被删除并重新生成。**
 
-### layout 目录
-#### layout.tsx
+### layouts 目录
+#### layouts/index.tsx.tsx
 约定式路由时的全局布局文件，实际上是在路由外面套了一层。比如路由是：
 
 ```
