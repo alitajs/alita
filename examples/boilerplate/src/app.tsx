@@ -101,6 +101,7 @@ export const mobileLayout = {
   navBar,
   tabBar,
   titleList,
+  // customHeader:<div>asdasdassaasd</div>
 };
 
 export async function getKeepAlive(keepaliva: any[]) {
