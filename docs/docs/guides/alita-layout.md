@@ -30,6 +30,7 @@ export const mobileLayout = {
   navBar,
   documentTitle: '默认标题',
   titleList,
+  customHeader
 };
 ```
 
@@ -39,6 +40,7 @@ export const mobileLayout = {
 | navBar        | NavBarProps     | 否   |  定义页面头部导航栏                        |
 | documentTitle | string          | 否   |  定义所有页面的默认标题                     |
 | titleList     | TitleListItem[] | 否   |  定义页面的标题                    |
+| customHeader     | 组件 | 否   |  自定义页面的头部                |
 
 
 ### 定义页面底部导航标签栏

@@ -423,7 +423,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const location = useLocation();
   // mobile layout runtime config
   const runtime = getPluginManager().applyPlugins({ key: 'mobileLayout',type: 'modify', initialValue: {} });
-  const { titleList, documentTitle, navBar, tabBar, onPageChange } = runtime;
+  const { titleList, documentTitle, navBar, tabBar, onPageChange, customHeader=null } = runtime;
   useEffect(() => {
     setPageNavBar(getPageNavBar());
     setTabBarList(getTabBarList());
@@ -451,6 +451,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
   return (
     <AlitaLayout {...layout}>
+      {customHeader}
       {element}
     </AlitaLayout>
   );
