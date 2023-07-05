@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.3.3
+
+### Patch Changes
+
+- [#585](https://github.com/alitajs/alita/pull/585) [`793fac74`](https://github.com/alitajs/alita/commit/793fac74258a661cb8f4c7654bceb7a8c9d41a81) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: customHeader
+
 ## 3.3.2
 
 ### Patch Changes
