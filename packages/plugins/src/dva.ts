@@ -14,7 +14,6 @@ export default (api: AlitaApi) => {
     'libs',
     'dva.tsx',
   );
-  console.log(pkgPath);
   // const enableBy = (opts: any) => {
   //   return !!opts.config.dva;
   // };

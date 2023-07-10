@@ -273,6 +273,35 @@ export default defineConfig({
 
 开启 TypeScript 的类型检查。基于 fork-ts-checker-webpack-plugin，配置项可参考 [fork-ts-checker-webpack-plugin 的 Options](https://github.com/TypeStrong/fork-ts-checker-webpack-plugin#options)。
 
+####  history
+* 类型：{ type: 'browser' | 'hash' | 'memory' }
+* 默认值：{ type: 'hash' }
+
+设置路由 history 类型。
+
+##### FAQ
+
+Q：如何去掉路由上的 # 字符
+
+A： 配置 `history:{ type: 'browser' }`
+
+Q: 去掉 # 字符之后，最长遇到的问题是在非根目录部署 html 
+
+A: 
+
+> 为什么我本地开发是好的，部署后就没反应了，而且没有报错？
+
+没有报错！ 这是应用部署在非根路径的典型现象。为啥会有这个问题？因为路由没有匹配上，比如你把应用部署在 /xxx/ 下，然后访问 /xxx/hello，而代码里匹配的是 /hello，那就匹配不上了，而又没有定义 fallback 的路由，比如 404，那就会显示空白页。
+
+怎么解决？
+
+可通过配置 base 解决。
+
+```
+export default {
+  base: '/path/to/your/app/root',
+};
+```
 
 #### mock
 
