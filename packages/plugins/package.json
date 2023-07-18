@@ -54,7 +54,7 @@
   "devDependencies": {
     "@alitajs/postcss-plugin-px2rem": "^0.0.1",
     "@types/semver": "^7.3.9",
-    "vconsole": "3.10.0"
+    "vconsole": "3.15.1"
   },
   "compiledConfig": {
     "deps": [

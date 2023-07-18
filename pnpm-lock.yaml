@@ -453,7 +453,7 @@ importers:
       react-router-dom: ^6.1.1
       redux: ^4.1.2
       semver: 7.5.2
-      vconsole: 3.10.0
+      vconsole: 3.15.1
     dependencies:
       '@alita/babel-transform-jsx-class': 0.0.2
       '@alita/inspx': 0.0.2
@@ -479,7 +479,7 @@ importers:
     devDependencies:
       '@alitajs/postcss-plugin-px2rem': 0.0.1
       '@types/semver': 7.5.0
-      vconsole: 3.10.0
+      vconsole: 3.15.1
 
   packages/request:
     specifiers:
@@ -9139,10 +9139,6 @@ packages:
 
   /convert-source-map/2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
-
-  /cookie-storage/6.1.0:
-    resolution: {integrity: sha512-HeVqbVy8BjXhAAuFtL6MTG+witHoLbxfky2jgVh9FmxmyL6IKa9gSSyPNjevXCCCxPu6Tzd9J8+eXTRQzYU/cg==}
-    dev: true
 
   /copy-anything/2.0.6:
     resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
@@ -20756,10 +20752,10 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vconsole/3.10.0:
-    resolution: {integrity: sha512-xXRr+m9jJpUu3GhV6uZc/xm/lNAH9ULzal1VX/NxNlzYT9bNGQFgAuRT0yCZVCHEiZL/lXg7SyqiRUy6IvWv7g==}
+  /vconsole/3.15.1:
+    resolution: {integrity: sha512-KH8XLdrq9T5YHJO/ixrjivHfmF2PC2CdVoK6RWZB4yftMykYIaXY1mxZYAic70vADM54kpMQF+dYmvl5NRNy1g==}
     dependencies:
-      cookie-storage: 6.1.0
+      '@babel/runtime': 7.22.6
       copy-text-to-clipboard: 3.1.0
       core-js: 3.28.0
       mutation-observer: 1.0.3
