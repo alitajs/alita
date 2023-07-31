@@ -1,5 +1,14 @@
 # @alita/plugin-lowcode
 
+## 3.0.15
+
+### Patch Changes
+
+- [`5c2b6251`](https://github.com/alitajs/alita/commit/5c2b6251d112d87ea5dec989be63904592d879c5) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - chore: update version
+
+- Updated dependencies [[`5c2b6251`](https://github.com/alitajs/alita/commit/5c2b6251d112d87ea5dec989be63904592d879c5)]:
+  - @alita/types@3.1.2
+
 ## 3.0.14
 
 ### Patch Changes

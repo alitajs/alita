@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -31,8 +31,8 @@
   "dependencies": {
     "@alita/babel-transform-jsx-class": "0.0.2",
     "@alita/inspx": "0.0.2",
-    "@alita/request": "3.1.1",
-    "@alita/types": "3.1.1",
+    "@alita/request": "3.1.2",
+    "@alita/types": "3.1.2",
     "@umijs/bundler-utils": "4.0.70",
     "@umijs/plugins": "4.0.70",
     "@umijs/utils": "4.0.70",
