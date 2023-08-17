@@ -76,7 +76,7 @@ export default Foo;
 
 ```ts
 import React, { useEffect } from 'react';
-import type {FC} from 'react;
+import type {FC} from 'react';
 import { getPageNavBar } from 'alita';
  
 const Foo:FC = () => {
