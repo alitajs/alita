@@ -29,15 +29,15 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13",
-    "@types/jest": "^27",
+    "@testing-library/react": "^13.4.0",
+    "@types/jest": "^27.5.2",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/testing-library__jest-dom": "^5.14.5",
-    "jest": "^27",
-    "prettier": "^2",
-    "ts-node": "^10",
-    "typescript": "^4"
+    "jest": "^27.5.1",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=14.0.1"
