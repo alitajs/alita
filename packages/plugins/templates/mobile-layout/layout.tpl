@@ -259,7 +259,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
   );
   const isTabsApp = list.length > 0;
   const titleListItem = checkTitleList(pathname, titleList);
-  const realTitle = titleListItem || pageTitle || documentTitle || '';
+  const realTitle = realNavBar?.pageTitle || titleListItem || pageTitle || documentTitle || '';
 
   // 头部永久固定，部分页面需要跟随页面流滚动，可以选择隐藏 NavBar，在页面中手动添加
   const headFixed = realNavBar.fixed;
