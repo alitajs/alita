@@ -4,7 +4,8 @@ import { dirname } from 'path';
 
 export default (api: AlitaApi) => {
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview', 'setup'].includes(api.name))
+    return;
 
   api.addExtraBabelPlugins(() => {
     return [require.resolve('@alita/babel-transform-jsx-class')];

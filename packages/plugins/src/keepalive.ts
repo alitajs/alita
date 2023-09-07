@@ -27,7 +27,12 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => 'getKeepAlive');
 
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (
+    !['dev', 'build', 'dev-config', 'preview', 'setup', 'setup'].includes(
+      api.name,
+    )
+  )
+    return;
 
   const configStringify = (config: (string | RegExp)[]) => {
     return config.map((item) => {

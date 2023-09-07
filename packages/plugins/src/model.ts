@@ -15,7 +15,8 @@ export default (api: AlitaApi) => {
     // enableBy: api.EnableBy.config,
   });
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview', 'setup'].includes(api.name))
+    return;
 
   // umi model 里面不注册
   api.describe = () => {};

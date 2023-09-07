@@ -25,7 +25,8 @@ export default (api: AlitaApi) => {
   // 注册runtime配置
   api.addRuntimePluginKey(() => ['mobileLayout']);
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview', 'setup'].includes(api.name))
+    return;
 
   const isMicroApp = api.userConfig.appType === 'micro';
 
