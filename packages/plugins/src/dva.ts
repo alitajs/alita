@@ -33,7 +33,8 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => ['dva']);
 
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview', 'setup'].includes(api.name))
+    return;
 
   api.modifyAppData((memo) => {
     const models = getAllModels(api);

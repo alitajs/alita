@@ -15,7 +15,8 @@ export default (api: AlitaApi) => {
   api.addRuntimePluginKey(() => ['request']);
 
   // only dev or build running
-  if (!['dev', 'build', 'dev-config', 'preview'].includes(api.name)) return;
+  if (!['dev', 'build', 'dev-config', 'preview', 'setup'].includes(api.name))
+    return;
 
   // 注册runtime配置
   api.addEntryCodeAhead(() => [
