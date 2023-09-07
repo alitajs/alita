@@ -646,8 +646,8 @@ export default defineConfig({
 
 
 ####  history
-* 类型：{ type: 'browser' | 'hash' | 'memory' }
-* 默认值：{ type: 'hash' }
+* 类型：`{ type: 'browser' | 'hash' | 'memory' }`
+* 默认值：`{ type: 'hash' }`
 
 设置路由 history 类型。
 
