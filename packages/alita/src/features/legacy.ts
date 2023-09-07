@@ -1,4 +1,3 @@
-import { logger } from '@umijs/utils';
 import { IApi } from 'umi';
 
 export default (api: IApi) => {
