@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.1.7
+
+### Patch Changes
+
+- [`b03cc716`](https://github.com/alitajs/alita/commit/b03cc716ca812f7f7e36262d889f7e740ec80074) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - docs: add readme
+
 ## 3.1.6
 
 ### Patch Changes

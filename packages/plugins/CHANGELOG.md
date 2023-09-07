@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.3.5
+
+### Patch Changes
+
+- [#606](https://github.com/alitajs/alita/pull/606) [`61c4a5c7`](https://github.com/alitajs/alita/commit/61c4a5c796645628f87f1722280c847d8521cca2) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: plugins work in setup
+
+- [#605](https://github.com/alitajs/alita/pull/605) [`ded70370`](https://github.com/alitajs/alita/commit/ded70370b42e9d6ab129265530e761b88f4aad8c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: set page title no work
+
 ## 3.3.4
 
 ### Patch Changes
