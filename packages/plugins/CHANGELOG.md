@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.3.6
+
+### Patch Changes
+
+- [#611](https://github.com/alitajs/alita/pull/611) [`b5004bd1`](https://github.com/alitajs/alita/commit/b5004bd1e5fcaa314b4755746857765e07b54336) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: mobile5 select color
+
 ## 3.3.5
 
 ### Patch Changes
