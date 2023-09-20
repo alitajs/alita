@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.3.5",
+  "version": "3.3.6",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
