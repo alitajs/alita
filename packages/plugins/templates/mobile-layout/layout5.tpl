@@ -77,6 +77,7 @@ export interface TabBarProps {
     color?: string;
     selectedColor?: string;
     backgroungColor?: string;
+    backgroundColor?: string;
     position?: 'bottom' | 'top';
     borderStyle?: string;
     tabsGroup?: string[][];
@@ -244,6 +245,7 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
         color,
         selectedColor,
         backgroungColor = '#FFF',
+        backgroundColor,
         position,
         tabsGroup = [],
     } = tabBar as TabBarProps;
@@ -298,8 +300,8 @@ const AlitaLayout: FC<AlitaLayoutProps> = ({
                         tabBarPosition={position}
                         unselectedTintColor={color}
                         tintColor={selectedColor}
-                        barTintColor={backgroungColor}
-                        style={ { backgroungColor:backgroungColor }}
+                        barTintColor={backgroundColor || backgroungColor}
+                        style={ { backgroundColor:backgroundColor || backgroungColor, '--adm-color-primary': selectedColor, '--adm-color-text-secondary': color}}
                         safeArea={true}
                         activeKey={pathname}
                         onChange={value => {

@@ -91,8 +91,7 @@ const tabList: TabBarListItem[] = [
 const tabBar: TabBarProps = {
   color: `#999999`,
   selectedColor: '#00A0FF',
-  borderStyle: 'white',
-  position: 'bottom',
+  backgroundColor: '#FFF',
   list: tabList,
 };
 
