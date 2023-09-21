@@ -26,7 +26,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@umijs/bundler-utils": "4.0.70",
-    "@umijs/utils": "4.0.70"
+    "@umijs/bundler-utils": "4.0.81",
+    "@umijs/utils": "4.0.81"
   }
 }
