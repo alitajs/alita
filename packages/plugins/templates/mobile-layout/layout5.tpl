@@ -434,10 +434,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       prevPathName = location.pathname;
     }, 10);
   }, [location.pathname]);
-  layoutEmitter?.useSubscription?.((e) => {
-    setPageNavBar(getPageNavBar());
-    setTabBarList(getTabBarList());
-  });
+  useEffect(()=>{
+    layoutEmitter?.useSubscription?.((e) => {
+        setPageNavBar(getPageNavBar());
+        setTabBarList(getTabBarList());
+      });
+  },[]);
   let element = useOutlet();
 {{#hasKeepAlive}}
   element = useKeepOutlets();
