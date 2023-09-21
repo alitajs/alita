@@ -1,5 +1,15 @@
 # alita
 
+## 3.3.8
+
+### Patch Changes
+
+- [#615](https://github.com/alitajs/alita/pull/615) [`b7de11fc`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-81
+
+- Updated dependencies [[`b7de11fc`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96)]:
+  - @alita/plugins@3.3.8
+  - @alita/native@3.2.11
+
 ## 3.3.7
 
 ### Patch Changes

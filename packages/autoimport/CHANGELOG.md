@@ -1,5 +1,11 @@
 # @alita/autoimport
 
+## 3.0.5
+
+### Patch Changes
+
+- [#615](https://github.com/alitajs/alita/pull/615) [`b7de11fc`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-81
+
 ## 3.0.4
 
 ### Patch Changes
