@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.3.7
+
+### Patch Changes
+
+- [#613](https://github.com/alitajs/alita/pull/613) [`9f3651c2`](https://github.com/alitajs/alita/commit/9f3651c2339652c76ba18ab6266cdd162d7b5c0e) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - fix: useEffets error
+
 ## 3.3.6
 
 ### Patch Changes
