@@ -1,6 +1,24 @@
 import { IApi } from 'umi';
 import { dirname } from 'path';
 import OpenAI from 'openai';
+export interface IEvent<T> {
+  (fn: { (args: T): void }): void;
+  (args: {
+    fn: {
+      (args: T): void;
+    };
+    name?: string;
+    before?: string | string[];
+    stage?: number;
+  }): void;
+}
+export declare type IAzureSend = (
+  content: string | Array<OpenAI.ChatCompletionMessageParam>,
+) => Promise<OpenAI.Chat.Completions.ChatCompletion>;
+export declare type IOnIntlAzure = IEvent<{
+  openapi: OpenAI;
+  send: IAzureSend;
+}>;
 
 export default (api: IApi) => {
   api.describe({
