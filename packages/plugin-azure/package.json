@@ -1,0 +1,31 @@
+{
+  "name": "@alita/plugin-azure",
+  "version": "3.0.0",
+  "description": "@alita/plugin-azure",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "umi-scripts bundleDeps",
+    "dev": "pnpm build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/plugin-azure#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "openai": "^4.19.1"
+  }
+}
