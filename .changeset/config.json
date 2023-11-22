@@ -36,6 +36,7 @@
     "@examples/tabs-custom",
     "@examples/tabs-routes",
     "@example/test-test",
+    "@examples/azure",
     "umi-scripts"
   ]
 }
