@@ -1,5 +1,20 @@
 # alita
 
+## 3.3.8
+
+### Patch Changes
+
+- [#629](https://github.com/alitajs/alita/pull/629) [`4d259208865ba13ba2262ca199e3eb43e8cb1e7b`](https://github.com/alitajs/alita/commit/4d259208865ba13ba2262ca199e3eb43e8cb1e7b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: umi 89
+
+- [#627](https://github.com/alitajs/alita/pull/627) [`05770756b5a20b8ca6a38a8650564b89252d1216`](https://github.com/alitajs/alita/commit/05770756b5a20b8ca6a38a8650564b89252d1216) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add aigc
+
+- [#615](https://github.com/alitajs/alita/pull/615) [`b7de11fc4d24e4823741ea500628d455da2f8d96`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-81
+
+- Updated dependencies [[`4d259208865ba13ba2262ca199e3eb43e8cb1e7b`](https://github.com/alitajs/alita/commit/4d259208865ba13ba2262ca199e3eb43e8cb1e7b), [`254efaa26c027ce50054b1190601c815b5bdd8ef`](https://github.com/alitajs/alita/commit/254efaa26c027ce50054b1190601c815b5bdd8ef), [`05770756b5a20b8ca6a38a8650564b89252d1216`](https://github.com/alitajs/alita/commit/05770756b5a20b8ca6a38a8650564b89252d1216), [`489ca72dbf0138ed67eeccc160adfa243e8f9cba`](https://github.com/alitajs/alita/commit/489ca72dbf0138ed67eeccc160adfa243e8f9cba), [`b7de11fc4d24e4823741ea500628d455da2f8d96`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96)]:
+  - @alita/plugin-azure@3.0.6
+  - @alita/plugins@3.3.8
+  - @alita/native@3.2.11
+
 ## 3.3.7
 
 ### Patch Changes

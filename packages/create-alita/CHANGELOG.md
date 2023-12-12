@@ -1,5 +1,13 @@
 # create-alita
 
+## 3.1.8
+
+### Patch Changes
+
+- [#629](https://github.com/alitajs/alita/pull/629) [`4d259208865ba13ba2262ca199e3eb43e8cb1e7b`](https://github.com/alitajs/alita/commit/4d259208865ba13ba2262ca199e3eb43e8cb1e7b) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: umi 89
+
+- [#615](https://github.com/alitajs/alita/pull/615) [`b7de11fc4d24e4823741ea500628d455da2f8d96`](https://github.com/alitajs/alita/commit/b7de11fc4d24e4823741ea500628d455da2f8d96) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4-81
+
 ## 3.1.7
 
 ### Patch Changes
