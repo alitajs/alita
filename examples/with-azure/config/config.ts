@@ -11,10 +11,7 @@ export default defineConfig({
   hash: false,
   reactRouter5Compat: {},
   exportStatic: {},
-  plugins: [
-    require.resolve('@alita/plugin-azure'),
-    require.resolve('./pluginazure'),
-  ],
+  plugins: [require.resolve('./pluginazure')],
   azure: {
     apiVersion: '2023-07-01-preview',
     model: 'alita4',
