@@ -46,6 +46,7 @@
     "@alita/types": "3.1.2",
     "@alita/native": "3.2.10",
     "@alita/plugins": "3.3.7",
+    "@alita/plugin-azure": "3.0.5",
     "@umijs/core": "4.0.81",
     "@umijs/bundler-webpack": "4.0.81",
     "@umijs/babel-preset-umi": "4.0.81",

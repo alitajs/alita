@@ -18,6 +18,8 @@ export default (api: IApi) => {
     // require.resolve('./features/qrcodeterminal'),
     require.resolve('./commands/env'),
     require.resolve('./commands/generate/pages'),
+    // aigc
+    require.resolve('@alita/plugin-azure'),
   ];
   const plugins = [
     require.resolve('@alita/plugins/dist/aconsole'),

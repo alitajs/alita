@@ -2,13 +2,13 @@
   "name": "@examples/azure",
   "private": true,
   "scripts": {
+    "call": "alita call",
     "dev": "alita dev",
     "build": "alita build",
     "start": "npm run dev"
   },
   "dependencies": {
     "@alita/flow": "workspace:*",
-    "@alita/plugin-azure": "workspace:*",
     "alita": "workspace:*",
     "antd-mobile": "^5.10.0"
   }
