@@ -43,8 +43,14 @@ export default (api: IApi) => {
             apiVersion: zod.string(),
             model: zod.string(),
             resource: zod.string(),
+            whyQuestion: zod.string(),
           })
           .partial();
+      },
+      default: {
+        apiVersion: '2023-07-01-preview',
+        model: 'alita4',
+        resource: 'alita',
       },
     },
   });
@@ -214,12 +220,12 @@ export default (api: IApi) => {
           join(api.paths.absNodeModulesPath, '.cache', 'logger', 'umi.log'),
         ),
       );
-      console.log(errorLog);
       if (errorLog.length > 0) {
+        const {
+          whyQuestion = '我在使用 umi 系列框架的时候，遇到这个问题，服务挂了，请帮我分析一下可能的原因，并提供可能的修复方式，日志如下',
+        } = api.config.azure;
         const result = await sendAi(
-          `我在使用 umi 系列框架的时候，遇到这个问题，服务挂了，请帮我分析一下可能的原因，并提供可能的修复方式，日志如下${JSON.stringify(
-            errorLog.pop(),
-          )}`,
+          `${whyQuestion}${JSON.stringify(errorLog.pop())}`,
         );
         const content = result.choices[0]!.message?.content || '{}';
         if (content) {
