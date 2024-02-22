@@ -1,5 +1,16 @@
 # alita
 
+## 3.3.9
+
+### Patch Changes
+
+- [#636](https://github.com/alitajs/alita/pull/636) [`871bb180bcb22185ba70f468cb34dc9a927b1a03`](https://github.com/alitajs/alita/commit/871bb180bcb22185ba70f468cb34dc9a927b1a03) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: use umi@4.1.2
+
+- Updated dependencies [[`871bb180bcb22185ba70f468cb34dc9a927b1a03`](https://github.com/alitajs/alita/commit/871bb180bcb22185ba70f468cb34dc9a927b1a03)]:
+  - @alita/plugin-azure@3.0.7
+  - @alita/plugins@3.3.9
+  - @alita/native@3.2.12
+
 ## 3.3.8
 
 ### Patch Changes
