@@ -1,5 +1,11 @@
 # @alita/plugin-lowcode
 
+## 3.0.17
+
+### Patch Changes
+
+- [#636](https://github.com/alitajs/alita/pull/636) [`871bb180bcb22185ba70f468cb34dc9a927b1a03`](https://github.com/alitajs/alita/commit/871bb180bcb22185ba70f468cb34dc9a927b1a03) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: use umi@4.1.2
+
 ## 3.0.16
 
 ### Patch Changes
