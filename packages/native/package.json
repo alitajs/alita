@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@alita/types": "3.1.2",
-    "@umijs/utils": "4.0.89"
+    "@umijs/utils": "4.1.2"
   },
   "license": "MIT"
 }

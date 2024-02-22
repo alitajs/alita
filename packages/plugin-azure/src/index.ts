@@ -167,19 +167,20 @@ export default (api: IApi) => {
                 dangerouslyAllowBrowser: true,
             });
             
-            export const sendOpenAI = async (content: string | Array<OpenAI.ChatCompletionMessageParam>):Promise<OpenAI.Chat.Completions.ChatCompletion> => {
+            export const sendOpenAI = async (content: string | Array<OpenAI.ChatCompletionMessageParam>, system=\`||>instructions:\你是一位高级软件工程师，你精通各种语言和方案\n||>assistant:\n\`):Promise<OpenAI.Chat.Completions.ChatCompletion> => {
                 let message: Array<OpenAI.ChatCompletionMessageParam> = [];
                 if (typeof content === 'string') {
                     message = [{
                         role: 'user', content
                     }]
+                } else {
+                  message = content;
                 }
                 const result = await openai.chat.completions.create({
                     model,
                     messages: [{
                         role: "system",
-                        content:
-                        \`||>instructions:\你是一位高级软件工程师，你精通各种语言和方案\n||>assistant:\n\`,
+                        content: system,
                     },
                     ...message],
                 });
