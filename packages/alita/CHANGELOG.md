@@ -1,5 +1,12 @@
 # alita
 
+## 3.3.10
+
+### Patch Changes
+
+- Updated dependencies [[`c4ffa36f29908c11afbaa6d97e5640af4a670131`](https://github.com/alitajs/alita/commit/c4ffa36f29908c11afbaa6d97e5640af4a670131)]:
+  - @alita/plugins@3.3.10
+
 ## 3.3.9
 
 ### Patch Changes
