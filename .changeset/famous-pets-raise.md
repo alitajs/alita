@@ -1,5 +1,5 @@
 ---
-'@alita/plugins': major
+'@alita/plugins': patch
 ---
 
 fixed: closeTab 将在导航到页面之前添加 hash 和 search
