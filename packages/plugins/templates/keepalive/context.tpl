@@ -194,7 +194,8 @@ export function useKeepOutlets() {
             // 1.如果当前tab是第一个时自动选中后一个
             // 2.不是第一个时自动选中前一个
             const i = pathList.indexOf(targetKey?.toLowerCase())
-            navigate(pathList[i === 0 ? i + 1 : i - 1])
+            const {pathname, hash, search } = keepElements.current[pathList[i === 0 ? i + 1 : i - 1]?.toLowerCase()].location;
+            navigate(`${pathname}${search}${hash}`);
           }
     };
     const navigate = useNavigate();
