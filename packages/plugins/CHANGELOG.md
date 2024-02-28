@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.3.10
+
+### Patch Changes
+
+- [#634](https://github.com/alitajs/alita/pull/634) [`c4ffa36f29908c11afbaa6d97e5640af4a670131`](https://github.com/alitajs/alita/commit/c4ffa36f29908c11afbaa6d97e5640af4a670131) Thanks [@damonwonghv](https://github.com/damonwonghv)! - fixed: closeTab 将在导航到页面之前添加 hash 和 search
+
 ## 3.3.9
 
 ### Patch Changes
