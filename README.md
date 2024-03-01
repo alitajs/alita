@@ -1,6 +1,6 @@
 # alita
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
@@ -60,6 +60,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tangbzai"><img src="https://avatars.githubusercontent.com/u/47456577?v=4?s=100" width="100px;" alt="tangbzai"/><br /><sub><b>tangbzai</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=tangbzai" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Hexi1997"><img src="https://avatars.githubusercontent.com/u/66669483?v=4?s=100" width="100px;" alt="Hexi"/><br /><sub><b>Hexi</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=Hexi1997" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/damonwonghv"><img src="https://avatars.githubusercontent.com/u/11707312?v=4?s=100" width="100px;" alt="Damon Wong"/><br /><sub><b>Damon Wong</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=damonwonghv" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Alioth1017"><img src="https://avatars.githubusercontent.com/u/10696356?v=4?s=100" width="100px;" alt="Alioth"/><br /><sub><b>Alioth</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=Alioth1017" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
