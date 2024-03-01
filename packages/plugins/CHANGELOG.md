@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.3.11
+
+### Patch Changes
+
+- [#640](https://github.com/alitajs/alita/pull/640) [`315f1330fca515dadbc07319c0b959474c1a0f00`](https://github.com/alitajs/alita/commit/315f1330fca515dadbc07319c0b959474c1a0f00) Thanks [@Alioth1017](https://github.com/Alioth1017)! - fix: resolve locale error in custom command.
+
 ## 3.3.10
 
 ### Patch Changes
