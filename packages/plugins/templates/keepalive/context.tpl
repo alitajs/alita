@@ -198,12 +198,6 @@ export function useKeepOutlets() {
             navigate(`${pathname}${search}${hash}`);
           }
     };
-    const closeAllTabs = () => {
-      const pathList = Object.keys(keepElements.current);
-      pathList.forEach(targetKey => {
-        dropByCacheKey(targetKey?.toLowerCase());
-      });
-    };
     const navigate = useNavigate();
     {{#isPluginModelEnable}}
     const localConfig = React.useMemo(() => {
@@ -280,9 +274,6 @@ export function useKeepOutlets() {
 {{#hasTabsLayout}}
             case 'closeTab':
               closeTab(payload?.path?.toLowerCase());
-              break;
-            case 'closeAllTabs':
-              closeAllTabs();
               break;
 {{/hasTabsLayout}}
           default:
