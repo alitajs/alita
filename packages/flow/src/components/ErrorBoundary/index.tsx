@@ -15,8 +15,8 @@ export const UNKNOWN_COMPONENT = 'unknown';
 
 export type FallbackRender = (errorData: {
   error: Error;
-  componentStack: string | null;
-  eventId: string | null;
+  componentStack: string | null | undefined;
+  eventId: string | null | undefined;
   resetError(): void;
 }) => React.ReactElement;
 
@@ -37,27 +37,27 @@ export type ErrorBoundaryProps = {
   /** Called if resetError() is called from the fallback render props function  */
   onReset?(
     error: Error | null,
-    componentStack: string | null,
-    eventId: string | null,
+    componentStack: string | null | undefined,
+    eventId: string | null | undefined,
   ): void;
   /** Called on componentWillUnmount() */
   onUnmount?(
     error: Error | null,
-    componentStack: string | null,
-    eventId: string | null,
+    componentStack: string | null | undefined,
+    eventId: string | null | undefined,
   ): void;
   /** Called before the error is captured by Sentry, allows for you to add tags or context using the scope */
   beforeCapture?(
     scope: any,
     error: Error | null,
-    componentStack: string | null,
+    componentStack: string | null | undefined,
   ): void;
 };
 
 type ErrorBoundaryState = {
   componentStack: React.ErrorInfo['componentStack'] | null;
   error: Error | null;
-  eventId: string | null;
+  eventId: string | null | undefined;
 };
 
 const INITIAL_STATE = {
