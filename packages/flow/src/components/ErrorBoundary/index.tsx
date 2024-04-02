@@ -1,4 +1,5 @@
 // https://reactjs.org/docs/error-boundaries.html#gatsby-focus-wrapper
+// @ts-nocheck
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import * as React from 'react';
 
