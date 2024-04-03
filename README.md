@@ -1,6 +1,6 @@
 # alita
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build With Umi](https://img.shields.io/badge/build%20with-umi-028fe4.svg?style=flat-square)](http://umijs.org/) <a href="https://alitajs.com"><img src="https://img.shields.io/badge/alitajs-alita-blue.svg" alt="alita" /></a>
@@ -63,6 +63,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Alioth1017"><img src="https://avatars.githubusercontent.com/u/10696356?v=4?s=100" width="100px;" alt="Alioth"/><br /><sub><b>Alioth</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=Alioth1017" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Penguin-Lin"><img src="https://avatars.githubusercontent.com/u/33897969?v=4?s=100" width="100px;" alt="Penguin-Lin"/><br /><sub><b>Penguin-Lin</b></sub></a><br /><a href="https://github.com/alitajs/alita/commits?author=Penguin-Lin" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
