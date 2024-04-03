@@ -94,6 +94,9 @@ export function closeTab(path: string) {
     path
   }});
 }
+export function closeAllTabs() {
+  keepaliveEmitter.emit({type:'closeAllTabs'});
+}
 `,
     });
     // index.ts for export
@@ -102,7 +105,7 @@ export function closeTab(path: string) {
       path: `${DIR_NAME}/index.tsx`,
       content: `
 export { KeepAliveContext,useKeepOutlets } from './context';
-export { dropByCacheKey, closeTab } from './support';
+export { dropByCacheKey, closeTab, closeAllTabs } from './support';
 `,
     });
   });
