@@ -1,5 +1,11 @@
 # @alita/plugin-azure
 
+## 3.1.0
+
+### Minor Changes
+
+- [#653](https://github.com/alitajs/alita/pull/653) [`1cac30ad65f5736562b24fdb1178f6f45cf7e9be`](https://github.com/alitajs/alita/commit/1cac30ad65f5736562b24fdb1178f6f45cf7e9be) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4225
+
 ## 3.0.7
 
 ### Patch Changes
