@@ -48,7 +48,7 @@ export default (api: AlitaApi) => {
     // types.ts
     api.writeTmpFile({
       path: 'types.d.ts',
-      tpl: `export { ResponseError,Context,RequestConfig } from '${winPath(
+      tpl: `export { ResponseError,Context,RequestConfig, RequestOptionsInit, RequestInterceptor, ResponseInterceptor } from '${winPath(
         dirname(require.resolve('@alita/request/package')),
       )}';`,
       context: {},
