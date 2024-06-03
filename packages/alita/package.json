@@ -47,11 +47,11 @@
     "@alita/native": "3.3.0",
     "@alita/plugins": "3.4.0",
     "@alita/plugin-azure": "3.1.0",
-    "@umijs/core": "4.2.5",
-    "@umijs/bundler-webpack": "4.2.5",
-    "@umijs/babel-preset-umi": "4.2.5",
-    "@umijs/preset-umi": "4.2.5",
-    "@umijs/utils": "4.2.5",
-    "umi": "4.2.5"
+    "@umijs/core": "4.2.8",
+    "@umijs/bundler-webpack": "4.2.8",
+    "@umijs/babel-preset-umi": "4.2.8",
+    "@umijs/preset-umi": "4.2.8",
+    "@umijs/utils": "4.2.8",
+    "umi": "4.2.8"
   }
 }

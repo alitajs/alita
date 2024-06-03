@@ -23,6 +23,7 @@
     "@examples/legacy",
     "@example/lint",
     "@examples/locale",
+    "@examples/mako",
     "@examples/min",
     "@examples/mobile2",
     "@examples/mobile5",
