@@ -1,6 +1,6 @@
 {
   "name": "@alita/autoimport",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "@alita/autoimport",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
