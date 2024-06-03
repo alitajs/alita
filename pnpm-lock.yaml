@@ -497,13 +497,13 @@ importers:
   packages/alita:
     dependencies:
       '@alita/native':
-        specifier: 3.3.0
+        specifier: 3.4.0
         version: link:../native
       '@alita/plugin-azure':
-        specifier: 3.1.0
+        specifier: 3.2.0
         version: link:../plugin-azure
       '@alita/plugins':
-        specifier: 3.4.0
+        specifier: 3.5.0
         version: link:../plugins
       '@alita/types':
         specifier: 3.1.2
@@ -3983,13 +3983,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-
-  /@babel/runtime@7.23.2:
-    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.14.0
-    dev: false
 
   /@babel/runtime@7.23.6:
     resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==}
@@ -8878,7 +8871,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/js-cookie': 2.2.7
       ahooks-v3-count: 1.0.0
       dayjs: 1.11.9
