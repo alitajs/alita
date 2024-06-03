@@ -1,0 +1,15 @@
+{
+  "name": "@examples/mako",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "alita build",
+    "plugin": "alita plugin list",
+    "test:e2e": "start-test dev :9999/__umi/api/status test:pw",
+    "test:pw": "playwright test",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "alita": "workspace:*"
+  }
+}
