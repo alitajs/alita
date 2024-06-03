@@ -1,5 +1,11 @@
 # create-alita
 
+## 3.3.0
+
+### Minor Changes
+
+- [#656](https://github.com/alitajs/alita/pull/656) [`07a233b800d38497d1aa3c47fc9503c5f46ab39c`](https://github.com/alitajs/alita/commit/07a233b800d38497d1aa3c47fc9503c5f46ab39c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: use mako
+
 ## 3.2.0
 
 ### Minor Changes
