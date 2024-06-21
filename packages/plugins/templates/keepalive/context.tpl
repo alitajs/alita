@@ -1,12 +1,13 @@
 // tpl 语法非常乱，修改这个文件，请仔细仔细再仔细的验证之后再提交代码
 import React, { ReactNode, useEffect } from 'react';
 import { useOutlet, useLocation, matchPath, useNavigate } from 'react-router-dom'
-{{^hasCustomTabs}}
 {{#hasTabsLayout}}
-import { Tabs, message, Dropdown, Button, Menu, TabPaneProps } from "antd";
+import type { TabPaneProps } from "antd";
+{{^hasCustomTabs}}
+import { Tabs, message, Dropdown, Button, Menu } from "antd";
 import { EllipsisOutlined, VerticalRightOutlined, VerticalLeftOutlined, CloseOutlined, ReloadOutlined } from "@ant-design/icons";
-{{/hasTabsLayout}}
 {{/hasCustomTabs}}
+{{/hasTabsLayout}}
 {{#hasTabsLayout}}
 import { getPluginManager } from '../core/plugin';
 {{/hasTabsLayout}}
@@ -20,11 +21,12 @@ import { useAppData } from '../exports';
 {{#hasIntl}}
 import { useIntl } from '../exports';
 {{/hasIntl}}
-{{^hasCustomTabs}}
 {{#hasTabsLayout}}
+{{^hasCustomTabs}}
 {{^isNewTabsAPISupported}}
 const { TabPane } = Tabs;
 {{/isNewTabsAPISupported}}
+{{/hasCustomTabs}}
 
 export interface TabConfig extends TabPaneProps{
   icon?: ReactNode;
@@ -33,7 +35,6 @@ export interface TabConfig extends TabPaneProps{
 }
 
 {{/hasTabsLayout}}
-{{/hasCustomTabs}}
 
 
 export interface KeepAliveContextProps {
