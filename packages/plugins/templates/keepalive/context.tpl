@@ -443,7 +443,7 @@ export function useKeepOutlets() {
             {{#isNewTabsAPISupported}}
             items={Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => ({
               label: name,
-              icon： icon
+              icon： icon,
               key: `${pathname?.toLowerCase()}::${tabNameMap[pathname?.toLowerCase()]}`,
               closable: Object.entries(keepElements.current).length === 1 ? false : closable,
               {{#hasFixedHeader}}
