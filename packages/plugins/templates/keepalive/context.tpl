@@ -442,7 +442,8 @@ export function useKeepOutlets() {
             {...tabProps}
             {{#isNewTabsAPISupported}}
             items={Object.entries(keepElements.current).map(([pathname, {name, icon, closable, children, ...other}]: any) => ({
-              label: <>{icon}{name}</>,
+              label: name,
+              icon： icon
               key: `${pathname?.toLowerCase()}::${tabNameMap[pathname?.toLowerCase()]}`,
               closable: Object.entries(keepElements.current).length === 1 ? false : closable,
               {{#hasFixedHeader}}
