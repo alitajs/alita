@@ -1,5 +1,11 @@
 # @alita/native
 
+## 3.4.1
+
+### Patch Changes
+
+- [#661](https://github.com/alitajs/alita/pull/661) [`4c4fdabc5714c1bd4fcdaca2eb0912456a56d642`](https://github.com/alitajs/alita/commit/4c4fdabc5714c1bd4fcdaca2eb0912456a56d642) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: update umi@4.3.10
+
 ## 3.4.0
 
 ### Minor Changes
