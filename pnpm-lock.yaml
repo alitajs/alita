@@ -500,13 +500,13 @@ importers:
   packages/alita:
     dependencies:
       '@alita/native':
-        specifier: 3.4.0
+        specifier: 3.4.1
         version: link:../native
       '@alita/plugin-azure':
-        specifier: 3.2.0
+        specifier: 3.2.1
         version: link:../plugin-azure
       '@alita/plugins':
-        specifier: 3.5.0
+        specifier: 3.5.1
         version: link:../plugins
       '@alita/types':
         specifier: 3.1.2
