@@ -31,21 +31,41 @@ export default (api: AlitaApi) => {
 
   api.modifyDefaultConfig((config) => {
     const draftConfig = config;
-    const { theme, px2rem: configPx2rem } = api.userConfig?.hd || {};
+    const { hd = {}, mako } = api.userConfig || {};
+
+    const { theme, px2rem: configPx2rem } = hd || {};
     draftConfig.theme = {
       ...(draftConfig.theme || {}),
       '@hd': '2px',
       ...(theme || {}),
     };
-    draftConfig.extraPostCSSPlugins = [
-      ...(draftConfig.extraPostCSSPlugins || []),
-      px2rem({
+    if (!mako) {
+      draftConfig.extraPostCSSPlugins = [
+        ...(draftConfig.extraPostCSSPlugins || []),
+        px2rem({
+          rootValue: 100,
+          minPixelValue: 2,
+          selectorDoubleRemList: [/^.adm-/, /^.ant-/, /^\:root/],
+          ...(configPx2rem || {}),
+        }),
+      ];
+    } else if (!mako?.px2rem) {
+      const px2remConfig = {
         rootValue: 100,
         minPixelValue: 2,
         selectorDoubleRemList: [/^.adm-/, /^.ant-/, /^\:root/],
         ...(configPx2rem || {}),
-      }),
-    ];
+      };
+      draftConfig.mako = mako;
+      draftConfig.mako.px2rem = {
+        ...px2remConfig,
+        // 将正则转成字符串
+        selectorDoubleList: px2remConfig.selectorDoubleRemList.map(
+          (i: string) => `${i}`.replaceAll('/', ''),
+        ),
+      };
+    }
+
     return draftConfig;
   });
 
