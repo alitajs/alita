@@ -1,5 +1,11 @@
 # @alita/plugins
 
+## 3.5.2
+
+### Patch Changes
+
+- [#663](https://github.com/alitajs/alita/pull/663) [`8373c1c475682e5452c7bc1859bfe88b07fcacc9`](https://github.com/alitajs/alita/commit/8373c1c475682e5452c7bc1859bfe88b07fcacc9) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: hd support mako
+
 ## 3.5.1
 
 ### Patch Changes
