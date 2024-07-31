@@ -1,5 +1,11 @@
 # alita
 
+## 3.5.3
+
+### Patch Changes
+
+- [#665](https://github.com/alitajs/alita/pull/665) [`4ee0336b4073fa55d0d084cddb430bdf10d2d238`](https://github.com/alitajs/alita/commit/4ee0336b4073fa55d0d084cddb430bdf10d2d238) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: compatible mako
+
 ## 3.5.2
 
 ### Patch Changes
