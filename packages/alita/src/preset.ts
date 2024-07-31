@@ -20,6 +20,7 @@ export default (api: IApi) => {
     require.resolve('./commands/generate/pages'),
     // aigc
     // require.resolve('@alita/plugin-azure'),
+    require.resolve('./features/compatibleMako'),
   ];
   const plugins = [
     require.resolve('@alita/plugins/dist/aconsole'),
