@@ -57,13 +57,33 @@ export default (api: AlitaApi) => {
         ...(configPx2rem || {}),
       };
       draftConfig.mako = mako;
+      const hasMagicChars = (pattern: string) => {
+        return (
+          pattern.includes('*') ||
+          pattern.includes('\\') ||
+          pattern.includes('(') ||
+          pattern.includes(')') ||
+          pattern.includes('^') ||
+          pattern.includes('$')
+        );
+      };
       draftConfig.mako.px2rem = {
         ...px2remConfig,
         // 将正则转成字符串
         selectorDoubleList: px2remConfig.selectorDoubleRemList.map(
-          (i: string) => `${i}`.replaceAll('/', ''),
+          (i: string) => {
+            if (!i.includes('/')) return i;
+            const reStr = `${i}`.replaceAll('/', '');
+            if (hasMagicChars(reStr)) {
+              return reStr;
+            }
+            // FIXME: 更新 mako 的时候，需要修改这里，如果那边有修改配置，则要做出对应变动
+            // https://github.com/umijs/mako/blob/246ffd3440ec2705a1277c64fc0f554d68f0fe83/crates/mako/src/visitors/css_px2rem.rs#L152
+            return `(${reStr})`;
+          },
         ),
       };
+      delete draftConfig.mako.px2rem.selectorDoubleRemList;
     }
 
     return draftConfig;
