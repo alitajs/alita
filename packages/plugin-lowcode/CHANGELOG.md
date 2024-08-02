@@ -1,5 +1,11 @@
 # @alita/plugin-lowcode
 
+## 3.2.2
+
+### Patch Changes
+
+- [#667](https://github.com/alitajs/alita/pull/667) [`6dc317628128544d887eae519a2af9ed3724c619`](https://github.com/alitajs/alita/commit/6dc317628128544d887eae519a2af9ed3724c619) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: upload mako
+
 ## 3.2.1
 
 ### Patch Changes
