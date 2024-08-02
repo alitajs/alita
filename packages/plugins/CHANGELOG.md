@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.5.3
+
+### Patch Changes
+
+- [#667](https://github.com/alitajs/alita/pull/667) [`6dc317628128544d887eae519a2af9ed3724c619`](https://github.com/alitajs/alita/commit/6dc317628128544d887eae519a2af9ed3724c619) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: upload mako
+
+- [#667](https://github.com/alitajs/alita/pull/667) [`ae9f6e7d91f638c7997f2656a81e54a6054fd91a`](https://github.com/alitajs/alita/commit/ae9f6e7d91f638c7997f2656a81e54a6054fd91a) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: support mako px2rem
+
 ## 3.5.2
 
 ### Patch Changes
