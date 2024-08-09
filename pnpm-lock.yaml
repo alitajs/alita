@@ -219,14 +219,14 @@ importers:
         specifier: ^5.10.0
         version: 5.31.1(react-dom@17.0.2)(react@17.0.2)
 
-  examples/exclude-routes:
+  examples/extends-app:
     dependencies:
       '@alita/flow':
         specifier: workspace:*
         version: link:../../packages/flow
-      '@alita/plugin-exclude-routes':
+      '@alita/plugin-extends-app':
         specifier: workspace:*
-        version: link:../../packages/plugin-exclude-routes
+        version: link:../../packages/plugin-extends-app
       ahooks:
         specifier: ^3.0.8
         version: 3.7.8(react@17.0.2)
@@ -596,7 +596,7 @@ importers:
         specifier: ^4.19.1
         version: 4.19.1
 
-  packages/plugin-exclude-routes:
+  packages/plugin-extends-app:
     dependencies:
       '@umijs/core':
         specifier: 4.3.11
@@ -4541,7 +4541,7 @@ packages:
     resolution: {integrity: sha512-BDXFbYOJzT/NBEtp71cvsrGPwGAMGRB/349rwKuoxNSiKjPraNNnlK6MIIabViCjqZugu6j+xeMDlEkWdHHJSg==}
     dependencies:
       '@esbuild-kit/core-utils': 3.1.0
-      get-tsconfig: 4.6.2
+      get-tsconfig: 4.7.5
 
   /@esbuild-kit/core-utils@3.1.0:
     resolution: {integrity: sha512-Uuk8RpCg/7fdHSceR1M6XbSZFSuMrxcePFuGgyvsBn+u339dk5OeL4jv2EojwTN2st/unJGsVm4qHWjWNmJ/tw==}
@@ -4553,7 +4553,7 @@ packages:
     resolution: {integrity: sha512-Qwfvj/qoPbClxCRNuac1Du01r9gvNOT+pMYtJDapfB1eoGN1YlJ1BixLyL9WVENRx5RXgNLdfYdx/CuswlGhMw==}
     dependencies:
       '@esbuild-kit/core-utils': 3.1.0
-      get-tsconfig: 4.6.2
+      get-tsconfig: 4.7.5
 
   /@esbuild/aix-ppc64@0.23.0:
     resolution: {integrity: sha512-3sG8Zwa5fMcA9bgqB8AfWPQ+HFke6uD3h1s3RIwUNK8EG7a4buxvuFTs3j1IMs2NXAk9F30C/FF4vxRgQCcmoQ==}
@@ -13300,11 +13300,6 @@ packages:
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.2.1
-
-  /get-tsconfig@4.6.2:
-    resolution: {integrity: sha512-E5XrT4CbbXcXWy+1jChlZmrmCwd5KGx502kDCXJJ7y898TtWW9FwoG5HfOLVRKmlmDGkWN2HM9Ho+/Y8F0sJDg==}
-    dependencies:
-      resolve-pkg-maps: 1.0.0
 
   /get-tsconfig@4.7.5:
     resolution: {integrity: sha512-ZCuZCnlqNzjb4QprAzXKdpp/gh6KTxSJuw3IBsPnV/7fV4NxC9ckB+vPTt8w7fJA0TaSD7c55BR47JD6MEDyDw==}
