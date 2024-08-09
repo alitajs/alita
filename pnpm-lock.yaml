@@ -219,6 +219,24 @@ importers:
         specifier: ^5.10.0
         version: 5.31.1(react-dom@17.0.2)(react@17.0.2)
 
+  examples/exclude-routes:
+    dependencies:
+      '@alita/flow':
+        specifier: workspace:*
+        version: link:../../packages/flow
+      '@alita/plugin-exclude-routes':
+        specifier: workspace:*
+        version: link:../../packages/plugin-exclude-routes
+      ahooks:
+        specifier: ^3.0.8
+        version: 3.7.8(react@17.0.2)
+      alita:
+        specifier: workspace:*
+        version: link:../../packages/alita
+      antd-mobile:
+        specifier: ^5.10.0
+        version: 5.31.1(react-dom@17.0.2)(react@17.0.2)
+
   examples/helmet:
     dependencies:
       alita:
@@ -577,6 +595,18 @@ importers:
       openai:
         specifier: ^4.19.1
         version: 4.19.1
+
+  packages/plugin-exclude-routes:
+    dependencies:
+      '@umijs/core':
+        specifier: 4.3.11
+        version: 4.3.11
+      '@umijs/preset-umi':
+        specifier: 4.3.11
+        version: 4.3.11(@types/node@17.0.45)(@types/react@18.2.14)(typescript@4.9.5)(webpack@5.90.3)
+      '@umijs/utils':
+        specifier: 4.3.11
+        version: 4.3.11
 
   packages/plugin-lowcode:
     dependencies:
@@ -1326,14 +1356,14 @@ packages:
       semver: 6.3.1
     dev: false
 
-  /@babel/eslint-parser@7.22.15(@babel/core@7.23.2)(eslint@7.32.0):
+  /@babel/eslint-parser@7.22.15(@babel/core@7.23.6)(eslint@7.32.0):
     resolution: {integrity: sha512-yc8OOBIQk1EcRrpizuARSQS0TWAcOMpEJ1aafhNznaeYkeL+OhqnDObGFylB8ka8VFF/sZc+S4RzHyO+3LjQxg==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
       eslint: ^7.5.0 || ^8.0.0
     dependencies:
-      '@babel/core': 7.23.2
+      '@babel/core': 7.23.6
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
       eslint: 7.32.0
       eslint-visitor-keys: 2.1.0
@@ -10219,7 +10249,7 @@ packages:
   /call-bind@1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.1
 
   /call-me-maybe@1.0.2:
@@ -12265,8 +12295,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
-      '@babel/core': 7.23.2
-      '@babel/eslint-parser': 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      '@babel/core': 7.23.6
+      '@babel/eslint-parser': 7.22.15(@babel/core@7.23.6)(eslint@7.32.0)
       eslint: 7.32.0
       eslint-visitor-keys: 2.1.0
       esquery: 1.5.0

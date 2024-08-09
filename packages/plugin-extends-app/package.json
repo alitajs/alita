@@ -1,0 +1,33 @@
+{
+  "name": "@alita/plugin-extends-app",
+  "version": "3.2.2",
+  "description": "@alita/plugin-extends-app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "umi-scripts bundleDeps",
+    "dev": "pnpm build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alitajs/alita"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/alitajs/alita/issues",
+  "homepage": "https://github.com/alitajs/alita/tree/master/packages/plugin-extends-app#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@umijs/core": "4.3.11",
+    "@umijs/preset-umi": "4.3.11",
+    "@umijs/utils": "4.3.11"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@examples/extends-app",
+  "private": true,
+  "scripts": {
+    "dev": "alita dev",
+    "build": "alita build",
+    "plugin": "alita plugin list",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@alita/flow": "workspace:*",
+    "@alita/plugin-extends-app": "workspace:*",
+    "ahooks": "^3.0.8",
+    "alita": "workspace:*",
+    "antd-mobile": "^5.10.0"
+  }
+}
