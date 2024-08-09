@@ -31,10 +31,11 @@ export default (api: IApi) => {
     api.modifyRoutes(async (memo) => {
       // 配置式不支持
       if (api.userConfig.routes) return memo;
+      const prefix = 'pages/';
       const routes = getConventionRoutes({
         base: otherPagesPath,
         exclude: api.config.conventionRoutes?.exclude,
-        prefix: 'pages/',
+        prefix,
       });
       function localPath(path: string) {
         if (path.charAt(0) !== '.') {
@@ -102,7 +103,9 @@ export default (api: IApi) => {
               routes[id].routeProps = `routeProps['${id}']`;
             }
           }
-          memo[id] = routes[id];
+          // 同路由，则扩展覆盖原有的数据
+          const key = id.substring(prefix.length);
+          memo[key] = routes[id];
         }
       }
       return memo;
