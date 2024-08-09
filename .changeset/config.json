@@ -18,6 +18,7 @@
     "@examples/aclass",
     "@examples/alita2",
     "@examples/boilerplate",
+    "@examples/extends-app",
     "@examples/helmet",
     "@examples/state",
     "@examples/legacy",

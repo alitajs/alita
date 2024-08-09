@@ -72,7 +72,7 @@ export default (api: AlitaApi) => {
         // 将正则转成字符串
         selectorDoubleList: px2remConfig.selectorDoubleRemList.map(
           (i: string) => {
-            if (!i.includes('/')) return i;
+            if (!`${i}`.includes('/')) return i;
             const reStr = `${i}`.replaceAll('/', '');
             if (hasMagicChars(reStr)) {
               return reStr;
