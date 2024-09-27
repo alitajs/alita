@@ -463,7 +463,10 @@ export function useKeepOutlets() {
                         } }
                         {{/hasFixedHeader}}
                         key={`${pathname?.toLowerCase()}::${tabNameMap[pathname?.toLowerCase()]}`}
-                        tab={<>{icon}{name}</>}
+                        tab={<span>
+                                {icon}
+                                {name}
+                             </span>}
                         closable={Object.entries(keepElements.current).length === 1?false:closable}
                         {...other}
                       />
