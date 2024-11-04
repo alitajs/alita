@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.5.4",
+  "version": "3.5.5",
   "description": "A React framework based on umi.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,9 +44,9 @@
   },
   "dependencies": {
     "@alita/types": "3.1.2",
-    "@alita/native": "3.4.2",
-    "@alita/plugins": "3.5.3",
-    "@alita/plugin-azure": "3.2.2",
+    "@alita/native": "3.4.3",
+    "@alita/plugins": "3.5.4",
+    "@alita/plugin-azure": "3.2.3",
     "@umijs/core": "4.3.30",
     "@umijs/bundler-webpack": "4.3.30",
     "@umijs/babel-preset-umi": "4.3.30",
