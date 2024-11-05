@@ -1,5 +1,14 @@
 # alita
 
+## 3.5.6
+
+### Patch Changes
+
+- [#669](https://github.com/alitajs/alita/pull/669) [`3c96755c64dda0ff4fbfe8607adeedfb2d16b419`](https://github.com/alitajs/alita/commit/3c96755c64dda0ff4fbfe8607adeedfb2d16b419) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add plugin extends app
+
+- Updated dependencies [[`3c96755c64dda0ff4fbfe8607adeedfb2d16b419`](https://github.com/alitajs/alita/commit/3c96755c64dda0ff4fbfe8607adeedfb2d16b419), [`07499355fd878f77588fa81a0eb6569da097a413`](https://github.com/alitajs/alita/commit/07499355fd878f77588fa81a0eb6569da097a413)]:
+  - @alita/plugins@3.5.5
+
 ## 3.5.5
 
 ### Patch Changes
