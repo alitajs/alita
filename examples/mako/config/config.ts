@@ -2,6 +2,7 @@ import { defineConfig } from 'alita';
 
 export default defineConfig({
   appType: 'pc',
-  keepalive: [/./],
   mako: {},
+  // 开了 mako 就要关 codeSplitting !!!
+  codeSplitting: false,
 });
