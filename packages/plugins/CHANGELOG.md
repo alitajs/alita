@@ -1,5 +1,13 @@
 # @alita/plugins
 
+## 3.5.5
+
+### Patch Changes
+
+- [#669](https://github.com/alitajs/alita/pull/669) [`3c96755c64dda0ff4fbfe8607adeedfb2d16b419`](https://github.com/alitajs/alita/commit/3c96755c64dda0ff4fbfe8607adeedfb2d16b419) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: add plugin extends app
+
+- [#672](https://github.com/alitajs/alita/pull/672) [`07499355fd878f77588fa81a0eb6569da097a413`](https://github.com/alitajs/alita/commit/07499355fd878f77588fa81a0eb6569da097a413) Thanks [@drizzlesconsin](https://github.com/drizzlesconsin)! - replace includes check with instanceof RegExp
+
 ## 3.5.4
 
 ### Patch Changes
