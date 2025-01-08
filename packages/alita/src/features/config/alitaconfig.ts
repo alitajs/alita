@@ -102,4 +102,17 @@ export default (api: IApi) => {
       },
     ]);
   }
+
+  // auto open url
+  api.onDevCompileDone(async ({ isFirstCompile, ws }) => {
+    const timer = setTimeout(async () => {
+      if (isFirstCompile) {
+        const open = require('open');
+        await open(`http://localhost:${process.env.PORT}`);
+      }
+    }, 2000);
+    ws?.wss.on('connection', async () => {
+      clearTimeout(timer);
+    });
+  });
 };
