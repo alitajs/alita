@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "3.5.6",
+  "version": "3.5.7",
   "description": "A React framework based on umi.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
