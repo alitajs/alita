@@ -43,15 +43,16 @@
     "alita": "bin/alita.js"
   },
   "dependencies": {
-    "@alita/types": "3.1.2",
     "@alita/native": "3.4.3",
-    "@alita/plugins": "3.5.5",
     "@alita/plugin-azure": "3.2.3",
-    "@umijs/core": "4.3.30",
-    "@umijs/bundler-webpack": "4.3.30",
+    "@alita/plugins": "3.5.5",
+    "@alita/types": "3.1.2",
     "@umijs/babel-preset-umi": "4.3.30",
+    "@umijs/bundler-webpack": "4.3.30",
+    "@umijs/core": "4.3.30",
     "@umijs/preset-umi": "4.3.30",
     "@umijs/utils": "4.3.30",
+    "open": "8.4.0",
     "umi": "4.3.30"
   }
 }
