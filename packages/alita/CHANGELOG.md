@@ -1,5 +1,11 @@
 # alita
 
+## 3.5.7
+
+### Patch Changes
+
+- [#683](https://github.com/alitajs/alita/pull/683) [`55bef5f61c44ce725a0849a4927474ba8775a92c`](https://github.com/alitajs/alita/commit/55bef5f61c44ce725a0849a4927474ba8775a92c) Thanks [@xiaohuoni](https://github.com/xiaohuoni)! - feat: auto open url
+
 ## 3.5.6
 
 ### Patch Changes
