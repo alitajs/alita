@@ -104,7 +104,7 @@ export function closeAllTabs() {
       noPluginDir: true,
       path: `${DIR_NAME}/index.tsx`,
       content: `
-export { KeepAliveContext,useKeepOutlets } from './context';
+export { KeepAliveContext, type KeepAliveContextProps, useKeepOutlets } from './context';
 export { dropByCacheKey, closeTab, closeAllTabs } from './support';
 `,
     });
