@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugin-extends-app",
-  "version": "3.0.2",
+  "version": "4.0.0-alpha.1",
   "description": "@alita/plugin-extends-app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

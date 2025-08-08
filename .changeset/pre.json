@@ -1,0 +1,20 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "alita": "4.0.0-alpha.1",
+    "@alita/autoimport": "4.0.0-alpha.1",
+    "@alita/chalk": "4.0.0-alpha.1",
+    "create-alita": "4.0.0-alpha.1",
+    "@alita/flow": "4.0.0-alpha.1",
+    "@alita/native": "4.0.0-alpha.1",
+    "@alita/plugin-azure": "4.0.0-alpha.1",
+    "@alita/plugin-extends-app": "4.0.0-alpha.1",
+    "@alita/plugin-lowcode": "4.0.0-alpha.1",
+    "@alita/plugins": "4.0.0-alpha.1",
+    "@alita/request": "4.0.0-alpha.1",
+    "@alita/types": "4.0.0-alpha.1",
+    "umi-scripts": "1.0.0"
+  },
+  "changesets": []
+}

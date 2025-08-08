@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugin-lowcode",
-  "version": "3.2.3",
+  "version": "4.0.0-alpha.1",
   "description": "@alita/plugin-lowcode",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alita/types": "3.1.2",
+    "@alita/types": "4.0.0-alpha.1",
     "@umijs/utils": "4.4.11"
   }
 }

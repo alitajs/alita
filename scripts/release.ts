@@ -71,15 +71,18 @@ const cwd = process.cwd();
   assert(!isGitCleanAfterClientBuild, 'client code is updated');
 
   const version = require('../packages/alita/package.json').version;
-  let tag = 'latest';
-  if (
+  let tag = 'alpha'; // 默认使用 alpha 标签
+  if (version.includes('-canary.')) {
+    tag = 'canary';
+  } else if (
     version.includes('-alpha.') ||
     version.includes('-beta.') ||
     version.includes('-rc.')
   ) {
-    tag = 'next';
+    tag = 'alpha'; // 所有预发布版本都使用 alpha 标签
+  } else {
+    tag = 'latest'; // 只有正式版本才使用 latest 标签
   }
-  if (version.includes('-canary.')) tag = 'canary';
 
   // update example versions
   logger.event('update example versions');

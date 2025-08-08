@@ -1,6 +1,6 @@
 {
   "name": "@alita/plugins",
-  "version": "3.5.5",
+  "version": "4.0.0-alpha.1",
   "description": "@alita/plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,10 +29,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@alita/babel-transform-jsx-class": "0.0.2",
-    "@alita/inspx": "0.0.2",
-    "@alita/request": "3.1.2",
-    "@alita/types": "3.1.2",
+    "@alita/babel-transform-jsx-class": "4.0.0-alpha.1",
+    "@alita/inspx": "4.0.0-alpha.1",
+    "@alita/request": "4.0.0-alpha.1",
+    "@alita/types": "4.0.0-alpha.1",
     "@umijs/bundler-utils": "4.4.11",
     "@umijs/plugins": "4.4.11",
     "@umijs/utils": "4.4.11",
