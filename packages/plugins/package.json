@@ -29,8 +29,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@alita/babel-transform-jsx-class": "4.0.0-alpha.1",
-    "@alita/inspx": "4.0.0-alpha.1",
+    "@alita/babel-transform-jsx-class": "0.0.2",
+    "@alita/inspx": "0.0.2",
     "@alita/request": "4.0.0-alpha.1",
     "@alita/types": "4.0.0-alpha.1",
     "@umijs/bundler-utils": "4.4.11",

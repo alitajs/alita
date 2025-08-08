@@ -49,7 +49,7 @@ export async function run(opts: IOpts = {}) {
   }
   opts.presets = opts?.presets
     ? opts?.presets.concat([require.resolve('./preset')])
-    : [require.resolve('./preset')];
+    : [require.resolve('./preset'), require.resolve('@kmijs/preset-bundler')];
 
   if (opts?.presets) {
     process.env.UMI_PRESETS = opts.presets.join(',');

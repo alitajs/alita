@@ -48,6 +48,7 @@ export default (api: IApi) => {
     codeSplitting: {
       jsStrategy: 'granularChunks',
     },
+    rspack: {},
     ...api.userConfig,
   };
   if (api.userConfig.complexRoute) {
